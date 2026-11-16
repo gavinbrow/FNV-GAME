@@ -6,6 +6,15 @@ rem companion DLLs and default INI next to the exe. Run it once per folder.
 setlocal
 set "HERE=%~dp0"
 set "GAME=%~1"
+if not exist "%HERE%FNV-gamedata-01.zip" goto findinstall
+rem Game-data release parts are here: unpack them and skip the install lookup.
+for %%z in ("%HERE%FNV-gamedata-*.zip") do (
+  echo Unpacking %%~nxz ...
+  "%SystemRoot%\System32\tar.exe" -xf "%%z" -C "%HERE%." || (echo Could not unpack %%~nxz & exit /b 1)
+)
+echo Ready. You can delete the FNV-gamedata-*.zip files now. Start FalloutNV_selfbuilt.exe from this folder.
+exit /b 0
+:findinstall
 if not "%GAME%"=="" goto have
 for /f "tokens=3,*" %%a in ('reg query "HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\FalloutNV" /v "Installed Path" 2^>nul ^| "%SystemRoot%\System32\find.exe" "Installed Path"') do set "GAME=%%b"
 if "%GAME%"=="" set "GAME=C:\Program Files (x86)\Steam\steamapps\common\Fallout New Vegas"
