@@ -26,7 +26,7 @@ jobs:
     runs-on: [self-hosted, windows, fnv-build]
     timeout-minutes: 240
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build
         shell: cmd
@@ -36,15 +36,15 @@ jobs:
         run: call runtime-next\build-all.cmd --out "%GITHUB_WORKSPACE%\dist"
 
       - name: Package
-        shell: pwsh
+        shell: powershell
         run: |
           $v = "build-${{ github.run_number }}"
           Copy-Item README-PLAY.md dist\README.txt
           Compress-Archive -Path dist\* -DestinationPath "FNV-selfbuilt-$v.zip" -Force
-          "TAG=$v" | Out-File $env:GITHUB_ENV -Append -Encoding utf8
+          Add-Content -Path $env:GITHUB_ENV -Value "TAG=$v" -Encoding ascii
 
       - name: Publish release
-        shell: pwsh
+        shell: powershell
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
