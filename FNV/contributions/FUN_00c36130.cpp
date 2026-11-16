@@ -1,0 +1,1 @@
+struct S_00c36130{void* unk00;int unk04;int unk08;int unk0c;bool FUN_00a5d470(S_00c36130*);bool FUN_00c36130(S_00c36130*);};bool S_00c36130::FUN_00c36130(S_00c36130* arg){bool result=FUN_00a5d470(arg);S_00c36130* other=arg;{int a;int b;if((bool)(int)(unk0c == other->unk0c) && ((a=unk08)==(b=other->unk08))){result=true;}else{result=false;}}return result;}

@@ -1,0 +1,1715 @@
+{
+ "import_dir_rva": 14157356,
+ "dlls": [
+  {
+   "dll": "COMCTL32.dll",
+   "iat": 12447772,
+   "ents": [
+    {
+     "name": "ImageList_Destroy",
+     "hint": 84,
+     "rank": 14158952,
+     "phase": 1
+    },
+    {
+     "name": "ImageList_LoadImageA",
+     "hint": 103,
+     "rank": 14158928,
+     "phase": 1
+    },
+    {
+     "name": "InitCommonControlsEx",
+     "hint": 122,
+     "rank": 14158904,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "d3d9.dll",
+   "iat": 12448712,
+   "ents": [
+    {
+     "name": "D3DPERF_SetOptions",
+     "hint": 5,
+     "rank": 14158986,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "XINPUT1_3.dll",
+   "iat": 12448660,
+   "ents": [
+    {
+     "ord": 2
+    },
+    {
+     "ord": 3
+    }
+   ]
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "iat": 12447812,
+   "ents": [
+    {
+     "name": "TlsGetValue",
+     "hint": 1076,
+     "rank": 14159232,
+     "phase": 1
+    },
+    {
+     "name": "TlsAlloc",
+     "hint": 1074,
+     "rank": 14159246,
+     "phase": 1
+    },
+    {
+     "name": "TlsSetValue",
+     "hint": 1077,
+     "rank": 14159258,
+     "phase": 1
+    },
+    {
+     "name": "TlsFree",
+     "hint": 1075,
+     "rank": 14159272,
+     "phase": 1
+    },
+    {
+     "name": "InitializeCriticalSection",
+     "hint": 692,
+     "rank": 14159282,
+     "phase": 1
+    },
+    {
+     "name": "DeleteCriticalSection",
+     "hint": 190,
+     "rank": 14159310,
+     "phase": 1
+    },
+    {
+     "name": "EnterCriticalSection",
+     "hint": 217,
+     "rank": 14159334,
+     "phase": 1
+    },
+    {
+     "name": "GetTickCount",
+     "hint": 614,
+     "rank": 14159358,
+     "phase": 1
+    },
+    {
+     "name": "FindClose",
+     "hint": 281,
+     "rank": 14159374,
+     "phase": 1
+    },
+    {
+     "name": "FindNextFileA",
+     "hint": 302,
+     "rank": 14159386,
+     "phase": 1
+    },
+    {
+     "name": "CompareFileTime",
+     "hint": 81,
+     "rank": 14159402,
+     "phase": 1
+    },
+    {
+     "name": "FindFirstFileA",
+     "hint": 285,
+     "rank": 14159420,
+     "phase": 1
+    },
+    {
+     "name": "lstrcatA",
+     "hint": 1190,
+     "rank": 14159438,
+     "phase": 1
+    },
+    {
+     "name": "lstrcpyA",
+     "hint": 1199,
+     "rank": 14159450,
+     "phase": 1
+    },
+    {
+     "name": "CloseHandle",
+     "hint": 67,
+     "rank": 14159462,
+     "phase": 1
+    },
+    {
+     "name": "ReadFile",
+     "hint": 872,
+     "rank": 14159476,
+     "phase": 1
+    },
+    {
+     "name": "GetFileSize",
+     "hint": 468,
+     "rank": 14159488,
+     "phase": 1
+    },
+    {
+     "name": "CreateFileA",
+     "hint": 120,
+     "rank": 14159502,
+     "phase": 1
+    },
+    {
+     "name": "LocalFree",
+     "hint": 765,
+     "rank": 14159516,
+     "phase": 1
+    },
+    {
+     "name": "FormatMessageA",
+     "hint": 327,
+     "rank": 14159528,
+     "phase": 1
+    },
+    {
+     "name": "GetLastError",
+     "hint": 486,
+     "rank": 14159546,
+     "phase": 1
+    },
+    {
+     "name": "FileTimeToSystemTime",
+     "hint": 272,
+     "rank": 14159562,
+     "phase": 1
+    },
+    {
+     "name": "FileTimeToLocalFileTime",
+     "hint": 271,
+     "rank": 14159586,
+     "phase": 1
+    },
+    {
+     "name": "QueryPerformanceCounter",
+     "hint": 852,
+     "rank": 14159612,
+     "phase": 1
+    },
+    {
+     "name": "QueryPerformanceFrequency",
+     "hint": 853,
+     "rank": 14159638,
+     "phase": 1
+    },
+    {
+     "name": "FreeLibrary",
+     "hint": 332,
+     "rank": 14159666,
+     "phase": 1
+    },
+    {
+     "name": "GetProcAddress",
+     "hint": 544,
+     "rank": 14159680,
+     "phase": 1
+    },
+    {
+     "name": "LoadLibraryA",
+     "hint": 753,
+     "rank": 14159698,
+     "phase": 1
+    },
+    {
+     "name": "CreateSemaphoreA",
+     "hint": 153,
+     "rank": 14159714,
+     "phase": 1
+    },
+    {
+     "name": "CreateDirectoryA",
+     "hint": 108,
+     "rank": 14159734,
+     "phase": 1
+    },
+    {
+     "name": "WritePrivateProfileStringA",
+     "hint": 1170,
+     "rank": 14159754,
+     "phase": 1
+    },
+    {
+     "name": "GetCurrentDirectoryA",
+     "hint": 423,
+     "rank": 14159784,
+     "phase": 1
+    },
+    {
+     "name": "GetPrivateProfileIntA",
+     "hint": 534,
+     "rank": 14159808,
+     "phase": 1
+    },
+    {
+     "name": "DebugBreak",
+     "hint": 180,
+     "rank": 14159832,
+     "phase": 1
+    },
+    {
+     "name": "CreateEventA",
+     "hint": 114,
+     "rank": 14159846,
+     "phase": 1
+    },
+    {
+     "name": "SetEvent",
+     "hint": 979,
+     "rank": 14159862,
+     "phase": 1
+    },
+    {
+     "name": "DeleteFileA",
+     "hint": 192,
+     "rank": 14159874,
+     "phase": 1
+    },
+    {
+     "name": "GetLocalTime",
+     "hint": 487,
+     "rank": 14159888,
+     "phase": 1
+    },
+    {
+     "name": "WriteFile",
+     "hint": 1165,
+     "rank": 14159904,
+     "phase": 1
+    },
+    {
+     "name": "GetSystemTime",
+     "hint": 589,
+     "rank": 14159916,
+     "phase": 1
+    },
+    {
+     "name": "InterlockedExchange",
+     "hint": 701,
+     "rank": 14159932,
+     "phase": 1
+    },
+    {
+     "name": "GetDriveTypeA",
+     "hint": 442,
+     "rank": 14159954,
+     "phase": 1
+    },
+    {
+     "name": "ExitProcess",
+     "hint": 260,
+     "rank": 14159970,
+     "phase": 1
+    },
+    {
+     "name": "IsDebuggerPresent",
+     "hint": 721,
+     "rank": 14159984,
+     "phase": 1
+    },
+    {
+     "name": "GetCommandLineW",
+     "hint": 368,
+     "rank": 14160004,
+     "phase": 1
+    },
+    {
+     "name": "GetSystemInfo",
+     "hint": 585,
+     "rank": 14160022,
+     "phase": 1
+    },
+    {
+     "name": "CreateMutexA",
+     "hint": 139,
+     "rank": 14160038,
+     "phase": 1
+    },
+    {
+     "name": "LeaveCriticalSection",
+     "hint": 751,
+     "rank": 14159208,
+     "phase": 1
+    },
+    {
+     "name": "Sleep",
+     "hint": 1057,
+     "rank": 14159132,
+     "phase": 1
+    },
+    {
+     "name": "WaitForMultipleObjects",
+     "hint": 1122,
+     "rank": 14160080,
+     "phase": 1
+    },
+    {
+     "name": "VirtualFree",
+     "hint": 1111,
+     "rank": 14160106,
+     "phase": 1
+    },
+    {
+     "name": "GetCurrentProcess",
+     "hint": 425,
+     "rank": 14160120,
+     "phase": 1
+    },
+    {
+     "name": "VirtualAlloc",
+     "hint": 1108,
+     "rank": 14160140,
+     "phase": 1
+    },
+    {
+     "name": "GetModuleHandleA",
+     "hint": 502,
+     "rank": 14160156,
+     "phase": 1
+    },
+    {
+     "name": "SetThreadPriority",
+     "hint": 1035,
+     "rank": 14160176,
+     "phase": 1
+    },
+    {
+     "name": "GetCurrentThread",
+     "hint": 428,
+     "rank": 14160196,
+     "phase": 1
+    },
+    {
+     "name": "CreateThread",
+     "hint": 163,
+     "rank": 14160216,
+     "phase": 1
+    },
+    {
+     "name": "MultiByteToWideChar",
+     "hint": 794,
+     "rank": 14160232,
+     "phase": 1
+    },
+    {
+     "name": "SetThreadIdealProcessor",
+     "hint": 1032,
+     "rank": 14162792,
+     "phase": 2
+    },
+    {
+     "name": "InitializeCriticalSectionAndSpinCount",
+     "hint": 693,
+     "rank": 14162752,
+     "phase": 2
+    },
+    {
+     "name": "SystemTimeToTzSpecificLocalTime",
+     "hint": 1067,
+     "rank": 14162718,
+     "phase": 2
+    },
+    {
+     "name": "FlushFileBuffers",
+     "hint": 321,
+     "rank": 14162698,
+     "phase": 2
+    },
+    {
+     "name": "GetFileSizeEx",
+     "hint": 469,
+     "rank": 14162682,
+     "phase": 2
+    },
+    {
+     "name": "SetFilePointerEx",
+     "hint": 992,
+     "rank": 14162662,
+     "phase": 2
+    },
+    {
+     "name": "GlobalMemoryStatus",
+     "hint": 657,
+     "rank": 14162640,
+     "phase": 2
+    },
+    {
+     "name": "ExitThread",
+     "hint": 261,
+     "rank": 14162626,
+     "phase": 2
+    },
+    {
+     "name": "GlobalMemoryStatusEx",
+     "hint": 658,
+     "rank": 14162602,
+     "phase": 2
+    },
+    {
+     "name": "GetModuleFileNameA",
+     "hint": 500,
+     "rank": 14162580,
+     "phase": 2
+    },
+    {
+     "name": "RaiseException",
+     "hint": 858,
+     "rank": 14162562,
+     "phase": 2
+    },
+    {
+     "name": "ResumeThread",
+     "hint": 909,
+     "rank": 14162546,
+     "phase": 2
+    },
+    {
+     "name": "SuspendThread",
+     "hint": 1063,
+     "rank": 14162530,
+     "phase": 2
+    },
+    {
+     "name": "GetFileAttributesA",
+     "hint": 457,
+     "rank": 14162508,
+     "phase": 2
+    },
+    {
+     "name": "GetPrivateProfileStringA",
+     "hint": 540,
+     "rank": 14162480,
+     "phase": 2
+    },
+    {
+     "name": "GetExitCodeThread",
+     "hint": 454,
+     "rank": 14162844,
+     "phase": 2
+    },
+    {
+     "name": "OutputDebugStringA",
+     "hint": 826,
+     "rank": 14162864,
+     "phase": 2
+    },
+    {
+     "name": "WideCharToMultiByte",
+     "hint": 1146,
+     "rank": 14162886,
+     "phase": 2
+    },
+    {
+     "name": "RtlUnwind",
+     "hint": 914,
+     "rank": 14162908,
+     "phase": 2
+    },
+    {
+     "name": "TerminateProcess",
+     "hint": 1069,
+     "rank": 14162920,
+     "phase": 2
+    },
+    {
+     "name": "UnhandledExceptionFilter",
+     "hint": 1086,
+     "rank": 14162940,
+     "phase": 2
+    },
+    {
+     "name": "SetUnhandledExceptionFilter",
+     "hint": 1045,
+     "rank": 14162968,
+     "phase": 2
+    },
+    {
+     "name": "GetSystemTimeAsFileTime",
+     "hint": 591,
+     "rank": 14162998,
+     "phase": 2
+    },
+    {
+     "name": "MoveFileA",
+     "hint": 785,
+     "rank": 14163024,
+     "phase": 2
+    },
+    {
+     "name": "GetCommandLineA",
+     "hint": 367,
+     "rank": 14163036,
+     "phase": 2
+    },
+    {
+     "name": "GetStartupInfoA",
+     "hint": 569,
+     "rank": 14163054,
+     "phase": 2
+    },
+    {
+     "name": "GetFullPathNameA",
+     "hint": 476,
+     "rank": 14163072,
+     "phase": 2
+    },
+    {
+     "name": "GetModuleHandleW",
+     "hint": 505,
+     "rank": 14163092,
+     "phase": 2
+    },
+    {
+     "name": "HeapReAlloc",
+     "hint": 676,
+     "rank": 14163112,
+     "phase": 2
+    },
+    {
+     "name": "HeapAlloc",
+     "hint": 669,
+     "rank": 14163126,
+     "phase": 2
+    },
+    {
+     "name": "HeapFree",
+     "hint": 673,
+     "rank": 14163138,
+     "phase": 2
+    },
+    {
+     "name": "HeapSize",
+     "hint": 678,
+     "rank": 14163150,
+     "phase": 2
+    },
+    {
+     "name": "LCMapStringA",
+     "hint": 737,
+     "rank": 14163162,
+     "phase": 2
+    },
+    {
+     "name": "TryEnterCriticalSection",
+     "hint": 1081,
+     "rank": 14159182,
+     "phase": 1
+    },
+    {
+     "name": "ReleaseSemaphore",
+     "hint": 891,
+     "rank": 14159162,
+     "phase": 1
+    },
+    {
+     "name": "CopyFileA",
+     "hint": 96,
+     "rank": 14160054,
+     "phase": 1
+    },
+    {
+     "name": "InterlockedCompareExchange",
+     "hint": 698,
+     "rank": 14159080,
+     "phase": 1
+    },
+    {
+     "name": "InterlockedIncrement",
+     "hint": 704,
+     "rank": 14159056,
+     "phase": 1
+    },
+    {
+     "name": "InterlockedDecrement",
+     "hint": 700,
+     "rank": 14159032,
+     "phase": 1
+    },
+    {
+     "name": "WaitForSingleObject",
+     "hint": 1124,
+     "rank": 14159140,
+     "phase": 1
+    },
+    {
+     "name": "ResetEvent",
+     "hint": 906,
+     "rank": 14160066,
+     "phase": 1
+    },
+    {
+     "name": "GetCurrentThreadId",
+     "hint": 429,
+     "rank": 14159110,
+     "phase": 1
+    },
+    {
+     "name": "LCMapStringW",
+     "hint": 739,
+     "rank": 14163178,
+     "phase": 2
+    },
+    {
+     "name": "GetCPInfo",
+     "hint": 347,
+     "rank": 14163194,
+     "phase": 2
+    },
+    {
+     "name": "SetLastError",
+     "hint": 1004,
+     "rank": 14163206,
+     "phase": 2
+    },
+    {
+     "name": "GetStdHandle",
+     "hint": 571,
+     "rank": 14163222,
+     "phase": 2
+    },
+    {
+     "name": "GetACP",
+     "hint": 338,
+     "rank": 14163238,
+     "phase": 2
+    },
+    {
+     "name": "GetOEMCP",
+     "hint": 531,
+     "rank": 14163248,
+     "phase": 2
+    },
+    {
+     "name": "InterlockedExchangeAdd",
+     "hint": 702,
+     "rank": 14162818,
+     "phase": 2
+    },
+    {
+     "name": "IsValidCodePage",
+     "hint": 731,
+     "rank": 14163260,
+     "phase": 2
+    },
+    {
+     "name": "SetEnvironmentVariableA",
+     "hint": 976,
+     "rank": 14163828,
+     "phase": 2
+    },
+    {
+     "name": "CompareStringW",
+     "hint": 85,
+     "rank": 14163810,
+     "phase": 2
+    },
+    {
+     "name": "SetHandleCount",
+     "hint": 1000,
+     "rank": 14163278,
+     "phase": 2
+    },
+    {
+     "name": "GetFileType",
+     "hint": 471,
+     "rank": 14163296,
+     "phase": 2
+    },
+    {
+     "name": "GetConsoleCP",
+     "hint": 387,
+     "rank": 14163310,
+     "phase": 2
+    },
+    {
+     "name": "CompareStringA",
+     "hint": 82,
+     "rank": 14163792,
+     "phase": 2
+    },
+    {
+     "name": "GetProcessHeap",
+     "hint": 547,
+     "rank": 14163774,
+     "phase": 2
+    },
+    {
+     "name": "SetEndOfFile",
+     "hint": 973,
+     "rank": 14163758,
+     "phase": 2
+    },
+    {
+     "name": "CreateFileW",
+     "hint": 127,
+     "rank": 14163744,
+     "phase": 2
+    },
+    {
+     "name": "WriteConsoleW",
+     "hint": 1164,
+     "rank": 14163728,
+     "phase": 2
+    },
+    {
+     "name": "GetConsoleOutputCP",
+     "hint": 409,
+     "rank": 14163706,
+     "phase": 2
+    },
+    {
+     "name": "WriteConsoleA",
+     "hint": 1154,
+     "rank": 14163690,
+     "phase": 2
+    },
+    {
+     "name": "SetStdHandle",
+     "hint": 1020,
+     "rank": 14163674,
+     "phase": 2
+    },
+    {
+     "name": "GetTimeZoneInformation",
+     "hint": 619,
+     "rank": 14163648,
+     "phase": 2
+    },
+    {
+     "name": "GetLocaleInfoW",
+     "hint": 490,
+     "rank": 14163630,
+     "phase": 2
+    },
+    {
+     "name": "GetStringTypeW",
+     "hint": 576,
+     "rank": 14163612,
+     "phase": 2
+    },
+    {
+     "name": "GetStringTypeA",
+     "hint": 573,
+     "rank": 14163594,
+     "phase": 2
+    },
+    {
+     "name": "IsValidLocale",
+     "hint": 733,
+     "rank": 14163578,
+     "phase": 2
+    },
+    {
+     "name": "GetConsoleMode",
+     "hint": 405,
+     "rank": 14163326,
+     "phase": 2
+    },
+    {
+     "name": "SetFilePointer",
+     "hint": 991,
+     "rank": 14163344,
+     "phase": 2
+    },
+    {
+     "name": "FreeEnvironmentStringsA",
+     "hint": 330,
+     "rank": 14163362,
+     "phase": 2
+    },
+    {
+     "name": "GetEnvironmentStrings",
+     "hint": 447,
+     "rank": 14163388,
+     "phase": 2
+    },
+    {
+     "name": "FreeEnvironmentStringsW",
+     "hint": 331,
+     "rank": 14163412,
+     "phase": 2
+    },
+    {
+     "name": "GetEnvironmentStringsW",
+     "hint": 449,
+     "rank": 14163438,
+     "phase": 2
+    },
+    {
+     "name": "HeapCreate",
+     "hint": 671,
+     "rank": 14163464,
+     "phase": 2
+    },
+    {
+     "name": "GetCurrentProcessId",
+     "hint": 426,
+     "rank": 14163478,
+     "phase": 2
+    },
+    {
+     "name": "EnumSystemLocalesA",
+     "hint": 248,
+     "rank": 14163556,
+     "phase": 2
+    },
+    {
+     "name": "VirtualQuery",
+     "hint": 1116,
+     "rank": 14163500,
+     "phase": 2
+    },
+    {
+     "name": "GetUserDefaultLCID",
+     "hint": 621,
+     "rank": 14163516,
+     "phase": 2
+    },
+    {
+     "name": "GetLocaleInfoA",
+     "hint": 488,
+     "rank": 14163538,
+     "phase": 2
+    }
+   ]
+  },
+  {
+   "dll": "USER32.dll",
+   "iat": 12448384,
+   "ents": [
+    {
+     "name": "LoadIconA",
+     "hint": 470,
+     "rank": 14160364,
+     "phase": 1
+    },
+    {
+     "name": "UpdateWindow",
+     "hint": 745,
+     "rank": 14160376,
+     "phase": 1
+    },
+    {
+     "name": "ShowWindow",
+     "hint": 696,
+     "rank": 14160392,
+     "phase": 1
+    },
+    {
+     "name": "SendMessageA",
+     "hint": 606,
+     "rank": 14160406,
+     "phase": 1
+    },
+    {
+     "name": "DestroyWindow",
+     "hint": 160,
+     "rank": 14160422,
+     "phase": 1
+    },
+    {
+     "name": "DispatchMessageA",
+     "hint": 168,
+     "rank": 14160438,
+     "phase": 1
+    },
+    {
+     "name": "TranslateMessage",
+     "hint": 725,
+     "rank": 14160458,
+     "phase": 1
+    },
+    {
+     "name": "PeekMessageA",
+     "hint": 539,
+     "rank": 14160478,
+     "phase": 1
+    },
+    {
+     "name": "LoadCursorA",
+     "hint": 466,
+     "rank": 14160350,
+     "phase": 1
+    },
+    {
+     "name": "SetWindowPos",
+     "hint": 679,
+     "rank": 14160512,
+     "phase": 1
+    },
+    {
+     "name": "GetWindow",
+     "hint": 381,
+     "rank": 14160528,
+     "phase": 1
+    },
+    {
+     "name": "ShowCursor",
+     "hint": 691,
+     "rank": 14160540,
+     "phase": 1
+    },
+    {
+     "name": "GetSystemMetrics",
+     "hint": 367,
+     "rank": 14160554,
+     "phase": 1
+    },
+    {
+     "name": "RegisterClassA",
+     "hint": 563,
+     "rank": 14160332,
+     "phase": 1
+    },
+    {
+     "name": "CreateWindowExA",
+     "hint": 103,
+     "rank": 14160314,
+     "phase": 1
+    },
+    {
+     "name": "GetClientRect",
+     "hint": 269,
+     "rank": 14160298,
+     "phase": 1
+    },
+    {
+     "name": "GetDoubleClickTime",
+     "hint": 291,
+     "rank": 14163854,
+     "phase": 2
+    },
+    {
+     "name": "SwapMouseButton",
+     "hint": 704,
+     "rank": 14163876,
+     "phase": 2
+    },
+    {
+     "name": "UnhookWindowsHookEx",
+     "hint": 729,
+     "rank": 14163914,
+     "phase": 2
+    },
+    {
+     "name": "GetWindowTextA",
+     "hint": 396,
+     "rank": 14163936,
+     "phase": 2
+    },
+    {
+     "name": "GetClassNameA",
+     "hint": 266,
+     "rank": 14163954,
+     "phase": 2
+    },
+    {
+     "name": "SendInput",
+     "hint": 605,
+     "rank": 14160286,
+     "phase": 1
+    },
+    {
+     "name": "SetWindowsHookExA",
+     "hint": 687,
+     "rank": 14163894,
+     "phase": 2
+    },
+    {
+     "name": "SetWindowTextA",
+     "hint": 683,
+     "rank": 14160268,
+     "phase": 1
+    },
+    {
+     "name": "DefWindowProcA",
+     "hint": 149,
+     "rank": 14160494,
+     "phase": 1
+    },
+    {
+     "name": "EnumChildWindows",
+     "hint": 216,
+     "rank": 14163970,
+     "phase": 2
+    },
+    {
+     "name": "GetWindowLongA",
+     "hint": 385,
+     "rank": 14160594,
+     "phase": 1
+    },
+    {
+     "name": "GetClassLongA",
+     "hint": 264,
+     "rank": 14160612,
+     "phase": 1
+    },
+    {
+     "name": "EnumDisplayDevicesA",
+     "hint": 221,
+     "rank": 14160628,
+     "phase": 1
+    },
+    {
+     "name": "MessageBoxA",
+     "hint": 504,
+     "rank": 14160650,
+     "phase": 1
+    },
+    {
+     "name": "AdjustWindowRectEx",
+     "hint": 3,
+     "rank": 14160664,
+     "phase": 1
+    },
+    {
+     "name": "GetActiveWindow",
+     "hint": 249,
+     "rank": 14160686,
+     "phase": 1
+    },
+    {
+     "name": "SetForegroundWindow",
+     "hint": 634,
+     "rank": 14160704,
+     "phase": 1
+    },
+    {
+     "name": "FindWindowA",
+     "hint": 240,
+     "rank": 14160726,
+     "phase": 1
+    },
+    {
+     "name": "GetAsyncKeyState",
+     "hint": 256,
+     "rank": 14160740,
+     "phase": 1
+    },
+    {
+     "name": "CallNextHookEx",
+     "hint": 27,
+     "rank": 14163990,
+     "phase": 2
+    },
+    {
+     "name": "AdjustWindowRect",
+     "hint": 2,
+     "rank": 14160574,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "GDI32.dll",
+   "iat": 12447804,
+   "ents": [
+    {
+     "name": "GetStockObject",
+     "hint": 500,
+     "rank": 14160772,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "ADVAPI32.dll",
+   "iat": 12447744,
+   "ents": [
+    {
+     "name": "RegCreateKeyExA",
+     "hint": 562,
+     "rank": 14164026,
+     "phase": 2
+    },
+    {
+     "name": "RegCloseKey",
+     "hint": 554,
+     "rank": 14160816,
+     "phase": 1
+    },
+    {
+     "name": "RegQueryValueExA",
+     "hint": 615,
+     "rank": 14160830,
+     "phase": 1
+    },
+    {
+     "name": "RegOpenKeyExA",
+     "hint": 602,
+     "rank": 14160850,
+     "phase": 1
+    },
+    {
+     "name": "RegSetValueExA",
+     "hint": 631,
+     "rank": 14164008,
+     "phase": 2
+    },
+    {
+     "name": "GetUserNameA",
+     "hint": 350,
+     "rank": 14160800,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "SHELL32.dll",
+   "iat": 12448368,
+   "ents": [
+    {
+     "name": "CommandLineToArgvW",
+     "hint": 7,
+     "rank": 14160896,
+     "phase": 1
+    },
+    {
+     "name": "SHGetFolderPathA",
+     "hint": 188,
+     "rank": 14160918,
+     "phase": 1
+    },
+    {
+     "name": "ShellExecuteA",
+     "hint": 276,
+     "rank": 14160880,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "ole32.dll",
+   "iat": 12448852,
+   "ents": [
+    {
+     "name": "CoInitialize",
+     "hint": 61,
+     "rank": 14161064,
+     "phase": 1
+    },
+    {
+     "name": "CoInitializeEx",
+     "hint": 62,
+     "rank": 14160970,
+     "phase": 1
+    },
+    {
+     "name": "CoTaskMemFree",
+     "hint": 103,
+     "rank": 14160988,
+     "phase": 1
+    },
+    {
+     "name": "CoTaskMemAlloc",
+     "hint": 102,
+     "rank": 14161004,
+     "phase": 1
+    },
+    {
+     "name": "CoUninitialize",
+     "hint": 107,
+     "rank": 14161022,
+     "phase": 1
+    },
+    {
+     "name": "CoFreeUnusedLibraries",
+     "hint": 29,
+     "rank": 14161040,
+     "phase": 1
+    },
+    {
+     "name": "CoCreateInstance",
+     "hint": 16,
+     "rank": 14160950,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "steam_api.dll",
+   "iat": 12448884,
+   "ents": [
+    {
+     "name": "SteamFriends",
+     "hint": 25,
+     "rank": 14161252,
+     "phase": 1
+    },
+    {
+     "name": "SteamAPI_Init",
+     "hint": 5,
+     "rank": 14161122,
+     "phase": 1
+    },
+    {
+     "name": "SteamAPI_UnregisterCallback",
+     "hint": 16,
+     "rank": 14161222,
+     "phase": 1
+    },
+    {
+     "name": "SteamAPI_Shutdown",
+     "hint": 14,
+     "rank": 14161138,
+     "phase": 1
+    },
+    {
+     "name": "SteamUser",
+     "hint": 45,
+     "rank": 14161158,
+     "phase": 1
+    },
+    {
+     "name": "SteamAPI_RunCallbacks",
+     "hint": 11,
+     "rank": 14161170,
+     "phase": 1
+    },
+    {
+     "name": "SteamAPI_RegisterCallback",
+     "hint": 9,
+     "rank": 14161194,
+     "phase": 1
+    },
+    {
+     "name": "SteamUserStats",
+     "hint": 46,
+     "rank": 14161090,
+     "phase": 1
+    },
+    {
+     "name": "SteamApps",
+     "hint": 18,
+     "rank": 14161268,
+     "phase": 1
+    },
+    {
+     "name": "SteamAPI_IsSteamRunning",
+     "hint": 7,
+     "rank": 14161280,
+     "phase": 1
+    },
+    {
+     "name": "SteamUtils",
+     "hint": 47,
+     "rank": 14161108,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "WSOCK32.dll",
+   "iat": 12448572,
+   "ents": [
+    {
+     "ord": 3
+    },
+    {
+     "ord": 23
+    },
+    {
+     "ord": 111
+    },
+    {
+     "ord": 16
+    },
+    {
+     "ord": 19
+    },
+    {
+     "ord": 4
+    },
+    {
+     "ord": 52
+    },
+    {
+     "ord": 10
+    },
+    {
+     "ord": 9
+    },
+    {
+     "ord": 12
+    },
+    {
+     "ord": 115
+    },
+    {
+     "ord": 57
+    },
+    {
+     "ord": 13
+    },
+    {
+     "ord": 2
+    },
+    {
+     "ord": 21
+    },
+    {
+     "ord": 11
+    },
+    {
+     "ord": 18
+    },
+    {
+     "ord": 151
+    },
+    {
+     "ord": 1
+    },
+    {
+     "ord": 15
+    },
+    {
+     "ord": 101
+    }
+   ]
+  },
+  {
+   "dll": "d3dx9_38.dll",
+   "iat": 12448720,
+   "ents": [
+    {
+     "name": "D3DXLoadSurfaceFromSurface",
+     "hint": 190,
+     "rank": 14161466,
+     "phase": 1
+    },
+    {
+     "name": "D3DXSaveTextureToFileA",
+     "hint": 286,
+     "rank": 14161332,
+     "phase": 1
+    },
+    {
+     "name": "D3DXAssembleShader",
+     "hint": 0,
+     "rank": 14161994,
+     "phase": 1
+    },
+    {
+     "name": "D3DXAssembleShaderFromFileA",
+     "hint": 1,
+     "rank": 14161964,
+     "phase": 1
+    },
+    {
+     "name": "D3DXCompileShaderFromFileA",
+     "hint": 14,
+     "rank": 14161934,
+     "phase": 1
+    },
+    {
+     "name": "D3DXGetShaderConstantTable",
+     "hint": 159,
+     "rank": 14161904,
+     "phase": 1
+    },
+    {
+     "name": "D3DXCreateBuffer",
+     "hint": 34,
+     "rank": 14161884,
+     "phase": 1
+    },
+    {
+     "name": "D3DXVec4Transform",
+     "hint": 333,
+     "rank": 14161864,
+     "phase": 1
+    },
+    {
+     "name": "D3DXGetVertexShaderProfile",
+     "hint": 166,
+     "rank": 14161834,
+     "phase": 1
+    },
+    {
+     "name": "D3DXGetPixelShaderProfile",
+     "hint": 158,
+     "rank": 14161806,
+     "phase": 1
+    },
+    {
+     "name": "D3DXGetImageInfoFromFileInMemory",
+     "hint": 154,
+     "rank": 14161770,
+     "phase": 1
+    },
+    {
+     "name": "D3DXCreateTextureFromFileInMemory",
+     "hint": 98,
+     "rank": 14161734,
+     "phase": 1
+    },
+    {
+     "name": "D3DXCreateCubeTextureFromFileInMemory",
+     "hint": 40,
+     "rank": 14161694,
+     "phase": 1
+    },
+    {
+     "name": "D3DXCreateVolumeTextureFromFileInMemory",
+     "hint": 112,
+     "rank": 14161652,
+     "phase": 1
+    },
+    {
+     "name": "D3DXCompileShader",
+     "hint": 13,
+     "rank": 14161632,
+     "phase": 1
+    },
+    {
+     "name": "D3DXMatrixRotationYawPitchRoll",
+     "hint": 222,
+     "rank": 14161598,
+     "phase": 1
+    },
+    {
+     "name": "D3DXMatrixMultiplyTranspose",
+     "hint": 206,
+     "rank": 14161568,
+     "phase": 1
+    },
+    {
+     "name": "D3DXVec3TransformCoord",
+     "hint": 322,
+     "rank": 14161542,
+     "phase": 1
+    },
+    {
+     "name": "D3DXPlaneTransform",
+     "hint": 236,
+     "rank": 14161358,
+     "phase": 1
+    },
+    {
+     "name": "D3DXVec3Normalize",
+     "hint": 317,
+     "rank": 14161496,
+     "phase": 1
+    },
+    {
+     "name": "D3DXVec3TransformNormal",
+     "hint": 324,
+     "rank": 14161516,
+     "phase": 1
+    },
+    {
+     "name": "D3DXMatrixMultiply",
+     "hint": 205,
+     "rank": 14161444,
+     "phase": 1
+    },
+    {
+     "name": "D3DXMatrixInverse",
+     "hint": 202,
+     "rank": 14161424,
+     "phase": 1
+    },
+    {
+     "name": "D3DXMatrixTranspose",
+     "hint": 229,
+     "rank": 14161402,
+     "phase": 1
+    },
+    {
+     "name": "D3DXPlaneNormalize",
+     "hint": 235,
+     "rank": 14161380,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "DINPUT8.dll",
+   "iat": 12447788,
+   "ents": [
+    {
+     "name": "DirectInput8Create",
+     "hint": 0,
+     "rank": 14162030,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "WINMM.dll",
+   "iat": 12448536,
+   "ents": [
+    {
+     "name": "mmioOpenA",
+     "hint": 126,
+     "rank": 14162158,
+     "phase": 1
+    },
+    {
+     "name": "mmioDescend",
+     "hint": 121,
+     "rank": 14162144,
+     "phase": 1
+    },
+    {
+     "name": "mmioClose",
+     "hint": 119,
+     "rank": 14162132,
+     "phase": 1
+    },
+    {
+     "name": "mmioRead",
+     "hint": 128,
+     "rank": 14162120,
+     "phase": 1
+    },
+    {
+     "name": "mmioAscend",
+     "hint": 118,
+     "rank": 14162106,
+     "phase": 1
+    },
+    {
+     "name": "mmioGetInfo",
+     "hint": 123,
+     "rank": 14162092,
+     "phase": 1
+    },
+    {
+     "name": "mmioAdvance",
+     "hint": 117,
+     "rank": 14162078,
+     "phase": 1
+    },
+    {
+     "name": "timeGetTime",
+     "hint": 148,
+     "rank": 14162064,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "DSOUND.dll",
+   "iat": 12447796,
+   "ents": [
+    {
+     "ord": 11
+    }
+   ]
+  },
+  {
+   "dll": "binkw32.dll",
+   "iat": 12448672,
+   "ents": [
+    {
+     "name": "_BinkSetSoundSystem@8",
+     "hint": 63,
+     "rank": 14162302,
+     "phase": 1
+    },
+    {
+     "name": "_BinkClose@4",
+     "hint": 15,
+     "rank": 14162206,
+     "phase": 1
+    },
+    {
+     "name": "_BinkNextFrame@4",
+     "hint": 42,
+     "rank": 14162222,
+     "phase": 1
+    },
+    {
+     "name": "_BinkWait@4",
+     "hint": 69,
+     "rank": 14162242,
+     "phase": 1
+    },
+    {
+     "name": "_BinkPause@8",
+     "hint": 48,
+     "rank": 14162352,
+     "phase": 1
+    },
+    {
+     "name": "_BinkOpenDirectSound@4",
+     "hint": 44,
+     "rank": 14162326,
+     "phase": 1
+    },
+    {
+     "name": "_BinkOpen@8",
+     "hint": 43,
+     "rank": 14162192,
+     "phase": 1
+    },
+    {
+     "name": "_BinkDoFrame@4",
+     "hint": 24,
+     "rank": 14162284,
+     "phase": 1
+    },
+    {
+     "name": "_BinkCopyToBufferRect@44",
+     "hint": 20,
+     "rank": 14162256,
+     "phase": 1
+    }
+   ]
+  },
+  {
+   "dll": "libvorbisfile.dll",
+   "iat": 12448824,
+   "ents": [
+    {
+     "name": "ov_open_callbacks",
+     "hint": 10,
+     "rank": 14162432,
+     "phase": 1
+    },
+    {
+     "name": "ov_clear",
+     "hint": 2,
+     "rank": 14162380,
+     "phase": 1
+    },
+    {
+     "name": "ov_pcm_total",
+     "hint": 16,
+     "rank": 14162392,
+     "phase": 1
+    },
+    {
+     "name": "ov_seekable",
+     "hint": 23,
+     "rank": 14162408,
+     "phase": 1
+    },
+    {
+     "name": "ov_read",
+     "hint": 21,
+     "rank": 14162452,
+     "phase": 1
+    },
+    {
+     "name": "ov_info",
+     "hint": 8,
+     "rank": 14162422,
+     "phase": 1
+    }
+   ]
+  }
+ ]
+}

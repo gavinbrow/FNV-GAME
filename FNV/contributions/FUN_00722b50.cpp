@@ -1,0 +1,3 @@
+struct Entry{bool __thiscall FUN_00a01230(void*);};struct Holder{int unk00,unk04,unk08,unk0c;Entry* selected;bool __thiscall FUN_007255a0();bool __thiscall FUN_007242f0(Entry*);void __thiscall FUN_00725650();bool __thiscall FUN_00722b50(Entry*);};
+extern int DAT_01070244;extern "C" void* __cdecl FUN_00a00940(const void*,int);
+bool Holder::FUN_00722b50(Entry* item) { if(FUN_007255a0() && (!item || (FUN_007242f0(item) && item->FUN_00a01230(FUN_00a00940(&DAT_01070244,-1))))){selected=item; FUN_00725650(); return true;}else{return false;} }

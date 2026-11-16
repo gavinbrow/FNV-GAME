@@ -1,0 +1,140 @@
+{
+"stat": {
+"funclet packs split": 7441,
+"code COMDATs removed (unplaced)": 105810,
+"data sections dropped (placed/redirected or unreachable)": 86283,
+"undefined -> D": 59043,
+"kept (lib/import)": 7647,
+"undefined -> C": 143545,
+"objects": 2995,
+"EH piece symbols -> C_<va>": 15765,
+"defined data symbol redirected by verified address": 1031,
+"EH stub FuncInfo redirected to the original table": 2330,
+"undefined, address outside text/data": 113,
+"relocations bound per site": 467,
+"undefined, no address": 31,
+"recipe function owned by another unit (not defined here)": 10
+},
+"unresolved_top": [
+[
+"__tls_array",
+106
+],
+[
+"??_GSpawnedBase@@UAEPAXI@Z",
+5
+],
+[
+"?a0@xA@@UAEXXZ",
+2
+],
+[
+"?FUN_00484b60@xA@@UAEXI@Z",
+2
+],
+[
+"?b0@xB@@UAEXXZ",
+2
+],
+[
+"?FUN_00aa1460@@YAXPAX@Z",
+2
+],
+[
+"??_GS_D@@UAEPAXI@Z",
+2
+],
+[
+"??3@YAXPAXAAUAllocationManager@@@Z",
+1
+],
+[
+"??3ExtraData@@SAXPAX@Z",
+1
+],
+[
+"??3NiAVObject@@SAXPAX@Z",
+1
+],
+[
+"??3BSFadeNode@@SAXPAX@Z",
+1
+],
+[
+"??3Item@@SAXPAX@Z",
+1
+],
+[
+"??1Ptr208@@QAE@XZ",
+1
+],
+[
+"?FUN_00aa13f0@@YAXPAX@Z",
+1
+],
+[
+"??3Shape80F@@SAXPAX@Z",
+1
+],
+[
+"??1CleanupBase@@QAE@XZ",
+1
+],
+[
+"??3TESObjectDoorController@@SAXPAX@Z",
+1
+],
+[
+"??3BSFadeNode@fnv_00cb3650@@SAXPAX@Z",
+1
+],
+[
+"?g_debugTextTls@@3UDebugTextTlsBlock005ba760@@A",
+1
+],
+[
+"?g_fnv_00e9ecc0_value_anchor@@3HA",
+1
+],
+[
+"?g_target_00d53c90@@3HA",
+1
+],
+[
+"??3BSFaceGenMorphData@@SAXPAX@Z",
+1
+],
+[
+"??1T741_M8@fnv_00c741e0@@QAE@XZ",
+1
+],
+[
+"??1T741_M7@fnv_00c741e0@@QAE@XZ",
+1
+],
+[
+"??1T741_M4@fnv_00c741e0@@QAE@XZ",
+1
+],
+[
+"?FUN_00aa1450@@YAXPAX@Z",
+1
+],
+[
+"??1GuardBase04@@QAE@XZ",
+1
+],
+[
+"?FUN_00cabf40@TO_00cabf40@@UAEXXZ",
+1
+],
+[
+"?g_target_00cc74d0@@3HA",
+1
+],
+[
+"?tlsArr@@3PAIA",
+1
+]
+]
+}

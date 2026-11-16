@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "kind": "fnv-explicit-alternate-runtime-owner-selection",
+  "policy": "accepted-twenty-two-field-overlay-registry-v1",
+  "receipt_pins": {
+    "build/rebuild/entry-relocation-repair-native-v1/result.json": "87adf213385326b21869f3ffbbb327bfce03a4c12d8110439ee9416074fe6633",
+    "build/rebuild/entry-relocation-batch-v2/result.json": "ec32d68580b62b225cd9e9e90e450a9915a39ab859b2c652105441d25b6ea9fb",
+    "build/rebuild/entry-relocation-batch-v2/runtime-overlays.json": "5728021d6d5796f377bd3fbf02873db1d2b2d50e8d4bf2b2bfdff80409e97bec",
+    "build/rebuild/source-overlay-niaccumulator-v2/result.json": "1f08b5be6d3eb7c090a3d7a3b7aee9b003136d40504d8c8f404d80eee4b5c1d3"
+  },
+  "expected_units": 9,
+  "expected_function_rows": 931,
+  "expected_alternate_owners": 13,
+  "expected_repaired_fields": 22,
+  "units": [
+    {
+      "recipe_index": 213,
+      "recipe_id": "0213-5eb62e0d0d64398e",
+      "group": "nineteen-batch",
+      "artifact_root": "build/rebuild/entry-relocation-batch-native-v1/0213-5eb62e0d0d64398e",
+      "generated_source": "archive.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "archive.cpp": "1364c18e9bc32b6c2ee03e615353400b5db9e9a8b9a4c3ba7737463ff4eca855",
+        "overlay.obj": "f12a33c0fe57b434dbc005c4088d00e2234261060588d4e87f1ccce6e45374cf",
+        "comparison.json": "431a62607a07fc61e17f8cbb7b194ed4ac1d7890a606c5233dc7d9cf8b43bdd4",
+        "source-bindings.jsonl.gz": "85274bd207ac6b1d4125ab0a6b39f620156f4e4476deb110e7fe312642ae1918",
+        "native-inventory.json": "3b390a5e9cbf335d76eba7e9bf8ad6692a381ecb70ff25b7142c2362fc90633d",
+        "migration.json": "18547a08734f85710fd2389453b66d4704b121bf3443d76a17c799765ee1b13a",
+        "compile.log": "012ab5564d3c87f2c8a3d850cdc13ceb2789990d07019669bd8bc95c9cd43ad5"
+      },
+      "requested_owners": [
+        {
+          "address": "0x00afbfa0",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "0213-5eb62e0d0d64398e",
+            "recipe_index": 213,
+            "runtime_eligible": false,
+            "section": 6,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 56,
+            "symbol": "?SetEndianSwap@ArchiveFile@@UAEX_N@Z",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 36,
+              "target": "0x00afbf80",
+              "symbol": "?FUN_00afbf80@@YAHPAUDummy_00afbbf0@@HH@Z"
+            }
+          ]
+        },
+        {
+          "address": "0x00afc620",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "0213-5eb62e0d0d64398e",
+            "recipe_index": 213,
+            "runtime_eligible": false,
+            "section": 7,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 56,
+            "symbol": "?SetEndianSwap@CompressedArchiveFile@@UAEX_N@Z",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 36,
+              "target": "0x00afc660",
+              "symbol": "?FUN_00afc660@@YAXPAXHH@Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 214,
+      "recipe_id": "0214-ad3d653b946bde8e",
+      "group": "nineteen-batch",
+      "artifact_root": "build/rebuild/entry-relocation-batch-native-v1/0214-ad3d653b946bde8e",
+      "generated_source": "bsfile.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "bsfile.cpp": "22506a98cc814fb8269e655baeec1dee3df3cbb1735cfc708052455f3852ec72",
+        "overlay.obj": "d4d9d8890e1eb31366537f36dac9a83930a1b616f048483d4017bbf0ded5651a",
+        "comparison.json": "cd3babfed258cd3e2ea1048689bbac6c177fe5d20ad885c0ade3f615813042df",
+        "source-bindings.jsonl.gz": "6cd9ce00271b116d9a4f607475572636d3ae1392f5c33aef1326ed924f714257",
+        "native-inventory.json": "abfc19b02848ec9e84fa09497a3ecab23b86a3ef2ea5637e069478d0c4ff2bd0",
+        "migration.json": "394179aeaade3e3e945a9aba398fce9e64810ae3be5d5c34066aad510bbdad0c",
+        "compile.log": "7b0c9cd8c81fa196c7309cc25483c41506e024868de894f2d8cb92fc452bdb1e"
+      },
+      "requested_owners": [
+        {
+          "address": "0x00aff990",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "0214-ad3d653b946bde8e",
+            "recipe_index": 214,
+            "runtime_eligible": false,
+            "section": 22,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 63,
+            "symbol": "?SetEndianSwap@BSFile@@QAEX_N@Z",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 21,
+              "target": "0x00affa10",
+              "symbol": "?FUN_00affa10@@YAHPAUFUN_00affa10_V@@PAXI11@Z"
+            },
+            {
+              "offset": 31,
+              "target": "0x00affa60",
+              "symbol": "?FUN_00affa60@@YAHPAUVTableV18_b7074@@IIPAX1@Z"
+            },
+            {
+              "offset": 43,
+              "target": "0x00aff9d0",
+              "symbol": "?ForwardVTableCall@@YAHPAUDummyVTable_00aff9d0@@HH@Z"
+            },
+            {
+              "offset": 53,
+              "target": "0x00aff9f0",
+              "symbol": "?CallVirtualMethodAtOffset48@@YAXPAXHH@Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 272,
+      "recipe_id": "0272-93b01dd5e3803ab3",
+      "group": "nineteen-batch",
+      "artifact_root": "build/rebuild/entry-relocation-batch-native-v1/0272-93b01dd5e3803ab3",
+      "generated_source": "ailineartaskthreadmanager.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "ailineartaskthreadmanager.cpp": "af85f92b1d0ae4f85675ef8d89057614dd2f9fa51949d55bb6b33566a708a8b0",
+        "overlay.obj": "e05b77e9ce68265abd32c1ce624d33c860b7b5b23e4601842fc32424a9aa4a37",
+        "comparison.json": "08f580ada7695c314f4bbb28a4314dbe9974b868b085702e3192c4d54a11227c",
+        "source-bindings.jsonl.gz": "0d0e09cbe04ee369acbf3899a61a3740b10aaf61cbe08deeb92b97604a99c7c2",
+        "native-inventory.json": "4bfced442c9828230548bcba2f4c75b983981c08e5169309118e09b0d7aeadc7",
+        "migration.json": "d34858c300626b03d2d315c51b4bfeba43932df2b38e34ac06cbe04ab8a3cc38",
+        "compile.log": "647e5ae963b118ad588851fa4dc2d6e288eff113081addd5050fccf4f0205ade"
+      },
+      "requested_owners": [
+        {
+          "address": "0x008c7290",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "0272-93b01dd5e3803ab3",
+            "recipe_index": 272,
+            "runtime_eligible": false,
+            "section": 6,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 259,
+            "symbol": "?StartRenderingTaskThread@AIThreadManager@@QAEXXZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 135,
+              "target": "0x008c7da0",
+              "symbol": "?FUN_008c7da0@fnv_008c7da0@@YAXXZ"
+            },
+            {
+              "offset": 173,
+              "target": "0x008c7f50",
+              "symbol": "?FUN_008c7f50@fnv_008c7f50@@YAXXZ"
+            },
+            {
+              "offset": 213,
+              "target": "0x008c7bd0",
+              "symbol": "?FUN_008c7bd0@fnv_008c7bd0@@YAXXZ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 870,
+      "recipe_id": "0870-e833782173fb279c",
+      "group": "nineteen-batch",
+      "artifact_root": "build/rebuild/entry-relocation-batch-native-v1/0870-e833782173fb279c",
+      "generated_source": "pathinglocation.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "pathinglocation.cpp": "d3305582a873eed4e70aa7fc3b7ae715dfde745e69b3fafc039413b51e7fc4ff",
+        "overlay.obj": "036e9a0a61dccac94b01e8f9a486dd83e187999336713d41cb5a6a33433f8e0e",
+        "comparison.json": "eedc2addec8ceff6df11ebdd4dcae640f468e103141216ba6031174f2e80f610",
+        "source-bindings.jsonl.gz": "2d2c4544315b98cb2333bb9deeba3faf1470852e162e86013d77727ee39cf946",
+        "native-inventory.json": "98f7573d18474f35a1d800166dc55997b8d3d4084b8e3d3717c7ce422aeb900b",
+        "migration.json": "f82a0d2321ff00532d888f3b5b98478ddd6c15d8a4017c0fa6e1f7ddf091d6e8",
+        "compile.log": "73470e15c129def03ffd1cae7779785701ec4cfe1671cf45b5371409ffc50631"
+      },
+      "requested_owners": [
+        {
+          "address": "0x004ff7e0",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "0870-e833782173fb279c",
+            "recipe_index": 870,
+            "runtime_eligible": false,
+            "section": 4,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 20,
+            "symbol": "?HasValidTriangle@PathingLocation@@QAE_NXZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 12,
+              "target": "0x0102583c",
+              "symbol": "?DAT_0102583c@@3HA"
+            }
+          ]
+        },
+        {
+          "address": "0x006dce10",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "0870-e833782173fb279c",
+            "recipe_index": 870,
+            "runtime_eligible": false,
+            "section": 5,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 66,
+            "symbol": "??0PathingLocation@@QAE@ABVNiPoint3@@PAVTESObjectREFR@@@Z",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 12,
+              "target": "0x0102583c",
+              "symbol": "?DAT_0102583c@@3HA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 1401,
+      "recipe_id": "1401-50cd6090ff456b83",
+      "group": "pilot",
+      "artifact_root": "build/rebuild/source-overlay-niaccumulator-v2",
+      "generated_source": "nibacktofrontaccumulator.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "nibacktofrontaccumulator.cpp": "d4965b241022b18efd6321340d49e8d845f49af16ff2bd8007d7c5f6822cd8f4",
+        "overlay.obj": "20a62376dd67ed8bc75730bb42039ff9f2989f7a53faf5a14d7455268d276387",
+        "comparison.json": "255d651306960f8aea09d460f4657dad9b9ee214808940c55893bc1b9fd6df44",
+        "compile.log": "87edbc32676a14713f9acf847059e62d6f16c60d119d4af6483f9708f3183847"
+      },
+      "requested_owners": [
+        {
+          "address": "0x00aa0fc0",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "1401-50cd6090ff456b83",
+            "recipe_index": 1401,
+            "runtime_eligible": false,
+            "section": 3,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 25,
+            "symbol": "??0NiBackToFrontAccumulator@@QAE@XZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 10,
+              "target": "0x010a2304",
+              "symbol": "?DAT_010a2304@@3HA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 2689,
+      "recipe_id": "2689-cd7a30f3908a1d49",
+      "group": "first-two",
+      "artifact_root": "build/rebuild/entry-relocation-repair-native-v1/2689-cd7a30f3908a1d49",
+      "generated_source": "blk_00840000_od.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "blk_00840000_od.cpp": "1f4b8af77c3a620647cf07fb6069baaf3716bf6eacfd179fbe1f8cc966553adb",
+        "overlay.obj": "c0f9ce97214904a1d4968657b884057b19f65018a5b0a83819eae6d78d731cce",
+        "comparison.json": "5c07124f8324b350e61b9439e19c0c9ef6931a290d1f75ca261c9838db3bad96",
+        "compile.log": "ea02545bd4b779e8ff1a487df09230b6395416dd5feaf40ec06a3b8e4912ac5b"
+      },
+      "requested_owners": [
+        {
+          "address": "0x0084ba20",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "2689-cd7a30f3908a1d49",
+            "recipe_index": 2689,
+            "runtime_eligible": false,
+            "section": 60,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 43,
+            "symbol": "?Init@FUN_0084ba20@fnv_0084ba20@@QAEXXZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 12,
+              "target": "0x0107f4e8",
+              "symbol": "?DAT_0107f4e8@@3HA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 2709,
+      "recipe_id": "2709-6e8ed1636467924a",
+      "group": "nineteen-batch",
+      "artifact_root": "build/rebuild/entry-relocation-batch-v2/2709-6e8ed1636467924a",
+      "generated_source": "blk_009a0000_od.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "blk_009a0000_od.cpp": "72843a5aea0b7c21b65d1d6dd5b66310e5f704a8bf9097a4bce8ba814fa25900",
+        "overlay.obj": "63f50b56c7f04a8c437cee478b0ee653b1f42c8cf40054fe2ba436d914936881",
+        "comparison.json": "cd7f0f5b62b43925053482494a8eeaeed1c1a6fe16058c6b753421cf5615d302",
+        "literal-supplement.json": "683b49ca9464729113e5e83d924d1ca1cd0684399c03451f9a8af65bb0d842f8",
+        "alternate-resolver-recipe.json": "835cef0c56fa94e934e719795d6d724a8de4d82657b3cb672eaa29a57323227f",
+        "source-bindings.jsonl.gz": "a69c4552448159c90bb94f22f0a2e99405de8b0b2996aab5c59a569b9ec7ddd4",
+        "native-inventory.json": "464760fe5f84b94395b49a20dae6468b35631f6eb62710b06b3a89f9fb4ffc5a",
+        "migration.json": "441a245563534e7718df52ad90e7357fa26edc67297f5965b301370a70dbb034",
+        "compile.log": "d003cd9d9737527d6cf85ff10c394fe837ba2f820c21091fbd2b9189b90ead3e"
+      },
+      "requested_owners": [
+        {
+          "address": "0x009b3160",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "2709-6e8ed1636467924a",
+            "recipe_index": 2709,
+            "runtime_eligible": false,
+            "section": 58,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 136,
+            "symbol": "??0FUN_009b3160@@QAE@_N@Z",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 63,
+              "target": "0x0108f2f4",
+              "symbol": "?DAT_0108f2f4@@3PAXA"
+            },
+            {
+              "offset": 73,
+              "target": "0x0108f2e8",
+              "symbol": "?DAT_0108f2e8@@3PAXA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 2757,
+      "recipe_id": "2757-4f03e30ab313e7ad",
+      "group": "nineteen-batch",
+      "artifact_root": "build/rebuild/entry-relocation-batch-v2/2757-4f03e30ab313e7ad",
+      "generated_source": "blk_00b80000_o2.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "blk_00b80000_o2.cpp": "53eaf9c0e7be591acb9e424e6829d1a5a61ebafc97669c672ea6fa1da417ecee",
+        "overlay.obj": "254c86f5a9abc5256ea2707054050c980859f1ac1a0b9d91a93d524aab33087b",
+        "comparison.json": "ecb5e5fefee194865f423cb9687efc73c8190a683266782e9df0264c765848fa",
+        "literal-supplement.json": "894f7b2e7db7d4b80f9ad44ded129fae241e9e8568fc351d2a8b01a1fa031043",
+        "alternate-resolver-recipe.json": "131b1c13e8f739e634a0c3abec42b0330ccd5322f02e7f88633f689c85d3da16",
+        "source-bindings.jsonl.gz": "70117668b47035fa45e56162406769682d3a613be09d7894585d833ba1abb35b",
+        "native-inventory.json": "54c02f961b885d8350dcc10252b5f06afe3619bb41859fb2c6330aaaee897118",
+        "migration.json": "45d7a1732115862b5b13380ba290b8312eb3bb43869e1d9875165a7a43afd9f9",
+        "compile.log": "c586373465653d0e632bcc7075b40817f5d62d6522a1cdbd4bba0d599b91ea9f"
+      },
+      "requested_owners": [
+        {
+          "address": "0x00b8e020",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "2757-4f03e30ab313e7ad",
+            "recipe_index": 2757,
+            "runtime_eligible": false,
+            "section": 42,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 98,
+            "symbol": "??0FUN_00b8e020@fnv_00b8e020@@QAE@XZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 63,
+              "target": "0x010b1340",
+              "symbol": "?DAT_010b1340@@3HA"
+            },
+            {
+              "offset": 70,
+              "target": "0x010b1320",
+              "symbol": "?DAT_010b1320@@3HA"
+            }
+          ]
+        },
+        {
+          "address": "0x00b91680",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "2757-4f03e30ab313e7ad",
+            "recipe_index": 2757,
+            "runtime_eligible": false,
+            "section": 112,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 98,
+            "symbol": "??0FUN_00b91680@fnv_00b91680@@QAE@XZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 63,
+              "target": "0x010b4c68",
+              "symbol": "?DAT_010b4c68@@3HA"
+            },
+            {
+              "offset": 70,
+              "target": "0x010b4c48",
+              "symbol": "?DAT_010b4c48@@3HA"
+            }
+          ]
+        },
+        {
+          "address": "0x00b93180",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "2757-4f03e30ab313e7ad",
+            "recipe_index": 2757,
+            "runtime_eligible": false,
+            "section": 178,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 98,
+            "symbol": "??0FUN_00b93180@fnv_00b93180@@QAE@XZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 63,
+              "target": "0x010b6a40",
+              "symbol": "?DAT_010b6a40@@3HA"
+            },
+            {
+              "offset": 70,
+              "target": "0x010b6a20",
+              "symbol": "?DAT_010b6a20@@3HA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "recipe_index": 2763,
+      "recipe_id": "2763-d9f880a2cbd3ef77",
+      "group": "first-two",
+      "artifact_root": "build/rebuild/entry-relocation-repair-native-v1/2763-d9f880a2cbd3ef77",
+      "generated_source": "blk_00c00000_o2.cpp",
+      "object": "overlay.obj",
+      "artifacts": {
+        "blk_00c00000_o2.cpp": "fd8c95bdcf7f192dca432136c407dcd24d41625d2ac04fe25d112e76238fd2a0",
+        "overlay.obj": "d5d128c01f8abdeff48afbf664fe0ae99487293fc781e9d23c2033555b23fcb6",
+        "comparison.json": "5e9d3157e48e765e497c34cc51bc9607f04d57cebeed1d4423b095b7260fd7a0",
+        "compile.log": "842dea3c7810b408bba29d15448d97614a0e6050a54e88c263b12a614a786286"
+      },
+      "requested_owners": [
+        {
+          "address": "0x00c033c0",
+          "selection": {
+            "link_ready": false,
+            "recipe_id": "2763-d9f880a2cbd3ef77",
+            "recipe_index": 2763,
+            "runtime_eligible": false,
+            "section": 124,
+            "selection_status": "CODE_OWNERSHIP_SELECTED",
+            "size": 38,
+            "symbol": "??0FUN_00c033c0@@QAE@XZ",
+            "value": 0
+          },
+          "fields": [
+            {
+              "offset": 12,
+              "target": "0x010bc8a4",
+              "symbol": "?DAT_010bc8a4@@3HA"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "original_provider_selection_unchanged": true,
+  "adopted_for_link": false,
+  "runtime_eligible": false,
+  "game_execution": false
+}

@@ -1,0 +1,7 @@
+{
+"0x00efe1ef": {
+"status": "new-compile-fail",
+"err": "issing type specifier - int assumed. Note: C++ does not support default-int\nC:\\Users\\cjhub\\AppData\\Local\\Temp\\e2a_125d2ez2\\a.cpp(7) : error C2371: 'DAT_0114eaac' : redefinition; different basic types\n        C:\\Users\\cjhub\\AppData\\Local\\Temp\\e2a_125d2ez2\\a.cpp(2) : see declaration of 'DAT_0114eaac'\n",
+"dbg": "// @fnv 0x00efe1ef\nextern char DAT_0114eaac;\nvoid FUN_00401030();\nvoid FUN_00ec3d33();\nvoid FUN_00ec408c();\n        mov eax, offset DAT_0114eaac\n__declspec(naked) void FUN_00efe1ef()\n{\n    __asm {\n        push eax\n        call FUN_00401030\n        pop ecx\n        ret\n        mov eax, dword ptr [ebp - 0x3c]\n        push eax\n        call FUN_00401030\n        pop ecx\n        ret\n        mov eax, dword ptr [ebp - 0x44]\n        push eax\n        call FUN_00401030\n        pop ecx\n        ret\n        mov eax, dword ptr [ebp - 0x4c]\n        push eax\n        call FUN_00401030\n        pop ecx\n        ret\n        mov eax, dword ptr [ebp - 0x54]\n        push eax\n        call FUN_00401030\n        pop ecx\n        ret\n        mov eax, dword ptr [ebp - 0x5c]\n        push eax\n        call FUN_00401030\n        pop ecx\n        ret\n        mov eax, dword ptr [ebp - 0x64]\n        push eax\n        call FUN_004"
+}
+}

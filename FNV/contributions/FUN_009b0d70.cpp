@@ -1,0 +1,81 @@
+struct ExtendedTargetRef : TargetRef {
+    virtual void vfunc_308();
+    virtual void vfunc_30c();
+    virtual void vfunc_310();
+    virtual void vfunc_314();
+    virtual void vfunc_318();
+    virtual void vfunc_31c();
+    virtual void vfunc_320();
+    virtual void vfunc_324();
+    virtual void vfunc_328();
+    virtual void vfunc_32c();
+    virtual void vfunc_330();
+    virtual void vfunc_334();
+    virtual void vfunc_338();
+    virtual void vfunc_33c();
+    virtual void vfunc_340();
+    virtual void vfunc_344();
+    virtual void vfunc_348();
+    virtual void vfunc_34c();
+    virtual void vfunc_350();
+    virtual void vfunc_354();
+    virtual void vfunc_358();
+    virtual void vfunc_35c();
+    virtual void vfunc_360();
+    virtual void vfunc_364();
+    virtual void vfunc_368();
+    virtual void vfunc_36c();
+    virtual void vfunc_370();
+    virtual void vfunc_374();
+    virtual void vfunc_378();
+    virtual void vfunc_37c();
+    virtual void vfunc_380();
+    virtual void vfunc_384();
+    virtual void vfunc_388();
+    virtual void vfunc_38c();
+    virtual void vfunc_390();
+    virtual void vfunc_394();
+    virtual void vfunc_398();
+    virtual void vfunc_39c();
+    virtual void vfunc_3a0();
+    virtual void vfunc_3a4();
+    virtual void vfunc_3a8();
+    virtual void vfunc_3ac();
+    virtual void vfunc_3b0();
+    virtual void vfunc_3b4();
+    virtual void vfunc_3b8();
+    virtual void vfunc_3bc();
+    virtual void vfunc_3c0();
+    virtual void vfunc_3c4();
+    virtual void vfunc_3c8();
+    virtual void vfunc_3cc();
+    virtual void vfunc_3d0();
+    virtual void vfunc_3d4();
+    virtual void vfunc_3d8();
+    virtual void vfunc_3dc();
+    virtual void vfunc_3e0();
+    virtual void vfunc_3e4();
+    virtual void vfunc_3e8();
+    virtual void vfunc_3ec();
+    virtual void vfunc_3f0();
+    virtual void vfunc_3f4();
+    virtual void vfunc_3f8();
+    virtual void vfunc_3fc();
+    virtual void vfunc_400();
+    virtual void vfunc_404();
+    virtual void vfunc_408();
+    virtual void vfunc_40c();
+    virtual void vfunc_410();
+    virtual void vfunc_414();
+    virtual void ApplyPosition(TargetRef* owner, MatchPoint position, float time);
+};
+extern S_9a54a0_Setting DAT_011d1188;
+struct SceneObject : MatchContext {
+    void FUN_009b0d70(TargetRef* object, float timestamp);
+};
+void SceneObject::FUN_009b0d70(TargetRef* object, float timestamp)
+{
+    if (object && object->FUN_008d8520() && timestamp > *DAT_011d1188.FUN_00403e20()) {
+        static_cast<ExtendedTargetRef*>(object->FUN_008d8520())->ApplyPosition(object, Position(), 0.0f);
+    }
+}

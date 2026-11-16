@@ -1,0 +1,21 @@
+Source files edited by worker B (2026-11-16). Every file has a backup next to it named <file>.bak-20261116-wB.
+To list them all: find fnv_decomp\src -name "*.bak-20261116-wB".
+Objects: pinned-build\obj_v3.bak-20261116 (all 2,988 objects before the first recompile). SG sidecar backup: build-v7\sg_sidecar_w2.json.bak-20261116-wB.
+Tool backups: build-v7\assemble_v7.py.bak-20261116-wB, crt5.py.bak-20261116-wB, rebuild.cmd.bak-20261116-wB.
+
+A. Integer constants written as &DAT_/FUN_/g_*_arg1 extern -> literal (fix_consts.py): bscore/memorypool, bsshader/bsshaderpplightingproperty, tallgrassshader,
+ fallout/audio/impactmixer, fallout/interface/menus/startmenu, fallout_shared/{tes,tescreature,tesfile,tesform,tesobjectcell,tesactorbasedata (three "" args were 0x1000000)},
+ gamebryo2.2 niconsolerenderer/{niconsolerenderer,nidynamicgeometrygroup,nistaticgeometrygroup,niunsharedgeometrygroup}, nimain/nidevimageconverter,
+ generated/global_object_initializers{,2}, havok hkpmoppdefaultassembler + hkptoicountviewer, staging/blk_00480000_od, 00840000_od, 00860000_od, 00920000_od, 00a20000_od,
+ 00a60000_o2, 00ae0000_od, 00ca0000_o2.
+B. Literal addresses -> extern symbols: fallout_shared/{tesform (existing DAT_01187008 array), bgssceneinfo, bgscamerashot, pathfinding/navmeshinfo}, staging/blk_00d20000_o2.
+C. Wrong-copy callees (44 of 48 fixed):
+ constructor retarget (derive_new.py: struct FUN_xxxxxxxx : Base { FUN_xxxxxxxx(); } and new of that type): fallout_shared/tesdatahandler (FUN_005e7a90, FUN_0058f9d0 x3, FUN_004010b0),
+  region system/tesregiondatamanager (FUN_004f15f0), fallout/ai/actorpackagedata (FUN_009f0900_cls), NiAlphaProperty -> FUN_004391c0 in sky/moon_ctx_variant, speedtree/bstreemodel,
+  pathfinding/pathinglosmap, fallout/interface/fadermanager + forenderedmenu, bsmenu/debugtext_ob1_variant, bsshader/bsshaderpplightingproperty.
+ const GetSex (original calls the QBE function): fallout_shared/tesnpc_pc_decls.h, tesnpc_pc_decls_decl_tesnpc.h, bgsdestructibleobjectform_decls.h, bscore/memorymanager_identity.h.
+ GetGameHour -> GetDayOfMonth: fallout/ai/lowprocess{.cpp,_decls.h}, fallout_shared/packagelist{.cpp,_decls.h}.
+ IsFlag80Set -> FUN_0050d210_Class::IsFlag80Set() const: fallout_shared/tesobjectcell.
+ QuestStage::MarkDone -> FUN_0067fdb0_shell::FUN_0067fdb0: fallout_shared/tesquest.
+ BSFile::Read/GetFilePosition -> FUN_00462d80_shell::ReadBytes / FUN_004720a0: fallout/misc/saveload/bgssaveloadfile.
+ NiPixelFormat::GetPixelBitData -> FUN_00a77980_shell::FUN_00a77980: gamebryo2.2 niconsolerenderer/niconsolepixelformat.

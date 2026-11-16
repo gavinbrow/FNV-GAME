@@ -1,0 +1,17 @@
+
+int FUN_00ec75b1(double value);
+int FUN_00ec7595(double value);
+double FUN_00ec6cde(double value);
+void FUN_00aafb90(const char *file, int line);
+extern float DAT_01016970;
+extern float DAT_01015f5c;
+float FUN_00ac79e0(float a, float b) {
+  float fSum;
+  if (!FUN_00ec75b1(a)) {} else { FUN_00aafb90("D:\\_Fallout3\\Platforms\\Common\\Code\\SDK\\FaceGen\\algs.cpp", 0x1b2); }
+  if (!FUN_00ec75b1(b)) {} else { FUN_00aafb90("D:\\_Fallout3\\Platforms\\Common\\Code\\SDK\\FaceGen\\algs.cpp", 0x1b3); }
+  fSum = a+b;
+  if (!FUN_00ec7595(fSum)) {
+if ((double)fSum == (float)FUN_00ec6cde(fSum)) {return DAT_01016970;} else {return DAT_01015f5c;}
+  }
+  return fSum;
+}

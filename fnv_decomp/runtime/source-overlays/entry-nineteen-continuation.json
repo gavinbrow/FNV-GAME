@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "fnv-fixed-entry-relocation-continuation",
+  "policy": "entry-nineteen-two-unit-continuation-v2",
+  "batch_policy_sha256": "0144fbdf83e055d2910989b9a06588334a0d6101c8f8bd9e98af77256e453029",
+  "batch_tool_sha256": "9f052d21c0816d18043b21ca518f5d967ae9a03e47c327f5fab93aaf7a83876d",
+  "first_result_sha256": "1459952e1a79284b5dd11c555f8b90e96f5b8aecd33b0ee40becebcbf19a9a4d",
+  "failure_reconciliation_sha256": "729ff5f6625efa99f913f104e42d293adbf9b9413085ec3a5d5fc5aaadd8405e",
+  "literal_preview_sha256": "1f3325d129984e07e34ce80790d93b8eac8a1a94c388dd691eb7b6bee70d4267",
+  "reused_recipe_indices": [
+    213,
+    214,
+    272,
+    870
+  ],
+  "compiled_recipe_indices": [
+    2709,
+    2757
+  ],
+  "reused_original_rows": 190,
+  "newly_compiled_original_rows": 429,
+  "total_original_rows": 619,
+  "expected_repaired_fields": 19,
+  "compiler_literal_supplement": "complete-bijective-physical-use-and-full-readonly-nonpointer-original-payload",
+  "provider_selected": false,
+  "runtime_eligible": false,
+  "game_execution": false,
+  "link_performed": false
+}

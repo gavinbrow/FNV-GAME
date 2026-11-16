@@ -1,0 +1,51 @@
+[
+{
+"file": "rdata_00",
+"section": ".rdata",
+"va": 16642048,
+"size": 635344,
+"object_section": ".rdata"
+},
+{
+"file": "rdata_01",
+"section": ".rdata",
+"va": 17277392,
+"size": 322664,
+"object_section": ".rdata"
+},
+{
+"file": "rdata_02",
+"section": ".rdata",
+"va": 17600056,
+"size": 503292,
+"object_section": ".rdata"
+},
+{
+"file": "rdata_03",
+"section": ".rdata",
+"va": 18103348,
+"size": 255436,
+"object_section": ".rdata"
+},
+{
+"file": "data_00",
+"section": ".data",
+"va": 18362368,
+"size": 262656,
+"object_section": ".data"
+},
+{
+"file": "tls_00",
+"section": ".tls",
+"va": 19341312,
+"size": 1024,
+"object_section": "_TLS (rename to .tls)"
+},
+{
+"file": "const_00",
+"section": "CONST",
+"va": 19345408,
+"size": 512,
+"object_section": "_CONSTPE (rename to CONST)"
+}
+]

@@ -1,0 +1,36 @@
+struct FUN_00b79930 { int reference; ~FUN_00b79930(); };
+struct FUN_00b66f20 { int reference; ~FUN_00b66f20(); };
+struct FUN_00be0f10 { virtual ~FUN_00be0f10(); int unk04;
+int unk08;
+int unk0c;
+int unk10;
+int unk14;
+int unk18;
+int unk1c;
+int unk20;
+int unk24;
+int unk28;
+int unk2c;
+int unk30;
+int unk34;
+int unk38;
+int unk3c;
+int unk40;
+int unk44;
+int unk48;
+int unk4c;
+int unk50;
+int unk54;
+int unk58;
+int unk5c;
+int unk60;
+int unk64;
+int unk68; };
+struct Global_011f6238 { void FUN_00aa4060(void* p); };
+extern Global_011f6238 DAT_011f6238;
+struct FUN_00baa570 : FUN_00be0f10 {
+ FUN_00b79930 firstArray[44]; int unk11c; int unk120; int unk124;
+ FUN_00b66f20 secondArray[24]; FUN_00b66f20 thirdArray[7];
+ void* current; int connected; virtual ~FUN_00baa570();
+};
+FUN_00baa570::~FUN_00baa570() { void *old=current; connected=0; DAT_011f6238.FUN_00aa4060(old); }

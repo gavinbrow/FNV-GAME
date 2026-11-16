@@ -1,0 +1,1 @@
+int __stdcall FUN_00c9e3f0(void* p, int size) { return -1; }

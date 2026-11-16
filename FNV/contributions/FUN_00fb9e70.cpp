@@ -1,0 +1,74 @@
+struct FloatFields32
+{
+    float field00;
+    float field01;
+    float field02;
+    float field03;
+    float field04;
+    float field05;
+    float field06;
+    float field07;
+    float field08;
+    float field09;
+    float field10;
+    float field11;
+    float field12;
+    float field13;
+    float field14;
+    float field15;
+    float field16;
+    float field17;
+    float field18;
+    float field19;
+    float field20;
+    float field21;
+    float field22;
+    float field23;
+    float field24;
+    float field25;
+    float field26;
+    float field27;
+    float field28;
+    float field29;
+    float field30;
+    float field31;
+};
+
+extern FloatFields32 DAT_011ff7e8;
+
+// @fnv 0x00fb9e70
+void FUN_00fb9e70()
+{
+    DAT_011ff7e8.field00 = 0.0f;
+    DAT_011ff7e8.field01 = 0.0f;
+    DAT_011ff7e8.field02 = 0.0f;
+    DAT_011ff7e8.field03 = 0.0f;
+    DAT_011ff7e8.field04 = 0.0f;
+    DAT_011ff7e8.field05 = 0.0f;
+    DAT_011ff7e8.field06 = 0.0f;
+    DAT_011ff7e8.field07 = 0.0f;
+    DAT_011ff7e8.field08 = 0.0f;
+    DAT_011ff7e8.field09 = 0.0f;
+    DAT_011ff7e8.field10 = 0.0f;
+    DAT_011ff7e8.field11 = 0.0f;
+    DAT_011ff7e8.field12 = 0.0f;
+    DAT_011ff7e8.field13 = 0.0f;
+    DAT_011ff7e8.field14 = 0.0f;
+    DAT_011ff7e8.field15 = 0.0f;
+    DAT_011ff7e8.field16 = 0.0f;
+    DAT_011ff7e8.field17 = 0.0f;
+    DAT_011ff7e8.field18 = 0.0f;
+    DAT_011ff7e8.field19 = 0.0f;
+    DAT_011ff7e8.field20 = 0.0f;
+    DAT_011ff7e8.field21 = 0.0f;
+    DAT_011ff7e8.field22 = 0.0f;
+    DAT_011ff7e8.field23 = 0.0f;
+    DAT_011ff7e8.field24 = 0.0f;
+    DAT_011ff7e8.field25 = 0.0f;
+    DAT_011ff7e8.field26 = 0.0f;
+    DAT_011ff7e8.field27 = 0.0f;
+    DAT_011ff7e8.field28 = 0.0f;
+    DAT_011ff7e8.field29 = 0.0f;
+    DAT_011ff7e8.field30 = 0.0f;
+    DAT_011ff7e8.field31 = 0.0f;
+}

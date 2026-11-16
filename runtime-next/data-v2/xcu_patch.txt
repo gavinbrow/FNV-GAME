@@ -1,0 +1,24 @@
+# ---- wB data-v2: CRT$XCU init array. The linker concatenates the .CRT$XCU contributions into ascending (link-order) runs of code pointers; our compiled units' initializer
+# addresses (resolved by name, 6,266 distinct) are located as members of the long ascending runs of the reference; a dword is produced when its value is one of ours.
+if os.environ.get('DV_XCU', '1') == '1':
+    xv = collections.Counter()
+    for k, s_ in SEC.items():
+        if s_['kind'] == 'crt-init-array' and s_['name'] == '.CRT$XCU' and k not in placed and s_['units'][0] < 100000:
+            r_, _src = resolve(s_)
+            for v_ in r_.values(): xv[v_ & M32] += 1
+    n_, (rva_, ro_, rs_, vs_) = '.rdata', RD['.rdata']
+    dws = struct.unpack('<%dI' % (rs_ // 4), ref[ro_:ro_ + (rs_ // 4) * 4]); i_ = 0; nx = 0
+    while i_ < len(dws):
+        if TEXT_LO <= dws[i_] < TEXT_HI:
+            j_ = i_
+            while j_ < len(dws) and TEXT_LO <= dws[j_] < TEXT_HI: j_ += 1
+            run = dws[i_:j_]; mine = sum(1 for x in run if x in xv)
+            if len(run) >= 100 and mine >= 0.8 * len(run) and sum(1 for p_, q_ in zip(run, run[1:]) if q_ >= p_) >= 0.95 * (len(run) - 1):
+                for t_, x in enumerate(run):
+                    if x in xv:
+                        o4 = 4 * (i_ + t_)
+                        if not prod[n_][o4:o4 + 4].any():
+                            buf[n_][o4:o4 + 4] = struct.pack('<I', x); prod[n_][o4:o4 + 4] = 1; kindarr[n_][o4:o4 + 4] = KID['crt-init-array']; nx += 4
+            i_ = j_
+        else: i_ += 1
+    print('crt init array bytes produced', nx)

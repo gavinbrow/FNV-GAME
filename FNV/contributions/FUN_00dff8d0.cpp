@@ -1,0 +1,41 @@
+extern "C" char DAT_010c3b80;
+extern "C" char DAT_010c3b98;
+extern "C" char DAT_010c3bac;
+extern "C" char DAT_010c3b8c;
+extern "C" char str_0102f13c[];
+extern "C" char DAT_010e7700;
+extern "C" char DAT_010e76f4;
+extern "C" char DAT_010e76e0;
+extern "C" char DAT_010e76d4;
+extern "C" char DAT_010e76c8;
+extern "C" char DAT_010e76ac;
+struct FNVRecordPointers {
+    void* volatile m00;
+    void* m04;
+    void* volatile m08;
+    void* volatile m0c;
+    void* volatile m10;
+    void* volatile m14;
+    int m18;
+    int m1c;
+    int m20;
+    int m24;
+    int m28;
+    int m2c;
+    void* volatile m30;
+    FNVRecordPointers* __thiscall FUN_00dff8d0(int unused);
+};
+FNVRecordPointers* __thiscall FNVRecordPointers::FUN_00dff8d0(int unused) {
+    m08 = &DAT_010c3b80;
+    m0c = &DAT_010c3b98;
+    m10 = &DAT_010c3bac;
+    m14 = &DAT_010c3b8c;
+    m30 = &str_0102f13c;
+    m00 = &DAT_010e7700;
+    m08 = &DAT_010e76f4;
+    m0c = &DAT_010e76e0;
+    m10 = &DAT_010e76d4;
+    m14 = &DAT_010e76c8;
+    m30 = &DAT_010e76ac;
+    return this;
+}

@@ -1,0 +1,1 @@
+[{"old": "CharGenMenu", "new": "FUN_00753230", "file": "fallout/interface/menus/traitmenu.cpp", "units": [503], "kw": "struct"}, {"old": "BSTaskletGroupData", "new": "ThreadBaseE8", "file": "staging/blk_00b00000_od_ob1_variant.cpp", "units": [2745], "kw": "struct"}]

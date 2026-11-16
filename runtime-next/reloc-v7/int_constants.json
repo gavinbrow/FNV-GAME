@@ -1,0 +1,19 @@
+{
+"note": "integer constants that the decompiled source had written as the address of a DAT_/g_*_arg1 extern (fixed in source by fix_consts.py); the literal-address inference of assemble_v7 must not treat them as addresses",
+"values": [
+4287105,
+4289146,
+4680837,
+5242880,
+5400188,
+7237230,
+8289918,
+10485760,
+16711680,
+16768685,
+16777215,
+16777216,
+16777217,
+20971520
+]
+}

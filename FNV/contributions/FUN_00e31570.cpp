@@ -1,0 +1,1 @@
+unsigned int __cdecl FUN_00e31570(unsigned char flags, unsigned int* pp) {if(flags & 0xf0){FUN_00e31510(2,(unsigned char**)pp); unsigned int& p=*pp; unsigned int b=*(unsigned char*)p; unsigned int len=*(unsigned short*)(p-2); p=p+b+len+3; return len;} return -1;}

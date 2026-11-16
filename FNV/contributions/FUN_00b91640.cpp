@@ -1,0 +1,42 @@
+extern int DAT_010b4ad0;
+extern int DAT_010b4aac;
+extern "C" void __cdecl FUN_00aa1460(void*, unsigned int);
+void FUN_00c03a20();
+struct ImageSpacePass {
+    int* primaryVtable;
+    unsigned int unk4;
+    unsigned int unk8;
+    unsigned int unkc;
+    unsigned int unk10;
+    unsigned int unk14;
+    unsigned int unk18;
+    unsigned int unk1c;
+    unsigned int unk20;
+    unsigned int unk24;
+    unsigned int unk28;
+    unsigned int unk2c;
+    unsigned int unk30;
+    unsigned int unk34;
+    unsigned int unk38;
+    unsigned int unk3c;
+    unsigned int unk40;
+    unsigned int unk44;
+    unsigned int unk48;
+    unsigned int unk4c;
+    unsigned int unk50;
+    unsigned int unk54;
+    unsigned int unk58;
+    unsigned int unk5c;
+    unsigned int unk60;
+    unsigned int unk64;
+    unsigned int unk68;
+    int* secondaryVtable;
+    ImageSpacePass* FUN_00b91640(unsigned char flag);
+};
+ImageSpacePass* ImageSpacePass::FUN_00b91640(unsigned char flag) {
+    primaryVtable = &DAT_010b4ad0;
+    secondaryVtable = &DAT_010b4aac;
+    FUN_00c03a20();
+    if (flag & 1) FUN_00aa1460(this,0xd0);
+    return this;
+}

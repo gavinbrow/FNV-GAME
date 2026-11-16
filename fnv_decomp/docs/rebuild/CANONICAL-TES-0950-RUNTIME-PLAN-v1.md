@@ -1,0 +1,37 @@
+# TES 0950 runtime-only UUID projection plan
+
+This is a proposed finite source-backed runtime experiment, not an operation authorization, provider certificate, official MATCH, native-conformance result or application link. It is wholly separate from the stopped three-root qualification work. It does not read, repair, replay or adopt that work. No function, storage or initializer is fabricated.
+
+## Target and exact source evidence
+
+The V18 diagnostic reports one entry reference to `_fnv_code_91ffdd2aab6e0a53d4cb34aebffa32d27721e8b16c87221c23d6d3ec49216842`. Its physical identity is recipe `0950-3034f4bb10207776`, retained compiler object SHA-256 `55f97d37531c3a396a4d4143f05512639089bfb5f05a8266e2dc3267f1a8ede8`, native symbol index 160, section 32/value 0, source symbol `?FUN_0045b020@@YAXXZ`, original address `0x0045b020`, extent 35. Existing `runtime_code_pool.canonical` over that exact recipe/object/index produces the demanded key. Source is `src/fallout_shared/tes.cpp:1429`, SHA-256 `66d46b132e101463fe3483ade0e63bcabcafea4d5261bd9bbf46f4dac152f5fe`; it invokes all six initializer functions. The canonical entry calls it with zero arguments and ignores its declared `int` result; the real provider returns `void`. This runtime ABI assumption requires independent review, including all current and newly added uses of the key.
+
+The exact saved ordinary record is one-based line 27 of `build/rebuild/central-code-root-observation-v1/lanes/code-lane-07.jsonl.gz`, file SHA-256 `6d00e703ae6bdc617c1274bee91761b9d23c48136103020659763b78a200c74a`; complete record canonical JSON digest `95e176899852fc1d1ac419bef8dd31668d63633c2890319ad2648ed86e3e4efa`, contract digest `4be4a91f0fd51fb4e1c7fc41bbceef8aef1d307c444a313cf987596c7ebc0866`, negative certificate digest `bed5fec32a338aab551d640cbf3e11c8f25242fdcae060247baa4afcd03a73b8`. Preserve this original negative. It has six complete fields, zero missing fields, no parent-EH rows, and exactly three blockers: two separate UUID directive occurrences and the full directive difference. The independently retained reference result reports the 35-byte body as a match; a runtime-only candidate does not assert a fresh original/reference comparison or alter any original matching gate.
+
+The six original fields are REL32, zero-addend, with offsets and real original target bases:
+
+| Offset | Source target | Original base |
+|---:|---|---|
+| 4 | `FUN_00649e40` | `0x00649e40` |
+| 9 | `FUN_0065c570` | `0x0065c570` |
+| 14 | `FUN_00662760` | `0x00662760` |
+| 19 | `FUN_004f92e0` | `0x004f92e0` |
+| 24 | `CreateSpdFadeNode` | `0x004e0050` |
+| 29 | `CreateCSDFadeNode` | `0x004de580` |
+
+Each contract field is `SELECTED_CODE_ENTRY` with an exact single owner. The projection requires an authenticated original physical provider identity for each; its output refers to those canonical identities. This is not a claim that any of those six providers is present in the V18 loaded cohort. Missing providers remain genuine unresolved CODE, never new guessed definitions.
+
+The exact original `.drectve` payload is 93 bytes, SHA-256 `c7366a9d7fda0fe26a40098fc6ae83ea281c3d5d1f666a434b407eede5ed6f0c`; it contains **two** separate `uuid.lib` default directives followed by `LIBCMT` and `OLDNAMES`. The checked existing SDK `Uuid.Lib` SHA-256 is `6f363d2fbc78a5c17354bacfb481e615aeb4b0fd462581c02f9d6aca3e893969`. V18's response contains one explicit full-path SDK UUID library token. Preserve both original embedded occurrences and the existing explicit library identity. Duplicate linker search behavior and selection/loading remain unproved; do not infer either from these observations.
+
+## Exact proposed runtime-only operation
+
+1. Independently review this operation, actual current V18 complete input namespace and exact application-entry key-use census, the six code owner identities, the source/provider ABI assumption, source and producer hashes, immutable input envelope, output path, SDK identity, resource limits and owner authorization. Use fresh lease/guardian rules for the exact permitted operation. This plan alone grants none of those.
+2. Hydrate only the pinned saved lane-07 record and exact retained 0950 compiler object/source; verify raw and canonical hashes, section/symbol/auxiliary/relocation geometry, zero missing fields, six exact bindings, section/header/payload identities and all three original blocker occurrences. Bind the SDK path/hash and dependency declaration to its applicable independent review. Treat any mismatched or unlocated proof as a blocker. Do not claim a positive ordinary certificate or rewrite the negative.
+3. Construct the narrowly authenticated 0950 witness input and replay the existing public `uuid_directive_root_composer.compose` using the 0950 original negative, exact 93-byte directive section, its header and the already independently reviewed applicable SDK dependency declaration. Preserve two UUID occurrences and the original four-token sequence. Require all original structural blocker occurrences to be accounted for; do not alter `compose`, inject a replacement witness or fabricate an approval.
+4. Replay existing `uuid_directive_projection.project_member` on the exact 0950 root and its complete contract/negative/composition, the authoritative original physical provider map containing all six owners, and a complete current collision/export census. Require all six exact original fields, unchanged kind/addend, canonical target identities and exact root export; return a block on any conflicting or missing mapping. Retain the exact directive bytes, section/symbol/auxiliary mappings and complete unresolved obligation records. No synthetic stubs, pointer values, storage or dropped initializer is allowed.
+5. Independently reparse the private output against the source object and certificate: selected whole parent, six physical relocation sites/targets/addends, unique expected canonical export, original directive payload and both occurrences, retained symbol/section maps and no lost dependencies. If packaging is needed, use the existing deterministic archive and validate both archive indices. Publish only in a new bounded private directory after exact source/input review; no LINK is part of this operation. Preserve failures and unknown starts without replay.
+6. A subsequent independently reviewed native conformance/diagnostic packet must include the reviewed member once, the existing SDK UUID dependency once as an explicit token, all original member directives, a fresh complete namespace/input census and all existing reference/official gates. Do not declare runtime readiness, provider/ABI adoption or `MATCH` from a source-only projection. The `uuid2768` operational factory is hard-pinned to a different root and must not be modified or replayed as 0950; any 0950 caller is separately authored/reviewed and must not weaken its checks.
+
+## Remaining blockers
+
+The exact current authoritative provider-map/epoch paths and physical identities of the six target owners must be authenticated and reviewed; the complete current all-use and export/alias census must be refreshed. The applicable SDK declaration and review must be established for this exact operation. The no-argument/ignored-return ABI mismatch needs a scoped review. No actual 0950-specific operational envelope, source/input peer review, lease, projected output, native metadata conformance or successful link exists yet. No DATA branch is included.

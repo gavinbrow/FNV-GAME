@@ -1,0 +1,24 @@
+{
+ "original_text_sites": 201766,
+ "original_total_sites": 351931,
+ "original_types": {
+  "3": 351931,
+  "0": 1717
+ },
+ "our_text_sites": 201766,
+ "our_by_origin": {
+  "object": 199782,
+  "crt": 1984
+ },
+ "ours_not_in_original": 0,
+ "original_not_in_ours": 0,
+ "skipped_by_rule": {
+  "target outside image: no base reloc": 1092
+ },
+ "ours_not_in_original_list": [],
+ "original_not_in_ours_list": [],
+ "own_table_bytes": 734888,
+ "original_table_bytes": 734888,
+ "own_sites_total": 351931,
+ "roundtrip_ok": true
+}

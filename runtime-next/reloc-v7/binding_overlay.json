@@ -1,0 +1,3642 @@
+{
+"by_field": {
+"00533e49": 16964804,
+"009fea65": 22079528,
+"00a392ef": 16867164,
+"00a39380": 16867164,
+"00a39467": 16867164,
+"00a40b5d": 16867164,
+"00a40bed": 16867164,
+"00a43070": 16867164,
+"00a43148": 16867164,
+"00a82a09": 16867164,
+"00aa795b": 17443068,
+"00ac496b": 17229720,
+"00c2817f": 16867164,
+"00c70d91": 17581228,
+"00ce8032": 16852528,
+"00ce803e": 16852528,
+"00dcccb6": 18558608,
+"00dde8af": 18558608,
+"00e1a022": 17186008,
+"00e4f788": 17745440,
+"00e5019a": 17745440,
+"00e6388a": 17747676,
+"00ec309f": 4498192,
+"00ec30a5": 17455100,
+"00ec30d5": 4498144,
+"00ec30f5": 17767976,
+"00ec310d": 15478931,
+"00ec319b": 11319072,
+"00ec3384": 17768004,
+"00ec346f": 15479889,
+"00ec3629": 16908220,
+"00ec368e": 15480392,
+"00ec370c": 17186064,
+"00ec378b": 16908220,
+"00ec40b4": 15483035,
+"00ec455c": 15484264,
+"00ec4560": 15484308,
+"00ec4564": 15484344,
+"00ec45d8": 15484475,
+"00ec45dc": 15484456,
+"00ec45e0": 15484448,
+"00ec45e4": 15484440,
+"00ec45e8": 15484432,
+"00ec45ec": 15484424,
+"00ec45f0": 15484416,
+"00ec45f4": 15484408,
+"00ec4644": 15484500,
+"00ec4648": 15484508,
+"00ec464c": 15484520,
+"00ec4650": 15484540,
+"00ec46e8": 15484660,
+"00ec46ec": 15484696,
+"00ec46f0": 15484736,
+"00ec4774": 15484820,
+"00ec4778": 15484828,
+"00ec477c": 15484836,
+"00ec4780": 15484844,
+"00ec4784": 15484852,
+"00ec4788": 15484860,
+"00ec478c": 15484868,
+"00ec4790": 15484887,
+"00ec47e0": 15484912,
+"00ec47e4": 15484920,
+"00ec47e8": 15484936,
+"00ec47ec": 15484956,
+"00ec6092": 18618176,
+"00ec60ef": 18618176,
+"00ec6bc9": 15493933,
+"00ec72bc": 15495880,
+"00ec72c0": 15495924,
+"00ec72c4": 15495960,
+"00ec7338": 15496091,
+"00ec733c": 15496072,
+"00ec7340": 15496064,
+"00ec7344": 15496056,
+"00ec7348": 15496048,
+"00ec734c": 15496040,
+"00ec7350": 15496032,
+"00ec7354": 15496024,
+"00ec73a4": 15496116,
+"00ec73a8": 15496124,
+"00ec73ac": 15496136,
+"00ec73b0": 15496156,
+"00ec7448": 15496276,
+"00ec744c": 15496312,
+"00ec7450": 15496352,
+"00ec74d4": 15496436,
+"00ec74d8": 15496444,
+"00ec74dc": 15496452,
+"00ec74e0": 15496460,
+"00ec74e4": 15496468,
+"00ec74e8": 15496476,
+"00ec74ec": 15496484,
+"00ec74f0": 15496503,
+"00ec7540": 15496528,
+"00ec7544": 15496536,
+"00ec7548": 15496552,
+"00ec754c": 15496572,
+"00ec79d7": 17768388,
+"00ec79f4": 17768388,
+"00ec7a1d": 17768400,
+"00ec7a3a": 17768400,
+"00ec7a51": 15497738,
+"00ec7a57": 17768412,
+"00ec7a6e": 15497768,
+"00ec7a74": 17768412,
+"00ec7a93": 15497633,
+"00ec7ab5": 17768388,
+"00ec7aba": 15497633,
+"00ec7adc": 17768400,
+"00ec7ae1": 15497633,
+"00ec90d5": 18618576,
+"00ec911f": 18618576,
+"00ec928f": 17768424,
+"00ec92fe": 17768420,
+"00ec96e5": 18618672,
+"00ec974b": 18618672,
+"00ec9ff9": 18618704,
+"00eca04e": 18618704,
+"00eca129": 18618720,
+"00eca17e": 18618720,
+"00eca267": 18618736,
+"00eca2cb": 18618736,
+"00eca65b": 18618752,
+"00eca6b2": 18618752,
+"00eca914": 15509536,
+"00eca9f4": 18618768,
+"00ecaa60": 18618768,
+"00ecacc3": 15510128,
+"00ecad9d": 15510732,
+"00ecb85a": 15513311,
+"00ecba9f": 15513699,
+"00ecbd54": 18618784,
+"00ecbdc0": 18618784,
+"00ecde05": 15523134,
+"00ece2e5": 17768616,
+"00ece305": 17768616,
+"00ece30a": 15497633,
+"00eceead": 17768616,
+"00ecf32c": 15528453,
+"00ecf972": 17768904,
+"00ecfa1a": 17768904,
+"00ecfa8d": 17058856,
+"00ecfae0": 17186504,
+"00ecfb08": 17186172,
+"00ecfb60": 17186504,
+"00ecfcab": 17186064,
+"00ed01d0": 17768908,
+"00ed0247": 17186172,
+"00ed0506": 16850296,
+"00ed1c23": 17771080,
+"00ed434c": 17772972,
+"00ed4381": 17772968,
+"00ed43b1": 17772968,
+"00ed43ba": 17772960,
+"00ed43d5": 17772960,
+"00ed43e1": 17772956,
+"00ed43ed": 17772956,
+"00ed43f9": 17772972,
+"00ed441e": 17772948,
+"00ed4427": 17772940,
+"00ed4430": 17772972,
+"00ed443d": 17772972,
+"00ed4463": 17772932,
+"00ed4485": 17772956,
+"00ed448e": 17772960,
+"00ed4497": 17772968,
+"00ed44a0": 17772924,
+"00ed44a9": 17384456,
+"00ed44b2": 17384432,
+"00ed44be": 17772916,
+"00ed44ca": 17772912,
+"00ed44d3": 17772908,
+"00ed44dc": 17772904,
+"00ed4574": 18621448,
+"00ed71e4": 17773608,
+"00ed71f5": 17773600,
+"00ed7206": 17773592,
+"00ed7217": 17773584,
+"00ed96ae": 18622348,
+"00edb133": 15612505,
+"00edc746": 18350984,
+"00edd081": 18351048,
+"00eddb22": 18082868,
+"00eddb27": 18082868,
+"00eddb48": 18082876,
+"00eddb4d": 18082876,
+"00ee0abe": 17819872,
+"00ee0acf": 17819868,
+"00ee1213": 16850296,
+"00ee17c2": 15612505,
+"00ee186a": 15613853,
+"00ee1c67": 17821748,
+"00ee1c82": 17821736,
+"00ee1c9a": 17821720,
+"00ee1cc4": 17821672,
+"00ee2578": 17827920,
+"00ee2ce2": 18623368,
+"00ee2d1b": 18623360,
+"00ee383f": 18351600,
+"00ee391f": 15611964,
+"00ee3a50": 15612200,
+"00ee48af": 17828012,
+"00ee48c7": 17828004,
+"00ee48d6": 17827996,
+"00ee4902": 17827988,
+"00ee5812": 18351632,
+"00ee58f2": 15620111,
+"00ee6264": 19335388,
+"00ee63ba": 15622843,
+"00ee64a7": 16850296,
+"00efc914": 4213072,
+"00f078c6": 7345408,
+"00f078d0": 7345408,
+"00f0bf56": 4519152,
+"00f0bf60": 4519152,
+"00f0bf6a": 4519152,
+"00f0bf74": 4519152,
+"00f16f3c": 4508656,
+"00f16f4a": 9619600,
+"00f1d436": 10540944,
+"00f1d496": 4732688,
+"00f1d4c6": 10541408,
+"00f1d4f6": 4213072,
+"00f1d8d6": 4213072,
+"00f1d906": 4213072,
+"00f1e166": 4213072,
+"00f1e196": 4213072,
+"00f1e1c6": 4213072,
+"00f1e1f6": 4213072,
+"00f1e226": 4213072,
+"00f1e256": 4213072,
+"00f1e286": 4213072,
+"00f1e2b6": 4213072,
+"00f1e956": 4213072,
+"00f1e986": 4213072,
+"00f1e9b6": 4213072,
+"00f1e9e6": 4213072,
+"00f1ea16": 4213072,
+"00f1ea46": 4213072,
+"00f1ea76": 4213072,
+"00f1eaa6": 4213072,
+"00f1ebb6": 4213072,
+"00f1ebe6": 4213072,
+"00f1eda4": 11177376,
+"00f1edc7": 11177376,
+"00f21784": 4214496,
+"00f21bb6": 4213072,
+"00f21be6": 4213072,
+"00f21c16": 4213072,
+"00f21c46": 4213072,
+"00f21c76": 4213072,
+"00f21ca6": 4213072,
+"00f21cd6": 4213072,
+"00f21d06": 4213072,
+"00f22786": 4213072,
+"00f227b6": 4213072,
+"00f227e6": 4213072,
+"00f22816": 4213072,
+"00f22846": 4213072,
+"00f22876": 4213072,
+"00f228a6": 4213072,
+"00f228d6": 4213072,
+"00f22906": 4213072,
+"00f22936": 4213072,
+"00f22961": 18837132,
+"00f22966": 4213072,
+"00f22996": 4213072,
+"00f229c6": 4213072,
+"00f229f6": 4213072,
+"00f22a26": 4213072,
+"00f22a56": 4213072,
+"00f22a86": 4213072,
+"00f22ab6": 4213072,
+"00f22df6": 4213072,
+"00f22e26": 4213072,
+"00f22e56": 4213072,
+"00f22e86": 4213072,
+"00f22eb6": 4213072,
+"00f22ee6": 4213072,
+"00f24065": 18285408,
+"00f24355": 18286256,
+"00f24766": 11768928,
+"00f24796": 11768928,
+"00f247c6": 11768928,
+"00f247f6": 11768928,
+"00f2490f": 4498752,
+"00f24922": 11575152,
+"00f2492d": 4498752,
+"00f24938": 4498752,
+"00f249df": 4498752,
+"00f257d2": 11736192,
+"00f257dd": 11738112,
+"00f25997": 6672304,
+"00f2599f": 6672304,
+"00f259a7": 6672304,
+"00f259af": 6672304,
+"00f259b7": 6672304,
+"00f259bf": 6672304,
+"00f259c7": 6672304,
+"00f259cf": 6672304,
+"00f259d7": 6672304,
+"00f259df": 6672304,
+"00f259e7": 6672304,
+"00f259ef": 6672304,
+"00f259f7": 11768928,
+"00f2617c": 11768928,
+"00f26184": 11768928,
+"00f2618f": 6672304,
+"00f2619a": 11768928,
+"00f261a5": 11768928,
+"00f264b6": 11768928,
+"00f267bc": 11575152,
+"00f267c7": 4498752,
+"00f28920": 12163312,
+"00f2892e": 12163312,
+"00f2893c": 11913152,
+"00f2894a": 11913152,
+"00f2da42": 12163312,
+"00f2da50": 12820864,
+"00f2da5e": 12820944,
+"00f2db24": 12804800,
+"00f2db43": 4574912,
+"00f2e276": 4213072,
+"00f2e2a6": 4213072,
+"00f2e2d6": 4213072,
+"00f2e306": 4213072,
+"00f2f196": 4213072,
+"00f2f1c6": 4213072,
+"00f2f1f6": 4213072,
+"00f2f226": 4213072,
+"00f2f256": 4213072,
+"00f2f286": 4213072,
+"00f2f2b6": 4213072,
+"00f2f2e6": 4213072,
+"00f2f316": 4213072,
+"00f2f346": 4213072,
+"00f2f376": 4213072,
+"00f2f3a6": 4213072,
+"00f2f92f": 12820864,
+"00f2f93a": 12163312,
+"00f2f945": 12958480,
+"00f2f95b": 12958480,
+"00f2f97c": 11913152,
+"00f2f987": 11913152,
+"00f2fa4c": 10655360,
+"00f2fa54": 10655360,
+"00f2fa5c": 4732688,
+"00f2fa64": 4732688,
+"00f2fa6c": 10655360,
+"00f2fa77": 4732688,
+"00f308cf": 13086960,
+"00f308da": 13090576,
+"00f30ade": 18334012,
+"00f31752": 4574912,
+"00f31798": 4574912,
+"00f317b4": 11956000,
+"00f31984": 13096064,
+"00f3199a": 13096224,
+"00f31a42": 4574912,
+"00f31a50": 13090704,
+"00f31a6c": 13086896,
+"00f31aa4": 11956000,
+"00f32c28": 13096064,
+"00f32c3e": 13096224,
+"00f34d16": 4213072,
+"00f34d46": 4213072,
+"00f34d76": 4213072,
+"00f7ef96": 15721302,
+"00f8c256": 16612048,
+"00f90521": 16613168,
+"00fb3566": 15849690,
+"00fb361e": 16622256,
+"00fb8636": 15873774,
+"00fb8655": 18842000,
+"00fb865f": 18842000,
+"00fb8667": 18842000,
+"00fb8688": 11519776,
+"00fb868d": 11522608,
+"00fb8696": 18842004,
+"00fb86a4": 11519776,
+"00fb86a9": 11522608,
+"00fb86b2": 18842036,
+"00fb86c3": 16630720,
+"00fb8904": 16631088,
+"00fb8934": 16631184,
+"00fb8964": 16631280,
+"00fda0a6": 15848554,
+"00fdc416": 15877444
+},
+"by_unit_name": {
+"src/bsaudio/bsaudio.cpp": {
+"??1AudioThreadModeScope@@QAE@XZ": 4214496,
+"??1AudioThreadModeScope@fnv_00ad7ee0@@QAE@XZ": 4214496,
+"??1AudioThreadModeScope@fnv_00ad81c0@@QAE@XZ": 4214496,
+"??1AudioThreadModeScope@fnv_00ad8270@@QAE@XZ": 4214496,
+"??1AudioThreadModeScope@fnv_00ad8320@@QAE@XZ": 4214496,
+"??1AudioThreadModeScope@fnv_00ad83d0@@QAE@XZ": 4214496,
+"??1BSAudioScopedMemContext@@QAE@XZ": 4214496,
+"??1BSSoundHandleEx@fnv_00ad7620@@QAE@XZ": 4732688,
+"??1MemContextGuard@sad8050@@QAE@XZ": 4214496,
+"??1MemContextScope@@QAE@XZ": 4214496,
+"??1MemContextScope@fnv_00ad7620@@QAE@XZ": 4214496,
+"??1MemContextScope@fnv_00ad8100@@QAE@XZ": 4214496,
+"??1MemCtxGuard_00ad7740@@QAE@XZ": 4214496,
+"??1MemCtxGuard_00ad7740@fnv_00ad7fa0@@QAE@XZ": 4214496,
+"??1OH2MemContext@fnv_00ad77f0@@QAE@XZ": 4214496
+},
+"src/bsaudio/bsaudiomanager.cpp": {
+"??1BaseObj_b5112@@QAE@XZ": 12832416
+},
+"src/bsaudio/bsaudiomanager_ob1_variant.cpp": {
+"??1?$ContainerBase@$1?DAT_010a3370@@3HA$00@@UAE@XZ": 11439152,
+"??1?$ContainerBase@$1?DAT_010a3390@@3HA$00@@UAE@XZ": 11439328,
+"??1?$ContainerBase@$1?DAT_010a3390@@3HA$01@@UAE@XZ": 11439328,
+"??1?$ContainerBase@$1?DAT_010a33b0@@3HA$00@@UAE@XZ": 11439504,
+"??1?$ContainerView@$1?DAT_010a3308@@3HA$1?DAT_010a33b0@@3HA$00@@UAE@XZ": 11439728,
+"??1?$ContainerView@$1?DAT_010a3328@@3HA$1?DAT_010a3390@@3HA$00@@UAE@XZ": 11439376,
+"??1?$ContainerView@$1?DAT_010a3328@@3HA$1?DAT_010a3390@@3HA$01@@UAE@XZ": 11439376,
+"??1?$ContainerView@$1?DAT_010a3348@@3HA$1?DAT_010a3370@@3HA$00@@UAE@XZ": 11439200,
+"??1?$ListCleanup@$00@@QAE@XZ": 11171888,
+"??1?$ListCleanup@$0A@@@QAE@XZ": 11171888,
+"??1?$ListView@$00@@QAE@XZ": 10599376,
+"??1?$NiPointer@UNiAVObject@fnv_00adad80@@@fnv_00adad80@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiAVObject@fnv_00adafa0@@@fnv_00adafa0@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiRefObject@fnv_00ae7050@@@fnv_00ae7050@@QAE@XZ": 4574912,
+"??1AudioMemoryContext_adf080@fnv_00adf080@@QAE@XZ": 4214496,
+"??1AutoMemContext@fnv_00adbb30@@QAE@XZ": 4214496,
+"??1CachedPointerMap@@UAE@XZ": 11439376,
+"??1DebugInfo@@QAE@XZ": 11438128,
+"??1FUN_00a1b940@fnv_00adddd0@@QAE@XZ": 10599376,
+"??1MapBase8F70@@UAE@XZ": 11439152,
+"??1MapBase9060@@UAE@XZ": 11439328,
+"??1MemContext@@QAE@XZ": 4214496,
+"??1MessageStackMember@@QAE@XZ": 11433296,
+"??1NavMeshPtr@fnv_00adb1a0@@QAE@XZ": 4574912,
+"??1PointerMap@@UAE@XZ": 11439376,
+"??1Ptr@@QAE@XZ": 11440784,
+"??1R_00ae5a50@fnv_00ae5a50@@QAE@XZ": 4732688,
+"??1SndHandleQ@@QAE@XZ": 4732688,
+"??1SoundInfoWrap@@QAE@XZ": 11438832,
+"??1SoundMap@@UAE@XZ": 11439200,
+"??1SoundPtr@fnv_00adddd0@@QAE@XZ": 4574912,
+"??1StackView@@QAE@XZ": 11433296,
+"??1StateGuard@fnv_00adb1a0@@QAE@XZ": 4214496,
+"??1TempInfo@@QAE@XZ": 11438832,
+"??3FUN_00ae6f50@AudioTask_adf080@fnv_00adf080@@SAXPAX@Z": 4198448,
+"??3FUN_00ae8650@fnv_00ae76b0@@SAXPAX@Z": 4198448
+},
+"src/bsaudio/bsgamesound.cpp": {
+"??1OL4Alloc@@QAE@XZ": 11171888,
+"??3FUN_00aea730_Class@@SAXPAX@Z": 4198448
+},
+"src/bscore/bslineartaskthread_h_unit.cpp": {
+"??1BSThread@@UAE@XZ": 11166656,
+"??1CountingSemaphore@@QAE@XZ": 5612240
+},
+"src/bscore/bsrandom.cpp": {
+"??1GlobalObject_0048f200_d0049fe00@@QAE@XZ": 4849152
+},
+"src/bscore/bsscraparray_h_unit.cpp": {
+"??1?$BSSimpleArray@PAVAnimation@@$0EAA@@@QAE@XZ": 9931360,
+"??1?$BSSimpleArray@V?$NiPointer@VNiAVObject@@@@$0EAA@@@QAE@XZ": 8529328
+},
+"src/bscore/bssimplearray_h_unit.cpp": {
+"??3@YAXPAX0@Z": 4258784
+},
+"src/bscore/bssimplelist.cpp": {
+"??1ScriptS@@QAE@XZ": 5939616
+},
+"src/bscore/bssimplelist_h_unit.cpp": {
+"??1FUN_006234b0@fnv_00623430@@QAE@XZ": 6436048,
+"??1SL@fnv_00623430@@QAE@XZ": 4652976
+},
+"src/bscore/memorymanager.cpp": {
+"??1MemCtxGuard@@QAE@XZ": 4214496,
+"??3ScrapHeapBuffer@@SAXPAX@Z": 4198448
+},
+"src/bscore/scrapheap.cpp": {
+"??3FUN_00aa5860@fnv_00aa58d0@@SAXPAX@Z": 4198448
+},
+"src/bshavok/bhkcollisionobject_h_unit_o2_variant.cpp": {
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??1ScopedMemoryContext@@QAE@XZ": 4214496
+},
+"src/bshavok/bhkliquidaction_h_unit.cpp": {
+"??1FUN_0056d410@@UAE@XZ": 13227552
+},
+"src/bshavok/bhkrigidbody_h_unit.cpp": {
+"??1MemoryContextGuard@@QAE@XZ": 4214496,
+"??1bhkRigidBodyPrefix@@QAE@XZ": 5691264
+},
+"src/bshavok/bhkrigidbody_h_unit_od_variant_o2_nood_variant.cpp": {
+"??1AlignedDynamicArray@@QAE@XZ": 5691184,
+"??1MemoryContext@@QAE@XZ": 4214496,
+"??1Q8f6e0_Pre@@QAE@XZ": 13050384
+},
+"src/bsmain/bsstream_h_unit.cpp": {
+"??1NiStream@@UAE@XZ": 10900224
+},
+"src/bsmain/bstaskmanager_h_unit.cpp": {
+"??1?$BSTask@_J@@UAE@XZ": 4493536
+},
+"src/bsmain/queuedfiles.cpp": {
+"??1QBase@@UAE@XZ": 12832416
+},
+"src/bsmain/queuedfiles_o2_variant.cpp": {
+"??1QBase@@UAE@XZ": 12832416
+},
+"src/bsmenu/debugtext_ob1_variant.cpp": {
+"??1?$NiPointer_a119@UNiRefObject_a119@@@@QAE@XZ": 4574912,
+"??1A0FE20StateGuard@fnv_00a0fe20@@QAE@XZ": 4214496,
+"??1ArrayD@@QAE@XZ": 10558720,
+"??1AudioText@@QAE@XZ": 4208592,
+"??1BSStr@fnv_00a11880@@QAE@XZ": 4208592,
+"??1BSStringT@fnv_00a11a80@@QAE@XZ": 4208592,
+"??1FUN_00a7b2e0@fnv_00a11a80@@UAE@XZ": 10990336,
+"??1FixedText@@QAE@XZ": 4424112,
+"??1NP@fnv_00a11880@@QAE@XZ": 4574912,
+"??1ScopedCtxD9@@QAE@XZ": 4214496,
+"??1ScopedThreadState@@QAE@XZ": 4214496,
+"??1TextListD@@QAE@XZ": 10599456,
+"??3PendingD9@@SAXPAX@Z": 4198448
+},
+"src/bsmenu/font.cpp": {
+"??1?$List@PAUShape@PageMeshes@@@PageMeshes@@QAE@XZ": 10599456,
+"??1?$ListBase@PAUShape@PageMeshes@@@PageMeshes@@QAE@XZ": 11171888,
+"??1?$NiTListBase@V?$NiTPointerAllocator@I@fnv_00a1ba50@@PAVTileValue@2@@fnv_00a1": 11171888,
+"??1?$NiTListBase@V?$NiTPointerAllocator@I@fnv_00a1bb10@@PAVStringItem@2@@fnv_00a": 11171888,
+"??1?$NiTPointerList@PAUTextItem@@@@QAE@XZ": 10599376,
+"??1?$NiTPointerList@PAVStringItem@fnv_00a1bb10@@@fnv_00a1bb10@@QAE@XZ": 10599376,
+"??1?$NiTPointerList@PAVTileValue@fnv_00a1ba50@@@fnv_00a1ba50@@QAE@XZ": 10599376,
+"??1AllocatorScope@@QAE@XZ": 4214496,
+"??1FixedString@@QAE@XZ": 4424112,
+"??1FontIconArray@@UAE@XZ": 10600320,
+"??1FontStr@@QAE@XZ": 4208592,
+"??1LayoutString@fnv_00a17390@@QAE@XZ": 4208592,
+"??1Member_44@fnv_00a121e0@@QAE@XZ": 10600320,
+"??1NiFixedString@L@fnv_00a14a20@@QAE@XZ": 4424112,
+"??1TextRun@fnv_00a18a30@@QAE@XZ": 10598768,
+"??1TlsModeGuard@@QAE@XZ": 4214496,
+"??3EntQ@fnv_00a19a10@@SAXPAX@Z": 4198448,
+"??3FUN_00a12020@FontManagerInitialization@@SAXPAX@Z": 4198448,
+"??3FUN_00a1bd40@fnv_00a19c00@@SAXPAX@Z": 4198448,
+"??3FUN_00a1be10@fnv_00a19c00@@SAXPAX@Z": 4198448,
+"??3FontTextParams@@SAXPAX@Z": 4198448,
+"??3LayoutBlock@fnv_00a17390@@SAXPAX@Z": 4198448,
+"??3LayoutItem@fnv_00a19f70@@SAXPAX@Z": 4198448,
+"??3LayoutLine@fnv_00a19f70@@SAXPAX@Z": 4198448,
+"??3fnv_00a168b0@@SAXPAX@Z": 4198448
+},
+"src/bsmenu/menu.cpp": {
+"??1NameArray@fnv_00a1d410@@QAE@XZ": 6150128,
+"??1NiFixedStringL@fnv_00a1ddb0@@QAE@XZ": 4424112,
+"??1TemplateList@fnv_00a1c520@@QAE@XZ": 10536864,
+"??1TileItemListBase_00a1bbd0@@QAE@XZ": 11171888,
+"??3BSFileX@fnv_00a1d410@@SAXPAX@Z": 4198448,
+"??3FUN_00a0ac80@fnv_00a1ddb0@@SAXPAX@Z": 4198448,
+"??3NiFixedString@@SAXPAX@Z": 4198448
+},
+"src/bsmenu/tile.cpp": {
+"??1FUN_00ae83e0@fnv_00a07dc0@@QAE@XZ": 10536864
+},
+"src/bsmenu/tile3d_h_unit.cpp": {
+"??1Tile3D_Traits@@QAE@XZ": 7380656
+},
+"src/bsmenu/tile_ob1_variant.cpp": {
+"??1?$BSSimpleList@PAUTileCollection@@@@QAE@XZ": 10536864,
+"??1?$NiPointer@VExtraObject@tileext@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VSceneNode@@@@QAE@XZ": 4574912,
+"??1A0C0C0_Range@fnv_00a0c0c0@@QAE@XZ": 10599376,
+"??1A0C0C0_String@fnv_00a0c0c0@@QAE@XZ": 4424112,
+"??1A0D2A0_Map@@UAE@XZ": 10539968,
+"??1A0D2A0_MapBase@@UAE@XZ": 10539920,
+"??1AutoMemContext@fnv_00a01b00@@QAE@XZ": 4214496,
+"??1AutoMemContext@fnv_00a04200@@QAE@XZ": 4214496,
+"??1BSFixedString_Local@@QAE@XZ": 4424112,
+"??1Base_00a0abe0@@UAE@XZ": 10990336,
+"??1FUN_00a7b2e0@@QAE@XZ": 10990336,
+"??1FUN_00ac5490@fnv_00aaa7d0@@UAE@XZ": 11184944,
+"??1FUN_00ae83e0@@QAE@XZ": 10536864,
+"??1ItemList@@QAE@XZ": 10599376,
+"??1MapBaseD3C0@@UAE@XZ": 10539920,
+"??1MemoryContextGuard@fnv_009ff690@@QAE@XZ": 4214496,
+"??1NiTPointerListBase_NiTPointerAllocator_unsigned_int__Tile__TileTemplateItem__": 11171888,
+"??1RenderHeapScope@@QAE@XZ": 4214496,
+"??1S009ff340_Base04@@QAE@XZ": 4856368,
+"??1S009ff340_M10@@QAE@XZ": 7380656,
+"??1S009ff340_Ptr@@QAE@XZ": 4574912,
+"??1S009ff340_Str@@QAE@XZ": 4208592,
+"??1S00ac5490_Str@@QAE@XZ": 4498752,
+"??1Tile3D@fnv_00a00c20@@UAE@XZ": 10482496,
+"??1TileTemplateList_ac80@@QAE@XZ": 10536864,
+"??3FUN_00a0ac80@fnv_00a01e20@@SAXPAX@Z": 4198448,
+"??3Tile3D@fnv_00a00c20@@SAXPAX@Z": 4198448,
+"??3TileTemplateNew_ac80@@SAXPAX@Z": 4198448
+},
+"src/bsmenu/tile_ob1_variant_helpers_variant.cpp": {
+"??1EvalStack@fnv_00a09410@@QAE@XZ": 7190304,
+"??1ValueContext@fnv_00a09410@@QAE@XZ": 4214496
+},
+"src/bsmenu/tileimage.cpp": {
+"??1?$NiPointer@UNiNode@ImageNodeBuild@@@ImageNodeBuild@@QAE@XZ": 4574912,
+"??1NiFixedString@L@@QAE@XZ": 4424112,
+"??1NiTexturePtr@L@@QAE@XZ": 4574912,
+"??1OMFixedString@fnv_00a1fa20@@QAE@XZ": 4424112,
+"??1OMMemContext@fnv_00a1fa20@@QAE@XZ": 4214496,
+"??1OMTexPtr@fnv_00a1fa20@@QAE@XZ": 4574912
+},
+"src/bsmenu/tileimage_decl_variant.cpp": {
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??3AtlasEntry@@SAXPAX@Z": 4198448
+},
+"src/bsmenu/tilemenu.cpp": {
+"??1TileRect@@UAE@XZ": 7379376
+},
+"src/bsshader/beamshader.cpp": {
+"??3BloodSplatterBeamShader@@CAXPAXI@Z": 11146336
+},
+"src/bsshader/bsbatchrenderer.cpp": {
+"??1ActiveList@fnv_00b9a5b0@@QAE@XZ": 11947792,
+"??1FUN_00a5d3a0@fnv_00b9a5b0@@QAE@XZ": 10867664,
+"??1MemGuard@fnv_00b9a5b0@@QAE@XZ": 4214496,
+"??1NiObject@@UAE@XZ": 10867664,
+"??1RenderMap@fnv_00b9a5b0@@QAE@XZ": 7217488,
+"??3FUN_00bd9120@fnv_00b9a5b0@@SAXPAX@Z": 4198448,
+"??_VRenderPassListCollection@fnv_00b9a5b0@@SAXPAX@Z": 4198448
+},
+"src/bsshader/bscubemapcamera.cpp": {
+"??1S00bd7bb0_Cull@@QAE@XZ": 4853600
+},
+"src/bsshader/bsdistanttreeshader.cpp": {
+"??1DTShaderBase@@UAE@XZ": 12455696
+},
+"src/bsshader/bsfadenode.cpp": {
+"??3NiFixedString@@SAXPAX@Z": 4198448
+},
+"src/bsshader/bsfogproperty.cpp": {
+"??1NiFogProperty@@UAE@XZ": 11116336
+},
+"src/bsshader/bsshaderaccumulator.cpp": {
+"??1FUN_00ba8ec0@@QAE@XZ": 12225744,
+"??1List12@@QAE@XZ": 12163312,
+"??1LocalCriticalSection@@QAE@XZ": 4520704,
+"??1Map16@@QAE@XZ": 11943296,
+"??1NiAlphaProperty@@UAE@XZ": 11121824,
+"??1NiTMapBaseStub@fnv_00b656e0@@UAE@XZ": 11943264,
+"??1OMCS@fnv_00b656e0@@QAE@XZ": 4520704,
+"??1OMMap@fnv_00b656e0@@UAE@XZ": 11943296,
+"??1OMMember1a4@fnv_00b656e0@@QAE@XZ": 12225744,
+"??1OMRefPtr@fnv_00b656e0@@QAE@XZ": 4574912,
+"??1PoolModeGuard@@QAE@XZ": 4214496,
+"??1RefPtr@@QAE@XZ": 4574912,
+"??3QueryLocal@@SAXPAX@Z": 4198448
+},
+"src/bsshader/bsshaderlightingproperty.cpp": {
+"??1Base_00b6fd30@@QAE@XZ": 12230880,
+"??1MyArray@@QAE@XZ": 4208592,
+"??1SmartPtr@@QAE@XZ": 4574912
+},
+"src/bsshader/bsshadermanager.cpp": {
+"??1?$NiPointer@UMaterial@@@@QAE@XZ": 4574912,
+"??1HeapScope@@QAE@XZ": 4214496,
+"??1NiObjectCopyInfo@@QAE@XZ": 4903376,
+"??1ShaderMap@@QAE@XZ": 12057920,
+"??3ImageManagerInit@@SAXPAX@Z": 4198448,
+"??3InitString@@SAXPAX@Z": 4198448,
+"??3TextureLoaderInit@@SAXPAX@Z": 4198448,
+"??3TextureManagerInit@@SAXPAX@Z": 4198448,
+"??_VAccumPointerInit@@SAXPAX@Z": 4198448
+},
+"src/bsshader/bsshadermanager_nogf_variant.cpp": {
+"??1PixelOwner@@QAE@XZ": 11956000
+},
+"src/bsshader/bsshaderpplightingproperty.cpp": {
+"??1?$NiPointer@VNiTexture@@@@QAE@XZ": 11956000,
+"??1FUN_00b71720@@UAE@XZ": 11998224,
+"??1NiPtr_b67380@@QAE@XZ": 4574912,
+"??_V?$NiPointer@VNiTexture@@@@SAXPAX@Z": 4198448,
+"??_VNiPtrX@@SAXPAX@Z": 4198448
+},
+"src/bsshader/bsshaderutil.cpp": {
+"??3BSShaderUtilTextureName@@SAXPAX@Z": 4198448
+},
+"src/bsshader/bstexturemanager.cpp": {
+"??1?$StubArray@PAX@@UAE@XZ": 12970848,
+"??1?$StubPtrList@VStubRefObj@@@@QAE@XZ": 11913152,
+"??1?$StubPtrListBase@V?$StubPtrAlloc@I@@V?$StubPtr@VStubRefObj@@@@@@QAE@XZ": 10655360
+},
+"src/bsshader/bstexturemanager_o2_variant.cpp": {
+"??1?$NiPointer@UResource@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VBSMultiBound@@@@QAE@XZ": 4574912,
+"??1?$PrimArray@PAX@@UAE@XZ": 12205328,
+"??1List1F0@@QAE@XZ": 4574912
+},
+"src/bsshader/debugshader.cpp": {
+"??1?$FNV_STUB_NiPointer@URenderContext@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiScreenElements@@@@QAE@XZ": 4574912
+},
+"src/bsshader/distantlodshader.cpp": {
+"??1BaseShader_00be2200@fnv_00bd5670@@UAE@XZ": 12455696
+},
+"src/bsshader/distantlodshaderproperty.cpp": {
+"??1S_00b6f0b0_ListA@@QAE@XZ": 11913152,
+"??1S_00b6f0b0_ListC@@QAE@XZ": 12163312,
+"??1S_00b6f0b0_Ptr@@QAE@XZ": 4574912
+},
+"src/bsshader/geometrydecalshader.cpp": {
+"??1PassReference@@QAE@XZ": 4574912
+},
+"src/bsshader/imagespaceeffectbloom.cpp": {
+"??3ImageSpaceShaderParam@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespaceeffectgethit.cpp": {
+"??3ImageSpaceShaderParamX@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespaceeffectinterface.cpp": {
+"??3PipboyConstants@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespaceeffectmenubg.cpp": {
+"??3ImageSpaceShaderParam@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespaceeffectrefraction.cpp": {
+"??3ImageSpaceShaderParam@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespaceeffecttv.cpp": {
+"??3PipboyConstants@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespaceeffectvatsscan.cpp": {
+"??1ImageSpaceEffect@@QAE@XZ": 12205360
+},
+"src/bsshader/imagespaceeffectwaterdisplacement.cpp": {
+"??1?$NiPointer@UNiScreenElementsData@@@@QAE@XZ": 11956000
+},
+"src/bsshader/imagespaceeffectwaterfft.cpp": {
+"??3ImageSpaceShaderParam@@SAXPAX@Z": 4198448
+},
+"src/bsshader/imagespacemanager.cpp": {
+"??1?$NiPointer@VNiScreenElementsData@@@@QAE@XZ": 11956000,
+"??1GeometryString@@QAE@XZ": 4424112,
+"??1ImageSpaceEffectShader@fnv_00b8c070@@QAE@XZ": 12597792,
+"??1TlsAllocStateGuard@@QAE@XZ": 4214496
+},
+"src/bsshader/imagespaceshadermenuunpack.cpp": {
+"??1?$NiPointer@UBSRenderedTexture@@@@QAE@XZ": 4574912
+},
+"src/bsshader/imagespacetexture_o2_variant.cpp": {
+"??1TLSTagGuard@@QAE@XZ": 4214496
+},
+"src/bsshader/lighting30shader_preset.cpp": {
+"??1StageRef@@QAE@XZ": 12000112
+},
+"src/bsshader/mtrenderingsystem_o2_variant.cpp": {
+"??1?$NiPointer@UNiRefObject@@@@QAE@XZ": 4574912,
+"??1BSCullingProcess@AccumTaskDetail@@QAE@XZ": 4853600,
+"??1CullProc@fnv_00ba3190@@QAE@XZ": 4853600,
+"??1LinearTaskGroup@@QAE@XZ": 1182643237,
+"??3Class0xa4@AccumTaskDetail@@SAXPAX@Z": 4198448,
+"??3RenderTaskThread@@SAXPAX@Z": 4198448
+},
+"src/bsshader/particleshader.cpp": {
+"??1ObjectPointer@ParticleConstruction@@QAE@XZ": 11956000,
+"??1PassPointer@ParticleConstruction@@QAE@XZ": 12032304,
+"??1ShaderBase@ParticleConstruction@@QAE@XZ": 12455696
+},
+"src/bsshader/particleshaderproperty.cpp": {
+"??1?$NiPointer@UNiRefObject@@@@QAE@XZ": 4574912,
+"??1PrimArray@@QAE@XZ": 4906528
+},
+"src/bsshader/shadowlightshader.cpp": {
+"??1?$NiPointer@UFNVConfigObject@fnv_00c01c20@@@@QAE@XZ": 12000112,
+"??1DummyStage@fnv_00c01f60@@QAE@XZ": 12000112
+},
+"src/bsshader/shadowscenelight.cpp": {
+"??1?$NiPointer@VNiRefObject@@@@QAE@XZ": 4574912,
+"??1?$ShadowSceneArray@PAVBSMultiBoundNode@@@@UAE@XZ": 12183792,
+"??1?$ShadowSceneArray@PAVBSPortal@@@@UAE@XZ": 12183792,
+"??1?$ShadowSceneArray@PAVNiNode@@@@UAE@XZ": 4690240,
+"??1?$ShadowScenePointer@VBSRenderedTexture@@@@QAE@XZ": 4574912,
+"??1?$ShadowScenePointer@VBSShaderAccumulator@@@@QAE@XZ": 4574912,
+"??1?$ShadowScenePointer@VNiAVObject@@@@QAE@XZ": 4574912,
+"??1?$ShadowScenePointer@VNiCamera@@@@QAE@XZ": 4574912,
+"??1?$ShadowScenePointer@VNiLight@@@@QAE@XZ": 4574912,
+"??1?$ShadowScenePointer@VNiTexture@@@@QAE@XZ": 4574912,
+"??1?$ShadowScenePointer@VNiTriBasedGeom@@@@QAE@XZ": 4574912,
+"??1NiRefObject@@UAE@XZ": 4811024,
+"??1NiTPointerList_NiPointer_NiAVObject___@@QAE@XZ": 11913152,
+"??1NiTPointerList_NiPointer_NiTriBasedGeom___@@QAE@XZ": 11913152,
+"??1RefPtr_b9e7c0@@QAE@XZ": 4574912,
+"??1RefPtr_b9e850@@QAE@XZ": 4574912,
+"??1RefPtr_b9fcc0@@QAE@XZ": 4574912
+},
+"src/bsshader/shadowscenelight_od_variant_ob1_variant.cpp": {
+"??1FUN_00c49fe0@@QAE@XZ": 12888128,
+"??1FUN_00c4a1b0@@QAE@XZ": 12888288
+},
+"src/bsshader/shadowscenenode.cpp": {
+"??1?$NiPointer@VItem@fnv_00b5e870@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiRefObject@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VSSLight@fnv_00b5c940@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VShadowDtorTexture@@@@QAE@XZ": 4574912,
+"??1?$NiPointerB5D@VBSMultiBoundB5D@@@@QAE@XZ": 4574912,
+"??1?$NiPointerB5E@VBSMultiBoundB5E@@@@QAE@XZ": 4574912,
+"??1?$Ptr@UFog@@@@QAE@XZ": 4574912,
+"??1?$Ptr@URef@@@@QAE@XZ": 4574912,
+"??1?$Ptr@USceneLight@@@@QAE@XZ": 4574912,
+"??1?$S00b5cd00_Ptr@VS00b5cd00_Param@@@@QAE@XZ": 4574912,
+"??1?$S5c6e0_RefArg@VNiRefObject@@@@QAE@XZ": 4574912,
+"??1Base@@UAE@XZ": 10873136,
+"??1CullScratch@fnv_00b5f9b0@@QAE@XZ": 12875632,
+"??1FUN_00a69400@@QAE@XZ": 10916832,
+"??1FirstOwner@fnv_00b5e870@@QAE@XZ": 4574912,
+"??1Fixed@@QAE@XZ": 4424112,
+"??1InterfaceArray@@QAE@XZ": 13086960,
+"??1List@@QAE@XZ": 11913152,
+"??1S00b5d9f0_Temp@@QAE@XZ": 4574912,
+"??1S00b5eca0_Ptr@@QAE@XZ": 4574912,
+"??1ShadowDtorFrustum@@QAE@XZ": 12875632,
+"??3hkReferencedObject@@SAXPAX@Z": 13232864
+},
+"src/bsshader/skyshader.cpp": {
+"??1ShaderBase@fnv_00b8a1f0@@UAE@XZ": 12455696,
+"??1ShapePtr_b899a0@@QAE@XZ": 4574912
+},
+"src/bsshader/tallgrassgroup.cpp": {
+"??1?$NiPointer@VNiAVObject@@@@QAE@XZ": 11956000,
+"??1?$RefPtr@UC1AClass@@@@QAE@XZ": 4574912,
+"??1?$RefPtr@UC469Class@@@@QAE@XZ": 4574912
+},
+"src/bsshader/tallgrassshader.cpp": {
+"??1AutoMemContext_bad060@@QAE@XZ": 4214496,
+"??1MidLevel@ba94b0@@QAE@XZ": 12227120,
+"??1QAutoMemContext@fnv_00bacf00@@QAE@XZ": 4214496
+},
+"src/bsshader/tallgrassshaderproperty.cpp": {
+"??3FUN_00b617f0@@SAXPAX@Z": 4198448,
+"??3FUN_00bd8f90@@SAXPAX@Z": 4198448
+},
+"src/bsshader/tileshader.cpp": {
+"??1BSShader@fnv_00bcaca0@@UAE@XZ": 12455696
+},
+"src/bsshader/tileshaderproperty.cpp": {
+"??1?$Pointer_bb7d@VRefObject_bb7d@@@@QAE@XZ": 4574912,
+"??1?$TexturePtr@UNiTexture@@@bb7c30@@QAE@XZ": 4574912,
+"??1FUN_00ba8e50@bb7c30@@QAE@XZ": 12230880,
+"??1PooledTexture_bb7d@@QAE@XZ": 4208592,
+"??1String@bb7c30@@QAE@XZ": 4208592
+},
+"src/bsshader/watershader.cpp": {
+"??1?$NiPointer@VTextureB824B0@@@@QAE@XZ": 4574912
+},
+"src/bsshader/watershaderproperty.cpp": {
+"??1?$CmPointer@UCmObject@@@@QAE@XZ": 4574912,
+"??1B6AB20CloningProcess@@QAE@XZ": 4903376,
+"??1CmBase@@UAE@XZ": 12230880,
+"??1CmList@@QAE@XZ": 11969808
+},
+"src/bssystem/archive.cpp": {
+"??1ArcRef@fnv_00af8e60@@UAE@XZ": 4811024,
+"??1ArchivePtr@fnv_00afb300@@QAE@XZ": 11519776,
+"??1Critical077@fnv_00af7eb0@@QAE@XZ": 4520704,
+"??1FUN_00afb300@fnv_00afc430@@QAE@XZ": 11515168,
+"??1FUN_00aff180@fnv_00afb300@@UAE@XZ": 11530816,
+"??1FUN_00b00260@fnv_00af7eb0@@UAE@XZ": 11530816,
+"??1MemCtxScope_00affd80@@QAE@XZ": 4214496,
+"??1NiRefObject077@fnv_00af7eb0@@UAE@XZ": 4811024,
+"??3FUN_00afb300@fnv_00afa550@@SAXPAX@Z": 4198448,
+"??3FUN_00afc430@fnv_00afa550@@SAXPAX@Z": 4198448,
+"??3FUN_00afcce0@@SAXPAX@Z": 4198448,
+"??3FUN_00afd390@@SAXPAX@Z": 4198448
+},
+"src/bssystem/bsfile_ob1_variant.cpp": {
+"??1MemContextGuard@@QAE@XZ": 4214496
+},
+"src/bssystem/console/bsconsolefilecache.cpp": {
+"??1?$BSSimpleList@PAVBGSHeadPart@@@@QAE@XZ": 4652976,
+"??1?$NiTObjectArray@V?$NiPointer@VNiTexture@@@@@@UAE@XZ": 6150160,
+"??1?$NiTPrimitiveArray@PAVTESModel@@@@UAE@XZ": 6150064,
+"??1?$NiTPrimitiveArray@PAVTESTexture@@@@UAE@XZ": 6150096,
+"??1?$NiTPrimitiveArray@PBD@@UAE@XZ": 6150128
+},
+"src/bssystem/console/bsconsolefilecache_ob1_variant.cpp": {
+"??3Spawned_b02010@@SAXPAX@Z": 4198448
+},
+"src/bssystem/console/bsfile_console.cpp": {
+"??1S_00b00260_Base@@QAE@XZ": 11146896
+},
+"src/bssystem/filefinder.cpp": {
+"??3BSFile@@SAXPAX@Z": 4198448
+},
+"src/bssystemutilities/console/bsawardssystemutility_console.cpp": {
+"??3DownloadableContentManager@@SAXPAX@Z": 4198448,
+"??3IdleSystem@@SAXPAX@Z": 4198448
+},
+"src/bssystemutilities/console/bsdlcsystemutility_console.cpp": {
+"??1BSHelper@fnv_00af2850@@QAE@XZ": 10536864,
+"??3FUN_00b008b0@fnv_00af2940@@SAXPAX@Z": 4198448
+},
+"src/bssystemutilities/console/bsnetworksystemutility_console.cpp": {
+"??3NetworkSystemUtility@@SAXPAX@Z": 4198448
+},
+"src/fallout/ai/actor.cpp": {
+"??1BCaster_S@@QAE@XZ": 8475568,
+"??1BMobile_S@@QAE@XZ": 9628736,
+"??1BSSpinLock_S@@QAE@XZ": 4652976,
+"??1FUN_006707c0@@UAE@XZ": 6752432,
+"??1FUN_00822a40@@QAE@XZ": 8530560,
+"??1FUN_00937000@@QAE@XZ": 9662512,
+"??3AHProcess@fnv_00882b90@@SAXPAX@Z": 4198448,
+"??3AcObj@fnv_0087e130@@SAXPAX@Z": 8907184
+},
+"src/fallout/ai/actor_o2_nood_variant.cpp": {
+"??1?$DynamicArray@H@@QAE@XZ": 13086960,
+"??1?$DynamicArray@M@@QAE@XZ": 13086960,
+"??1?$DynamicArray@UTransform@@@@QAE@XZ": 13090704,
+"??1?$HkArray@I@SkeletonBuild@@QAE@XZ": 13086960,
+"??1?$HkArray@M@SkeletonBuild@@QAE@XZ": 13086960,
+"??1?$HkArray@UhkQsTransform@SkeletonBuild@@@SkeletonBuild@@QAE@XZ": 13090704,
+"??1ArrayStorage@@QAE@XZ": 6462272,
+"??1BlendBuffer@@QAE@XZ": 13087024,
+"??1BoneRecordArray@SkeletonBuild@@UAE@XZ": 13084256,
+"??1BoneRecordMap@SkeletonBuild@@UAE@XZ": 13066144,
+"??1ConstructorBase@@UAE@XZ": 13060000,
+"??1NamePair@@QAE@XZ": 4424112,
+"??1NameSlot@@QAE@XZ": 4424112,
+"??1NiTMapBaseStub@SkeletonBuild@@UAE@XZ": 13066112,
+"??1PoseBuffer@@QAE@XZ": 13521776,
+"??1PoseState@@QAE@XZ": 13091504,
+"??1SmallArray@@QAE@XZ": 7680160,
+"??1SourceBase@@UAE@XZ": 5475856,
+"??1TempArray@@QAE@XZ": 13084208,
+"??1hkReferencedObject@SkeletonBuild@@UAE@XZ": 5475856,
+"??3@YAXPAX0@Z": 10655360,
+"??3CloneBuffer@@SAXPAX@Z": 13061968,
+"??3FUN_00cd8820@@SAXPAX@Z": 13232864,
+"??3FUN_00cdb400@@SAXPAX@Z": 13062000,
+"??3FUN_00ce4a20@@SAXPAX@Z": 13232864,
+"??3SkeletonPoseData@SkeletonBuild@@SAXPAX@Z": 13061968,
+"??3SourceBuffer@@SAXPAX@Z": 13232864,
+"??3hkaBone@SkeletonBuild@@SAXPAX0@Z": 10655360,
+"??3hkaSkeleton@SkeletonBuild@@SAXPAX@Z": 13232864
+},
+"src/fallout/ai/actor_o2_nood_variant_rtm_variant.cpp": {
+"??1FNVFrameArray@@QAE@XZ": 13090704
+},
+"src/fallout/ai/actor_o2_variant.cpp": {
+"??1?$NiPointer@UMyRef@@@@QAE@XZ": 4574912,
+"??1BCB9810AllocTagScope@@QAE@XZ": 4214496,
+"??1Base@@UAE@XZ": 5475856,
+"??1BaseC7@@UAE@XZ": 13060000,
+"??1FixedStr9@@QAE@XZ": 4424112,
+"??1MiddleObject@@QAE@XZ": 13145664,
+"??1PolyArr@@QAE@XZ": 7680160,
+"??1RKey@@QAE@XZ": 4424112,
+"??1RagScrapMarker@@QAE@XZ": 13087024,
+"??1ScrapMarker@@QAE@XZ": 13087024,
+"??1StringPtr@@QAE@XZ": 13306880
+},
+"src/fallout/ai/actor_o2_variant_od_oy_noo2_variant.cpp": {
+"??3ProjC7@@SAXPAX@Z": 8907184
+},
+"src/fallout/ai/ailineartaskthread_h_unit.cpp": {
+"??1BSLinearTaskThread@@UAE@XZ": 9205696
+},
+"src/fallout/ai/aitaskmanager.cpp": {
+"??1BSThread@fnv_008c9bd0@@QAE@XZ": 11166656,
+"??1CountingSemaphore@fnv_008c9bd0@@QAE@XZ": 5612240,
+"??1FUN_006c7850_base@fnv_008c82e0@@QAE@XZ": 11538112,
+"??1FUN_008ca800_base@fnv_008ca680@@QAE@XZ": 9216960,
+"??1M0@@QAE@XZ": 9208880,
+"??1M1@@QAE@XZ": 9210000,
+"??1M2@@QAE@XZ": 9210704,
+"??1M3@@QAE@XZ": 9210368,
+"??1M4@@QAE@XZ": 9212032,
+"??1M5@@QAE@XZ": 9212368
+},
+"src/fallout/ai/alarmpackage.cpp": {
+"??1FUN_009ec5d0_pkg@@QAE@XZ": 6752432
+},
+"src/fallout/ai/character.cpp": {
+"??1PoolEntryArray@@QAE@XZ": 9873712
+},
+"src/fallout/ai/combat/combatactions.cpp": {
+"??1CombatAction@@QAE@XZ": 9936000,
+"??1CombatActionAttackGrenade@@QAE@XZ": 9946224
+},
+"src/fallout/ai/combat/combatcovermap.cpp": {
+"??1FUN_009836d0_class@@QAE@XZ": 9975552
+},
+"src/fallout/ai/combat/combatgoal.cpp": {
+"??1CombatGoalStub_b4510@@UAE@XZ": 9978512,
+"??1CondS@fnv_00984ba0@@QAE@XZ": 8097792
+},
+"src/fallout/ai/combat/combatgroup.cpp": {
+"??1Member08_985d10@@QAE@XZ": 10022240,
+"??1Member110_985d10@@QAE@XZ": 10023632,
+"??1Member120_985d10@@QAE@XZ": 10024176,
+"??1Member138_985d10@@QAE@XZ": 10024256,
+"??1Member18_985d10@@QAE@XZ": 10022944,
+"??1MemberD4_985d10@@QAE@XZ": 4574912,
+"??3@YAXPAX0@Z": 4258784,
+"??3Obj8@@SAXPAX0@Z": 4258784
+},
+"src/fallout/ai/combat/combatgroupstrategy.cpp": {
+"??1IndexedMemberArray@@QAE@XZ": 10024288
+},
+"src/fallout/ai/combat/combatmanager.cpp": {
+"??1FUN_006707c0@@UAE@XZ": 6752432,
+"??1FUN_00982430@@UAE@XZ": 9970784
+},
+"src/fallout/ai/combat/combatplanner.cpp": {
+"??3@YAXPAX0@Z": 4258784
+},
+"src/fallout/ai/combat/combatprocedureactivateobject.cpp": {
+"??1FUN_009ca680_base@@UAE@XZ": 10266304
+},
+"src/fallout/ai/combat/combatprocedureattackmelee.cpp": {
+"??1CombatProcBase@@UAE@XZ": 10266304
+},
+"src/fallout/ai/combat/combatproceduremove.cpp": {
+"??1FUN_009ca680@@UAE@XZ": 10266304
+},
+"src/fallout/ai/combat/combatstate.cpp": {
+"??1A24@fnv_00997600@@QAE@XZ": 10105872,
+"??1B3C@fnv_00997600@@QAE@XZ": 7228672,
+"??1C10@fnv_00997600@@QAE@XZ": 10105952,
+"??1D10@fnv_00997600@@QAE@XZ": 10106352,
+"??1E4@fnv_00997600@@QAE@XZ": 7258000,
+"??1FUN_006d3200@fnv_006d3150@@QAE@XZ": 7156416
+},
+"src/fallout/ai/combat/combattargetmap.cpp": {
+"??1FUN_009a42f0@@QAE@XZ": 9182384
+},
+"src/fallout/ai/combat/combatthreatmap.cpp": {
+"??1FUN_00993960@@QAE@XZ": 10031408
+},
+"src/fallout/ai/combat/explosion.cpp": {
+"??1Ae140Base@@UAE@XZ": 13133600,
+"??1BaseObject@@UAE@XZ": 6426880,
+"??1CauseC@fnv_009ac200@@QAE@XZ": 4388704,
+"??1FUN_0092eb50@@UAE@XZ": 9628736,
+"??1GlobalObject_0042f730@@QAE@XZ": 4388704,
+"??1GlobalObject_0096a2d0@@QAE@XZ": 4652976,
+"??1ListC@fnv_009ac200@@QAE@XZ": 4652976,
+"??1MobileC@fnv_009ac200@@UAE@XZ": 9628736,
+"??1SmartC@fnv_009ac200@@QAE@XZ": 4574912,
+"??1TripleC@fnv_009ac200@@QAE@XZ": 4732688
+},
+"src/fallout/ai/combat/explosion_o2_variant.cpp": {
+"??3HavokObj@@SAXPAX@Z": 13232864
+},
+"src/fallout/ai/combat/explosion_o2_variant_od_noo2_variant.cpp": {
+"??3Body@@SAXPAXI@Z": 11146336
+},
+"src/fallout/ai/combat/grenadeprojectile.cpp": {
+"??1FUN_009bbef0@@QAE@XZ": 10208368
+},
+"src/fallout/ai/combat/missileprojectile.cpp": {
+"??1BA410Base@@UAE@XZ": 13145664
+},
+"src/fallout/ai/combat/missileprojectile_o2_variant.cpp": {
+"??1TlsGuard_t@@QAE@XZ": 4214496
+},
+"src/fallout/ai/combat/projectile.cpp": {
+"??1PrjCausePtr@@QAE@XZ": 4388704,
+"??1PrjList@@QAE@XZ": 4652976,
+"??1PrjMobile@@UAE@XZ": 9628736,
+"??1PrjNodePtr@@QAE@XZ": 4574912,
+"??1PrjSoundHandle@@QAE@XZ": 4732688
+},
+"src/fallout/ai/combat/projectile_ob1_variant.cpp": {
+"??1MemContextGuard@@QAE@XZ": 4214496
+},
+"src/fallout/ai/combatcontroller.cpp": {
+"??3Entry@fnv_00994bd0@@SAXPAX0@Z": 4258784
+},
+"src/fallout/ai/creature_o2_variant.cpp": {
+"??1LocalObj@@QAE@XZ": 13108784
+},
+"src/fallout/ai/fleepackage.cpp": {
+"??1TESPackage@@UAE@XZ": 6752432
+},
+"src/fallout/ai/highprocess.cpp": {
+"??1?$PRPtr@UPRMessageQueue@@@@QAE@XZ": 7258000,
+"??1?$PRPtr@UPRRequest@@@@QAE@XZ": 4574912,
+"??1MiddleHighProcess@@QAE@XZ": 9520656,
+"??1QueryPtr65@fnv_008df1e0@@QAE@XZ": 4574912,
+"??1QueuePtr65@fnv_008df1e0@@QAE@XZ": 7258000,
+"??3DialogueItem@@SAXPAX@Z": 4198448
+},
+"src/fallout/ai/highprocess_o2_variant_od_oy_noo2_variant.cpp": {
+"??1xConvexShape@fnv_008e5100@@UAE@XZ": 13236992
+},
+"src/fallout/ai/lowprocess.cpp": {
+"??3SearchResult@@SAXPAX@Z": 4198448
+},
+"src/fallout/ai/middlehighprocess.cpp": {
+"??1FUN_008c5e20@@QAE@XZ": 9199216,
+"??1FUN_0092c950@@QAE@XZ": 9619968,
+"??1GO@fnv_0092c0c0@@QAE@XZ": 4574912
+},
+"src/fallout/ai/middlelowprocess.cpp": {
+"??1Base_0092c950@@UAE@XZ": 9465824,
+"??1Mem_0092c950@@QAE@XZ": 9662512
+},
+"src/fallout/ai/mobileobject.cpp": {
+"??1TESPackage@@UAE@XZ": 6752432
+},
+"src/fallout/ai/mobileobject_o2_variant_od_oy_noo2_variant.cpp": {
+"??3Controller9BE@@SAXPAX@Z": 8907184
+},
+"src/fallout/ai/movement/actormover.cpp": {
+"??1?$NiPointer@VActorPathingMessageQueue@fnv_009dfa00@@@@QAE@XZ": 7258000,
+"??1?$NiPointer@VPathingRequest@fnv_009dfa00@@@@QAE@XZ": 4574912
+},
+"src/fallout/ai/movement/detailedactorpathhandler.cpp": {
+"??1FUN_009dfd70@@UAE@XZ": 10354384
+},
+"src/fallout/ai/playercharacter.cpp": {
+"??1FUN_004ee810@@QAE@XZ": 5171264,
+"??1FUN_00528cb0@@QAE@XZ": 4508656
+},
+"src/fallout/ai/processlists.cpp": {
+"??1DispatchMembers@fnv_009eb500@@QAE@XZ": 4652976
+},
+"src/fallout/ai/spectatorpackage_od_variant.cpp": {
+"??1Base_9f72f0@@UAE@XZ": 6752432,
+"??1FUN_009f8e80_sub@fnv_009f8e80@@QAE@XZ": 4574912,
+"??1SubA0@@QAE@XZ": 10455824,
+"??1SubB0@@QAE@XZ": 4574912,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/fallout/audio/impactmixer_ob1_variant.cpp": {
+"??3FilterArray@@SAXPAX@Z": 4198448
+},
+"src/fallout/dialogue/dialogueitem.cpp": {
+"??1?$BSSimpleList@PAUDialogueResponse@fnv_0083c520@@@@QAE@XZ": 4652976
+},
+"src/fallout/dialogue/menutopic.cpp": {
+"??1?$BSSimpleList@PAVDialogueResponse@@@@QAE@XZ": 4652976
+},
+"src/fallout/interface/fopipboymanager.cpp": {
+"??1PipBase@@UAE@XZ": 8367376,
+"??1PipSound@@QAE@XZ": 4732688
+},
+"src/fallout/interface/fovatseffectmanager.cpp": {
+"??1FUN_007002d0@@QAE@XZ": 8353648
+},
+"src/fallout/interface/interface.cpp": {
+"??1B7AB690Menu@@UAE@XZ": 10601760,
+"??1BaseMenu@@QAE@XZ": 8367376
+},
+"src/fallout/interface/interfacemanager.cpp": {
+"??1?$NiPointer@VAnimIdle@fnv_0070b5d0@@@fnv_0070b5d0@@QAE@XZ": 4574912,
+"??1?$NiPointer@VBSShaderAccumulator@fnv_0070a130@@@fnv_0070a130@@QAE@XZ": 4574912,
+"??1?$NiPointer@VMenuAlphaProperty@fnv_0070a130@@@fnv_0070a130@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiNode@@@fnv_0070a130@@QAE@XZ": 4574912,
+"??1Obj0070a8e0@fnv_0070a130@@QAE@XZ": 4732688,
+"??1Obj007ffec0@fnv_0070a130@@QAE@XZ": 8389040,
+"??1SL@fnv_0070a130@@QAE@XZ": 4652976,
+"??1ShadowLightData@fnv_0070a130@@QAE@XZ": 8353680,
+"??1Tile3D@fnv_0070b5d0@@UAE@XZ": 10482496
+},
+"src/fallout/interface/interfacemanager_o2_variant_fpfast_variant.cpp": {
+"??1?$NiPointer@UItem@@@@QAE@XZ": 4574912
+},
+"src/fallout/interface/menuconsole.cpp": {
+"??1GlobalObject_0048f200_d0071b020@@QAE@XZ": 7450656
+},
+"src/fallout/interface/menumanager.cpp": {
+"??1?$NiPointer@UNiNode@fnv_007b8d30@@@fnv_007b8d30@@QAE@XZ": 4574912,
+"??1FUN_00723750@@QAE@XZ": 7485472,
+"??1FUN_00723f50@@QAE@XZ": 7487360,
+"??1FUN_007df140_Sub@@QAE@XZ": 4222432,
+"??1FUN_009ca4a0@@QAE@XZ": 10265792,
+"??1FUN_00a1c4a0@@QAE@XZ": 10601760,
+"??1Menu@Reconstructed@fnv_00720550@@UAE@XZ": 10601760,
+"??1MenuList@Reconstructed@fnv_00720550@@QAE@XZ": 7487440,
+"??1MenuSelection@Reconstructed@fnv_00720550@@QAE@XZ": 7487520,
+"??1Menu_007a8b10@fnv_00720170@@UAE@XZ": 10601760,
+"??1Menu_007a8b10@fnv_007b8d30@@UAE@XZ": 10601760
+},
+"src/fallout/interface/menus/bartermenu.cpp": {
+"??1C72CEB0ListBox@@QAE@XZ": 7538912,
+"??1C72CEB0Menu@@UAE@XZ": 10601760,
+"??1C72CEB0StringList@@QAE@XZ": 4652976
+},
+"src/fallout/interface/menus/blackjackmenu.cpp": {
+"??1Menu@fnv_007c06f0@@UAE@XZ": 10601760,
+"??1SetBase@@UAE@XZ": 10601760
+},
+"src/fallout/interface/menus/caravanmenu.cpp": {
+"??1ArrayMember@@QAE@XZ": 7680160,
+"??1ConstructorBase@@UAE@XZ": 10601760
+},
+"src/fallout/interface/menus/chargenmenu.cpp": {
+"??1Menu754@@UAE@XZ": 10601760
+},
+"src/fallout/interface/menus/companionwheelmenu.cpp": {
+"??1FUN_007642f0@@QAE@XZ": 7750592
+},
+"src/fallout/interface/menus/computersmenu.cpp": {
+"??1ComputerEntryList@@QAE@XZ": 7708768,
+"??1SL2@@QAE@XZ": 4652976
+},
+"src/fallout/interface/menus/creditsmenu.cpp": {
+"??3CreditMaterial@@SAXPAXI@Z": 11146336,
+"??3CreditSceneNode@@SAXPAXI@Z": 11146336
+},
+"src/fallout/interface/menus/hackingmenu.cpp": {
+"??1AnimState@@QAE@XZ": 7498992,
+"??1FUN_00759eb0@@QAE@XZ": 7498992,
+"??1ListState@@QAE@XZ": 4856368,
+"??1PairState@@QAE@XZ": 7755792
+},
+"src/fallout/interface/menus/hackingmenu_ob1_variant.cpp": {
+"??1TagScope@@QAE@XZ": 4214496
+},
+"src/fallout/interface/menus/inventorymenu.cpp": {
+"??1?$BSSimpleList@PAVTESBoundObject@@@@QAE@XZ": 4652976,
+"??1HotkeyWheelDisplay@@QAE@XZ": 7345440,
+"??1ListBox_ItemChange___@@QAE@XZ": 7538912
+},
+"src/fallout/interface/menus/itemmodmenu.cpp": {
+"??1ListBox_ItemChange___@@QAE@XZ": 7538912,
+"??1Menu@@QAE@XZ": 10601760
+},
+"src/fallout/interface/menus/levelupmenu.cpp": {
+"??1?$BSSimpleList@PAX@@QAE@XZ": 4652976,
+"??1Member64@@QAE@XZ": 7475536,
+"??1Member94@@QAE@XZ": 7892096
+},
+"src/fallout/interface/menus/loadingmenu.cpp": {
+"??3ScreenEntry@@SAXPAX@Z": 4198448
+},
+"src/fallout/interface/menus/lovetestermenu.cpp": {
+"??1FUN_00723fa0@@QAE@XZ": 7487440,
+"??1FUN_00794e70@@QAE@XZ": 7953856
+},
+"src/fallout/interface/menus/mapmenu.cpp": {
+"??1?$BSSimpleArray@PAVTile@@$0EAA@@@QAE@XZ": 7445472,
+"??1?$BSSimpleArray@V?$BSStringT@D@@$0EAA@@@QAE@XZ": 8002208,
+"??1?$BSSimpleList@VSoundPlaybackHandle@@@@QAE@XZ": 7780512,
+"??1?$ListBox@PAVBGSNote@@@@QAE@XZ": 8005824,
+"??1?$ListBox@PAVBGSQuestObjective@@@@QAE@XZ": 8012912,
+"??1?$ListBox@PAVTESChallenge@@@@QAE@XZ": 8016320,
+"??1?$ListBox@PAVTESObjectREFR@@@@QAE@XZ": 8009648,
+"??1?$ListBox@PAVTESQuest@@@@QAE@XZ": 8002912,
+"??1AMSoundHandle@fnv_0079a660@@QAE@XZ": 4732688
+},
+"src/fallout/interface/menus/racesexmenu.cpp": {
+"??1FUN_007ac1f0_base@fnv_007ac1f0@@UAE@XZ": 10601760,
+"??1Obj8@fnv_007ac1f0@@QAE@XZ": 4208592,
+"??1ObjD4@fnv_007ac1f0@@QAE@XZ": 4574912,
+"??1ObjDC@fnv_007ac1f0@@QAE@XZ": 6161808
+},
+"src/fallout/interface/menus/recipemenu.cpp": {
+"??1FUN_007299a0@fnv_00726df0@@QAE@XZ": 7510640,
+"??1FUN_0072a7c0@fnv_00726df0@@QAE@XZ": 7514256,
+"??1FUN_0072b210@@QAE@XZ": 7516896,
+"??1FUN_00a1c4a0@fnv_00726df0@@QAE@XZ": 10601760
+},
+"src/fallout/interface/menus/repairservicesmenu.cpp": {
+"??1FUN_00730810@@QAE@XZ": 7538912,
+"??1FUN_00a1c4a0@@UAE@XZ": 10601760
+},
+"src/fallout/interface/menus/roulettemenu.cpp": {
+"??1List08@@QAE@XZ": 4652976
+},
+"src/fallout/interface/menus/specialbookmenu.cpp": {
+"??1C7CA200Base@@QAE@XZ": 7953856,
+"??1C7CA200NavMeshArray@@QAE@XZ": 7487280,
+"??3BkItemBase@@SAXPAX@Z": 4198448
+},
+"src/fallout/interface/menus/startmenu.cpp": {
+"??1FUN_007ce620@@UAE@XZ": 8185488
+},
+"src/fallout/interface/menus/traitmenu.cpp": {
+"??1Base753230@@UAE@XZ": 10601760,
+"??1Member753230@@QAE@XZ": 7475536
+},
+"src/fallout/magic/absorbeffect.cpp": {
+"??1FUN_00802cb0_base@@QAE@XZ": 8444208,
+"??1FUN_00802cb0_sub@@QAE@XZ": 4574912
+},
+"src/fallout/magic/activeeffect.cpp": {
+"??1FUN_0081b650@@UAE@XZ": 8501168,
+"??1FUN_0081b650@fnv_0081f220@@UAE@XZ": 8501168,
+"??1FUN_00822530@fnv_0081f220@@QAE@XZ": 8529248,
+"??1FUN_00822580@fnv_0081f220@@UAE@XZ": 8529328,
+"??1GO@fnv_0081f220@@QAE@XZ": 4574912
+},
+"src/fallout/magic/associateditemeffect.cpp": {
+"??1FUN_00806c20_base@@QAE@XZ": 8404688
+},
+"src/fallout/magic/bhktelekinesislistener.cpp": {
+"??1FUN_00807d10@@QAE@XZ": 8420672,
+"??3@YAXPAX@Z": 8420384
+},
+"src/fallout/magic/bounditemeffect.cpp": {
+"??3FUN_00410360@@SAXPAX@Z": 4198448,
+"??3FUN_004bc550@@SAXPAX@Z": 4198448,
+"??3FUN_004bc650@@SAXPAX@Z": 4198448
+},
+"src/fallout/magic/lighteffect.cpp": {
+"??1FUN_00633c90@fnv_0080e610@@QAE@XZ": 4574912,
+"??1LightEffectBase@fnv_0080e610@@UAE@XZ": 8404688
+},
+"src/fallout/magic/magicballprojectile_o2_variant_od_oy_noo2_variant.cpp": {
+"??3xCharCtl@@SAXPAX@Z": 8907184
+},
+"src/fallout/magic/magicboltprojectile_o2_variant_od_oy_noo2_variant.cpp": {
+"??1xBase@@QAE@XZ": 8511088
+},
+"src/fallout/magic/magicfogprojectile.cpp": {
+"??3FogLight@@SAXPAX@Z": 4198448
+},
+"src/fallout/magic/magicfogprojectile_o2_variant_od_oy_noo2_variant.cpp": {
+"??1xBase@@QAE@XZ": 8511088
+},
+"src/fallout/magic/magiclight.cpp": {
+"??1?$PathingRef@VPathingSolution@@@@QAE@XZ": 4296512,
+"??1S4ee810@@QAE@XZ": 4574912
+},
+"src/fallout/magic/magicmodelhiteffect.cpp": {
+"??1Base_0081c630@@UAE@XZ": 8501168,
+"??1NP_0081c630@@QAE@XZ": 4574912
+},
+"src/fallout/magic/magicprojectile_o2_variant_od_oy_noo2_variant.cpp": {
+"??3Visual@fnv_00819ca0@@SAXPAX@Z": 8907184
+},
+"src/fallout/magic/magicshaderhiteffect.cpp": {
+"??1?$NiPointer@VTextureEffectData@BSShaderPPLightingProperty@@@@QAE@XZ": 4574912,
+"??1AddOnArray@@QAE@XZ": 8529328,
+"??1HitEffAddOnArray@@QAE@XZ": 8529328,
+"??1HitEffParticleArray@@QAE@XZ": 8529248,
+"??1MagicHitEffect@@UAE@XZ": 8501168,
+"??1ShaderPropArray@@QAE@XZ": 8529248,
+"??3@YAXPAXPAUFUN_006e6da0@@@Z": 4258784
+},
+"src/fallout/magic/nonactormagictarget.cpp": {
+"??1B1_25ad0@@QAE@XZ": 4254896,
+"??1SpawnedBase_25fd0@@QAE@XZ": 4254896,
+"??1SpawnedSecondary_25fd0@@QAE@XZ": 8530560
+},
+"src/fallout/magic/reanimateeffect.cpp": {
+"??1EffBase@@QAE@XZ": 8404688
+},
+"src/fallout/magic/shieldeffect.cpp": {
+"??1EffectBase@@QAE@XZ": 8444208
+},
+"src/fallout/magic/telekinesiseffect.cpp": {
+"??1FUN_0082a460_base@fnv_b4214@@UAE@XZ": 8444208,
+"??1FUN_0082a460_member@fnv_b4214@@QAE@XZ": 4574912
+},
+"src/fallout/misc/saveload/bgsreconstructformsinallfilesmap.cpp": {
+"??1B844F00Base@@UAE@XZ": 8671136
+},
+"src/fallout/misc/saveload/bgssaveloadreferencesmap.cpp": {
+"??1OL4A@@QAE@XZ": 8729312,
+"??1OL4B@@QAE@XZ": 8726640
+},
+"src/fallout/misc/saveload/bgssaveloadstructs.cpp": {
+"??1FUN_00854c80_shell@@UAE@XZ": 8736080
+},
+"src/fallout_shared/animation.cpp": {
+"??1?$BSSimpleList@PAVIdleReplayDelayEntry@@@@QAE@XZ": 4652976,
+"??1?$BSSimpleList@PAVKFModel@@@@QAE@XZ": 4652976,
+"??1?$NiPointer@VNiControllerManager@@@@QAE@XZ": 4574912,
+"??1Base4965@fnv_004965d0@@QAE@XZ": 4811024,
+"??1FUN_0048f1b0@@QAE@XZ": 4779840,
+"??1RefKF4965@fnv_004965d0@@QAE@XZ": 4501552
+},
+"src/fallout_shared/bgsacousticspace.cpp": {
+"??1FUN_0050e820@@UAE@XZ": 5302768
+},
+"src/fallout_shared/bgscamerapath.cpp": {
+"??3FUN_0058b3f0@fnv_0058b350@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/bgsdecalmanager.cpp": {
+"??1Base_004a3b30@@UAE@XZ": 4864736,
+"??1Member_004a4730@@QAE@XZ": 4867136
+},
+"src/fallout_shared/bgsdecalmanager_ob1_variant.cpp": {
+"??1AccPtr@@QAE@XZ": 4574912
+},
+"src/fallout_shared/bgsdecalnode.cpp": {
+"??1DecalBase@@UAE@XZ": 10873136,
+"??1NodeBase@s4ee050@@QAE@XZ": 10873136
+},
+"src/fallout_shared/bgsdefaultobjectmanager.cpp": {
+"??1?$BSSimpleArray@V?$NiPointer@VObstacleUndoData@@@@$0EAA@@@QAE@XZ": 6889360,
+"??1?$BSSimpleArray@VEdgeExtraInfo@@$0EAA@@@QAE@XZ": 6888432,
+"??1?$BSSimpleArray@VNavMeshClosedDoorInfo@@$0EAA@@@QAE@XZ": 6888896,
+"??1?$BSSimpleArray@VNavMeshStaticAvoidNode@@$0EAA@@@QAE@XZ": 6889440,
+"??1?$BSSimpleArray@VNavMeshTriangle@@$0EAA@@@QAE@XZ": 6888256,
+"??1?$BSSimpleArray@VNavMeshTriangleDoorPortal@@$0EAA@@@QAE@XZ": 6888816,
+"??1?$BSSimpleArray@VNavMeshVertex@@$0EAA@@@QAE@XZ": 6888080,
+"??1NiTMap_unsigned_short_NavMeshPOVData_@@QAE@XZ": 6889120,
+"??1PathingSolutionBase@@UAE@XZ": 4811024
+},
+"src/fallout_shared/bgsentrypointfunction.cpp": {
+"??1FUN_005e6420_SV@@QAE@XZ": 6186096,
+"??1Script_SV@@UAE@XZ": 5939616
+},
+"src/fallout_shared/bgsimpactdata.cpp": {
+"??1DecalData_d00483710@@QAE@XZ": 4732688
+},
+"src/fallout_shared/bgslistform.cpp": {
+"??1Base_5effc0@@QAE@XZ": 4732464,
+"??1Member_5effc0@@QAE@XZ": 4208592
+},
+"src/fallout_shared/bgsmessageicon.cpp": {
+"??1?$BSSimpleList@PAVDistantTreeTextureInfo@@@@QAE@XZ": 4652976
+},
+"src/fallout_shared/bgsmovablestatic.cpp": {
+"??1TESObjectSTAT@@QAE@XZ": 5353984
+},
+"src/fallout_shared/bgsprimitive.cpp": {
+"??1BGSPrimBase@@UAE@XZ": 10867664,
+"??1Base_b4579@@UAE@XZ": 4878480,
+"??1FUN_004a4ac0@fnv_004a7150@@UAE@XZ": 4869072,
+"??1SlotQ@@QAE@XZ": 4574912,
+"??1Sub_b4579@@QAE@XZ": 4574912
+},
+"src/fallout_shared/bgsprimitive_ob1_variant.cpp": {
+"??1FUN_00a5ecb0@@UAE@XZ": 10873136,
+"??1FUN_00c335d0@fnv_00c4f8e0@@QAE@XZ": 4878480,
+"??1FUN_00c3a220@@QAE@XZ": 12822048,
+"??1NiObject@bs@@UAE@XZ": 10867664,
+"??1NodePointer@fnv_00c4f8e0@@QAE@XZ": 4574912,
+"??3FUN_00c47660@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/bgsterminal.cpp": {
+"??1TermActivator@@QAE@XZ": 5310016,
+"??1TermMenuList@@QAE@XZ": 4652976
+},
+"src/fallout_shared/bgstextureset.cpp": {
+"??1BSTextureSet@@UAE@XZ": 4878480
+},
+"src/fallout_shared/bipedanim.cpp": {
+"??1NiObjectCopyInfo@fnv_004ad050@@QAE@XZ": 4903376
+},
+"src/fallout_shared/bipedanim_ob1_variant.cpp": {
+"??1FixStrQ@@QAE@XZ": 4424112
+},
+"src/fallout_shared/bsclonepool.cpp": {
+"??1B0C80List@@QAE@XZ": 5171264
+},
+"src/fallout_shared/distant terrain system/bgsdistantobjectblock.cpp": {
+"??1?$TaskPtr@UTaskNode@@@@QAE@XZ": 4574912,
+"??1ArchiveFileManager@@QAE@XZ": 12832416,
+"??3MmAlpha@@SAXPAXI@Z": 11146336,
+"??3NewObj@fnv_006f6540@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/distant terrain system/bgsdistanttreeblock.cpp": {
+"??1QBase@@UAE@XZ": 12832416
+},
+"src/fallout_shared/distant terrain system/bgsterrainchunk_decl_variant.cpp": {
+"??1?$ChunkPtr@X@@QAE@XZ": 4574912,
+"??1QueuedFileEntry@@UAE@XZ": 12832416
+},
+"src/fallout_shared/extradatacell.cpp": {
+"??1CleanupBase@@QAE@XZ": 4047255770,
+"??1ExtraData40F@@UAE@XZ": 4254896,
+"??1Handle40F@@QAE@XZ": 4574912
+},
+"src/fallout_shared/extradatalist.cpp": {
+"??1BE@fnv_004338b0@@QAE@XZ": 4254896,
+"??1FUN_0040ec80@@QAE@XZ": 4254896,
+"??1FUN_00589450_base@@QAE@XZ": 5837568,
+"??1SL@fnv_004338b0@@QAE@XZ": 4652976,
+"??1StrMem@fnv_004338b0@@QAE@XZ": 4208592
+},
+"src/fallout_shared/extradataobjects.cpp": {
+"??1B433260Form@@UAE@XZ": 4254896,
+"??1BE@@QAE@XZ": 4254896,
+"??1MobileObjectBase@@UAE@XZ": 9628736
+},
+"src/fallout_shared/facegen/bsfacegenanimationdata.cpp": {
+"??1NiExtraData@@QAE@XZ": 10990336
+},
+"src/fallout_shared/facegen/bsfacegenmanager.cpp": {
+"??1?$NiPtr@VFaceGenAlphaProperty@fnv_00650ea0@@@fnv_00650ea0@@QAE@XZ": 4574912,
+"??1?$NiPtr@VNiTexture@@@fnv_00650ea0@@QAE@XZ": 4574912,
+"??1CoordinateArrayBase@@QAE@XZ": 6672304,
+"??1FaceGenCtls@fnv_00650ea0@@QAE@XZ": 6625296,
+"??1FaceGenModels@fnv_00650ea0@@QAE@XZ": 6625328,
+"??1FaceGenSam@fnv_00650ea0@@QAE@XZ": 6625120
+},
+"src/fallout_shared/facegen/bsfacegenmanager_ob1_variant.cpp": {
+"??1?$vector@MV?$allocator@M@std@@@std@@QAE@XZ": 4497472
+},
+"src/fallout_shared/facegen/bsfacegenmodel.cpp": {
+"??1FUN_0065c630@@QAE@XZ": 6669984,
+"??1FUN_0065c750@@QAE@XZ": 6670272,
+"??1FUN_0065c820@@QAE@XZ": 6670480,
+"??1FUN_0065c8f0@@QAE@XZ": 6670688,
+"??1FUN_0065c9c0@@QAE@XZ": 6670896,
+"??1FUN_0065ca90@@QAE@XZ": 6671104
+},
+"src/fallout_shared/facegen/bsfacegenmodel_ob1_variant.cpp": {
+"??1BxString@xlenb0f@@QAE@XZ": 4498752
+},
+"src/fallout_shared/facegen/bsfacegenmorph.cpp": {
+"??1BSFaceGenMorph_d006606e0@@QAE@XZ": 6686432
+},
+"src/fallout_shared/facegen/bsfacegenmorphdata.cpp": {
+"??1BSFaceGenMorphData@@UAE@XZ": 6692160
+},
+"src/fallout_shared/facegen/bsfacegenninode.cpp": {
+"??1NiPtr6628@@QAE@XZ": 4574912,
+"??1NodeBase6628@@UAE@XZ": 10873136
+},
+"src/fallout_shared/globalfunc_o2_nood_variant.cpp": {
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??1MemoryContextScope@@QAE@XZ": 4214496,
+"??3MouseSpringAction@@SAXPAX@Z": 13232864
+},
+"src/fallout_shared/globalfunc_o2_variant.cpp": {
+"??1AutoMemContext7100@@QAE@XZ": 4214496,
+"??1HeapContextGuard@@QAE@XZ": 4214496,
+"??1TlsFlagGuard@@QAE@XZ": 4214496
+},
+"src/fallout_shared/havok/bgszonetargetlistener.cpp": {
+"??3ZoneNode@@SAXPAX@Z": 8907184,
+"??3ZoneTargetNode@@SAXPAX@Z": 8907184
+},
+"src/fallout_shared/havok/cameracaster.cpp": {
+"??1Base_620ff0@@QAE@XZ": 6426880,
+"??1Sub_620ff0@@QAE@XZ": 6429504
+},
+"src/fallout_shared/havok/testraplistener.cpp": {
+"??1FX62c640_Member@@QAE@XZ": 6473472,
+"??1S_0062d350_Base@@QAE@XZ": 6476832,
+"??1S_0062d350_Member@@QAE@XZ": 6479744
+},
+"src/fallout_shared/havok/teswaterlistener.cpp": {
+"??1B631230Base@@UAE@XZ": 6421584,
+"??1FUN_0061ffb0@@QAE@XZ": 6422800,
+"??1FUN_00cb75d0@@QAE@XZ": 5588432,
+"??1SpawnedSub@@QAE@XZ": 6494080
+},
+"src/fallout_shared/imagespacemodifierinstance.cpp": {
+"??1_Call_a5d3a0@@QAE@XZ": 10867664
+},
+"src/fallout_shared/inventorychanges.cpp": {
+"??3CleanExtra@@SAXPAX@Z": 4198448,
+"??3CleanRef@@SAXPAX@Z": 4198448,
+"??3Extra@InventoryTransfer@@SAXPAX@Z": 4198448,
+"??3ExtraNode@InventoryTransfer@@SAXPAX@Z": 4198448,
+"??3FUN_00410360@InventoryCopy@@SAXPAX@Z": 4198448,
+"??3FUN_004bc550@InventoryCopy@@SAXPAX@Z": 4198448,
+"??3FUN_004bc550@Rebuild004d0650@@SAXPAX@Z": 4198448,
+"??3FUN_0096a2d0@Rebuild004d0650@@SAXPAX@Z": 4198448,
+"??3Item@InventoryTransfer@@SAXPAX@Z": 4198448,
+"??3MoveExtra@@SAXPAX@Z": 4198448,
+"??3MoveItem@@SAXPAX@Z": 4198448,
+"??3W20Entry@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/magic/effectitem.cpp": {
+"??1FUN_00403b30_member@@QAE@XZ": 6817968,
+"??1FUN_004d61b0_sub@@QAE@XZ": 5083248
+},
+"src/fallout_shared/modelloader.cpp": {
+"??1?$NiPointer@ULoadedFile@fnv_00441c50@@@@QAE@XZ": 4501856,
+"??1BSTaskManagerThread@@UAE@XZ": 12857088,
+"??1FUN_00441d80@fnv_00442130@@QAE@XZ": 4463904,
+"??1FUN_00449fd0@@QAE@XZ": 4497472,
+"??1FUN_0044afe0@fnv_0043e210@@QAE@XZ": 4501552,
+"??1FUN_0044b270@fnv_00442130@@QAE@XZ": 4502208,
+"??1FUN_0044df40_PtrHolder@@QAE@XZ": 4508656,
+"??1GO@fnv_0043b640@@QAE@XZ": 4574912,
+"??1GO@fnv_0043bd10@@QAE@XZ": 4574912,
+"??1GO@fnv_0043be60@@QAE@XZ": 4574912,
+"??1GO@fnv_0043c960@@QAE@XZ": 4243728,
+"??1GO@fnv_00442130@@QAE@XZ": 4574912,
+"??1NP_0081c630@fnv_0043abf0@@QAE@XZ": 4574912,
+"??1QBase@fnv_0043bd10@@UAE@XZ": 12832416,
+"??1QBase@fnv_0043be60@@QAE@XZ": 12832416,
+"??1QBase@fnv_0043c960@@UAE@XZ": 12832416,
+"??1QBase@fnv_0043e210@@QAE@XZ": 12832416,
+"??1QBase@fnv_00441c50@@QAE@XZ": 12832416,
+"??1QIdleBase@@QAE@XZ": 4448688,
+"??1SaveLoadBase@@UAE@XZ": 12830240,
+"??1SpawnedBase@fnv_004420b0@@UAE@XZ": 4463904,
+"??1SubObjA@fnv_004420b0@@QAE@XZ": 4574912
+},
+"src/fallout_shared/modelloader_ob1_variant.cpp": {
+"??1?$vector@MV?$allocator@M@std@@@std@@QAE@XZ": 4497472,
+"??1Aade20Matrix@@QAE@XZ": 4494976,
+"??1FUN_00a5d3a0@@QAE@XZ": 10867664,
+"??1FUN_00a5d3a0@fnv_00c3afc0@@QAE@XZ": 10867664,
+"??1Fg_aaed70_Mat@@QAE@XZ": 4494976,
+"??1Fg_aaed70_Vec@@QAE@XZ": 4497472,
+"??1TaskPtr@@QAE@XZ": 12847376
+},
+"src/fallout_shared/pathfinding/navmesh_util.cpp": {
+"??1FUN_006bbc30@fnv_006bbb80@@QAE@XZ": 9971216,
+"??1FUN_006bf7d0@fnv_006bbb80@@QAE@XZ": 7075984,
+"??1GO@fnv_006bbb80@@QAE@XZ": 4574912
+},
+"src/fallout_shared/pathfinding/navmeshinfo.cpp": {
+"??1FUN_0069cd10@@QAE@XZ": 6933824
+},
+"src/fallout_shared/pathfinding/navmeshobstaclemanager.cpp": {
+"??1?$LockFreeQueue@PAVbhkRigidBody@@@@QAE@XZ": 7104128,
+"??1FUN_0061f580@fnv_00807790@@QAE@XZ": 5588560,
+"??1FUN_006234b0@fnv_00807790@@QAE@XZ": 6436048,
+"??1FUN_006c0100@fnv_00807790@@QAE@XZ": 7078224,
+"??1FUN_006c5fc0@@QAE@XZ": 7103312,
+"??1FUN_006c6070@@QAE@XZ": 7105152,
+"??1FUN_006c60a0@@QAE@XZ": 7105408,
+"??1FUN_006c6c10@@QAE@XZ": 7105600,
+"??1FUN_006c6d40_base@@QAE@XZ": 7106016,
+"??1GlobalObject_0044dee0_d00483710@@QAE@XZ": 4732688
+},
+"src/fallout_shared/pathfinding/navmeshobstacletask.cpp": {
+"??1ObstacleMeshHandle@@QAE@XZ": 4389440
+},
+"src/fallout_shared/pathfinding/navmeshsearch.cpp": {
+"??1FUN_006a8380@fnv_006a7b10@@QAE@XZ": 9971216,
+"??1FUN_006b3de0@fnv_006a7b10@@QAE@XZ": 4732688
+},
+"src/fallout_shared/pathfinding/navmeshsearchmaxcost.cpp": {
+"??1FUN_006abf60@@UAE@XZ": 6994992,
+"??1NavMeshSearchGraphBase@fnv_006abd40@@QAE@XZ": 6995392
+},
+"src/fallout_shared/pathfinding/pathbuilder.cpp": {
+"??1FUN_006dcbb0@@QAE@XZ": 5240800,
+"??1PathBuilderDetailedPathMeshes@@QAE@XZ": 4388912,
+"??1PathingLocationX@@QAE@XZ": 5240800,
+"??3FUN_006c9920_thing@@SAXPAX0@Z": 4258784
+},
+"src/fallout_shared/pathfinding/pathfind.cpp": {
+"??1B6AD250Base@@UAE@XZ": 6995392,
+"??1BasePathingLocation@@UAE@XZ": 5240800,
+"??1D1B0Base@fnv_006ad1b0@@UAE@XZ": 6994992,
+"??1FUN_006db290_base@@UAE@XZ": 7189296,
+"??1SearchHeapA@@QAE@XZ": 7284464,
+"??1SearchHeapB@@QAE@XZ": 7284752,
+"??1SearchHeapC@@QAE@XZ": 7284176,
+"??1SearchPool@@QAE@XZ": 9971216,
+"??3@YAXPAX0@Z": 4258784,
+"??3FUN_006f4d00@@SAXPAX0@Z": 4258784
+},
+"src/fallout_shared/pathfinding/pathinglocation.cpp": {
+"??3@YAXPAX0@Z": 4258784
+},
+"src/fallout_shared/pathfinding/pathinglosgridmap.cpp": {
+"??1C6E0730List@fnv_006e0730@@QAE@XZ": 7213136
+},
+"src/fallout_shared/pathfinding/pathingrequest.cpp": {
+"??1Base_006e26a0@@QAE@XZ": 4811024,
+"??1FUN_006e3a80@@QAE@XZ": 7223984,
+"??1Member28_006e26a0@@QAE@XZ": 5240800,
+"??1Member4_006e26a0@@QAE@XZ": 7026656
+},
+"src/fallout_shared/pathfinding/pathingrequestclosepoint.cpp": {
+"??1PathBase_b5729@@QAE@XZ": 7218720
+},
+"src/fallout_shared/pathfinding/pathingrequestcoveredmove.cpp": {
+"??1BaseEmpty@@QAE@XZ": 7218720,
+"??1BaseObject_d006e2620@@QAE@XZ": 7218720,
+"??1MemberC@@QAE@XZ": 4425360,
+"??1MemberD@@QAE@XZ": 4846064,
+"??1SubB0@@QAE@XZ": 5240800
+},
+"src/fallout_shared/pathfinding/pathingrequestlos.cpp": {
+"??1E5940Base@@UAE@XZ": 7218720,
+"??1E5940NodeList@@QAE@XZ": 4846064,
+"??1E5940TargetRef@@QAE@XZ": 4574912,
+"??1FUN_006e57e0_base@@UAE@XZ": 7218720,
+"??1FUN_006e57e0_sub_b0@@QAE@XZ": 4574912,
+"??1FUN_006e57e0_sub_b4@@QAE@XZ": 4846064
+},
+"src/fallout_shared/pathfinding/pathingrequestsafestraightline.cpp": {
+"??1FUN_006e3fb0_base@@UAE@XZ": 7187824
+},
+"src/fallout_shared/pathfinding/pathingsolution.cpp": {
+"??1PathingSolutionBase@@UAE@XZ": 4811024,
+"??1PathingSolutionMember1@@QAE@XZ": 7245952,
+"??1PathingSolutionMember2@@QAE@XZ": 7246432
+},
+"src/fallout_shared/pathfinding/pathmanager.cpp": {
+"??1PathListA@@QAE@XZ": 7257792,
+"??1PathListB@@QAE@XZ": 7257872,
+"??1PathObjectPtr@@QAE@XZ": 4574912,
+"??1PathTaskBase@@UAE@XZ": 11538112
+},
+"src/fallout_shared/pathfinding/pathsmootherpov.cpp": {
+"??1FUN_006b31c0@fnv_006ad4c0@@UAE@XZ": 7025264,
+"??1FUN_006b3570@fnv_006ad4c0@@QAE@XZ": 7026080,
+"??1FUN_006b35c0@fnv_006ad4c0@@QAE@XZ": 7026160,
+"??1FUN_006b3610@fnv_006ad4c0@@QAE@XZ": 7026240,
+"??1FUN_006b36e0@fnv_006ad4c0@@QAE@XZ": 7026448
+},
+"src/fallout_shared/pathfinding/teleportpath.cpp": {
+"??1FUN_006f4b10@@QAE@XZ": 7293760,
+"??1FUN_006f4b60@@QAE@XZ": 7293840
+},
+"src/fallout_shared/region system/tesregiondatagrass.cpp": {
+"??1TESRegionData@@UAE@XZ": 5182624
+},
+"src/fallout_shared/region system/tesregiondataimposter.cpp": {
+"??1BaseCls@@UAE@XZ": 5182624,
+"??1MemberCls@@QAE@XZ": 4652976
+},
+"src/fallout_shared/region system/tesregiondatalandscape.cpp": {
+"??1F2870RegionData@@UAE@XZ": 5182624
+},
+"src/fallout_shared/region system/tesregiondatamap.cpp": {
+"??1ThisBase_b5917@fnv_004f3d50@@UAE@XZ": 5182624,
+"??1ThisMember_b5917@fnv_004f3d50@@QAE@XZ": 4208592
+},
+"src/fallout_shared/screensplatter.cpp": {
+"??1FUN_00620ff0@@QAE@XZ": 6427056,
+"??3FUN_00622c80@@SAXPAX@Z": 8907184
+},
+"src/fallout_shared/settings/xgamesetting_ob1_variant.cpp": {
+"??1FixStrQ@@QAE@XZ": 4424112
+},
+"src/fallout_shared/sky/atmosphere.cpp": {
+"??1FUN_00633cc0_SkyObject@@QAE@XZ": 6551760,
+"??3AtmoNode@@SAXPAXI@Z": 11146336
+},
+"src/fallout_shared/speedtree/bstreemanager.cpp": {
+"??1?$xPtr@UxMemObj@@@@QAE@XZ": 4574912,
+"??1?$xPtr@VxAlphaProp@@@@QAE@XZ": 4574912,
+"??1?$xPtr@VxFlagsObj@@@@QAE@XZ": 4574912,
+"??1?$xPtr@VxMatProp@@@@QAE@XZ": 4574912
+},
+"src/fallout_shared/speedtree/bstreemodel.cpp": {
+"??1PathingSolutionBase@@UAE@XZ": 4811024,
+"??_V?$NiPointer@UNiNode@@@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/speedtree/bstreenode.cpp": {
+"??1FUN_0066d490_base@@QAE@XZ": 13239616,
+"??1FUN_0066d590_base@@QAE@XZ": 13126736,
+"??1FUN_00b4e150@@UAE@XZ": 11854304,
+"??1TreePointer@@QAE@XZ": 4574912
+},
+"src/fallout_shared/speedtree/bstreenode_o2_nood_nogf_variant.cpp": {
+"??1NiFixedStringC8C@@QAE@XZ": 4424112
+},
+"src/fallout_shared/speedtree/bstreenode_o2_nood_variant.cpp": {
+"??1Guard@fnv_00c8c5b0@@QAE@XZ": 4214496,
+"??1HeapContextScope@fnv_00cb7c60@@QAE@XZ": 4214496,
+"??1TlsRestore@@QAE@XZ": 4214496,
+"??1bhkConvexShape@fnv_00cab710@@UAE@XZ": 13236992,
+"??3FUN_00cf5990@fnv_00c8c5b0@@SAXPAX@Z": 13232864,
+"??3FUN_00d22dc0@@SAXPAX@Z": 13232864
+},
+"src/fallout_shared/speedtree/bstreenode_o2_variant.cpp": {
+"??1CbArr8150@fnv_00cb8150@@QAE@XZ": 6739872,
+"??1TlsGuard@fnv_00cb7b80@@QAE@XZ": 4214496,
+"??1TmpGuard@@QAE@XZ": 6740560,
+"??3SpawnedNode@fnv_00cb7b80@@SAXPAX@Z": 5476016
+},
+"src/fallout_shared/tempeffects/bstempeffectdebris.cpp": {
+"??1EffectBase@@QAE@XZ": 6826080,
+"??1FUN_006827b0@@UAE@XZ": 6826080,
+"??1MemberPtr@@QAE@XZ": 4574912,
+"??1Ptr682@@QAE@XZ": 4574912
+},
+"src/fallout_shared/tempeffects/bstempeffectgeometrydecal.cpp": {
+"??1BaseA@@QAE@XZ": 6826080,
+"??1SpawnBase@@UAE@XZ": 10867664,
+"??1SpawnFieldA@@QAE@XZ": 4574912,
+"??1Sub1c@@QAE@XZ": 4574912,
+"??1Sub4@@QAE@XZ": 4574912
+},
+"src/fallout_shared/tempeffects/bstempeffectparticle.cpp": {
+"??1BSTempEffect@fnv_00688fc0@@QAE@XZ": 6826080,
+"??1GO@fnv_00688fc0@@QAE@XZ": 4574912,
+"??1SoundPlaybackHandle@fnv_00688fc0@@QAE@XZ": 4732688
+},
+"src/fallout_shared/tempeffects/bstempeffectsimpledecal.cpp": {
+"??1DecalList@@QAE@XZ": 6875952
+},
+"src/fallout_shared/tes_ob1_variant.cpp": {
+"??1?$StandPtr@UStandRef@@@@QAE@XZ": 4574912
+},
+"src/fallout_shared/tesammo.cpp": {
+"??1?$BSSimpleList@PAVTESAmmoEffect@@@@QAE@XZ": 4652976
+},
+"src/fallout_shared/tesammoeffect.cpp": {
+"??1TESAmmoEffectMap@@UAE@XZ": 5837568
+},
+"src/fallout_shared/tesdatahandler.cpp": {
+"??1BSThread@@UAE@XZ": 11166656
+},
+"src/fallout_shared/tesform.cpp": {
+"??1?$BSSimpleList@PAVTESFile@@@@QAE@XZ": 4652976
+},
+"src/fallout_shared/tesland_iso_variant.cpp": {
+"??1CacheAllocationScope@fnv_00b61370@@QAE@XZ": 4214496
+},
+"src/fallout_shared/tesland_od_variant.cpp": {
+"??1Base8ef0@@QAE@XZ": 5475856,
+"??1FUN_00528cb0_cls@@QAE@XZ": 4508656,
+"??1FUN_00538ef0@@QAE@XZ": 5475856,
+"??1MB@@QAE@XZ": 5507296,
+"??3Output538c00@@SAXPAX@Z": 5476016
+},
+"src/fallout_shared/teslevitem.cpp": {
+"??3ContainerItemExtra@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/teslight.cpp": {
+"??3FUN_00a7d670@LightCreation@@SAXPAXI@Z": 11146336
+},
+"src/fallout_shared/tesnpc.cpp": {
+"??1?$BSSimpleArray@PAVFaceGenUndo@@$0EAA@@@QAE@XZ": 6296480,
+"??1?$BSSimpleList@PAVBGSHeadPart@@@@QAE@XZ": 4652976,
+"??1?$NiPointer@VBSFaceGenNiNode@@@@QAE@XZ": 4574912
+},
+"src/fallout_shared/tesobject.cpp": {
+"??1TESObject@@QAE@XZ": 5306672,
+"??1ThisBase_aca270@@UAE@XZ": 15497633
+},
+"src/fallout_shared/tesobject_ob1_variant.cpp": {
+"??1?$CsvArray@UBxString@wrac52@@@@QAE@XZ": 11312368,
+"??1?$GvVectorVal@UBxString@wrac52@@@wrac52@@QAE@XZ": 7348768,
+"??1?$InputFilebuf@D@input_ctor@@UAE@XZ": 11323760,
+"??1?$InputStreambuf@D@input_ctor@@UAE@XZ": 11318960,
+"??1?$PairRecord@IUBxString@wrac52@@@@QAE@XZ": 6679856,
+"??1?$basic_string@DU?$char_traits@D@std@fnv_00ad5500@@V?$allocator@D@23@@std@fnv": 4498752,
+"??1BxString@binac3@fnv_00ac3df0@@QAE@XZ": 4498752,
+"??1BxString@errac6@fnv_00ac6430@@QAE@XZ": 4498752,
+"??1BxString@plus2ad4@@QAE@XZ": 4498752,
+"??1BxString@plusad42@@QAE@XZ": 4498752,
+"??1BxString@wrac52@@QAE@XZ": 4498752,
+"??1FUN_0044a4c0@@QAE@XZ": 4498752,
+"??1FUN_00acb310@pairparser@@QAE@XZ": 11312080,
+"??1GameRecord@@QAE@XZ": 6679888,
+"??1InputIos@input_ctor@@UAE@XZ": 11314352,
+"??1InsertItem@@QAE@XZ": 6679888,
+"??1InsertionText@@QAE@XZ": 4498752,
+"??1ResizeEntry@@QAE@XZ": 6679856,
+"??1Str_ac9ff0@std@fnv_00ac9ff0@@QAE@XZ": 4498752,
+"??1String@@QAE@XZ": 4498752,
+"??1String@fnv_00ad3000@@QAE@XZ": 4498752,
+"??1VersionedDataBlock@input_ctor@@UAE@XZ": 11318768,
+"??1basic_istreamDEB0@@UAE@XZ": 11318768,
+"??1exception@std@fnv_00ac9ff0@@UAE@XZ": 15497633,
+"??3@YAXPAX0@Z": 4258784,
+"??3ObjX@fnv_00ad3aa0@@SAXPAX@Z": 4198448,
+"??_D?$basic_ifstream@DU?$char_traits@D@std@@@std@@QAEXXZ": 11312304,
+"??_D?$basic_ofstream@DU?$char_traits@D@std@fnv_00ac9790@@@std@fnv_00ac9790@@QAEX": 11312480,
+"??_DBig@ac8parse@@QAEXXZ": 11312304
+},
+"src/fallout_shared/tesobjectarma.cpp": {
+"??1TESObjectARMO@@QAE@XZ": 5319632
+},
+"src/fallout_shared/tesobjectcell.cpp": {
+"??1Base5415@@QAE@XZ": 4732464,
+"??1Extra5415@@QAE@XZ": 4260784,
+"??1FUN_00559b40@@UAE@XZ": 5609120,
+"??1IOTask@@QAE@XZ": 4458048,
+"??1ListAC5415@@QAE@XZ": 4652976,
+"??1Name5415@@QAE@XZ": 5837568,
+"??1Ref5415@@QAE@XZ": 4574912,
+"??1Texture5415@@QAE@XZ": 4776672,
+"??3SpatialNode@fnv_00552dc0@@SAXPAX@Z": 8907184
+},
+"src/fallout_shared/tesobjectcell_ob1_variant.cpp": {
+"??1?$NiPointer@UNiRefObject@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@URefObject@fnv_00c5b370@@@fnv_00c5b370@@QAE@XZ": 4574912,
+"??1?$SmartPtr5b@URefObj5b@@@@QAE@XZ": 4574912
+},
+"src/fallout_shared/tesobjectclot.cpp": {
+"??1TESBipedModelForm@@QAE@XZ": 4719616
+},
+"src/fallout_shared/tesobjectrefr.cpp": {
+"??1DlgTarget@DialogueUpdate@@QAE@XZ": 4732688,
+"??1ExtraDataList_helper@fnv_0055a2f0@@QAE@XZ": 4260784,
+"??1FUN_0056e180@@QAE@XZ": 5691264,
+"??1FUN_0056e1e0@fnv_0056e180@@QAE@XZ": 5691296,
+"??1FUN_0056e370@@UAE@XZ": 13232944,
+"??1FUN_0057a9d0@@UAE@XZ": 4916528,
+"??1GuardedMember@@QAE@XZ": 5752112,
+"??1PhantomBase@@UAE@XZ": 13235120,
+"??1S12@fnv_0057b7c0@@QAE@XZ": 4732688,
+"??1TESForm@fnv_0055a2f0@@QAE@XZ": 4732464,
+"??1bhkConvexShape@@QAE@XZ": 13236992,
+"??3WaterHavokAllocation@@SAXPAX@Z": 5476016
+},
+"src/fallout_shared/tesobjectrefr_o2_nood_variant.cpp": {
+"??1C9FA20_TlsGuard@@QAE@XZ": 4214496,
+"??1F9_Scope@@QAE@XZ": 4214496,
+"??1FixedString@fnv_00cb3650@@QAE@XZ": 4424112,
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??3F9_Obj@@SAXPAX@Z": 13232864
+},
+"src/fallout_shared/tesobjectrefr_o2_variant.cpp": {
+"??1AllocationScope@@QAE@XZ": 4214496,
+"??1HeapContextGuard@@QAE@XZ": 4214496,
+"??1MemContextGuard@fnv_00ca0410@@QAE@XZ": 4214496,
+"??1ModeScope@fnv_00cb3b20@@QAE@XZ": 4214496,
+"??1ThreadFlagGuard@@QAE@XZ": 4214496,
+"??1ThreadRouterScope@fnv_00cb3a40@@QAE@XZ": 4214496,
+"??1TlsGuard_t@@QAE@XZ": 4214496,
+"??1bhkRigidBodyBase@@UAE@XZ": 13167040,
+"??3@YAXPAX@Z": 3475582585,
+"??3@YAXPAXAAUS00cb39d0_S_00aa3e40@@I@Z": 2382059748,
+"??3FUN_00cb3860@fnv_00cb3a40@@SAXPAX@Z": 13159680,
+"??3FUN_00cf2cb0@@SAXPAX@Z": 13232864
+},
+"src/fallout_shared/tesobjectrefr_o2_variant_od_oy_noo2_variant.cpp": {
+"??3MaterialF14@@SAXPAX@Z": 5476016,
+"??3ShapeF14@@SAXPAX@Z": 5476016,
+"??3WrapperF14@@SAXPAX@Z": 5476016
+},
+"src/fallout_shared/tesqueststage.cpp": {
+"??1ScriptS@@QAE@XZ": 5939616
+},
+"src/fallout_shared/tessaveloadgame.cpp": {
+"??1String@SaveManager@@QAE@XZ": 4652976
+},
+"src/fallout_shared/tessaveloadgame_ob1_variant.cpp": {
+"??1ArchiveFileManager@@UAE@XZ": 4502704,
+"??1BaseListL@@QAE@XZ": 12843632,
+"??1BaseQueueC4@@UAE@XZ": 12843200,
+"??1HeapContextGuard@@QAE@XZ": 4214496,
+"??1MemContextScopeC3@fnv_00c3e8b0@@QAE@XZ": 4214496,
+"??3HelperL@@SAXPAX@Z": 4198448,
+"??3IOQueueC3@fnv_00c3e8b0@@SAXPAX@Z": 4198448,
+"??3WorkerC4@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/testopic.cpp": {
+"??1SL_d0046ffb0@@QAE@XZ": 4652976
+},
+"src/fallout_shared/teswater.cpp": {
+"??1?$NiPointer@VBSMultiBoundShape@@@@QAE@XZ": 12804800,
+"??1NiObject@@UAE@XZ": 10867664
+},
+"src/fallout_shared/teswater_o2_variant.cpp": {
+"??3B9F30Property@@SAXPAX@Z": 4198448
+},
+"src/fallout_shared/teswaterform.cpp": {
+"??1WaterAttackBase@@QAE@XZ": 4718064,
+"??1WaterFullNameBase@@QAE@XZ": 5837568,
+"??1WaterPointer@@QAE@XZ": 4574912,
+"??1WaterString@@QAE@XZ": 4208592,
+"??1WaterTexture@@QAE@XZ": 4776672
+},
+"src/fallout_shared/tesweatherlist.cpp": {
+"??1SrcListBase_b6402@@UAE@XZ": 5182624,
+"??1SrcListItem_b6402@@QAE@XZ": 5776160
+},
+"src/fallout_shared/tesworldspace.cpp": {
+"??1FUN_0057cd10@fnv_00582c20@@QAE@XZ": 5754512,
+"??1FUN_00588fa0@fnv_00582c20@@QAE@XZ": 5804336,
+"??1FUN_00588fd0@fnv_00582c20@@QAE@XZ": 5804592,
+"??1GO@fnv_00582c20@@QAE@XZ": 4574912,
+"??1SL@fnv_00582c20@@QAE@XZ": 4652976,
+"??1StrMem@fnv_00582c20@@QAE@XZ": 4208592,
+"??1TESFormBase@fnv_00582c20@@QAE@XZ": 4732464,
+"??1TESFullName@stand@fnv_00582c20@@QAE@XZ": 5837568,
+"??1TESTexture@fnv_00582c20@@QAE@XZ": 4776672
+},
+"src/gamebryo2.2/corelibs/nianimation/nibonelodcontroller_od_variant_ob1_variant.cpp": {
+"??1FUN_00a6d220@@UAE@XZ": 10932880,
+"??1GroupArray@@QAE@XZ": 10830832,
+"??3NiMemObject@@SAXPAX@Z": 4198448
+},
+"src/gamebryo2.2/corelibs/niconsolerenderer/nid3dshaderconstantmap.cpp": {
+"??1ShaderMapArray@@QAE@XZ": 12051200,
+"??1ShaderMapBase@@QAE@XZ": 10867664
+},
+"src/gamebryo2.2/corelibs/nimain/niintegersextradata_ob1_variant.cpp": {
+"??1ExtraDataBase@@UAE@XZ": 10990336,
+"??1IntegerStreamArray@@UAE@XZ": 12929040
+},
+"src/gamebryo2.2/corelibs/nimain/niobjectnet.cpp": {
+"??1bhkConvexShape@@UAE@XZ": 13236992
+},
+"src/gamebryo2.2/corelibs/nimain/nismartpointer_h_unit.cpp": {
+"??1?$BSTCommonLLMessageQueue@VQueuedMessage@@@@QAE@XZ": 9459136
+},
+"src/gamebryo2.2/corelibs/nimain/nistream.cpp": {
+"??1AutoMemContextC68@@QAE@XZ": 4214496,
+"??1MemContextScope@fnv_00c68050@@QAE@XZ": 4214496,
+"??1S_00c68150_Lock@@QAE@XZ": 4520704,
+"??1S_00ca76b0_Elem@@QAE@XZ": 11956000,
+"??3bhkSingletonC68@@SAXPAX@Z": 4198448,
+"??3hkFreeListMemorySystemC68@@SAXPAX0@Z": 10655360,
+"??3hkReferencedObjectC68@@SAXPAX@Z": 13232864
+},
+"src/gamebryo2.2/corelibs/nimain/nitarray_h_unit_o2_nood_variant.cpp": {
+"??1MemoryContextScope@@QAE@XZ": 4214496
+},
+"src/gamebryo2.2/corelibs/nimain/nitrishapedata.cpp": {
+"??1HolderA@fnv_00ba3d30@@UAE@XZ": 12205328,
+"??1HolderArray@fnv_00ba3d30@@UAE@XZ": 12205328,
+"??1HolderB@fnv_00ba3d30@@UAE@XZ": 12205328,
+"??1HolderC@fnv_00ba3d30@@UAE@XZ": 12205328
+},
+"src/gamebryo2.2/corelibs/nisystem/nifile_od_variant.cpp": {
+"??1FUN_00afe9f0@@QAE@XZ": 6221328
+},
+"src/generated/setting_eh_initializers.cpp": {
+"??1SettingBase_01012120@@UAE@XZ": 4213072
+},
+"src/havok/common/base/container/array/hkarrayutil.cpp": {
+"??1S00c70de0_Array@@QAE@XZ": 6740560,
+"??1S00c70de0_Guard@@QAE@XZ": 4214496
+},
+"src/havok/common/base/math/swepttransform/hkswepttransformutil.cpp": {
+"??1HeapContextGuard@fnv_00cf1270@@QAE@XZ": 4214496,
+"??1S_00cf10f0_Ctx@@QAE@XZ": 4214496
+},
+"src/havok/common/base/object/hkreferencedobject.cpp": {
+"??1ScopedThreadState@fnv_00cc49b0@@QAE@XZ": 4214496
+},
+"src/havok/common/base/system/io/ostream/hkostream.cpp": {
+"??1OStream@@QAE@XZ": 13369568
+},
+"src/havok/common/base/system/io/reader/stdio/hkstdiostreamreader.cpp": {
+"??1Prefix@@QAE@XZ": 5475856
+},
+"src/havok/common/scenedata/mesh/hkxmesh.cpp": {
+"??1Array_CCE530@@QAE@XZ": 6740560
+},
+"src/havok/physics/dynamics/world/hkpworld.cpp": {
+"??1AutoMemContextCAA@@QAE@XZ": 4214496,
+"??1AutoMemoryContext@fnv_00caa3f0@@QAE@XZ": 4214496,
+"??1Guard676@@QAE@XZ": 4214496,
+"??1TlsGuard_caa4a0@@QAE@XZ": 4214496,
+"??3ShapeCAA@@SAXPAX@Z": 13232864,
+"??3hkpLimitedHingeConstraintData@fnv_00caa3f0@@SAXPAX@Z": 13232864
+},
+"src/havok/physics/dynamics/world/util/hkpworldoperationqueue.cpp": {
+"??1S_ModeGuard@@QAE@XZ": 4214496
+},
+"src/havok/physics/dynamics/world/util/hkpworldoperationutil.cpp": {
+"??1S_00c6aca0_Ctx@@QAE@XZ": 4214496
+},
+"src/havok/unplaced/cellmopp.cpp": {
+"??1B622310Base@@UAE@XZ": 13258144
+},
+"src/havok/unplaced/cellmopp_o2_variant.cpp": {
+"??1ThreadStateGuard@@QAE@XZ": 4214496,
+"??3S00cb0820_Obj30@@SAXPAX@Z": 5476016,
+"??3S00cb0820_Obj40@@SAXPAX@Z": 5476016,
+"??3S00cb0820_Shape70@@SAXPAX@Z": 5476016
+},
+"src/havok/unplaced/focollisionlistener.cpp": {
+"??1BaseNoVtable@@QAE@XZ": 4574912,
+"??1SubHelper@@QAE@XZ": 4388704,
+"??3HitEntry@@SAXPAX@Z": 4198448
+},
+"src/havok/unplaced/havokstream.cpp": {
+"??1C624F90Base@@UAE@XZ": 5691072,
+"??1C624F90HandlerList@@QAE@XZ": 5752112,
+"??1C624F90HandlerMap@@QAE@XZ": 6446032,
+"??1FUN_00625fe0@@QAE@XZ": 5691072,
+"??3@YAXPAX@Z": 5476016
+},
+"src/speedtree/billboardleaf_ob1_variant.cpp": {
+"??1FUN_0044a4c0@@QAE@XZ": 4498752
+},
+"src/speedtree/branch_ob1_variant.cpp": {
+"??1VectorValB25210@@QAE@XZ": 11768928,
+"??3FUN_00b37660@@SAXPAX@Z": 4198448
+},
+"src/speedtree/branchinfo_ob1_variant.cpp": {
+"??1FUN_0044a4c0@@QAE@XZ": 4498752
+},
+"src/speedtree/frondengine_ob1_variant.cpp": {
+"??1?$GvVector@U?$GvVector@UGvElemV@dtorb181@@@dtorb181@@@dtorb181@@QAE@XZ": 11656976,
+"??1?$GvVector@UGvElemV@dtorb181@@@dtorb181@@QAE@XZ": 11655824,
+"??1?$GvVector@UGvNamed@dtorb181@@@dtorb181@@QAE@XZ": 11657584,
+"??1?$GvVectorStore@UGvVec3@vct1e3e0@fnv_00b1e3e0@@@vct1e3e0@fnv_00b1e3e0@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@U?$GvVector@UGvElemV@dtorb181@@@dtorb181@@@dtorb181@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@UGvElemV@dtorb181@@@dtorb181@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@UGvInner@addb18@@@addb18@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@UGvInner@popb26f@fnv_00b26f90@@@popb26f@fnv_00b26f90@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@UGvInner@pushb26e@fnv_00b26e80@@@pushb26e@fnv_00b26e80@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@UGvInner@swapb26a@fnv_00b26ab0@@@swapb26a@fnv_00b26ab0@@QAE@XZ": 11768928,
+"??1?$GvVectorVal@UGvNamed@dtorb181@@@dtorb181@@QAE@XZ": 11768928,
+"??1?$LodVector@USFrondGuideEntry@@@frondlod@@QAE@XZ": 11655824,
+"??1?$LodVectorVal@USFrondGuideEntry@@@frondlod@@QAE@XZ": 11768928,
+"??1?$VdVectorImpl@UVdElemV@vecdb1d2@@@vecdb1d2@@QAE@XZ": 11768928,
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??1Aux@spt@@QAE@XZ": 11768928,
+"??1BxException@dtorb181@@UAE@XZ": 15497633,
+"??1El2Q@fnv_00b20ce0@@QAE@XZ": 11655824,
+"??1El2Q@fnv_00b22700@@QAE@XZ": 4497472,
+"??1ElQ@fnv_00b20ce0@@QAE@XZ": 11655824,
+"??1ElQ@fnv_00b21560@@QAE@XZ": 11575152,
+"??1ElQ@fnv_00b22700@@QAE@XZ": 4497472,
+"??1ElemQ@fnv_00b25ca0@@QAE@XZ": 11655824,
+"??1ElemQ@fnv_00b25e20@@QAE@XZ": 4497472,
+"??1FUN_00449fd0@@QAE@XZ": 4497472,
+"??1FUN_00b1e3e0@@QAE@XZ": 11620768,
+"??1FUN_00b1ff50@spt@@QAE@XZ": 11635184,
+"??1FUN_00b22ff0@@QAE@XZ": 4497472,
+"??1FUN_00b231f0@fnv_00b267a0@@QAE@XZ": 11655824,
+"??1FUN_00b31270@@QAE@XZ": 11658704,
+"??1FUN_00b3f100@@QAE@XZ": 11171888,
+"??1FrondFloatList@@QAE@XZ": 4497472,
+"??1FrondPointList@@QAE@XZ": 11620768,
+"??1FrondPointStorage@@QAE@XZ": 11768928,
+"??1GvContainer@auxb20b@fnv_00b20ba0@@QAE@XZ": 4732688,
+"??1GvContainer@vct1e3e0@fnv_00b1e3e0@@QAE@XZ": 4732688,
+"??1GvElem@addb18@@QAE@XZ": 11635184,
+"??1GvElem@popb26f@fnv_00b26f90@@QAE@XZ": 11635184,
+"??1GvElem@pushb26e@fnv_00b26e80@@QAE@XZ": 11635184,
+"??1GvElem@swapb26a@fnv_00b26ab0@@QAE@XZ": 11635184,
+"??1MidQ@@QAE@XZ": 11768928,
+"??1MidQ_b200@rework_b200f0@@QAE@XZ": 11768928,
+"??1PQ@@QAE@XZ": 11575152,
+"??1S00b24290_Base@@QAE@XZ": 11768928,
+"??1SFrondGuideEntry@@QAE@XZ": 11635184,
+"??1SFrondGuidePointsBase@@QAE@XZ": 11768928,
+"??1TexQ@@QAE@XZ": 11575152,
+"??1VB2Q@fnv_00b1ecf0@@QAE@XZ": 11768928,
+"??1VB2Q@fnv_00b20ce0@@QAE@XZ": 11768928,
+"??1VB2Q@fnv_00b22700@@QAE@XZ": 6672304,
+"??1VBQ@fnv_00b22700@@QAE@XZ": 6672304,
+"??1VBQ@fnv_00b24180@@QAE@XZ": 11768928,
+"??1VBQ@fnv_00b24580@@QAE@XZ": 6672304,
+"??1VBQ@fnv_00b25ca0@@QAE@XZ": 11768928,
+"??1VBQ@fnv_00b25e20@@QAE@XZ": 6672304,
+"??1VBQ@fnv_00b25fa0@@QAE@XZ": 11768928,
+"??1VdAuxBase@vecdb1eb@fnv_00b1ebc0@@QAE@XZ": 11768928,
+"??1VdAuxBase@vecdb20c@fnv_00b20c30@@QAE@XZ": 11768928,
+"??1VdAuxBase@vecdb226@fnv_00b22650@@QAE@XZ": 6672304,
+"??1VecBase@@QAE@XZ": 6672304,
+"??1VecBase@fnv_00b267a0@@QAE@XZ": 11768928,
+"??1VectorOperations@VectorCopyRework@@QAE@XZ": 6672304,
+"??1W2Q@fnv_00b1ecf0@@QAE@XZ": 11635184,
+"??1WQ@fnv_00b1ecf0@@QAE@XZ": 11635184,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/speedtree/indexedgeometry.cpp": {
+"??1SubA@@QAE@XZ": 11620768
+},
+"src/speedtree/indexedgeometry_ob1_variant.cpp": {
+"??1?$ValueBase@I@StripJoin@@QAE@XZ": 11768928,
+"??1?$ValueBase@ULengths@StripJoin@@@StripJoin@@QAE@XZ": 11768928,
+"??1?$ValueBase@UStrips@StripJoin@@@StripJoin@@QAE@XZ": 11768928,
+"??1ContainerAux@fnv_00b2c890@@QAE@XZ": 11768928,
+"??1FUN_00b311b0@StripJoin@@QAE@XZ": 11744112,
+"??1FUN_00b31350@StripJoin@@QAE@XZ": 11736192,
+"??1FUN_00b31ad0@StripJoin@@QAE@XZ": 11738112,
+"??1FUN_00b355d0@fnv_00b2c890@@QAE@XZ": 11744112,
+"??1Init@fnv_00b2c890@@QAE@XZ": 11717456,
+"??1VA9@@QAE@XZ": 4497472,
+"??1VC9@@QAE@XZ": 6680672,
+"??1VD9@@QAE@XZ": 11738112,
+"??1VE9@@QAE@XZ": 11736192,
+"??1VF9@@QAE@XZ": 11744112
+},
+"src/speedtree/leafgeometry_ob1_variant.cpp": {
+"??1Bounds@@QAE@XZ": 11555024,
+"??1FUN_00449fd0@@QAE@XZ": 4497472,
+"??1VectorStorage@@QAE@XZ": 6672304
+},
+"src/speedtree/leafinfo_ob1_variant.cpp": {
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??1S00b3d1b0_Str@@QAE@XZ": 4498752
+},
+"src/speedtree/librandom_source/robertdavies_random.cpp": {
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??1SymGen@@UAE@XZ": 11811920
+},
+"src/speedtree/libspline_source/idvspline.cpp": {
+"??1FUN_00449fd0@@QAE@XZ": 4497472,
+"??1FUN_00b31270@@QAE@XZ": 11767952
+},
+"src/speedtree/libspline_source/idvspline_ob1_variant.cpp": {
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??1AuxBaseQ@fnv_00b3b9f0@@QAE@XZ": 4732688,
+"??1ComplexVector@@QAE@XZ": 11767952,
+"??1FUN_00449fd0@@QAE@XZ": 4497472,
+"??1FUN_00b31270@@QAE@XZ": 11767952,
+"??1ScalarVector@@QAE@XZ": 4497472,
+"??1SplinePointVector@fnv_00b38430@@QAE@XZ": 11767952,
+"??1SplineVecBase@fnv_00b38430@@QAE@XZ": 11768928,
+"??1TreeValueStorage@@QAE@XZ": 11768928,
+"??3@YAXPAX0@Z": 4258784,
+"??3FUN_00b377c0@@SAXPAX@Z": 4198448
+},
+"src/speedtree/libvector_source/region_ob1_variant.cpp": {
+"??1BoxBounds@@QAE@XZ": 11555024
+},
+"src/speedtree/lightingengine_ob1_variant.cpp": {
+"??1FUN_0044a4c0@@QAE@XZ": 4498752
+},
+"src/speedtree/projectedshadow_ob1_variant.cpp": {
+"??1NarrowString@@QAE@XZ": 11575152
+},
+"src/speedtree/speedtreert.cpp": {
+"??1BasePart@@QAE@XZ": 11545616,
+"??1DataPart@@QAE@XZ": 11546112,
+"??1RotationPart@@QAE@XZ": 11545920
+},
+"src/speedtree/speedtreert_ob1_variant.cpp": {
+"??1?$GvVector@D@bufb060@fnv_00b06090@@QAE@XZ": 6680672,
+"??1?$GvVectorStore@UBxString@vct0dfb0@fnv_00b0dfb0@@@vct0dfb0@fnv_00b0dfb0@@QAE@": 11592096,
+"??1?$basic_string@DU?$char_traits@D@stdb07@fnv_00b07060@@V?$allocator@D@23@@stdb": 4498752,
+"??1?$basic_string@DU?$char_traits@D@stdb07@fnv_00b07db0@@V?$allocator@D@23@@stdb": 4498752,
+"??1?$basic_string@DU?$char_traits@D@stdb07@fnv_00b088d0@@V?$allocator@D@23@@stdb": 4498752,
+"??1?$basic_string@DU?$char_traits@D@stdb07@fnv_00b0d040@@V?$allocator@D@23@@stdb": 4498752,
+"??1AuxBase59@fnv_00b059e0@@QAE@XZ": 4732688,
+"??1BoxQ@fnv_00b044a0@@QAE@XZ": 11555024,
+"??1FUN_0044a4c0@@QAE@XZ": 4498752,
+"??1FUN_0044a4c0@fnv_00b09960@@QAE@XZ": 11575152,
+"??1FUN_0044a4c0@fnv_00b0d810@@QAE@XZ": 11575152,
+"??1FUN_00b06090@fnv_00b059e0@@QAE@XZ": 11559392,
+"??1FUN_00b096a0@@UAE@XZ": 11573120,
+"??1GvContainer@vct0dfb0@fnv_00b0dfb0@@QAE@XZ": 4732688,
+"??1KP@fnv_00b0d810@@QAE@XZ": 11575152,
+"??1OtherMid@@QAE@XZ": 11592096,
+"??1PathQ@fnv_00b09960@@QAE@XZ": 11575152,
+"??1ProxyRoot@@QAE@XZ": 4732688,
+"??1RegMid@@QAE@XZ": 11592096,
+"??1SpdString@@QAE@XZ": 4498752,
+"??1Str59@fnv_00b059e0@@QAE@XZ": 4498752,
+"??1StrF@fnv_00b044a0@@QAE@XZ": 4498752,
+"??1StrF@fnv_00b05420@@QAE@XZ": 4498752,
+"??1StrF@fnv_00b06c10@@QAE@XZ": 4498752,
+"??1StrF@fnv_00b07b00@@QAE@XZ": 4498752,
+"??1StrF@fnv_00b08200@@QAE@XZ": 4498752,
+"??1StrF@fnv_00b0cb10@@QAE@XZ": 4498752,
+"??1String@@QAE@XZ": 4498752,
+"??1String@CloneFormatting@@QAE@XZ": 4498752,
+"??1String@fnv_00b09f90@@QAE@XZ": 4498752,
+"??1StringB05210@fnv_00b05210@@QAE@XZ": 4498752,
+"??1StringB06280@fnv_00b06280@@QAE@XZ": 4498752,
+"??1StringB06440@fnv_00b06440@@QAE@XZ": 4498752,
+"??1StringB06660@fnv_00b06660@@QAE@XZ": 4498752,
+"??1StringB06810@fnv_00b06810@@QAE@XZ": 4498752,
+"??1StringB069C0@fnv_00b069c0@@QAE@XZ": 4498752,
+"??1StringB071F0@fnv_00b071f0@@QAE@XZ": 4498752,
+"??1StringB07510@fnv_00b07510@@QAE@XZ": 4498752,
+"??1StringB076E0@fnv_00b076e0@@QAE@XZ": 4498752,
+"??1StringB07900@fnv_00b07900@@QAE@XZ": 4498752,
+"??1StringB08050@fnv_00b08050@@QAE@XZ": 4498752,
+"??1StringB08AF0@fnv_00b08af0@@QAE@XZ": 4498752,
+"??1StringB0A2A0@fnv_00b0a2a0@@QAE@XZ": 4498752,
+"??1StringB0A7A0@fnv_00b0a7a0@@QAE@XZ": 4498752,
+"??1VectorValB061E0@@QAE@XZ": 6672304,
+"??1VectorValue59@fnv_00b059e0@@QAE@XZ": 6672304,
+"??3FUN_00b0dfb0@fnv_00b0a490@@SAXPAX@Z": 4198448,
+"??3SpeedTreeRTB05210@fnv_00b05210@@SAXPAX@Z": 4198448
+},
+"src/speedtree/treeengine.cpp": {
+"??1FUN_00b17db0@@QAE@XZ": 11744112,
+"??1FUN_00b3cd60@@QAE@XZ": 11783728,
+"??1FUN_00b3f030@@QAE@XZ": 11792544,
+"??1FUN_00b40a60@@QAE@XZ": 11575152
+},
+"src/speedtree/treeengine_ob1_variant.cpp": {
+"??1FUN_0044a4c0@@QAE@XZ": 4498752,
+"??1FUN_00b17db0@fnv_00b2c130@@QAE@XZ": 11744112,
+"??1FUN_00b3f100@fnv_00b2c130@@QAE@XZ": 11171888,
+"??1S2bde0_Str@@QAE@XZ": 11575152,
+"??1SptFilename@@QAE@XZ": 11575152,
+"??1String@fnv_00b2d090@@QAE@XZ": 4498752,
+"??1VB@fnv_00b2c130@@QAE@XZ": 11768928
+},
+"src/staging/blk_00420000_od.cpp": {
+"??1Base@fnv_00436420@@QAE@XZ": 4254896,
+"??1Member@fnv_00436420@@QAE@XZ": 4732688,
+"??1NiSpawnBase@@QAE@XZ": 4428480
+},
+"src/staging/blk_00440000_od.cpp": {
+"??1FUN_00470040_class@@QAE@XZ": 4577584,
+"??1FUN_004700a0@@QAE@XZ": 4577616,
+"??1FUN_00ec7944@@UAE@XZ": 15497633,
+"??1GlobalObject_0048f200_d0054da00@@QAE@XZ": 5560832,
+"??1GlobalObject_0096a2d0@@QAE@XZ": 4652976
+},
+"src/staging/blk_00480000_od.cpp": {
+"??1StrList487@@QAE@XZ": 4652976,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_004a0000_od.cpp": {
+"??1Base_4ba280@@UAE@XZ": 4955728,
+"??1NodePtr_4ba280@@QAE@XZ": 4574912,
+"??1S_004a4730_Base@@QAE@XZ": 4867792,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_004e0000_od.cpp": {
+"??1Base4EE@@UAE@XZ": 10704448,
+"??1Base4F4@@UAE@XZ": 5182624,
+"??1Data4F4@@QAE@XZ": 5194784,
+"??1FUN_0041a250@@QAE@XZ": 4732688,
+"??1FUN_004ed7a0@@QAE@XZ": 5167568,
+"??1FUN_004ed7d0@@QAE@XZ": 5167824,
+"??1FUN_004ed800@@QAE@XZ": 5168080,
+"??1Handle4EE@@QAE@XZ": 4574912
+},
+"src/staging/blk_00500000_od.cpp": {
+"??1ThisBase_c40@@UAE@XZ": 4732464,
+"??1ThisMemberD_c40@@QAE@XZ": 4776672
+},
+"src/staging/blk_00520000_od.cpp": {
+"??1C90List@fnv_00526c90@@QAE@XZ": 5401456,
+"??1FNV_Sub5272d0@@QAE@XZ": 5403312,
+"??1FUN_00537bf0_base@@UAE@XZ": 10867664,
+"??1FUN_00537bf0_sub@@QAE@XZ": 5471456
+},
+"src/staging/blk_00540000_o2_od_noo2_variant.cpp": {
+"??3FUN_00c99ff0@@SAXPAX@Z": 8907184
+},
+"src/staging/blk_00540000_od.cpp": {
+"??1?$NiPointer@URefObj_5405a0@@@@QAE@XZ": 4574912
+},
+"src/staging/blk_005e0000_od.cpp": {
+"??1FUN_0047ff70@@QAE@XZ": 4718496,
+"??1FUN_0048e270@@QAE@XZ": 4776672,
+"??1FUN_005fe040_baseA@@QAE@XZ": 4732464,
+"??1FUN_005fe040_baseB@@QAE@XZ": 5355856,
+"??1FUN_005fe040_memberC@@QAE@XZ": 6817968,
+"??1FUN_005fe040_memberD@@QAE@XZ": 4208592,
+"??1ThisBase_b3969@@QAE@XZ": 6294272,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_005e0000_od_ctx_variant.cpp": {
+"??1LocalFormArray@@QAE@XZ": 5813328,
+"??1LocalString@@QAE@XZ": 4208592
+},
+"src/staging/blk_00620000_od.cpp": {
+"??1ArrBase16@@QAE@XZ": 6429536,
+"??1CB75D0Base@@UAE@XZ": 5588432,
+"??1FUN_00540830@@QAE@XZ": 5471456,
+"??1FUN_0061ffb0@@QAE@XZ": 6422800,
+"??1FUN_00626630@@QAE@XZ": 10655360,
+"??1FUN_00a5d3a0@@UAE@XZ": 10867664,
+"??1Member34@@QAE@XZ": 5560832,
+"??1SecBase14@@UAE@XZ": 6422800,
+"??1ThisBase_62a190@@UAE@XZ": 5885696,
+"??3Allocator622@@SAXPAX@Z": 5476016,
+"??3Obj6268b0@@SAXPAX@Z": 8907184
+},
+"src/staging/blk_00640000_od.cpp": {
+"??1FUN_0065d3a0@@QAE@XZ": 6672304,
+"??1OwnerBase@@UAE@XZ": 10990336,
+"??1S_0064ccf0_Base@@UAE@XZ": 4811024,
+"??1S_0064ccf0_Member@@QAE@XZ": 6670272,
+"??1S_0064ccf0_Ptr@@QAE@XZ": 4574912,
+"??1S_0065fb10_Base@@QAE@XZ": 6672304,
+"??1SubMember_d0045cec0@@QAE@XZ": 4574912
+},
+"src/staging/blk_00640000_od_ctx_variant.cpp": {
+"??1FUN_006815c0@@QAE@XZ": 4732688,
+"??3FUN_008c71b0@@SAXPAXI@Z": 4258784
+},
+"src/staging/blk_00660000_od.cpp": {
+"??3@YAXPAXPAUFUN_006e6da0@@@Z": 4258784
+},
+"src/staging/blk_006a0000_od.cpp": {
+"??1Base_6b9760@fnv_006b9590@@UAE@XZ": 7050768,
+"??1DbgLineArray@PathDebugRender@@QAE@XZ": 6972496,
+"??1DbgPointArray@PathDebugRender@@QAE@XZ": 6972752,
+"??1FUN_006a8530_base@fnv_006a8530@@QAE@XZ": 6981040,
+"??1FUN_006bfa10_base@@QAE@XZ": 7076528,
+"??1FirstArray@@QAE@XZ": 6887424,
+"??1FirstList@@QAE@XZ": 7075600,
+"??1FnvWorkerBase@fnv_006bf7d0@@UAE@XZ": 7075952,
+"??1LocalOwnerBase@@UAE@XZ": 4811024,
+"??1LookupTable@@QAE@XZ": 6887840,
+"??1NavMeshSearch_d006a6b00@@QAE@XZ": 6974208,
+"??1SecondArray@@QAE@XZ": 7075520,
+"??1StateBlock@@QAE@XZ": 4574912,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_006c0000_od.cpp": {
+"??1FUN_006c78d0@fnv_006c7850@@QAE@XZ": 7108848,
+"??1FUN_006dc370@@QAE@XZ": 7190832,
+"??1FUN_006e1070@@QAE@XZ": 7213216,
+"??1FloatArrayBase@fnv_006db680@@UAE@XZ": 7190304,
+"??1NavMeshArrayBase@fnv_006db7a0@@UAE@XZ": 4388912,
+"??1PathBuilderDetailedPathInfos@fnv_006df180@@UAE@XZ": 6161728,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_006e0000_od.cpp": {
+"??1Base6F2@@UAE@XZ": 7284432,
+"??1Base_b9887@fnv_006f2ca0@@QAE@XZ": 6926800,
+"??1DTB_Array@@QAE@XZ": 4425360,
+"??1DTB_List@@QAE@XZ": 7313568,
+"??1DTB_MapA@@QAE@XZ": 7313728,
+"??1DTB_MapB@@QAE@XZ": 7314304,
+"??1DTB_TaskPtr@@QAE@XZ": 4508656,
+"??1FUN_00438660@@QAE@XZ": 4425360,
+"??1FUN_004968b0@@UAE@XZ": 4811024,
+"??1FUN_006cf180@fnv_006f2b30@@QAE@XZ": 6995904,
+"??1FUN_006e2080@@QAE@XZ": 7217488,
+"??1FUN_006ecc40@@UAE@XZ": 7257504,
+"??1FUN_006f3140@@UAE@XZ": 7284720,
+"??1Member490@fnv_006fc490@@QAE@XZ": 6161648,
+"??1NodePtr_d0045cec0@@QAE@XZ": 4574912,
+"??1Ptr490@fnv_006fc490@@QAE@XZ": 4574912,
+"??1S_006f2510_Base@@UAE@XZ": 7284144,
+"??1SteamCallbackA@@QAE@XZ": 7338400,
+"??1SteamCallbackB@@QAE@XZ": 7338560,
+"??1SteamCallbackC@@QAE@XZ": 7338688,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_00700000_od.cpp": {
+"??1FUN_0071fa80_base@@QAE@XZ": 10601760,
+"??1GlobalObject_0041a250@fnv_0071fbf0@@QAE@XZ": 4732688,
+"??1Menu@fnv_0071f340@@UAE@XZ": 10601760,
+"??1Menu@fnv_0071fbf0@@UAE@XZ": 10601760,
+"??1Sub68@fnv_0071f340@@QAE@XZ": 7468400,
+"??1Sub84@fnv_0071f340@@QAE@XZ": 7468544,
+"??1T721060@fnv_0071f340@@QAE@XZ": 7475536,
+"??1T721850@fnv_0071f340@@QAE@XZ": 7477536,
+"??1T722000@fnv_0071f340@@QAE@XZ": 7479504,
+"??1T7227b0@fnv_0071f340@@QAE@XZ": 7481472,
+"??1T722f60@fnv_0071f340@@QAE@XZ": 7483504,
+"??1TaskSubObject@@QAE@XZ": 7432720
+},
+"src/staging/blk_00740000_od.cpp": {
+"??1?$BSSimpleList@PAH@@QAE@XZ": 4652976,
+"??1ListBox_ItemChange___@@QAE@XZ": 7538912
+},
+"src/staging/blk_00760000_od.cpp": {
+"??1AXStub@@QAE@XZ": 7862688,
+"??1B6815c0@@QAE@XZ": 7345440,
+"??1GO41a250@@QAE@XZ": 4732688,
+"??1ListStub@@QAE@XZ": 4652976
+},
+"src/staging/blk_00780000_od.cpp": {
+"??1MemberList@@QAE@XZ": 4856368,
+"??1SmallMember_d00483710@@QAE@XZ": 4732688,
+"??1StringMember@@QAE@XZ": 4208592
+},
+"src/staging/blk_007a0000_od.cpp": {
+"??1Base7ac9f0@@UAE@XZ": 8367376
+},
+"src/staging/blk_007e0000_od.cpp": {
+"??1?$WXPointer@UWXObject@@@@QAE@XZ": 4574912
+},
+"src/staging/blk_00800000_o2_od_oy_noo2_variant.cpp": {
+"??1xBase@fnv_0080f810@@QAE@XZ": 8511088
+},
+"src/staging/blk_00800000_od.cpp": {
+"??1FUN_0081dbb0@@QAE@XZ": 8511088
+},
+"src/staging/blk_00820000_od.cpp": {
+"??1SL@fnv_0083da50@@QAE@XZ": 4652976,
+"??1SpawnedBase@@QAE@XZ": 10476560,
+"??1StrMem@fnv_0083da50@@QAE@XZ": 4208592
+},
+"src/staging/blk_00840000_od.cpp": {
+"??1SaveMemberA@@QAE@XZ": 8697248,
+"??1SaveMemberB@@QAE@XZ": 8697536
+},
+"src/staging/blk_00860000_od.cpp": {
+"??1B86C620Base@@QAE@XZ": 8878784,
+"??1Base867@@UAE@XZ": 15472096,
+"??1FUN_00633c90@fnv_00872e00@@QAE@XZ": 4574912,
+"??1FUN_0086c620@@QAE@XZ": 8832736,
+"??1FUN_00872ea0@fnv_00872e00@@UAE@XZ": 8859440,
+"??1FUN_00aa53f0@@QAE@XZ": 11162720,
+"??3B877BE0Node@@SAXPAX0@Z": 4258784,
+"??3Controller@ActorInitialization@@SAXPAX@Z": 8907184
+},
+"src/staging/blk_00920000_od.cpp": {
+"??1Actor122@@UAE@XZ": 9248864,
+"??1Member6f8@@QAE@XZ": 7293232,
+"??1Member764@@QAE@XZ": 5203120,
+"??1Member854@@QAE@XZ": 9872560,
+"??1Member878@@QAE@XZ": 9257856,
+"??1Memberdf4@@QAE@XZ": 9872800,
+"??1Membere3c@@QAE@XZ": 9872880,
+"??1Smart122@@QAE@XZ": 4574912
+},
+"src/staging/blk_00960000_od.cpp": {
+"??1?$PathRef979@VSolution979@@@@QAE@XZ": 4574912,
+"??1Base979@@UAE@XZ": 10208368,
+"??1FUN_0086c6a0@@QAE@XZ": 5612240,
+"??1FUN_008c9330@@QAE@XZ": 9212976,
+"??1FUN_00905e30@@QAE@XZ": 9461328,
+"??1FUN_0096a850@@QAE@XZ": 9873744
+},
+"src/staging/blk_00980000_od.cpp": {
+"??1B83080Base@@UAE@XZ": 9975840,
+"??1B996C00Base@@UAE@XZ": 10053360,
+"??1C9964C0Base@@UAE@XZ": 10052928,
+"??1FUN_004d61b0@@QAE@XZ": 5071520,
+"??1S4ee810@@QAE@XZ": 4574912
+},
+"src/staging/blk_009a0000_od.cpp": {
+"??1CTList@@QAE@XZ": 4574912,
+"??1FUN_0062a220@@QAE@XZ": 5885696
+},
+"src/staging/blk_009e0000_o2.cpp": {
+"??1AsyncAutoLock@fnv_009fe690@@QAE@XZ": 8582480,
+"??1Base_cls@fnv_009fddf0@@QAE@XZ": 10466640,
+"??1CriticalSection_cls@fnv_009fddf0@@QAE@XZ": 4520704,
+"??1DsAutoLock@@QAE@XZ": 8582480,
+"??1EnumMediaType@@QAE@XZ": 10460256,
+"??1FDC10CriticalSection@@QAE@XZ": 4520704,
+"??1FUN_009f9c70@@QAE@XZ": 10460256,
+"??1FUN_009f9f70_member@@QAE@XZ": 10477520,
+"??1FUN_009fcee0@@QAE@XZ": 10461008,
+"??1FUN_009fd320@fnv_009fe870@@QAE@XZ": 10477520,
+"??1FindGuard@@QAE@XZ": 8582480,
+"??1FltAutoLock@@QAE@XZ": 8582480,
+"??1LockBase@fnv_009fabb0@@QAE@XZ": 10461008,
+"??1Mem3_cls@fnv_009fddf0@@QAE@XZ": 10479728,
+"??1Mem4_cls@fnv_009fddf0@@QAE@XZ": 10474432,
+"??1OwnedLock@fnv_009fe870@@QAE@XZ": 4520704,
+"??1PinCritSecLock@@QAE@XZ": 8582480,
+"??1S009fe2f0_BSAutoCSLock6153@@QAE@XZ": 8582480,
+"??1S_009fe420_Lock@@QAE@XZ": 8582480,
+"??1S_Blk@@QAE@XZ": 10477520,
+"??1S_Evt@@QAE@XZ": 10473440,
+"??1S_Lock@@QAE@XZ": 4520704,
+"??1SixIntegerRecord@fnv_009fabb0@@QAE@XZ": 4520704,
+"??1SubPart@@QAE@XZ": 10477520,
+"??3@YAXPAXI@Z": 3293300841
+},
+"src/staging/blk_009e0000_od.cpp": {
+"??1FUN_0067d920@@QAE@XZ": 6805872,
+"??1FUN_009dad00@@UAE@XZ": 10333936,
+"??1SpawnedBase@@QAE@XZ": 6805872
+},
+"src/staging/blk_00a00000_od_ob1_variant.cpp": {
+"??1Base670@@UAE@XZ": 10540944,
+"??1C_00a1eb20@@UAE@XZ": 10611648,
+"??1KeyMapBase@@UAE@XZ": 10612064,
+"??1ListHead_a1be10@@QAE@XZ": 10599376,
+"??1MapBaseD840@@UAE@XZ": 10541408,
+"??1MapBaseE7E0@@UAE@XZ": 10610816,
+"??1MapBaseE900@@UAE@XZ": 10610816,
+"??1PointerArrayBase@@UAE@XZ": 10611648,
+"??1PointerMapE900@@UAE@XZ": 10611184,
+"??1Tile3D@@UAE@XZ": 10482496,
+"??1TileStr@@QAE@XZ": 4208592
+},
+"src/staging/blk_00a20000_od_ob1_variant.cpp": {
+"??1FUN_00a26240@@QAE@XZ": 10641952
+},
+"src/staging/blk_00aa0000_od_ob1_variant.cpp": {
+"??1?$AbaVal@DU?$AbaAlloc@D@fnv_00aba0d0@@@fnv_00aba0d0@@QAE@XZ": 11256096,
+"??1?$FGVal@M@@QAE@XZ": 6672304,
+"??1?$Value@DV?$Alloc@D@Ab2e70Detail@@@Ab2e70Detail@@QAE@XZ": 6672304,
+"??1?$Vector@DU?$Allocator@D@TriWriterRework@@@TriWriterRework@@QAE@XZ": 11248032,
+"??1?$VectorVal@D@fnv_00ab5ec0@@QAE@XZ": 11256096,
+"??1?$WriterVectorVal@DU?$Allocator@D@TriWriterRework@@@TriWriterRework@@QAE@XZ": 11256096,
+"??1?$basic_string@DU?$char_traits@D@std@fnv_00aba2f0@@V?$allocator@D@23@@std@fnv": 4498752,
+"??1AA74C0Base@@UAE@XZ": 11171856,
+"??1AbaBase@fnv_00aba0d0@@QAE@XZ": 4732688,
+"??1AllocationTag@fnv_00aac170@@QAE@XZ": 4732688,
+"??1B0Q@fnv_00ab0d50@@QAE@XZ": 4732688,
+"??1Base@Ab2e70Detail@@QAE@XZ": 4732688,
+"??1BlendEmpty@@QAE@XZ": 4732688,
+"??1BlendStorageWrapper@@QAE@XZ": 6672304,
+"??1BlendValue@@QAE@XZ": 4494976,
+"??1CleanupBase@@QAE@XZ": 4732688,
+"??1CleanupBaseV7@@QAE@XZ": 4732688,
+"??1ContainerAux@@QAE@XZ": 4732688,
+"??1ContainerBaseAux@TriWriterRework@@QAE@XZ": 4732688,
+"??1ElQ@fnv_00ab0d50@@QAE@XZ": 6680112,
+"??1EmptyBF@@QAE@XZ": 4732688,
+"??1EmptyContainerBase@fnv_00ab1800@@QAE@XZ": 4732688,
+"??1Entry@@QAE@XZ": 6656992,
+"??1FGBaseQ@fnv_00aaf330@@QAE@XZ": 4497472,
+"??1FGContainer@@QAE@XZ": 4732688,
+"??1FGMatQ@fnv_00aaf330@@QAE@XZ": 4494976,
+"??1FGScaledMatrix@@QAE@XZ": 4494976,
+"??1FUN_00aba0d0@fnv_00ab5ec0@@QAE@XZ": 11248032,
+"??1FUN_00ac5490@fnv_00aafc80@@UAE@XZ": 11184944,
+"??1FgCore@fnv_00aac820@@QAE@XZ": 4497472,
+"??1FgMat@fnv_00aac820@@QAE@XZ": 4494976,
+"??1FgMatT@fnv_00aac3f0@@QAE@XZ": 4494976,
+"??1FgMatrix@fnv_00aacdb0@@QAE@XZ": 4494976,
+"??1FgStore@fnv_00aac820@@QAE@XZ": 6672304,
+"??1FgVecBase@fnv_00aac3f0@@QAE@XZ": 6672304,
+"??1FloatVectorVal@fnv_00aacdb0@@QAE@XZ": 6672304,
+"??1HeapBlockBase@@QAE@XZ": 11171856,
+"??1Image@@QAE@XZ": 4494976,
+"??1ImageV7@@QAE@XZ": 4494976,
+"??1LocalMatrix@fnv_00aac170@@QAE@XZ": 4494976,
+"??1MapBase4A60@@UAE@XZ": 11160288,
+"??1MarkerType@@QAE@XZ": 4732688,
+"??1MatrixStorage@fnv_00aac170@@QAE@XZ": 6672304,
+"??1MidQ@fnv_00ab0d50@@QAE@XZ": 6672304,
+"??1OwnerWrapBF@@QAE@XZ": 6672304,
+"??1ReworkMatrix@@QAE@XZ": 4494976,
+"??1SnapshotElement@fnv_00ab1800@@QAE@XZ": 6680112,
+"??1Storage@@QAE@XZ": 6672304,
+"??1StorageV7@@QAE@XZ": 6672304,
+"??1StorageWrapper@@QAE@XZ": 6672304,
+"??1TableAA3880@@UAE@XZ": 11160160,
+"??1TmpArr@@QAE@XZ": 4494976,
+"??1ValueBase@fnv_00ab1800@@QAE@XZ": 6672304,
+"??1VecBody@@QAE@XZ": 11256096,
+"??1VectorBF@@QAE@XZ": 4494976,
+"??1VectorElement@fnv_00ab1800@@QAE@XZ": 6680112,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_00ac0000_od_ob1_variant.cpp": {
+"??1?$FnvPair@UFnvString@@U1@@@QAE@XZ": 11312080,
+"??1?$GvVector@D@bfopen@fnv_00ac4f00@@QAE@XZ": 11248032,
+"??1?$GvVector@D@bfopenrw@@QAE@XZ": 11248032,
+"??1?$GvVector@E@ucpyac15@@QAE@XZ": 11248032,
+"??1?$GvVectorStore@UBxString@ctoraca@fnv_00acaa50@@@ctoraca@fnv_00acaa50@@QAE@XZ": 7348768,
+"??1?$GvVectorVal@D@bfopen@fnv_00ac4f00@@QAE@XZ": 11256096,
+"??1?$GvVectorVal@D@bfopenrw@@QAE@XZ": 11256096,
+"??1?$GvVectorVal@E@ucpyac15@@QAE@XZ": 11256096,
+"??1?$InsertPair@V?$InsertStringStorage@DU?$char_traits@D@std@@V?$allocator@D@s1c": 11312080,
+"??1?$InsertStringStorage@DU?$char_traits@D@std@@V?$allocator@D@s1c10@@@s1c10@@QA": 4498752,
+"??1?$NiPointer_audio@UNiRefObject_audio@@@@QAE@XZ": 4574912,
+"??1?$StringImpl@D@@QAE@XZ": 4498752,
+"??1?$VdVectorImpl@UVsString@vecdac9@@@vecdac9@@QAE@XZ": 7348768,
+"??1?$VectorDataT@I@@QAE@XZ": 6672304,
+"??1?$_Vector_val@HU?$allocator@H@fnv_00ad2640@@@fnv_00ad2640@@QAE@XZ": 7348768,
+"??1?$_Vector_val@V?$basic_string@DU?$char_traits@D@rstd@@V?$allocator@D@2@@rstd@": 7348768,
+"??1?$basic_string@DU?$char_traits@D@std@fnv_00acf500@@V?$allocator@D@23@@std@fnv": 4498752,
+"??1?$basic_string@DU?$char_traits@D@std@fnv_00ad3ca0@@V?$allocator@D@23@@std@fnv": 4498752,
+"??1AuxBase43B0@fnv_00ac43b0@@QAE@XZ": 4732688,
+"??1Base@fnv_00acf900@@UAE@XZ": 11318960,
+"??1Base_b7137@@QAE@XZ": 15479563,
+"??1Buf43B0@fnv_00ac43b0@@QAE@XZ": 11248032,
+"??1BxString@sanac7@fnv_00ac71f0@@QAE@XZ": 4498752,
+"??1ByteVectorVal@@QAE@XZ": 11256096,
+"??1CtypeBase4110@@UAE@XZ": 11354528,
+"??1ElemQ@fnv_00acf580@@QAE@XZ": 11312080,
+"??1FUN_00aca9a0@fnv_00aca560@@QAE@XZ": 11315072,
+"??1FUN_00aca9a0@fnv_00aca7a0@@QAE@XZ": 11315072,
+"??1FUN_00aca9a0@fnv_00ad5770@@QAE@XZ": 11315072,
+"??1FUN_00ad0210@@QAE@XZ": 11338480,
+"??1FUN_00ad0630@output_file@@UAE@XZ": 11318960,
+"??1FUN_00ad2fa0@fnv_00aca560@@QAE@XZ": 11315616,
+"??1FUN_00ad2fa0@fnv_00aca7a0@@QAE@XZ": 11315616,
+"??1FUN_00ad2fa0@fnv_00ad0210@@QAE@XZ": 11315616,
+"??1FUN_00ad2fa0@fnv_00ad5770@@QAE@XZ": 11315616,
+"??1FUN_00ec3246@@QAE@XZ": 15479392,
+"??1FUN_00ec32e3@fnv_00ad3ca0@@QAE@XZ": 15479563,
+"??1FileBuffer@output_file@@UAE@XZ": 11323760,
+"??1FnvMapPair@@QAE@XZ": 11312080,
+"??1Guard@@QAE@XZ": 11315072,
+"??1GvContainer@bfopen@fnv_00ac4f00@@QAE@XZ": 4732688,
+"??1GvContainer@bfopenrw@@QAE@XZ": 4732688,
+"??1GvContainer@ctoraca@fnv_00acaa50@@QAE@XZ": 4732688,
+"??1GvContainer@ucpyac15@@QAE@XZ": 4732688,
+"??1Ios@output_file@@UAE@XZ": 11314352,
+"??1Output@output_file@@UAE@XZ": 11329168,
+"??1S00ad5cc0_Base@@QAE@XZ": 7348768,
+"??1S5540_Buffer@fnv_00ac5540@@QAE@XZ": 11248032,
+"??1S5540_Container@fnv_00ac5540@@QAE@XZ": 4732688,
+"??1S5540_VectorVal@fnv_00ac5540@@QAE@XZ": 11256096,
+"??1Str@@QAE@XZ": 4498752,
+"??1String@fnv_00ad5490@@QAE@XZ": 4498752,
+"??1StringList@@QAE@XZ": 11312368,
+"??1StringPairMemberQ@@QAE@XZ": 4498752,
+"??1StringVectorStorage@@QAE@XZ": 7348768,
+"??1StringbufDataB610@@UAE@XZ": 11318960,
+"??1StringbufDataE0D0@@UAE@XZ": 11318960,
+"??1VBQ@fnv_00ad6e20@@QAE@XZ": 7348768,
+"??1VecVal43B0@fnv_00ac43b0@@QAE@XZ": 11256096,
+"??1Vector12@@QAE@XZ": 6672304,
+"??1basic_ios_stub@fnvstd@@UAE@XZ": 11314352,
+"??1basic_istream_stub@fnvstd@@UAE@XZ": 11318768,
+"??1basic_ostreamB610@@UAE@XZ": 11318768,
+"??1basic_ostreamDEB0@@UAE@XZ": 11329168,
+"??1sentry@?$basic_ostream@DU?$char_traits@D@std@fnv_00ad47f0@@@std@fnv_00ad47f0@": 11338480,
+"??3@YAXPAX0@Z": 4258784,
+"??_D?$StringStream@DU?$Traits@D@parser839@@V?$Alloc@D@2@@parser839@@QAEXXZ": 11312240,
+"??_DStream87b0@@QAEXXZ": 11312304
+},
+"src/staging/blk_00ae0000_od.cpp": {
+"??1FUN_00ae9360_Base@@UAE@XZ": 11441136,
+"??1FUN_00ae9360_Base@Worker114@@UAE@XZ": 11441136
+},
+"src/staging/blk_00ae0000_od_ob1_rtm_variant.cpp": {
+"??1ListenerBase@ListenerDestruction@@UAE@XZ": 11446960
+},
+"src/staging/blk_00ae0000_od_ob1_variant.cpp": {
+"??1AE92D0_Range@@QAE@XZ": 10599376,
+"??1NiObjPtr@@QAE@XZ": 4574912,
+"??1SoundList936@@QAE@XZ": 10599376,
+"??3AF1d80@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00b00000_od_ob1_variant.cpp": {
+"??1?$VectorLike@UOtherEntry@@@@QAE@XZ": 11656976,
+"??1?$VectorLike@UPointEntry@@@@QAE@XZ": 11657584,
+"??1?$VectorLike@UTreeEntry@@@@QAE@XZ": 11655824,
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??1B0E1A0Base@@QAE@XZ": 4732688,
+"??1OtherStorage@@QAE@XZ": 11620880,
+"??1StorageBase@@QAE@XZ": 11768928,
+"??1ThreadBaseE8@@UAE@XZ": 11544992,
+"??1VectorStorage@@QAE@XZ": 11620768,
+"??3SplineCurve@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00b20000_od.cpp": {
+"??1FNV_00b3c930_Member@@QAE@XZ": 11171888,
+"??1FUN_00449fd0@@QAE@XZ": 4497472,
+"??1FUN_00b31270@@QAE@XZ": 11767952,
+"??1MemberA@fnv_00b2e810@@QAE@XZ": 11744112,
+"??1MemberC@fnv_00b2e810@@QAE@XZ": 4497472,
+"??1MemberD@fnv_00b2e810@@QAE@XZ": 4497472,
+"??1MemberE@fnv_00b2e810@@QAE@XZ": 6680672
+},
+"src/staging/blk_00b20000_od_ob1_rtm_variant.cpp": {
+"??1PointerVectorStorage@@QAE@XZ": 11768928
+},
+"src/staging/blk_00b20000_od_ob1_variant.cpp": {
+"??1?$Value313@G@@QAE@XZ": 11768928,
+"??1?$VdVectorImpl@G@vecdb337@fnv_00b33780@@QAE@XZ": 11768928,
+"??1?$VdVectorImpl@UVdElem18@vecdb390@fnv_00b39090@@@vecdb390@fnv_00b39090@@QAE@X": 11768928,
+"??1?$Vector313@UElem313@@@@QAE@XZ": 11768928,
+"??1?$Vector@G@copy_short@@QAE@XZ": 11768928,
+"??1?$VectorVal31@H@@QAE@XZ": 11768928,
+"??1?$VectorVal31@UValue31@@@@QAE@XZ": 11768928,
+"??1B2AE90_Array@@QAE@XZ": 11744112,
+"??1B2AE90_ArrayBase@@QAE@XZ": 11768928,
+"??1BoundsB3@@QAE@XZ": 11555024,
+"??1BufferB3CE30@@QAE@XZ": 11768928,
+"??1BufferPtr@@QAE@XZ": 11768928,
+"??1Container31@@QAE@XZ": 4732688,
+"??1El2Q@fnv_00b33bd0@@QAE@XZ": 11745152,
+"??1El2Q@fnv_00b34450@@QAE@XZ": 11744112,
+"??1ElQ@fnv_00b32880@@QAE@XZ": 11745152,
+"??1ElQ@fnv_00b33bd0@@QAE@XZ": 11745152,
+"??1ElQ@fnv_00b34450@@QAE@XZ": 11744112,
+"??1ElQ@fnv_00b3d910@@QAE@XZ": 11786240,
+"??1ElQ@fnv_00b3dbd0@@QAE@XZ": 11786240,
+"??1Elem313@@QAE@XZ": 11745152,
+"??1ElemQ@fnv_00b36bf0@@QAE@XZ": 11745152,
+"??1ElemQ@fnv_00b36d70@@QAE@XZ": 11744112,
+"??1FUN_00b326e0@@QAE@XZ": 11768928,
+"??1FUN_00b357d0@@QAE@XZ": 11744112,
+"??1FUN_00b357d0@fnv_00b37190@@QAE@XZ": 11745152,
+"??1MapValue@MapLookupDetail@@QAE@XZ": 11575152,
+"??1S00b360a0_Base@@QAE@XZ": 11768928,
+"??1S00b368d0_Buf@fnv_00b368d0@@QAE@XZ": 11768928,
+"??1VB2Q@fnv_00b32880@@QAE@XZ": 11768928,
+"??1VB2Q@fnv_00b33bd0@@QAE@XZ": 11768928,
+"??1VB2Q@fnv_00b34450@@QAE@XZ": 11768928,
+"??1VBQ@fnv_00b361b0@@QAE@XZ": 11768928,
+"??1VBQ@fnv_00b369f0@@QAE@XZ": 11768928,
+"??1VBQ@fnv_00b36bf0@@QAE@XZ": 11768928,
+"??1VBQ@fnv_00b36d70@@QAE@XZ": 11768928,
+"??1ValQ@@QAE@XZ": 11768928,
+"??1ValQ@fnv_00b37190@@QAE@XZ": 11768928,
+"??1Value31@@QAE@XZ": 11744112,
+"??1Value@@QAE@XZ": 11744112,
+"??1ValueBase@@QAE@XZ": 11768928,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/staging/blk_00b40000_o2.cpp": {
+"??1?$NiPointer@VNiRefObject@@@@QAE@XZ": 4574912,
+"??1BB595B0Queue@@QAE@XZ": 11900320,
+"??1NiTMapBaseStub@@UAE@XZ": 11928576,
+"??1SpawnedBase_b581c0@@QAE@XZ": 4811024,
+"??1VisitedList@@QAE@XZ": 12163312,
+"??3RTItem@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00b40000_od_ob1_variant.cpp": {
+"??1?$VbBaseAlloc@U?$VbAlloc@_N@@@@QAE@XZ": 11768928,
+"??1?$VbVal@IU?$VbAlloc@I@@@@QAE@XZ": 11768928,
+"??1?$VecContainerAlloc_Z@_N@@QAE@XZ": 11768928,
+"??1?$_Container_base_aux_alloc_real@V?$allocator@PAUP133Camera@@@stl@@@stl@@IAE@": 11768928,
+"??1?$_Vector_val@PAUMatchNode@@V?$allocator@PAUMatchNode@@@stl@@@stl@@QAE@XZ": 11768928,
+"??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ": 4498752,
+"??1?$vector@PAUMatchNode@@V?$allocator@PAUMatchNode@@@stl@@@stl@@QAE@XZ": 11744112,
+"??1Base@@QAE@XZ": 11768928,
+"??1FnvVec@fnv_00b40b30@@QAE@XZ": 11744112,
+"??1P133List@@QAE@XZ": 11744112,
+"??1VbWordVec_Z@@QAE@XZ": 11744112,
+"??1VecContainerBase_Z@@QAE@XZ": 4732688,
+"??1VecValue@fnv_00b40b30@@QAE@XZ": 11768928
+},
+"src/staging/blk_00b60000_o2.cpp": {
+"??1?$NiPointer@UNode@fnv_00b6b380@@@@QAE@XZ": 11956000,
+"??1?$NiPointer@URefCounted_b60@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiRefObject2@@@@QAE@XZ": 4574912,
+"??1?$Pointer_b60d@VRefObject_b60d@@@@QAE@XZ": 4574912,
+"??1B617Holder@@QAE@XZ": 11956000,
+"??1B6Ptr@@QAE@XZ": 4574912,
+"??1B7FBE0MapBase@@UAE@XZ": 11928544,
+"??1Base@fnv_00b6b380@@UAE@XZ": 10867664,
+"??1BaseObj_b60@@UAE@XZ": 11998224,
+"??1FencePtr@@QAE@XZ": 4574912,
+"??1FixedStr_b6d170@@QAE@XZ": 4424112,
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??1MemoryContextGuard@@QAE@XZ": 4214496,
+"??1NiRefObject2@@UAE@XZ": 4811024,
+"??1NiRefObject@fnv_00b60b50@@UAE@XZ": 4811024,
+"??1NiTMapBaseB63@@UAE@XZ": 11943264,
+"??1PoolGuard@@QAE@XZ": 4214496,
+"??1PoolPtr@@QAE@XZ": 4574912,
+"??1PooledTexture_b60d@@QAE@XZ": 4208592,
+"??1RefSlot88_b60@@QAE@XZ": 4208592,
+"??1ReleasePointer@fnv_00b60b50@@QAE@XZ": 4574912,
+"??3B61Loaded@@SAXPAX@Z": 4198448,
+"??3RenderPassB66@@SAXPAX@Z": 4198448,
+"??_VB61Alloc@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00b80000_o2.cpp": {
+"??1?$NiPointer@VB8C690Texture@@@@QAE@XZ": 4574912,
+"??1AllocTagScopeB8C@@QAE@XZ": 4214496,
+"??1BB81200Shader@@UAE@XZ": 12230880,
+"??1Base_c04570@@QAE@XZ": 12597792,
+"??1FUN_00bd8290@fnv_00b9de90@@QAE@XZ": 12416160,
+"??1RefPtr_b922d0@@QAE@XZ": 4574912,
+"??1Sub58_b9960@@UAE@XZ": 6150160,
+"??1Sub68_b9960@@UAE@XZ": 5159760,
+"??1TagGuard@fnv_00b9de90@@QAE@XZ": 4214496,
+"??3ISParam@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00b80000_od_o2_nood_variant.cpp": {
+"??1FUN_00a69400@@QAE@XZ": 10916832
+},
+"src/staging/blk_00ba0000_o2.cpp": {
+"??1?$BA4080PrimitiveArray@PAUBA4080Pass@@@@UAE@XZ": 12205328,
+"??1?$BA4080PrimitiveArray@PAUBA4080PendingPass@@@@UAE@XZ": 12205328,
+"??1?$BA4080PrimitiveArray@PAUBA4080PendingStage@@@@UAE@XZ": 12205328,
+"??1?$BA4080PrimitiveArray@PAUBA4080Stage@@@@UAE@XZ": 12205328,
+"??1?$BBB3500Pointer@VBBB3500RefObject@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@UBA02F0RefObject@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@URef@nb@fnv_00baeb80@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VBB3660RefObject@@@@QAE@XZ": 4574912,
+"??1?$Pointer_bb37@VRefObject_bb37@@@@QAE@XZ": 4574912,
+"??1BA02F0EffectBase@@UAE@XZ": 12205360,
+"??1BAA0E0Base@@UAE@XZ": 11116336,
+"??1BB0DE0Ptr@@QAE@XZ": 4574912,
+"??1BBB3500Base@@UAE@XZ": 11957120,
+"??1BBRefBase@bb3470@@UAE@XZ": 4811024,
+"??1Ba9740Guard@@QAE@XZ": 1314170400,
+"??1FUN_00ba8e50@fnv_00baeb80@@UAE@XZ": 12230880,
+"??1ISTexSlot@@QAE@XZ": 12204544,
+"??1ImgRefHold@@QAE@XZ": 4574912,
+"??1LeafLightingBase@leaf_rework@@QAE@XZ": 12269456,
+"??1MemoryContext@@QAE@XZ": 4214496,
+"??1NiFixedStringBAF@@QAE@XZ": 4424112,
+"??1NiObject@fnv_00ba63e0@@UAE@XZ": 10867664,
+"??1P@nb@fnv_00baeb80@@QAE@XZ": 4208592,
+"??1RefPtr@@QAE@XZ": 4574912,
+"??1RefPtr_b9fcc0@@QAE@XZ": 4574912,
+"??1S00ba20e0_Guard@@QAE@XZ": 4214496,
+"??1S00bafd50_Ptr@@QAE@XZ": 4424112,
+"??1S_00ba63e0_Arr@fnv_00ba63e0@@UAE@XZ": 5471456,
+"??1SimpleBuf@@QAE@XZ": 4208592,
+"??1SpawnBaseObj@@UAE@XZ": 11957120,
+"??1SpawnedBase@fnv_00ba4880@@UAE@XZ": 12205360,
+"??1ThreadStateGuard@@QAE@XZ": 4214496,
+"??1TlsFlagGuard@fnv_00bb1080@@QAE@XZ": 4214496,
+"??3BB5DD0Obj@@SAXPAX@Z": 4198448,
+"??3FogProp_bb8280@@SAXPAXI@Z": 11146336,
+"??3ImageSpaceShaderParam@@SAXPAX@Z": 4198448,
+"??3NewObj@fnv_00ba9660@@SAXPAX@Z": 4198448,
+"??3S00ba1770_Param@@SAXPAX@Z": 4198448,
+"??_VS_00ba63e0_Elem@fnv_00ba63e0@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00bc0000_o2.cpp": {
+"??1?$EffectPtr@$00@@QAE@XZ": 4574912,
+"??1?$EffectPtr@$0A@@@QAE@XZ": 4574912,
+"??1?$Ptr@UGeometry@@@@QAE@XZ": 4574912,
+"??1Base_9160@@UAE@XZ": 12205360,
+"??1FNV_Base_00bd7120@@UAE@XZ": 12414768,
+"??1FUN_00a712f0@@UAE@XZ": 10943200,
+"??1FUN_00b66f50@@UAE@XZ": 11957120,
+"??1FUN_00b79b00@fnv_00bd44c0@@QAE@XZ": 12033504,
+"??1FUN_00ba8e50@fnv_00bc1d40@@UAE@XZ": 12230880,
+"??1FUN_00bd2b60_base@@QAE@XZ": 12455696,
+"??1FUN_00be2200@@UAE@XZ": 12455696,
+"??1FUN_00be2200@fnv_00bc58a0@@UAE@XZ": 12455696,
+"??1ObjectReference@@QAE@XZ": 4574912,
+"??1RefPtr@@QAE@XZ": 11956000,
+"??1ShaderBase_bd12c0@@UAE@XZ": 12033504,
+"??1TextureWrapper_9160@@QAE@XZ": 12204544,
+"??1TlsGuard_t@@QAE@XZ": 4214496
+},
+"src/staging/blk_00c00000_o2.cpp": {
+"??1?$NiPointer@UBSRenderedTexture@fnv_00c03d80@@@@QAE@XZ": 4574912,
+"??1FUN_00ba4080_class@@QAE@XZ": 12205360,
+"??1ISBaseA@@UAE@XZ": 12455696,
+"??1ISBaseB@@UAE@XZ": 12205360,
+"??1ISPtr@@QAE@XZ": 11956000,
+"??1ShaderPassPointer@ShaderBias@@QAE@XZ": 12032304,
+"??1ShaderPassPointer@fnv_00c0fdc0@@QAE@XZ": 12032304,
+"??1ShaderPassPtr@@QAE@XZ": 12032304
+},
+"src/staging/blk_00c20000_od_ob1_variant.cpp": {
+"??1?$NiPointer@VMbShape@@@@QAE@XZ": 12804800,
+"??1?$QfPointer@UQfObj@@@@QAE@XZ": 4508656,
+"??1AutoMemContext_00c3f7a0@@QAE@XZ": 4214496,
+"??1BaseObj@@UAE@XZ": 4502704,
+"??1ContextC3@@QAE@XZ": 4214496,
+"??1FUN_00c46970@@UAE@XZ": 12872432,
+"??1List_b4@@QAE@XZ": 12163312,
+"??1List_b4_base@@QAE@XZ": 10655360,
+"??1List_c0@@QAE@XZ": 12820864,
+"??1List_c0_base@@QAE@XZ": 4732688,
+"??1Map_d0@@QAE@XZ": 12820944,
+"??1Map_d0_base@@QAE@XZ": 4732688,
+"??1QfBase@@QAE@XZ": 4458048,
+"??1Ref360@@QAE@XZ": 12847376,
+"??1RefC3@@QAE@XZ": 12847376,
+"??1SpawnedBase@fnv_00c3f8c0@@UAE@XZ": 4502704,
+"??1Stream_c3e1b0@@UAE@XZ": 12847504,
+"??1TexturePtr@@QAE@XZ": 4574912,
+"??1TlsScope@@QAE@XZ": 4214496,
+"??3NodeC3@@SAXPAX@Z": 4198448,
+"??3OwnArr@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00c40000_od.cpp": {
+"??1FUN_00a5ecb0@fnv_00c503d0@@QAE@XZ": 10873136
+},
+"src/staging/blk_00c40000_od_ehs_ob1_noehsc_variant.cpp": {
+"??3BBXRef@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00c40000_od_ob1_variant.cpp": {
+"??1?$MultiBoundPtr@URefC46@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@UC5RefObj@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@UMyNode@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@UMyRef@@@@QAE@XZ": 11440784,
+"??1?$NiPointer@URefQ@fnv_00c5aef0@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@URefQ@fnv_00c5dcd0@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@VNiRefObject@@@@QAE@XZ": 4574912,
+"??1?$NiPointerB06@VRefObjectB06@@@@QAE@XZ": 4574912,
+"??1?$NiPointerC51@VRefObjectC51@@@@QAE@XZ": 4574912,
+"??1?$ObjPtr@UNodeRef@fnv_00c46a40@@@fnv_00c46a40@@QAE@XZ": 4574912,
+"??1?$SmartPtr@UNodeC4@fnv_00c50c30@@@fnv_00c50c30@@QAE@XZ": 4574912,
+"??1ArrObj@fnv_00c5ac00@@UAE@XZ": 4906528,
+"??1ArrQ@@QAE@XZ": 12970848,
+"??1Array@reconstruct_c5a9d0@@QAE@XZ": 4906528,
+"??1Base@reconstruct_c5a9d0@@UAE@XZ": 4811024,
+"??1C42Guard@fnv_00c42b80@@QAE@XZ": 4214496,
+"??1C45Pointer@@QAE@XZ": 11440784,
+"??1C5Base@@QAE@XZ": 10873136,
+"??1CamPointer@fnv_00c517b0@@QAE@XZ": 4574912,
+"??1DispatchRefPtr@@QAE@XZ": 4574912,
+"??1FUN_004a4650_class@fnv_00c5ac00@@QAE@XZ": 12958480,
+"??1FUN_004ed900_class@fnv_00c5ac00@@QAE@XZ": 12820864,
+"??1FUN_00a5ecb0@fnv_00c517b0@@UAE@XZ": 10873136,
+"??1FUN_00b71300_class@fnv_00c5ac00@@QAE@XZ": 12163312,
+"??1FUN_00c5f680@@QAE@XZ": 12974752,
+"??1FUN_00c5f680@fnv_00c46a40@@QAE@XZ": 12974752,
+"??1FUN_00e74d40_class@fnv_00c5ac00@@QAE@XZ": 11913152,
+"??1HeapCtxGuard@@QAE@XZ": 4214496,
+"??1IntData_c42ff0@@QAE@XZ": 11115632,
+"??1List332@@QAE@XZ": 4732688,
+"??1ListQ@@QAE@XZ": 11913152,
+"??1Mid_c42f70@@UAE@XZ": 11115632,
+"??1NavMeshPtr@@QAE@XZ": 4574912,
+"??1NiBaseStandIn@@QAE@XZ": 10990336,
+"??1NiFixedStringI@fnv_00c517b0@@QAE@XZ": 4424112,
+"??1NodeBaseQ@@UAE@XZ": 10873136,
+"??1PTRefBase@fnv_00c5ac00@@UAE@XZ": 4811024,
+"??1PTSmart@fnv_00c5ac00@@QAE@XZ": 4574912,
+"??1PtrC5BB@@QAE@XZ": 4574912,
+"??1Q5Hold@@QAE@XZ": 10830304,
+"??1Ref@reconstruct_c5a9d0@@QAE@XZ": 4574912,
+"??1RefPtr@fnv5b5f0@@QAE@XZ": 4574912,
+"??1RefPtrSI@@QAE@XZ": 4574912,
+"??1ResizePointer@fnv_00c45b20@@QAE@XZ": 11440784,
+"??1S00c46080_Tmp@@QAE@XZ": 11440784,
+"??1SPQ@@QAE@XZ": 4574912,
+"??1SPQ@fnv_00c4cba0@@QAE@XZ": 4574912,
+"??1SPtr5b@@QAE@XZ": 4574912,
+"??1S_00c42960_Scope@@QAE@XZ": 4214496,
+"??1Semaphore42A@@QAE@XZ": 5612240,
+"??1Semaphore42B@@QAE@XZ": 5612240,
+"??1SpawnedBase@fnv_00c46970@@QAE@XZ": 12974752,
+"??1SpawnedHolder@fnv_00c46970@@QAE@XZ": 4574912,
+"??1Tail@reconstruct_c5a9d0@@QAE@XZ": 8901760,
+"??1TaskRef_j61@@UAE@XZ": 7102064,
+"??1TlsHeapStateGuard@@QAE@XZ": 4214496,
+"??1WorkerEvent@@UAE@XZ": 12847504,
+"??3Inner@@SAXPAX@Z": 4198448,
+"??3NewShorts086@@SAXPAX@Z": 4198448,
+"??3Pool@@SAXPAX@Z": 4198448,
+"??3WorkerThread@fnv_00c44980@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00c40000_od_ob1_variant_helpers_variant.cpp": {
+"??1?$NiPointer@VNiRefObject@@@@QAE@XZ": 4574912
+},
+"src/staging/blk_00c40000_od_ob1_variant_rtm_variant.cpp": {
+"??3FrustumPlaneSet@@SAXPAX0@Z": 4258784
+},
+"src/staging/blk_00c60000_o2.cpp": {
+"??1?$NiPointer@VNiRefObject@@@@QAE@XZ": 4574912,
+"??1Array705@fnv_00c705c0@@QAE@XZ": 6429536,
+"??1BC6DF60AllocTagScope@@QAE@XZ": 4214496,
+"??1Base_00c75fa0@@UAE@XZ": 13066112,
+"??1C687B0AllocTagScope@@QAE@XZ": 4214496,
+"??1C6D1E0Base@@UAE@XZ": 13233856,
+"??1ChainB_cls@@QAE@XZ": 13446624,
+"??1ConstructorList@fnv_00c69010@@QAE@XZ": 13011680,
+"??1ConstructorParent@fnv_00c69010@@QAE@XZ": 13137840,
+"??1EventBase@@UAE@XZ": 13065728,
+"??1ListenerBase@fnv_00c705c0@@QAE@XZ": 13027376,
+"??1MapBase_StandIn@@UAE@XZ": 13065408,
+"??1NiFixedString@fnv_00c6b860@@QAE@XZ": 4424112,
+"??1NiFixedString@fnv_00c6fd80@@QAE@XZ": 4424112,
+"??1RefPtr@@QAE@XZ": 13028512,
+"??1S00c6d040_C@@QAE@XZ": 13232944,
+"??1S69580_Scope@@QAE@XZ": 4214496,
+"??1Scope705@fnv_00c705c0@@QAE@XZ": 4214496,
+"??1ThreadMemoryScope@@QAE@XZ": 4214496,
+"??1ThreadScope@@QAE@XZ": 4214496,
+"??1TlsStateScope@fnv_00c6aac0@@QAE@XZ": 4214496,
+"??3@YAXPAX0@Z": 4258784,
+"??3BC6DF60Phantom@@SAXPAX@Z": 13028800,
+"??3C687B0Object@@SAXPAX@Z": 13232864,
+"??3C69960Node@@SAXPAX@Z": 13159680,
+"??3FUN_00cbc460@@SAXPAX@Z": 13232864,
+"??3FUN_00cd3c90@@SAXPAX@Z": 13232864,
+"??3FUN_00cd3f90@@SAXPAX@Z": 13232864,
+"??3FUN_00cd4260@@SAXPAX@Z": 13232864,
+"??3FUN_00cd44c0@@SAXPAX@Z": 13232864,
+"??3FUN_00cd47e0@@SAXPAX@Z": 13232864
+},
+"src/staging/blk_00c60000_od.cpp": {
+"??1C61330Base@@UAE@XZ": 11114832
+},
+"src/staging/blk_00c60000_od_o2_nood_variant.cpp": {
+"??1AuxInfo@@QAE@XZ": 5696144,
+"??1Cursor_c7@fnv_00c7b1f0@@QAE@XZ": 13087024,
+"??1FxString@@QAE@XZ": 4424112,
+"??1T741_Arr@fnv_00c741e0@@QAE@XZ": 6429536,
+"??1T741_B0@fnv_00c741e0@@UAE@XZ": 13287248,
+"??1T741_B1@fnv_00c741e0@@UAE@XZ": 13276640,
+"??1T741_B2a@fnv_00c741e0@@UAE@XZ": 13027376,
+"??1T741_Guard@fnv_00c741e0@@QAE@XZ": 4214496,
+"??1T741_M10@fnv_00c741e0@@QAE@XZ": 11854144,
+"??3FUN_00c6d1e0@@SAXPAX@Z": 13159680,
+"??3FUN_00cd8160@@SAXPAX@Z": 5476016,
+"??3FUN_00ce14b0@fnv_00c7b1f0@@SAXPAX@Z": 13062032
+},
+"src/staging/blk_00c60000_od_o2_nood_variant_rtm_variant.cpp": {
+"??1CollectorC@@UAE@XZ": 5885696,
+"??1ContextC@@QAE@XZ": 4214496,
+"??1hkpAllCdPointCollector@@QAE@XZ": 6427056
+},
+"src/staging/blk_00c60000_od_ob1_variant.cpp": {
+"??1?$NiPointer61@URefObjV61@@@@QAE@XZ": 4574912,
+"??1?$NiPointer@UAVObj62@@@@QAE@XZ": 4574912,
+"??1?$NiPtr@URefObj@@@@QAE@XZ": 4574912,
+"??1BaseObj@@UAE@XZ": 12712480,
+"??1C64D10_Handle@fnv_00c64d10@@QAE@XZ": 4424112,
+"??1C64e70Array@@UAE@XZ": 12998272,
+"??1EmitBaseB10@@UAE@XZ": 12712480,
+"??1FStrX@fnv_00c65040@@QAE@XZ": 4424112,
+"??1FUN_00a5d3a0@fnv_00c649f0@@QAE@XZ": 10867664,
+"??1IntegerExtraData244@@UAE@XZ": 11114832,
+"??1ListBaseB3@fnv_00c63b40@@QAE@XZ": 4732688,
+"??1MidB3@fnv_00c63b40@@UAE@XZ": 11115632,
+"??1ModBase64d@@QAE@XZ": 10990336,
+"??1PtrC62@@QAE@XZ": 4574912,
+"??1S00c62800_Base@@QAE@XZ": 12712480,
+"??1SubObj@@UAE@XZ": 12986512,
+"??3AtpRef@fnv_00c65530@@SAXPAX@Z": 4198448,
+"??3FUN_00c64640@fnv_00c64270@@SAXPAX@Z": 4198448,
+"??3FUN_00c64d10@fnv_00c65490@@SAXPAX@Z": 4198448,
+"??3NiFixedString@fnv_00c618f0@@SAXPAX@Z": 4198448
+},
+"src/staging/blk_00c80000_o2.cpp": {
+"??1?$NiPointerC9A@VObstacleDataC9A@@@@QAE@XZ": 4574912,
+"??1AllocTagScopeC9A@@QAE@XZ": 4214496,
+"??1Arr_c891@@QAE@XZ": 6462272,
+"??1AutoMemContextC877@@QAE@XZ": 4214496,
+"??1BC88760AllocTagScope@@QAE@XZ": 4214496,
+"??1BaseC9@@QAE@XZ": 10932880,
+"??1Context674@@QAE@XZ": 4214496,
+"??1MemContextScope@@QAE@XZ": 4214496,
+"??1MemoryContextGuard@@QAE@XZ": 4214496,
+"??1MeshMemoryScope@@QAE@XZ": 4214496,
+"??1NiFixedStrX@@QAE@XZ": 4424112,
+"??1ReadScope@fnv_00c9ba40@@QAE@XZ": 4214496,
+"??1S00c90090_Ptr@@QAE@XZ": 11956000,
+"??1ScopedMemoryCategory@@QAE@XZ": 4214496,
+"??1ScopedMemoryMode@fnv_00c89540@@QAE@XZ": 4214496,
+"??1SpawnedBase_b7559@@QAE@XZ": 13112656,
+"??1TlsGuard_t@@QAE@XZ": 4214496,
+"??1TlsGuard_t@fnv_00c9bef0@@QAE@XZ": 4214496,
+"??1TlsScope_c8b090@@QAE@XZ": 4214496,
+"??3BC88760Derived@@CAXPAXI@Z": 11146336,
+"??3C90160Derived@@CAXPAXI@Z": 11146336,
+"??3FUN_00cf4190_class@@SAXPAX@Z": 13232864,
+"??3FUN_00cf43b0_class@@SAXPAX@Z": 13232864,
+"??3FUN_00cf45d0_class@@SAXPAX@Z": 13232864,
+"??3hkListShape_c8b090@@SAXPAX@Z": 5476016
+},
+"src/staging/blk_00c80000_o2_rtm_variant.cpp": {
+"??1BodyReference@@QAE@XZ": 11956000,
+"??1Handle@@QAE@XZ": 4574912,
+"??1ScopedMemoryCategory@@QAE@XZ": 4214496,
+"??1TlsFlagGuard@@QAE@XZ": 4214496
+},
+"src/staging/blk_00c80000_od_o2_nood_variant.cpp": {
+"??1MemContextGuard@@QAE@XZ": 4214496
+},
+"src/staging/blk_00ca0000_o2.cpp": {
+"??1?$CbaArray@PAVCbaItem@@@@UAE@XZ": 13344720,
+"??1?$CbaArray@PAX@@UAE@XZ": 13344768,
+"??1?$FNVArray@D@@QAE@XZ": 5507296,
+"??1ArrayCBAF90@@UAE@XZ": 13348272,
+"??1BaseCA3@@UAE@XZ": 13251936,
+"??1BaseState@fnv_00ca2140@@UAE@XZ": 13241392,
+"??1CA2020AllocTagScope@@QAE@XZ": 4214496,
+"??1CB920Guard@@QAE@XZ": 4214496,
+"??1CBC740MapBase@@UAE@XZ": 13354784,
+"??1CBaseOwner@@QAE@XZ": 10867664,
+"??1CSlot08@@QAE@XZ": 4424112,
+"??1CSubA@@QAE@XZ": 13344720,
+"??1CSubB@@QAE@XZ": 13344768,
+"??1CbaString@@QAE@XZ": 4424112,
+"??1CinfoA@fnv_00cbf540@@QAE@XZ": 13366208,
+"??1CinfoC@fnv_00cbf540@@QAE@XZ": 13366576,
+"??1CombinedBase@@UAE@XZ": 13251936,
+"??1FUN_00a7b2e0@@QAE@XZ": 10990336,
+"??1GuardBase04@@QAE@XZ": 4047550298,
+"??1HeapIndexGuard@@QAE@XZ": 4214496,
+"??1Holder_ca9e60@@QAE@XZ": 1859883488,
+"??1NiFixedString@fnv_00ca6b60@@QAE@XZ": 4424112,
+"??1SavedExtraArray@@QAE@XZ": 13255792,
+"??1TlsGuard_b9283@fnv_00cac250@@QAE@XZ": 4214496,
+"??1TlsGuard_t@@QAE@XZ": 4214496,
+"??1TlsScopeGuard@fnv_00cbf540@@QAE@XZ": 4214496,
+"??3@YAXPAX@Z": 3618186745,
+"??3CloneSpec@fnv_00cb96c0@@SAXPAX@Z": 13159680,
+"??3Node_ca57@@SAXPAX@Z": 13159680,
+"??3ObjB@fnv_00cbf540@@SAXPAX@Z": 13232864,
+"??3ObjD@fnv_00cbf540@@SAXPAX@Z": 13365968,
+"??3Rec9bd0@@SAXPAX@Z": 13232864,
+"??3ShapeData@@SAXPAX@Z": 13159680
+},
+"src/staging/blk_00ca0000_o2_rtm_variant.cpp": {
+"??1?$NiPointer@UShapeRef@@@@QAE@XZ": 4574912,
+"??1?$WorkArray@H@fnv_00ca1410@@QAE@XZ": 13086960,
+"??1?$WorkArray@M@fnv_00ca1410@@QAE@XZ": 13086960,
+"??1?$WorkArray@UTransform@fnv_00ca1410@@@fnv_00ca1410@@QAE@XZ": 13090704,
+"??1TlsGuard_t@@QAE@XZ": 4214496,
+"??3NTCVt@@SAXPAX@Z": 13159680,
+"??3bhkForceController@fnv_00cb94a0@@SAXPAX@Z": 13159680
+},
+"src/staging/blk_00ca0000_od_o2_nood_variant.cpp": {
+"??1Ca39f0Base@@UAE@XZ": 13251936,
+"??1F7_Scope@@QAE@XZ": 4214496,
+"??1FUN_00ca7310@fnv_00ca7a70@@QAE@XZ": 13267904,
+"??1FUN_00cc0500@fnv_00ca7a70@@QAE@XZ": 13369568,
+"??1PointArrayCA4B@@UAE@XZ": 13255792,
+"??1ShapeBaseCA4B@@UAE@XZ": 13251936,
+"??3F7_Shape@@SAXPAX@Z": 13232864
+},
+"src/staging/blk_00cc0000_o2.cpp": {
+"??1?$AllocatorArray@UTargetContact@@@@QAE@XZ": 6429536,
+"??1?$CE340Array@UCE340Vec4@@@@QAE@XZ": 6740560,
+"??1?$hkArrayStub@PAULinkedObjStub@@@@QAE@XZ": 13086960,
+"??1AllocTagScopeCCD@@QAE@XZ": 4214496,
+"??1ArrayRefPtr@@QAE@XZ": 4574912,
+"??1AutoMemContextC01@@QAE@XZ": 4214496,
+"??1BaseObject@@UAE@XZ": 13976544,
+"??1CE6Array@@QAE@XZ": 6740560,
+"??1CcbcOwnerBase@@QAE@XZ": 13446624,
+"??1ChainD_cls@fnv_00cd7e80@@QAE@XZ": 13425600,
+"??1ExtraMember@@QAE@XZ": 13376176,
+"??1FUN_00a7b2e0@@UAE@XZ": 10990336,
+"??1LoadScope@@QAE@XZ": 4214496,
+"??1MemClassGuard@fnv_00cd7d60@@QAE@XZ": 4214496,
+"??1Member_00cc1e40@@QAE@XZ": 13376176,
+"??1NameRef@@QAE@XZ": 4424112,
+"??1S_00cc4b90_Ctx@@QAE@XZ": 4214496,
+"??1S_00cc7dc0_B@@UAE@XZ": 13959200,
+"??1ScopedMemoryCategory@@QAE@XZ": 4214496,
+"??1TlsFlagGuard_00cc1e40@@QAE@XZ": 4214496,
+"??1TlsHeapGuard@@QAE@XZ": 4214496,
+"??1TlsPoolGuard@fnv_00ccc7e0@@QAE@XZ": 4214496,
+"??3FUN_00d4d980@@SAXPAX@Z": 13232864,
+"??3FUN_00d4f2a0@@SAXPAXI@Z": 625461921,
+"??3RefObj@fnv_00cc6720@@SAXPAX@Z": 13232864,
+"??3ReferencedObjectCCD@@SAXPAX@Z": 5476016,
+"??3S_00cc4b90_RefObj@@SAXPAX@Z": 13232864,
+"??3ShapeDerived@fnv_00cd7d60@@SAXPAX@Z": 5476016
+},
+"src/staging/blk_00cc0000_o2_decl_variant.cpp": {
+"??1TlsFlagGuard@@QAE@XZ": 4214496
+},
+"src/staging/blk_00cc0000_o2_rtm_variant.cpp": {
+"??1Cc9Context@@QAE@XZ": 4214496,
+"??3S_00cc4b90_RefObj@@SAXPAX@Z": 13232864
+},
+"src/staging/blk_00cc0000_od_o2_nood_variant.cpp": {
+"??1IndexArray@@QAE@XZ": 10864480,
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??3Cc6830Motion@fnv_00cc6830@@SAXPAX@Z": 13232864,
+"??3EntityObj@@SAXPAX@Z": 13232864,
+"??3FUN_00cc9d00@@SAXPAX@Z": 5476016,
+"??3FUN_00d4f2a0@@SAXPAX@Z": 13232864,
+"??3FUN_00d55240_cls@@SAXPAX@Z": 5476016,
+"??3FUN_00d569c0@@SAXPAX@Z": 13232864,
+"??3FUN_00d58510@@SAXPAX@Z": 13232864,
+"??3S00cc4610_Out@@SAXPAX@Z": 13232864,
+"??3ShapeObj@@SAXPAX@Z": 13232864
+},
+"src/staging/blk_00cc0000_od_o2_nood_variant_rtm_variant.cpp": {
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??3FUN_00d4fe80@@SAXPAX@Z": 13232864
+},
+"src/staging/blk_00d20000_o2.cpp": {
+"??3ObjD2C840@@SAXPAX0@Z": 10655360
+},
+"src/staging/blk_00d20000_od_o2_nood_variant.cpp": {
+"??3@YAXPAX0@Z": 10655360
+},
+"src/staging/blk_00d40000_o2.cpp": {
+"??1AutoMemContextD53@@QAE@XZ": 4214496,
+"??1ScopedMemoryContextD53@@QAE@XZ": 4214496,
+"??3FUN_00dd0530@@SAXPAX@Z": 13232864
+},
+"src/staging/blk_00ec0000_od_ob1_variant.cpp": {
+"??1?$BSTCaseInsensitiveStringMap@PAD@fnv_00ec15e0@@UAE@XZ": 15473968,
+"??1AutoMemContextEC2200@@QAE@XZ": 4214496,
+"??1BaseE40@@UAE@XZ": 15473536,
+"??1HeapZoneGuard@@QAE@XZ": 4214496,
+"??1MemContextGuard@@QAE@XZ": 4214496,
+"??1NiTStringMapBase@@UAE@XZ": 15473536,
+"??1NiTStringMapMid@@UAE@XZ": 15473584,
+"??1Scope2490@@QAE@XZ": 4214496,
+"??1ScopedAllocContext@@QAE@XZ": 4214496,
+"??1ScopedAllocTag@@QAE@XZ": 4214496,
+"??3BSMovieJob@@SAXPAX@Z": 4198448,
+"??3Movie2490@@SAXPAX@Z": 4198448,
+"??3PlaybackFileEC2200@@SAXPAX@Z": 4198448
+},
+"src/tesobjectarmo.cpp": {
+"??1BGSBipedModelList@stand@@QAE@XZ": 4672832,
+"??1BGSPickupPutdownSounds@stand@@QAE@XZ": 4699424,
+"??1BGSRepairItemList@stand@@QAE@XZ": 4700288,
+"??1TESBipedModelForm@stand@@QAE@XZ": 4719616,
+"??1TESHealthForm@stand@@QAE@XZ": 4747776
+},
+"src/tesreputation.cpp": {
+"??1BaseComponentA@@QAE@XZ": 4732464,
+"??1BaseComponentC@@QAE@XZ": 4776672
+},
+"src/unmapped/bhkboxshape_o2_nood_variant.cpp": {
+"??1ThreadStateGuard@@QAE@XZ": 4214496,
+"??3SpawnedRefObject@@SAXPAX@Z": 5476016
+},
+"src/unmapped/bhkrigidbody.cpp": {
+"??1ThreadFlagsGuard@@QAE@XZ": 4214496,
+"??3FUN_00ca8c90@@SAXPAX@Z": 13232864
+},
+"src/unmapped/bssimplearray.cpp": {
+"??1ContainerBase6CF@@UAE@XZ": 7141408,
+"??1FUN_005e04c0@fnv_006cf3a0@@UAE@XZ": 6161648,
+"??1FUN_00694de0_base@fnv_006cfb20@@QAE@XZ": 6901264,
+"??1FUN_006cfa00_base@fnv_006cfa00@@QAE@XZ": 7142048,
+"??1FUN_006d0420_Base@@UAE@XZ": 6926800,
+"??3@YAXPAX0@Z": 4258784
+},
+"src/unmapped/debugtextmanager.cpp": {
+"??1C8027D0Map@@QAE@XZ": 8399856
+},
+"src/unmapped/debugtextparticlesystem.cpp": {
+"??1?$TempArray@PAX@@QAE@XZ": 6462272,
+"??1Builder@@QAE@XZ": 6463488,
+"??1IndexArray@@QAE@XZ": 13086960,
+"??1SceneRecord@@QAE@XZ": 5691184,
+"??1SourceVec@@QAE@XZ": 7680160,
+"??1hkReferencedObject@@UAE@XZ": 5475856,
+"??3@YAXPAX0@Z": 10655360,
+"??3FUN_00d1fa50@@SAXPAX@Z": 13232864,
+"??3hkaSkeleton@@SAXPAX@Z": 13232864
+},
+"src/unmapped/nitarray.cpp": {
+"??1?$RefPtr@URefObject@@@@QAE@XZ": 11956000,
+"??1?$TObjectArray@PAURefObject@@@@UAE@XZ": 6150160,
+"??1?$TPrimitiveArray@H@@UAE@XZ": 5159760,
+"??1FUN_004eba20@@UAE@XZ": 5159568
+},
+"src/unmapped/nitmapbase.cpp": {
+"??1B90Base@@UAE@XZ": 4213888
+},
+"src/unmapped/nitmapbase_ob1_variant.cpp": {
+"??1PtrX@@QAE@XZ": 4574912
+}
+},
+"global_name": {
+"??0?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IAE@XZ": 11339312,
+"??0__non_rtti_object@std@@QAE@PBD@Z": 15497797,
+"??0bad_exception@std@@QAE@PBD@Z": 15524562,
+"??_7?$basic_filebuf@_WU?$char_traits@_W@std@@@std@@6B@": 17445176,
+"??_7?$basic_ios@_WU?$char_traits@_W@std@@@std@@6B@": 17444772,
+"??_7?$basic_ostream@_WU?$char_traits@_W@std@@@std@@6B@": 17445260,
+"??_7_Locimp@locale@std@@6B@": 17768152,
+"??_7exception@std@@6B@": 17768356,
+"??_7facet@locale@std@@6B@": 17445372,
+"??_8?$basic_ostream@_WU?$char_traits@_W@std@@@std@@7B@": 17445264,
+"??_G_Fac_node@std@@QAEPAXI@Z": 15479910,
+"??_Glocale@std@@QAEPAXI@Z": 15479186,
+"?FindCompleteObject@@YAPAXPAPAX@Z": 15483116,
+"?_CallMemberFunction0@@YGXPAX0@Z": 15482072,
+"?_CallMemberFunction1@@YGXPAX00@Z": 15482072,
+"?_CallMemberFunction2@@YGXPAX00H@Z": 15482072,
+"?_Clocptr@_Locimp@locale@std@@0PAV123@A": 19331996,
+"?_Decref@facet@locale@std@@QAEPAV123@XZ": 11319152,
+"?_Init@?$basic_filebuf@_WU?$char_traits@_W@std@@@std@@IAEXPAU_iobuf@@W4_Initfl@1": 11336720,
+"?_Ptr_wcerr@std@@3PAV?$basic_ostream@_WU?$char_traits@_W@std@@@1@A": 19332180,
+"?_Ptr_wcout@std@@3PAV?$basic_ostream@_WU?$char_traits@_W@std@@@1@A": 19332176,
+"?_ValidateExecute@@YAHP6GHXZ@Z": 15596520,
+"?_ValidateRead@@YAHPBXI@Z": 15596520,
+"?_ValidateWrite@@YAHPAXI@Z": 15596520,
+"?__pInconsistency@@3P6AXXZA": 19332624,
+"?_names@?1??_get_fname@@9@9": 18621456,
+"?_pgmname@?1??_setargv@@9@9": 19334320,
+"?_pnhHeap@@3P6AHI@ZA": 19334956,
+"?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PB": 4499008,
+"?f_use@?1??__crtCompareStringA_stat@@YAHPAUlocaleinfo_struct@@KKPBDH1HH@Z@4HA": 19335392,
+"?f_use@?1??__crtGetEnvironmentStringsA@@9@9": 19334584,
+"?f_use@?1??__crtGetLocaleInfoA_stat@@YAHPAUlocaleinfo_struct@@KKPADHH@Z@4HA": 19335192,
+"?f_use@?1??__crtGetStringTypeA_stat@@YAHPAUlocaleinfo_struct@@KPBDHPAGHHH@Z@4HA": 19335104,
+"?f_use@?1??__crtLCMapStringA_stat@@YAHPAUlocaleinfo_struct@@KKPBDHPADHHH@Z@4HA": 19332600,
+"?first_time@?1??__tzset@@9@9": 19335380,
+"?init@?$basic_ios@_WU?$char_traits@_W@std@@@std@@IAEXPAV?$basic_streambuf@_WU?$c": 11338864,
+"?mods@?1??_Fiopen@std@@YAPAU_iobuf@@PB_WHH@Z@4PAPB_WA": 18617836,
+"?outmsg@?5??_NMSG_WRITE@@9@9": 19333448,
+"?pfnGetActiveWindow@?1??__crtMessageBoxW@@9@9": 19335176,
+"?pfnGetLastActivePopup@?1??__crtMessageBoxW@@9@9": 19335180,
+"?pfnGetProcessWindowStation@?1??__crtMessageBoxW@@9@9": 19335184,
+"?pfnGetUserObjectInformation@?1??__crtMessageBoxW@@9@9": 19335188,
+"?pfnMessageBox@?1??__crtMessageBoxW@@9@9": 19335172,
+"?registered@?1??_Setgloballocale@locale@std@@CAXPAX@Z@4_NA": 19332028,
+"?strncnt@@YAHPBDH@Z": 15623258,
+"?unexpected@@YAXXZ": 15537389,
+"?use_w@?1??_putwch_nolock@@9@9": 18624364,
+"?wcbuffer@?4??__getlocaleinfo@@9@9": 19334236,
+"?wcerr@std@@3V?$basic_ostream@_WU?$char_traits@_W@std@@@1@A": 19332112,
+"?wcstoxq@@YA_KPAUlocaleinfo_struct@@PB_WPAPB_WHH@Z": 15502041,
+"ALL_ONES": 17798816,
+"Ctable": 17796640,
+"DblMax": 17773536,
+"DblMin": 17773544,
+"IeeeAdjO": 17773552,
+"IeeeAdjU": 17773560,
+"PI32INV": 17798752,
+"P_1": 17798784,
+"P_2": 17798768,
+"P_3": 17798792,
+"SC_1": 17798688,
+"SC_2": 17798704,
+"SC_3": 17798720,
+"SC_4": 17798736,
+"SHIFTER": 17798760,
+"TWO_POW_55": 17798800,
+"TWO_POW_M55": 17798808,
+"_DebuggerWasPresent": 19332712,
+"_DoubleFormat": 18623640,
+"_GS_ContextRecord": 19332720,
+"_GS_ExceptionPointers": 17771072,
+"_GS_ExceptionRecord": 19332632,
+"_IsRootUNCName": 15503714,
+"_WinMain@16": 8824912,
+"__CPLocHash": 19332248,
+"__C_Exit_Done": 19332584,
+"__C_Termination_Done": 19332580,
+"__EH_epilog3": 15524542,
+"__FPinit": 17768220,
+"__Fac_head": 19331988,
+"__HUGE": 18623104,
+"__Mtxdst": 15481567,
+"__Mtxinit": 15481551,
+"__Mtxlock": 15481583,
+"__RTC_Initialize": 15588126,
+"__RTC_Terminate": 15588164,
+"__TI2?AVbad_exception@std@@": 18350364,
+"__TI3?AV__non_rtti_object@std@@": 18349072,
+"__TI3?AVlength_error@std@@": 18297468,
+"___abort_behavior": 18619564,
+"___active_heap": 19335496,
+"___app_type": 18618800,
+"___argc": 19332540,
+"___argv": 19332544,
+"___check_float_string": 15573076,
+"___crtMessageBoxA": 15604803,
+"___crtTlsAlloc@4": 15536132,
+"___daylight": 15609126,
+"___doserrno": 15500790,
+"___dyn_tls_init_callback": 19339924,
+"___env_initialized": 19339908,
+"___error_mode": 19332532,
+"___fastflag": 19332496,
+"___flsindex": 18619580,
+"___get_sigabrt": 15589313,
+"___getvalueindex": 18619584,
+"___globallocalestatus": 18621200,
+"___initenv": 19332556,
+"___iob_func": 15523652,
+"___ismbcodepage": 19334268,
+"___lc_category": 17768704,
+"___lc_codepage": 19334300,
+"___lc_collate_cp": 19334304,
+"___lc_handle": 19334276,
+"___lc_time_curr": 18623312,
+"___locale_changed": 19332596,
+"___mbcodepage": 19334264,
+"___mbctype_initialized": 19339920,
+"___mblcid": 19334272,
+"___mbulinfo": 19334252,
+"___nullstring": 18619880,
+"___onexitbegin": 19339916,
+"___onexitend": 19339912,
+"___pInvalidArgHandler": 19332508,
+"___pPurecall": 19334244,
+"___piob": 19335792,
+"___pioinfo": 19335520,
+"___rg_country": 17819664,
+"___rg_language": 17819144,
+"___sbh_cntHeaderList": 19335472,
+"___sbh_indGroupDefer": 19335492,
+"___sbh_pHeaderDefer": 19334964,
+"___sbh_pHeaderList": 19335476,
+"___sbh_pHeaderScan": 19335484,
+"___sbh_sizeHeaderList": 19335488,
+"___sbh_threshold": 19335480,
+"___security_cookie_complement": 18618048,
+"___sse2_available": 19335788,
+"___sys_errlist": 15594152,
+"___sys_nerr": 15594146,
+"___timezone": 15609138,
+"___type_info_root_node": 19333436,
+"___tzname": 15609144,
+"___use_sse2_mathfcns": 19335780,
+"___wnullstring": 18619884,
+"___xc_a": 16643236,
+"___xc_z": 16847808,
+"___xi_a": 16847812,
+"___xi_z": 16847848,
+"___xp_a": 16847860,
+"___xp_z": 16847872,
+"___xt_a": 16847876,
+"___xt_z": 16847880,
+"__acmdln": 19339928,
+"__adjust_fdiv": 19332500,
+"__aenvptr": 19332524,
+"__aexit_rtn": 18618816,
+"__atodbl_l": 15603579,
+"__atoflt_l": 15603747,
+"__c_exit": 15519488,
+"__cexit": 15519473,
+"__cfltcvt_init": 15490797,
+"__cfltcvt_tab": 18619604,
+"__cflush": 19332592,
+"__cftoe": 15539591,
+"__cftof": 15540940,
+"__cftof_l": 15606185,
+"__clrfp": 15555242,
+"__commode": 19335384,
+"__crt_debugger_hook": 15555502,
+"__crtheap": 19334588,
+"__ctype_loc_style": 18619568,
+"__ehhandler$??0?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QAE@PAV?$basic_str": 15945333,
+"__ehhandler$??0_Locimp@locale@std@@AAE@_N@Z": 15945187,
+"__ehhandler$??1_Locimp@locale@std@@MAE@XZ": 15945233,
+"__ehhandler$?CallUnexpected@@YAXPBU_s_ESTypeList@@@Z": 15945360,
+"__ehhandler$?_Init@locale@std@@CAPAV_Locimp@12@XZ": 15945278,
+"__ehhandler$?_Locimp_dtor@_Locimp@locale@std@@CAXPAV123@@Z": 15945152,
+"__ehhandler$?_Xlen@_String_base@std@@SAXXZ": 15945117,
+"__encoded_null": 15536009,
+"__environ": 19332552,
+"__errno": 15500771,
+"__exit": 15519451,
+"__exitflag": 19332576,
+"__fread_nolock_s": 15512338,
+"__frnd": 15606716,
+"__fullpath_helper": 15503836,
+"__get_daylight": 15608955,
+"__get_dstbias": 15609012,
+"__get_fmode": 15622710,
+"__get_printf_count_output": 15506937,
+"__get_timezone": 15609069,
+"__getcwd": 15518684,
+"__hextodec": 15573163,
+"__imp__GetFileAttributesW@4": 16642400,
+"__imp__GetModuleHandleA@4": 16642328,
+"__imp__LoadLibraryW@4": 16642224,
+"__imp__MoveFileW@8": 16642440,
+"__inc": 15573195,
+"__init_pointers": 15519503,
+"__lockexit": 15518913,
+"__lseek": 15585406,
+"__matherr": 15600186,
+"__matherr_flag": 18623328,
+"__maxwait": 19332604,
+"__mbctolower": 15562268,
+"__mbschr": 15625516,
+"__mbsdec": 15555902,
+"__mbsicmp": 15500682,
+"__mbsnbcmp": 15513673,
+"__mbsnbicmp": 15514254,
+"__mbsnbicoll": 15623081,
+"__mbspbrk": 15562492,
+"__mbsrchr": 15606924,
+"__newmode": 19334960,
+"__nhandle": 19335500,
+"__nstream": 19339904,
+"__outputformat": 19335168,
+"__pDestructExceptionObject": 17768608,
+"__pctype": 18619572,
+"__pgmptr": 19332568,
+"__pmatherr": 19335784,
+"__pmatherr_set": 19334308,
+"__pwctype": 18619576,
+"__raise_exc": 15553841,
+"__raise_exc_ex": 15541219,
+"__sehtable$??_L@YGXPAXIHP6EX0@Z1@Z": 18349288,
+"__sehtable$??_M@YGXPAXIHP6EX0@Z@Z": 18349224,
+"__sehtable$??__C@YGXPAX0IHP6EX00@ZP6EX0@Z@Z": 18349448,
+"__sehtable$?CallCatchBlock@@YAPAXPAUEHExceptionRecord@@PAUEHRegistrationNode@@PA": 18350264,
+"__sehtable$?_Type_info_dtor@type_info@@CAXPAV1@@Z": 18350728,
+"__sehtable$?__ArrayUnwind@@YGXPAXIHP6EX0@Z@Z": 18349192,
+"__sehtable$?_inconsistency@@YAXXZ": 18350696,
+"__sehtable$?terminate@@YAXXZ": 18350664,
+"__sehtable$_V6_HeapAlloc": 18349808,
+"__sehtable$__IsNonwritableInCurrentImage": 18351080,
+"__sehtable$___BuildCatchObject": 18350336,
+"__sehtable$___BuildCatchObjectHelper": 18350304,
+"__sehtable$___DestructExceptionObject": 18350144,
+"__sehtable$___FrameUnwindToState": 18350104,
+"__sehtable$___RTDynamicCast": 18349160,
+"__sehtable$___crtInitCritSecAndSpinCount": 18351176,
+"__sehtable$___lock_fhandle": 18351528,
+"__sehtable$___set_fpsr_sse2": 18350856,
+"__sehtable$___tzset": 18351464,
+"__sehtable$___updatetlocinfo": 18350456,
+"__sehtable$___updatetmbcinfo": 18350792,
+"__sehtable$__calloc_impl": 18351368,
+"__sehtable$__close": 18350920,
+"__sehtable$__commit": 18351272,
+"__sehtable$__fcloseall": 18351304,
+"__sehtable$__free_locale": 18350488,
+"__sehtable$__freefls@4": 18350624,
+"__sehtable$__fseeki64": 18351240,
+"__sehtable$__fsopen": 18349384,
+"__sehtable$__ftelli64": 18351208,
+"__sehtable$__getstream": 18350952,
+"__sehtable$__isindst": 18351496,
+"__sehtable$__lseeki64": 18351400,
+"__sehtable$__msize": 18349872,
+"__sehtable$__mtinitlocknum": 18351112,
+"__sehtable$__onexit": 18349256,
+"__sehtable$__read": 18351016,
+"__sehtable$__setmbcp": 18350824,
+"__sehtable$__tzset_nolock": 18351432,
+"__sehtable$__wfsopen": 18350424,
+"__sehtable$__wgetcwd": 18349712,
+"__sehtable$_doexit": 18349744,
+"__sehtable$_fclose": 18349352,
+"__sehtable$_fflush": 18350072,
+"__sehtable$_fgetc": 18349968,
+"__sehtable$_fgets": 18349640,
+"__sehtable$_flsall": 18350032,
+"__sehtable$_fprintf": 18349320,
+"__sehtable$_fputc": 18349904,
+"__sehtable$_fread_s": 18349512,
+"__sehtable$_free": 18349840,
+"__sehtable$_fseek": 18349576,
+"__sehtable$_ftell": 18349544,
+"__sehtable$_fwrite": 18349480,
+"__sehtable$_has_osfxsr_set": 18350760,
+"__sehtable$_realloc": 18349776,
+"__sehtable$_setvbuf": 18350000,
+"__sehtable$_ungetc": 18349936,
+"__sehtable$_vwprintf_helper": 18349608,
+"__sehtable$_wprintf": 18349416,
+"__set_daylight": 15606947,
+"__set_dstbias": 15606964,
+"__set_timezone": 15606981,
+"__sopen_s": 15612168,
+"__statfp": 15555226,
+"__stdbuf": 19334312,
+"__tsopen_nolock": 15610141,
+"__umaskval": 19332536,
+"__un_inc": 15573217,
+"__unlock": 15588959,
+"__unlockexit": 15518922,
+"__vswprintf_l": 15494214,
+"__wcscoll_l": 15493135,
+"__wcsdup": 15625243,
+"__wcsicoll_l": 15515488,
+"__wcsncoll_l": 15498702,
+"__wenviron": 19332560,
+"__wfsopen": 15505795,
+"__wfullpath": 15560827,
+"__wgetdcwd_nolock": 15518373,
+"__whiteout": 15573236,
+"__winput_l": 15573278,
+"__woutput_l": 15544097,
+"__write": 15583043,
+"__write_nolock": 15585289,
+"__wsopen_s": 15620315,
+"_abort_action": 19334936,
+"_atfuns_cdecl": 19332204,
+"_classic_locale": 19332020,
+"_copy_environ": 15624566,
+"_ctrlbreak_action": 19334932,
+"_ctrlc_action": 19334928,
+"_dstend": 18623344,
+"_dststart": 18623332,
+"_fSystemSet": 19334248,
+"_global_locale": 19331992,
+"_gpFlsAlloc": 19332608,
+"_gpFlsFree": 19332620,
+"_gpFlsGetValue": 19332612,
+"_gpFlsSetValue": 19332616,
+"_infinity": 17773568,
+"_init": 18617828,
+"_isleadbyte": 15548884,
+"_lModifying": 19334972,
+"_lastTZ": 19335376,
+"_lclcritsects": 19334592,
+"_mbstowcs_s": 15528725,
+"_mbtowc": 15612479,
+"_memcpy": 15484112,
+"_memmove": 15495728,
+"_mtx": 19331888,
+"_nValidPages": 19334968,
+"_rgValidPages": 19334976,
+"_rterrs": 18619696,
+"_start_tics": 19332512,
+"_stdopens": 19331876,
+"_stdstr": 19331836,
+"_swap": 15494752,
+"_term_action": 19334940,
+"_tzapiused": 19335372,
+"_tzinfo": 19335200,
+"_vscan_fn": 15508540,
+"_wcscmp": 15493078,
+"_wcsncmp": 15555520,
+"_wctomb_s": 15606549,
+"_write_char": 15544008,
+"_write_multi_char": 15544059,
+"_write_string": 15550008,
+"_zero": 17773576
+}
+}

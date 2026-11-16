@@ -1,0 +1,171 @@
+{
+ "insns": 4119875,
+ "rel32_ext": 322953,
+ "rel32_ext_rec": 320720,
+ "rel32_ext_unrec": 2233,
+ "rel32_ext_unrec_blockstart": 1944,
+ "rel32_int": 54865,
+ "rel8_ext": 23,
+ "rel8_int": 218075,
+ "call_next": 0,
+ "bad_decode": 503,
+ "blocks_swept": 73741,
+ "last_nonterm": 192,
+ "last_nonterm_nopad": 60,
+ "jmp_table_idx": 1006,
+ "unrec_samples": [
+  [
+   "0x404db3",
+   "0x405230",
+   "blob"
+  ],
+  [
+   "0x408b43",
+   "0x407200",
+   "blob"
+  ],
+  [
+   "0x40a133",
+   "0x409b10",
+   "blob"
+  ],
+  [
+   "0x45d013",
+   "0x404920",
+   "blob"
+  ],
+  [
+   "0x45d028",
+   "0x44f560",
+   "blob"
+  ],
+  [
+   "0x4fc163",
+   "0x4fc170",
+   "blob"
+  ],
+  [
+   "0x515403",
+   "0x5146a0",
+   "blob"
+  ],
+  [
+   "0x58d673",
+   "0x58be60",
+   "blob"
+  ]
+ ],
+ "rel8_samples": [
+  [
+   "0x4948a0",
+   "0x4948e9",
+   "atom_fn"
+  ],
+  [
+   "0x587cdd",
+   "0x587d37",
+   "atom_fn"
+  ],
+  [
+   "0x587ce1",
+   "0x587d3b",
+   "atom_fn"
+  ],
+  [
+   "0x66ebe1",
+   "0x66ec49",
+   "atom_fn"
+  ],
+  [
+   "0xd84c84",
+   "0xd84cd2",
+   "atom_fn"
+  ],
+  [
+   "0xec4586",
+   "0xec4554",
+   "atom_other"
+  ],
+  [
+   "0xec45ac",
+   "0xec4554",
+   "atom_other"
+  ],
+  [
+   "0xec45ca",
+   "0xec4554",
+   "atom_other"
+  ]
+ ],
+ "nopad_samples": [
+  [
+   "0x4698a0",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x47a490",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x539060",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x564360",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x59e1a0",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x5ac7a0",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x620bc0",
+   "add",
+   "atom_fn"
+  ],
+  [
+   "0x678610",
+   "add",
+   "atom_fn"
+  ]
+ ],
+ "blobs_rel32_ext": 0,
+ "blobs_rel32_ext_dir": 0,
+ "by_btype": {
+  "atom_fn": {
+   "rel32_ext": 297893,
+   "rec": 297893,
+   "rel8_ext": 5
+  },
+  "atom_contrib": {
+   "rel32_ext": 584,
+   "rec": 584
+  },
+  "blob": {
+   "rel32_ext": 2229,
+   "unrec": 2229,
+   "unrec_strong": 1944,
+   "rel8_ext": 1
+  },
+  "atom_other": {
+   "rel32_ext": 12192,
+   "rec": 12188,
+   "unrec": 4,
+   "rel8_ext": 17
+  },
+  "atom_eh": {
+   "rel32_ext": 10055,
+   "rec": 10055
+  }
+ }
+}

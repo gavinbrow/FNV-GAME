@@ -1,0 +1,187 @@
+struct NiBinaryStream {
+    unsigned int unk00;
+    unsigned int m_uiAbsoluteCurrentPos;
+    int (__cdecl* m_pfnRead)(NiBinaryStream*, void*, unsigned int, unsigned int*, unsigned int);
+
+    unsigned int BinaryRead(void* pvBuffer, unsigned int uiTotalBytes);
+};
+
+inline unsigned int NiBinaryStream::BinaryRead(void* pvBuffer, unsigned int uiTotalBytes) {
+    unsigned int uiComponentSizes = 1;
+    unsigned int uiRead = m_pfnRead(this, pvBuffer, uiTotalBytes, &uiComponentSizes, 1);
+    m_uiAbsoluteCurrentPos += uiRead;
+    return uiRead;
+}
+
+struct NiStream {
+    unsigned int unk0000;
+    unsigned int unk0004;
+    unsigned int unk0008;
+    unsigned int unk000C;
+    unsigned int unk0010;
+    unsigned int unk0014;
+    unsigned int unk0018;
+    unsigned int unk001C;
+    unsigned int unk0020;
+    unsigned int unk0024;
+    unsigned int unk0028;
+    unsigned int unk002C;
+    unsigned int unk0030;
+    unsigned int unk0034;
+    unsigned int unk0038;
+    unsigned int unk003C;
+    unsigned int unk0040;
+    unsigned int unk0044;
+    unsigned int unk0048;
+    unsigned int unk004C;
+    unsigned int unk0050;
+    unsigned int unk0054;
+    unsigned int unk0058;
+    unsigned int unk005C;
+    unsigned int unk0060;
+    unsigned int unk0064;
+    unsigned int unk0068;
+    unsigned int unk006C;
+    unsigned int unk0070;
+    unsigned int unk0074;
+    unsigned int unk0078;
+    unsigned int unk007C;
+    unsigned int unk0080;
+    unsigned int unk0084;
+    unsigned int unk0088;
+    unsigned int unk008C;
+    unsigned int unk0090;
+    unsigned int unk0094;
+    unsigned int unk0098;
+    unsigned int unk009C;
+    unsigned int unk00A0;
+    unsigned int unk00A4;
+    unsigned int unk00A8;
+    unsigned int unk00AC;
+    unsigned int unk00B0;
+    unsigned int unk00B4;
+    unsigned int unk00B8;
+    unsigned int unk00BC;
+    unsigned int unk00C0;
+    unsigned int unk00C4;
+    unsigned int unk00C8;
+    unsigned int unk00CC;
+    unsigned int unk00D0;
+    unsigned int unk00D4;
+    unsigned int unk00D8;
+    unsigned int unk00DC;
+    unsigned int unk00E0;
+    unsigned int unk00E4;
+    unsigned int unk00E8;
+    unsigned int unk00EC;
+    unsigned int unk00F0;
+    unsigned int unk00F4;
+    unsigned int unk00F8;
+    unsigned int unk00FC;
+    unsigned int unk0100;
+    unsigned int unk0104;
+    unsigned int unk0108;
+    unsigned int unk010C;
+    unsigned int unk0110;
+    unsigned int unk0114;
+    unsigned int unk0118;
+    unsigned int unk011C;
+    unsigned int unk0120;
+    unsigned int unk0124;
+    unsigned int unk0128;
+    unsigned int unk012C;
+    unsigned int unk0130;
+    unsigned int unk0134;
+    unsigned int unk0138;
+    unsigned int unk013C;
+    unsigned int unk0140;
+    unsigned int unk0144;
+    unsigned int unk0148;
+    unsigned int unk014C;
+    unsigned int unk0150;
+    unsigned int unk0154;
+    unsigned int unk0158;
+    unsigned int unk015C;
+    unsigned int unk0160;
+    unsigned int unk0164;
+    unsigned int unk0168;
+    unsigned int unk016C;
+    unsigned int unk0170;
+    unsigned int unk0174;
+    unsigned int unk0178;
+    unsigned int unk017C;
+    unsigned int unk0180;
+    unsigned int unk0184;
+    unsigned int unk0188;
+    unsigned int unk018C;
+    unsigned int unk0190;
+    unsigned int unk0194;
+    unsigned int unk0198;
+    unsigned int unk019C;
+    unsigned int unk01A0;
+    unsigned int unk01A4;
+    unsigned int unk01A8;
+    unsigned int unk01AC;
+    unsigned int unk01B0;
+    unsigned int unk01B4;
+    unsigned int unk01B8;
+    unsigned int unk01BC;
+    unsigned int unk01C0;
+    unsigned int unk01C4;
+    unsigned int unk01C8;
+    unsigned int unk01CC;
+    unsigned int unk01D0;
+    unsigned int unk01D4;
+    unsigned int unk01D8;
+    unsigned int unk01DC;
+    unsigned int unk01E0;
+    unsigned int unk01E4;
+    unsigned int unk01E8;
+    unsigned int unk01EC;
+    unsigned int unk01F0;
+    unsigned int unk01F4;
+    unsigned int unk01F8;
+    unsigned int unk01FC;
+    unsigned int unk0200;
+    unsigned int unk0204;
+    unsigned int unk0208;
+    unsigned int unk020C;
+    unsigned int unk0210;
+    unsigned int unk0214;
+    unsigned int unk0218;
+    unsigned int unk021C;
+    unsigned int unk0220;
+    unsigned int unk0224;
+    unsigned int unk0228;
+    unsigned int unk022C;
+    unsigned int unk0230;
+    unsigned int unk0234;
+    unsigned int unk0238;
+    unsigned int unk023C;
+    unsigned int unk0240;
+    unsigned int unk0244;
+    unsigned int unk0248;
+    NiBinaryStream* m_pkIStream;
+
+    NiBinaryStream* GetBinaryStream() { return m_pkIStream; }
+};
+
+struct NiExtraDataBase_cls {
+    void FUN_00a7b4a0(NiStream* istr);
+};
+
+struct FUN_00a9aff0_cls {
+    unsigned int unk00;
+    unsigned int unk04;
+    unsigned int unk08;
+    bool m_bValue;
+
+    void FUN_00a9aff0(NiStream* istr);
+};
+
+void FUN_00a9aff0_cls::FUN_00a9aff0(NiStream* istr) {
+    ((NiExtraDataBase_cls*)this)->FUN_00a7b4a0(istr);
+    unsigned char ucValue;
+    istr->GetBinaryStream()->BinaryRead(&ucValue, 1);
+    m_bValue = (ucValue != 0);
+}

@@ -1,0 +1,3 @@
+extern unsigned int DAT_011f4980; extern unsigned int DAT_011f4984; struct FUN_00a69b00 {
+ unsigned int originXBits,originYBits; float originZ,extentX,extentY,scaleX,scaleY; volatile unsigned char enabled; unsigned char unk1D,unk1E,unk1F; int unk20,unk24,unk28,unk2C,unk30,unk34,unk38,unk3C,unk40; volatile int mode; FUN_00a69b00(); };
+ FUN_00a69b00::FUN_00a69b00():originXBits(DAT_011f4980),originYBits(DAT_011f4984),originZ(0.f),extentX(1.f),extentY(1.f),scaleX(0.5f),scaleY(0.5f),enabled(1),mode(2) {}

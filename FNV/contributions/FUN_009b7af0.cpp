@@ -1,0 +1,114 @@
+struct Vector3 { float x; float y; float z; };
+extern int DAT_0108fa44;
+extern int DAT_0108fa38;
+
+struct FUN_009bbef0 {
+    int* m_primaryVtable;
+    unsigned int unk004;
+    unsigned int unk008;
+    unsigned int unk00c;
+    unsigned int unk010;
+    unsigned int unk014;
+    int* m_secondaryVtable;
+    unsigned int unk01c;
+    unsigned int unk020;
+    unsigned int unk024;
+    unsigned int unk028;
+    unsigned int unk02c;
+    unsigned int unk030;
+    unsigned int unk034;
+    unsigned int unk038;
+    unsigned int unk03c;
+    unsigned int unk040;
+    unsigned int unk044;
+    unsigned int unk048;
+    unsigned int unk04c;
+    unsigned int unk050;
+    unsigned int unk054;
+    unsigned int unk058;
+    unsigned int unk05c;
+    unsigned int unk060;
+    unsigned int unk064;
+    unsigned int unk068;
+    unsigned int unk06c;
+    unsigned int unk070;
+    unsigned int unk074;
+    unsigned int unk078;
+    unsigned int unk07c;
+    unsigned int unk080;
+    unsigned int unk084;
+    unsigned int unk088;
+    unsigned int unk08c;
+    unsigned int unk090;
+    unsigned int unk094;
+    unsigned int unk098;
+    unsigned int unk09c;
+    unsigned int unk0a0;
+    unsigned int unk0a4;
+    unsigned int unk0a8;
+    unsigned int unk0ac;
+    unsigned int unk0b0;
+    unsigned int unk0b4;
+    unsigned int unk0b8;
+    unsigned int unk0bc;
+    unsigned int unk0c0;
+    unsigned int unk0c4;
+    unsigned int unk0c8;
+    unsigned int unk0cc;
+    unsigned int unk0d0;
+    unsigned int unk0d4;
+    unsigned int unk0d8;
+    unsigned int unk0dc;
+    unsigned int unk0e0;
+    unsigned int unk0e4;
+    unsigned int unk0e8;
+    unsigned int unk0ec;
+    unsigned int unk0f0;
+    unsigned int unk0f4;
+    unsigned int unk0f8;
+    unsigned int unk0fc;
+    unsigned int unk100;
+    unsigned int unk104;
+    unsigned int unk108;
+    unsigned int unk10c;
+    unsigned int unk110;
+    unsigned int unk114;
+    unsigned int unk118;
+    unsigned int unk11c;
+    unsigned int unk120;
+    unsigned int unk124;
+    unsigned int unk128;
+    unsigned int unk12c;
+    unsigned int unk130;
+    unsigned int unk134;
+    unsigned int unk138;
+    unsigned int unk13c;
+    unsigned int unk140;
+    unsigned int unk144;
+    unsigned int unk148;
+    unsigned int unk14c;
+    FUN_009bbef0(int a, int b, int c, Vector3 position, float magnitude, float duration);
+    ~FUN_009bbef0();
+    void FUN_004f15a0(unsigned int flag);
+};
+
+struct FUN_009b7af0 : FUN_009bbef0 {
+    unsigned int unk150;
+    unsigned char unk154;
+    float unk158;
+    float unk15c;
+
+    FUN_009b7af0(int a, int b, int c, Vector3 position, float magnitude, float duration);
+};
+
+FUN_009b7af0::FUN_009b7af0(int a, int b, int c, Vector3 position, float magnitude, float duration)
+    : FUN_009bbef0(a, b, c, position, magnitude, duration)
+{
+    m_primaryVtable = &DAT_0108fa44;
+    m_secondaryVtable = &DAT_0108fa38;
+    FUN_004f15a0(61);
+    unk150 = 0;
+    unk154 = 0;
+    unk158 = 0.0f;
+    unk15c = 0.0f;
+}

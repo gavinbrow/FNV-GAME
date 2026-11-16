@@ -1,0 +1,2 @@
+struct FlagController { void FUN_00c7b6a0(int); void FUN_00c7ba10(bool); };
+void FlagController::FUN_00c7ba10(bool enabled) { unsigned char* state = (unsigned char*)this; bool target = state[0x28c] && enabled; if (!target && state[0x28e]) FUN_00c7b6a0(0); state[0x28d] = target; }

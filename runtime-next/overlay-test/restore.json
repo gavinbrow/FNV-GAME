@@ -1,0 +1,207 @@
+{
+ "pid": 203840,
+ "base": 4194304,
+ "note": "original live values of every byte the overlay changes; write them back to undo",
+ "bytes": [
+  {
+   "va": "0x00eeacd3",
+   "original": "e9",
+   "pinned": "83"
+  },
+  {
+   "va": "0x00eeacd4",
+   "original": "d8",
+   "pinned": "c1"
+  },
+  {
+   "va": "0x00eeacd5",
+   "original": "3f",
+   "pinned": "0c"
+  },
+  {
+   "va": "0x00eeacd6",
+   "original": "52",
+   "pinned": "e9"
+  },
+  {
+   "va": "0x00ef4a93",
+   "original": "54",
+   "pinned": "5c"
+  },
+  {
+   "va": "0x00ef80a0",
+   "original": "8b",
+   "pinned": "6a"
+  },
+  {
+   "va": "0x00ef80a1",
+   "original": "45",
+   "pinned": "18"
+  },
+  {
+   "va": "0x00ef80a2",
+   "original": "ec",
+   "pinned": "8b"
+  },
+  {
+   "va": "0x00ef80a3",
+   "original": "50",
+   "pinned": "45"
+  },
+  {
+   "va": "0x00ef80a4",
+   "original": "e8",
+   "pinned": "ec"
+  },
+  {
+   "va": "0x00ef80a5",
+   "original": "87",
+   "pinned": "50"
+  },
+  {
+   "va": "0x00ef80a6",
+   "original": "8f",
+   "pinned": "e8"
+  },
+  {
+   "va": "0x00ef80ab",
+   "original": "8b",
+   "pinned": "83"
+  },
+  {
+   "va": "0x00ef80ac",
+   "original": "54",
+   "pinned": "c4"
+  },
+  {
+   "va": "0x00ef80ad",
+   "original": "24",
+   "pinned": "08"
+  },
+  {
+   "va": "0x00ef80ae",
+   "original": "08",
+   "pinned": "c3"
+  },
+  {
+   "va": "0x00f06538",
+   "original": "8b",
+   "pinned": "6a"
+  },
+  {
+   "va": "0x00f06539",
+   "original": "45",
+   "pinned": "58"
+  },
+  {
+   "va": "0x00f0653a",
+   "original": "e8",
+   "pinned": "8b"
+  },
+  {
+   "va": "0x00f0653b",
+   "original": "50",
+   "pinned": "45"
+  },
+  {
+   "va": "0x00f0653d",
+   "original": "ef",
+   "pinned": "50"
+  },
+  {
+   "va": "0x00f0653e",
+   "original": "aa",
+   "pinned": "e8"
+  },
+  {
+   "va": "0x00f06543",
+   "original": "8b",
+   "pinned": "83"
+  },
+  {
+   "va": "0x00f06544",
+   "original": "54",
+   "pinned": "c4"
+  },
+  {
+   "va": "0x00f06545",
+   "original": "24",
+   "pinned": "08"
+  },
+  {
+   "va": "0x00f06546",
+   "original": "08",
+   "pinned": "c3"
+  },
+  {
+   "va": "0x00f07a10",
+   "original": "8b",
+   "pinned": "68"
+  },
+  {
+   "va": "0x00f07a11",
+   "original": "45",
+   "pinned": "f0"
+  },
+  {
+   "va": "0x00f07a12",
+   "original": "e4",
+   "pinned": "00"
+  },
+  {
+   "va": "0x00f07a13",
+   "original": "50",
+   "pinned": "00"
+  },
+  {
+   "va": "0x00f07a14",
+   "original": "e8",
+   "pinned": "00"
+  },
+  {
+   "va": "0x00f07a15",
+   "original": "17",
+   "pinned": "8b"
+  },
+  {
+   "va": "0x00f07a16",
+   "original": "96",
+   "pinned": "45"
+  },
+  {
+   "va": "0x00f07a17",
+   "original": "4f",
+   "pinned": "e4"
+  },
+  {
+   "va": "0x00f07a18",
+   "original": "ff",
+   "pinned": "50"
+  },
+  {
+   "va": "0x00f07a19",
+   "original": "59",
+   "pinned": "e8"
+  },
+  {
+   "va": "0x00f07a1e",
+   "original": "08",
+   "pinned": "83"
+  },
+  {
+   "va": "0x00f07a1f",
+   "original": "8d",
+   "pinned": "c4"
+  },
+  {
+   "va": "0x00f07a20",
+   "original": "42",
+   "pinned": "08"
+  },
+  {
+   "va": "0x00f07a21",
+   "original": "0c",
+   "pinned": "c3"
+  }
+ ]
+}

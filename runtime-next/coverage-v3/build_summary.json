@@ -1,0 +1,41 @@
+{
+ "eh_stats": {
+  "located": 21075,
+  "overlaps-recipe-coverage(already-placed-or-in-tail)": 11097,
+  "not-ok(matcher)": 887,
+  "dup-address": 1899,
+  "accepted": 7192
+ },
+ "eh_bytes": 119181,
+ "eh_relocs": {
+  "agree": 80198,
+  "disagree": 85,
+  "borrowed": 761
+ },
+ "eh_objs_scanned": 2713,
+ "obj_v3_present": false,
+ "crt_stats": {
+  "matched": 595,
+  "accepted": 595
+ },
+ "crt_bytes": 144442,
+ "crt_relocs": {
+  "agree": 2350,
+  "disagree": 31,
+  "borrowed": 2287
+ },
+ "crt_reloc_sources": {
+  "lib-matched:disagree": 17,
+  "borrow": 2287,
+  "lib-matched:agree": 1857,
+  "symbol-map:agree": 309,
+  "symbol-map:disagree": 14,
+  "import:agree": 144,
+  "self:agree": 40
+ },
+ "crt_zero_disagree_funcs": 568,
+ "crt_by_lib": {
+  "libcmt.lib": 562,
+  "libcpmt.lib": 33
+ }
+}

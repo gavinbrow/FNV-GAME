@@ -1,0 +1,100 @@
+{
+ "wanted_names": 1937,
+ "wanted_fields": 3085,
+ "names_to_fold_incl_closure": 2149,
+ "no_body_in_our_objects": 1029,
+ "body_but_no_identical_placed_function": 600,
+ "folded_unique": 325,
+ "folded_ambiguous_lowest": 195,
+ "rounds": 2,
+ "wanted_resolved_names": 516,
+ "wanted_resolved_fields": 983,
+ "ambiguity_sizes": {
+  "37": 53,
+  "2": 111,
+  "3": 2,
+  "267": 14,
+  "278": 1,
+  "11": 13,
+  "268": 1
+ },
+ "seconds": 2,
+ "check_vs_tail_alias_candidates": {
+  "agree": 246,
+  "disagree": 264,
+  "folded_names_not_in_candidates": 10,
+  "candidates_with_multiple_targets": 9,
+  "disagree_ambiguous": 140,
+  "unique_disagree_diag": {
+   "ref-target-different-bytes": 117,
+   "ref-target-not-a-recipe-fn": 1,
+   "ref-target-same-bytes-in-index": 6
+  },
+  "disagree_examples": [
+   [
+    "??1?$BBB3500Pointer@VBBB3500RefObject@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ],
+   [
+    "??1?$CE340Array@UCE340Vec4@@@@QAE@XZ",
+    "0xcce0d0",
+    [
+     "0x66da50"
+    ],
+    false
+   ],
+   [
+    "??1?$FNV_STUB_NiPointer@URenderContext@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ],
+   [
+    "??1?$NiPointer@UBA02F0RefObject@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ],
+   [
+    "??1?$NiPointer@UBSRenderedTexture@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ],
+   [
+    "??1?$NiPointer@UBSRenderedTexture@fnv_00c03d80@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ],
+   [
+    "??1?$NiPointer@UItem@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ],
+   [
+    "??1?$NiPointer@UMaterial@@@@QAE@XZ",
+    "0xb66f20",
+    [
+     "0x45cec0"
+    ],
+    false
+   ]
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "policy_id": "bounded-data-provider-bridge-v1",
+  "plan_sha256": "c28cb57f5aace78ca594ac6e37c0521f256240efccd37783be41e16fd6e9eef3",
+  "input_pins": {
+    "build/rebuild/data-address-projection-v1/projection.json": "3d99095fc5ffe9d079ddeb4736cbb18f29588fbeddd5cc2e3a110d3eb9466aab",
+    "build/rebuild/data-address-projection-v1/whole-data.obj": "a802d79760989e8131634401f5a1594f800a8e36602b31bdbe9b8a70b0d3486d",
+    "build/rebuild/data-address-native-conformance-v1/conformance.json": "6105be975902f2b4c2e2a123db1cedf662831a52262bb73448bc22017160e7ca",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/receipt.json": "ad870815321b42485378b0f896340bfd0b70cd52aea0dd27ffc39725bd93ce14",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/coverage.jsonl.gz": "e29cef9c0169ea19ac39724d3acb33163b101d9f21e8eed970c8071253d4ec16",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/unions.jsonl.gz": "fd3b319cf25bea35c6523ebd7a734441804670943200547724d1d87c8a6a1b64",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/code-pool-0000.lib": "1d5d9ae7ba169f2389a3e9928a46fcbeb8f25b829bcdaee627db3f43e9d89aa5",
+    "build/rebuild/bulk-code-pool-all-current-native-v1/receipt.json": "b78ab291de0298b0bfb53ce03f1f440eadad7822e256abc11a5b3bb9c1c55978",
+    "build/rebuild/data-arena-alias-projection-v1/projection.json": "b1a6554ad8170f06f7367a21d5b6ecd6b8b6c910e3fa3241ef8a3bde039db792",
+    "build/rebuild/data-arena-alias-projection-v1/namespace-map.json": "b045a065376852a2570ca277619d6f595a2589ba1772f3c74f6775cd72b48b85"
+  },
+  "coordinate_space": "edbea523cfc22ca0d9d687c784ad3936fb71d5d31e46420bd16a41e385bbe995",
+  "counts": {
+    "CODE_renames": 13,
+    "self_definitions": 406,
+    "DATA_base_definitions": 119,
+    "CODE_fields": 267,
+    "original_DATA_fields": 13869,
+    "original_symbols": 6381,
+    "remaining_new_address_demands": 5960
+  },
+  "CODE_archive_sha256": "1d5d9ae7ba169f2389a3e9928a46fcbeb8f25b829bcdaee627db3f43e9d89aa5",
+  "whole_DATA_sha256": "a802d79760989e8131634401f5a1594f800a8e36602b31bdbe9b8a70b0d3486d",
+  "fragment": {
+    "start": 18362368,
+    "size": 255676,
+    "section": 1,
+    "alignment": 4096,
+    "anchor_value": 0
+  },
+  "default_action": "certify-only",
+  "root_go_required_for_successor": true,
+  "implementation_pins": {
+    "tools/rebuild/data_address_projection.py": "07656281099c951868cd96650492b2de0b3400c6b9ef9309a1e00702ee38cd0c",
+    "tools/rebuild/coff_rewrite.py": "48cea438b05a1c2de992eea4200b45a1eb14e49a27704a5c6fff98f941b1ae4c",
+    "tools/rebuild/coff_inventory.py": "3518c044738046e7cd9c8be37a3b1077af750fb2e7a19db793b09999a07ee0d2",
+    "tools/rebuild/data_plan.py": "e013ed5f217f9beeeaf571d089a36df22b645559063e826554179cea506f5bf8",
+    "tools/rebuild/runtime_code_pool.py": "729f189e2893c7f3a3e3cd97df7d7381ac115169e1d75cf664e6bbc1c587b277",
+    "tools/rebuild/coff_code_archive.py": "76244d2d4dca4c1f8aa72224be1ef5c92f68976b5cda7d31b5cfe23d3cc29e64"
+  },
+  "runtime_eligible": false,
+  "ABI_approved": false,
+  "lifetime_approved": false,
+  "application_link_ready": false
+}

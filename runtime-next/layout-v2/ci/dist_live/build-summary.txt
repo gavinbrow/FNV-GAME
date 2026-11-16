@@ -1,0 +1,12 @@
+Self-compiled FalloutNV build (code and data laid out by our own tools).
+
+exe: FalloutNV_selfbuilt.exe  sha256 c267a197492f7d53
+source commit/workspace: C:\Projects\Decompilation
+
+code coverage from our source: 100.0% of non-padding .text; borrowed field bytes 0; undecompiled bytes 0
+code bytes still taken from the reference image: 0
+data: pointer fields {'value-rule-kept-literal': 297, 'code': 101449, 'data': 48716}
+harness: skipped
+build time: 334 s
+
+Needs the owner's installed game (resources/data literals, read only) and the decrypted reference image (read only); neither is part of this archive.

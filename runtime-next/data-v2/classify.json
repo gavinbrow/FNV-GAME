@@ -1,0 +1,100 @@
+{
+ "totals": {
+  ".rdata_unproduced_nonzero": 737710,
+  ".data_unproduced_nonzero": 169699
+ },
+ "by_category": {
+  ".rdata": {
+   "strings: ASCII": 284486,
+   "vtable (with RTTI)": 162741,
+   "code-pointer table (no RTTI: vtable, callback/dispatch tables)": 88104,
+   "other (not code-referenced; data-referenced structs, arrays, padding patterns)": 58933,
+   "rtti: base class array": 32277,
+   "rtti: base class descriptor": 28691,
+   "code-referenced data 9-64 B (small constant tables, float4, structs)": 19348,
+   "rtti: complete object locator": 18803,
+   "code-referenced data >64 B (lookup tables, static structs/arrays)": 18261,
+   "rtti: class hierarchy descriptor": 10681,
+   "code-referenced data <=8 B (float/double/int constants)": 7327,
+   "rtti: COL pointer (vtable[-1])": 3886,
+   "EH: unwind map": 2875,
+   "EH: FuncInfo": 1100,
+   "EH: catch handler types": 144,
+   "strings: UTF-16": 36,
+   "EH: try-block map": 17
+  },
+  ".data": {
+   "rtti: type descriptor (name keeps original class name)": 104809,
+   "other (not code-referenced; data-referenced structs, arrays, padding patterns)": 35220,
+   "code-referenced data >64 B (lookup tables, static structs/arrays)": 12959,
+   "code-pointer table (no RTTI: vtable, callback/dispatch tables)": 7460,
+   "code-referenced data <=8 B (float/double/int constants)": 4275,
+   "code-referenced data 9-64 B (small constant tables, float4, structs)": 3722,
+   "strings: ASCII": 1220,
+   "strings: UTF-16": 18,
+   "EH: FuncInfo": 16
+  }
+ },
+ "ownership": {
+  ".rdata|vtable (with RTTI)": {
+   "owned by recipe unit": 170526,
+   "referenced only from code outside the recipe": 30,
+   "no recipe function in slots": 147
+  },
+  ".rdata|strings: ASCII": {
+   "owned by recipe unit": 191417,
+   "referenced only from code outside the recipe": 8327
+  },
+  ".rdata|code-referenced data <=8 B (float/double/int constants)": {
+   "owned by recipe unit": 10985,
+   "referenced only from code outside the recipe": 520
+  },
+  ".rdata|code-referenced data 9-64 B (small constant tables, float4, structs)": {
+   "owned by recipe unit": 14850,
+   "referenced only from code outside the recipe": 1837
+  },
+  ".rdata|code-pointer table (no RTTI: vtable, callback/dispatch tables)": {
+   "owned by recipe unit": 88418,
+   "referenced only from code outside the recipe": 30,
+   "no recipe function in slots": 141
+  },
+  ".rdata|code-referenced data >64 B (lookup tables, static structs/arrays)": {
+   "owned by recipe unit": 1288,
+   "referenced only from code outside the recipe": 1009
+  },
+  ".rdata|EH: FuncInfo": {
+   "referenced only from code outside the recipe": 544
+  },
+  ".rdata|strings: UTF-16": {
+   "referenced only from code outside the recipe": 3
+  },
+  ".data|code-referenced data <=8 B (float/double/int constants)": {
+   "owned by recipe unit": 4692,
+   "referenced only from code outside the recipe": 2034
+  },
+  ".data|code-referenced data >64 B (lookup tables, static structs/arrays)": {
+   "owned by recipe unit": 3193,
+   "referenced only from code outside the recipe": 257
+  },
+  ".data|rtti: type descriptor (name keeps original class name)": {
+   "owned by recipe unit": 986,
+   "referenced only from code outside the recipe": 4
+  },
+  ".data|code-referenced data 9-64 B (small constant tables, float4, structs)": {
+   "owned by recipe unit": 3067,
+   "referenced only from code outside the recipe": 314
+  },
+  ".data|code-pointer table (no RTTI: vtable, callback/dispatch tables)": {
+   "owned by recipe unit": 7415,
+   "referenced only from code outside the recipe": 30,
+   "no recipe function in slots": 144
+  },
+  ".data|strings: ASCII": {
+   "owned by recipe unit": 26,
+   "referenced only from code outside the recipe": 36
+  },
+  ".data|EH: FuncInfo": {
+   "referenced only from code outside the recipe": 16
+  }
+ }
+}

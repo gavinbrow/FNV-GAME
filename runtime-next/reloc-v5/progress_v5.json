@@ -1,0 +1,439 @@
+{
+ "generated": "2026-11-15",
+ "script": "reloc-v5/assemble_v5.py (+crt5.py); v4 and pinned-build untouched",
+ "headline": {
+  "pct_text_from_our_compile_or_library": {
+   "v4": 86.224,
+   "v5": 86.295
+  },
+  "ours_bytes": {
+   "v4": 10727172,
+   "v5": 10736017
+  },
+  "filled_equals_reference": true
+ },
+ "rebase_test": {
+  "text_bytes_differing": {
+   "v4": 284,
+   "v5_own_rules": 122,
+   "v5_table_assisted_check": 0
+  },
+  "fields_differing_v5": {
+   "we-shift-a-field-the-original-does-not-relocate": 54,
+   "original-relocates-a-field-we-emit-as-plain-literal": 7
+  },
+  "mismatch_classification_v4": {
+   "dir32_we_emit_not_in_original_reloc": 1141,
+   "of_which_outside_image": {
+    "total": 1087,
+    "__tls_array_absolute_0x2c": 1084,
+    "integer_constants_modelled_as_data_symbols": 3,
+    "cause": "fs:[__tls_array] is a linker-absolute (0x2C); original has no base reloc. Correct as emitted, only the test rule was wrong. 0 bytes differed because out-of-image values were never shifted."
+   },
+   "of_which_in_image": {
+    "total": 54,
+    "cause": "integer constants (0xFFFFFF, 0x1000000, 0xFF0000, 0x1400000, 0xA00000, 0x500000, 0x7E7E7E ...) that the decompiled source declares as DAT_xxxxxxxx / g_xxxxxxxx_argN externs; compiler emits a DIR32, original has a plain immediate. Needs a source edit; not distinguishable from real addresses without the original table."
+   },
+   "original_reloc_sites_we_emit_with_no_reloc": {
+    "total": 88,
+    "cause": "source writes the address as an integer literal (vtable stores, global/function pointers); no COBJ relocation exists",
+    "inferred_by_v5_literal_rule": 81,
+    "still_missed": 7,
+    "missed_cause": "mov/push/cmp of an address into data that no symbol map of ours names"
+   },
+   "jump_tables_eh_tables_crt": "none of the mismatches were in jump tables, EH tables or CRT code"
+  },
+  "remaining_fields": {
+   "we-shift-a-field-the-original-does-not-relocate": [
+    {
+     "field": "0x0045237f",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x0046973e",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3HA"
+    },
+    {
+     "field": "0x00471555",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@fnv_00471400@@3HA"
+    },
+    {
+     "field": "0x00472cb5",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@fnv_00472bc0@@3HA"
+    },
+    {
+     "field": "0x00472cdd",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@fnv_00472bc0@@3HA"
+    },
+    {
+     "field": "0x00472cf7",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@fnv_00472bc0@@3HA"
+    },
+    {
+     "field": "0x00472d16",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@fnv_00472bc0@@3HA"
+    },
+    {
+     "field": "0x0047dda1",
+     "value": "0x1000000",
+     "symbol": "$SG5186"
+    },
+    {
+     "field": "0x0047ddc1",
+     "value": "0x1000000",
+     "symbol": "$SG5187"
+    },
+    {
+     "field": "0x0047ddd0",
+     "value": "0x1000000",
+     "symbol": "$SG5189"
+    },
+    {
+     "field": "0x00485bce",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3HA"
+    },
+    {
+     "field": "0x005441f7",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3HA"
+    },
+    {
+     "field": "0x00544257",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3HA"
+    },
+    {
+     "field": "0x005f90c8",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x007d6ad5",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@fnv_007d69f0@@3HA"
+    },
+    {
+     "field": "0x00838758",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x00857c54",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3HA"
+    },
+    {
+     "field": "0x00857cef",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3HA"
+    },
+    {
+     "field": "0x00878047",
+     "value": "0x1400000",
+     "symbol": "?DAT_01400000@@3DA"
+    },
+    {
+     "field": "0x0087805b",
+     "value": "0xa00000",
+     "symbol": "?FUN_00a00000@@3DA"
+    },
+    {
+     "field": "0x00878389",
+     "value": "0x500000",
+     "symbol": "?g_011c5bbc_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00936fb8",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x00a24f6b",
+     "value": "0xff0000",
+     "symbol": "?DAT_00ff0000@@3HA"
+    },
+    {
+     "field": "0x00a77127",
+     "value": "0xff0000",
+     "symbol": "?DAT_00ff0000@@3HA"
+    },
+    {
+     "field": "0x00a77473",
+     "value": "0xff0000",
+     "symbol": "_DAT_00ff0000"
+    },
+    {
+     "field": "0x00a7903f",
+     "value": "0xff0000",
+     "symbol": "?DAT_00ff0000@@3HA"
+    },
+    {
+     "field": "0x00a7a170",
+     "value": "0xff0000",
+     "symbol": "?DAT_00ff0000@@3HA"
+    },
+    {
+     "field": "0x00a7a200",
+     "value": "0xff0000",
+     "symbol": "?DAT_00ff0000@@3HA"
+    },
+    {
+     "field": "0x00aa6a48",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x00aeed3a",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x00b69012",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3HA"
+    },
+    {
+     "field": "0x00ba95a8",
+     "value": "0xffdead",
+     "symbol": "?DAT_00ffdead@@3HA"
+    },
+    {
+     "field": "0x00cabcc3",
+     "value": "0xffffff",
+     "symbol": "?DAT_00ffffff@@3DA"
+    },
+    {
+     "field": "0x00d67c7e",
+     "value": "0xffffff",
+     "symbol": "_DAT_00ffffff"
+    },
+    {
+     "field": "0x00d67c85",
+     "value": "0xffffff",
+     "symbol": "_DAT_00ffffff"
+    },
+    {
+     "field": "0x00d67c8c",
+     "value": "0xffffff",
+     "symbol": "_DAT_00ffffff"
+    },
+    {
+     "field": "0x00d67ca2",
+     "value": "0x1000001",
+     "symbol": "_DAT_01000001"
+    },
+    {
+     "field": "0x00e06e6e",
+     "value": "0x1000000",
+     "symbol": "?DAT_01000000@@3DA"
+    },
+    {
+     "field": "0x00e74ce4",
+     "value": "0x1400000",
+     "symbol": "?DAT_01400000@@3PAXA"
+    },
+    {
+     "field": "0x00e94a65",
+     "value": "0x1400000",
+     "symbol": "?DAT_01400000@@3HA"
+    },
+    {
+     "field": "0x00e94e19",
+     "value": "0x1400000",
+     "symbol": "?DAT_01400000@@3HA"
+    },
+    {
+     "field": "0x00e95539",
+     "value": "0x1400000",
+     "symbol": "?DAT_01400000@fnv_00e95500@@3DA"
+    },
+    {
+     "field": "0x00f3de14",
+     "value": "0x500000",
+     "symbol": "?g_011c5bbc_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f3de74",
+     "value": "0x500000",
+     "symbol": "?g_011c5c50_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f3e114",
+     "value": "0xa00000",
+     "symbol": "?g_011c5c80_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f3e174",
+     "value": "0xa00000",
+     "symbol": "?g_011c5a4c_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f3e564",
+     "value": "0x500000",
+     "symbol": "?g_011c5c04_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f3e594",
+     "value": "0xa00000",
+     "symbol": "?g_011c59e0_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f72274",
+     "value": "0x7e7e7e",
+     "symbol": "?g_011d4b04_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f72304",
+     "value": "0x41727a",
+     "symbol": "?g_011d3c1c_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f72334",
+     "value": "0x476c85",
+     "symbol": "?g_011d1f80_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f72424",
+     "value": "0x416a81",
+     "symbol": "?g_011d36b4_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f72514",
+     "value": "0x6e6e6e",
+     "symbol": "?g_011d3450_arg1@@3QBDB"
+    },
+    {
+     "field": "0x00f72544",
+     "value": "0x52667c",
+     "symbol": "?g_011d46a8_arg1@@3QBDB"
+    }
+   ],
+   "original-relocates-a-field-we-emit-as-plain-literal": [
+    {
+     "field": "0x0048551c",
+     "value": "0x1187008",
+     "symbol": null
+    },
+    {
+     "field": "0x004a900e",
+     "value": "0x1188694",
+     "symbol": null
+    },
+    {
+     "field": "0x004a9030",
+     "value": "0x1188698",
+     "symbol": null
+    },
+    {
+     "field": "0x0058c59c",
+     "value": "0x1032930",
+     "symbol": null
+    },
+    {
+     "field": "0x0069aeec",
+     "value": "0x106b1a4",
+     "symbol": null
+    },
+    {
+     "field": "0x0069af1c",
+     "value": "0x106b1a4",
+     "symbol": null
+    },
+    {
+     "field": "0x00d2ad1f",
+     "value": "0x10ce504",
+     "symbol": null
+    }
+   ]
+  }
+ },
+ "borrowed_fields": {
+  "v4": 8020,
+  "v5": 4877,
+  "v5_with_callee_fixups": 4829,
+  "crt_unresolved_v4": 2287,
+  "crt_unresolved_v5": 1145,
+  "resolved_by_v5": {
+   "tls_secrel": 2023,
+   "crt_from_library_objects": "about 1,140 (lib-matched/member-section/linker ImageBase)"
+  },
+  "remaining_by_cause": {
+   "tail_eh_funclet_callee_not_in_recipe_symbol_names": 3611,
+   "crt_unresolved_or_disagree": 1198,
+   "fn_wrong_callee_or_float_pool_copy": 68
+  },
+  "by_origin_kind_source_status": {
+   "tail|k14|None|borrow": 3608,
+   "crt|k6|unresolved|borrow": 935,
+   "crt|k14|unresolved|borrow": 210,
+   "fn|k14|a|disagree": 46,
+   "fn|k6|c|disagree": 20,
+   "crt|k14|member-section|disagree": 19,
+   "crt|k6|member-section|disagree": 16,
+   "crt|k14|symbol-map|disagree": 11,
+   "crt|k14|lib-matched|disagree": 5,
+   "tail|k6|None|borrow": 3,
+   "fn|k6|a|disagree": 2,
+   "crt|k6|symbol-map|disagree": 2
+  }
+ },
+ "wrong_copy_calls": {
+  "count": 48,
+  "identical_bytes": 0,
+  "causes": {
+   "source names a real symbol; the original called an address-named function": 23,
+   "const-qualifier variant (QAE vs QBE) of the same method": 11,
+   "source names a different real function than the original called": 14
+  },
+  "conclusion": "not duplicate/COMDAT/ICF copies: in all 48 the callee our source names and the callee the original used are different functions (different size and bytes). Source-level wrong callee; matcher masks call targets so it never noticed.",
+  "fixup_file": "callee_fixups.json (reference-assisted, applied only with FNV_V5_FIXUPS=1)"
+ },
+ "independent_cross_check": {
+  "sites_checked": 509991,
+  "breakdown": {
+   "ALIAS: target is a function from our source under a different symbol name; signature differs or not C++-mangled | body<16B": 5720,
+   "ALIAS: target is a function from our source under a different symbol name; signature part of the mangled names agrees | body-unique": 62218,
+   "target is not the start of a function placed from our source (data, thunk, CRT, undecompiled, middle of code) | n/a": 213981,
+   "ALIAS: target is a function from our source under a different symbol name; signature differs or not C++-mangled | body-unique": 161546,
+   "CONFIRMED: target is the function our source defines under this very symbol | body-unique": 17169,
+   "CONFIRMED: target is the function our source defines under this very symbol | body<16B": 5523,
+   "ALIAS: target is a function from our source under a different symbol name; signature differs or not C++-mangled | body-duplicated-elsewhere": 37490,
+   "CONFIRMED: target is the function our source defines under this very symbol | body-duplicated-elsewhere": 2184,
+   "ALIAS: target is a function from our source under a different symbol name; signature part of the mangled names agrees | body-duplicated-elsewhere": 3509,
+   "CONFLICT: symbol is defined by our source elsewhere (different bytes) but resolves here | body-unique": 1,
+   "ALIAS: target is a function from our source under a different symbol name; signature part of the mangled names agrees | body<16B": 650
+  }
+ },
+ "literal_inference": {
+  "candidates_imm_disp_in_image_without_reloc_record": 192011,
+  "inferred_as_address": 81,
+  "rule": "mnemonic in ['fcomp', 'fld', 'fstp', 'lea', 'mov', 'push'], value == exact address of an object known to our build (our resolved targets, units.json symbol addresses, recipe function addresses), value not round (low 16 bits 0 / 0xffffff / 0xfff pattern)"
+ },
+ "crt5": {
+  "code_matches": 629,
+  "small_matches": 34,
+  "small_bytes": 654,
+  "data": {
+   "wanted": 394,
+   "data_candidates": 179,
+   "no-distinct-window": 20,
+   "placed": 82,
+   "ambiguous(9)": 52,
+   "ambiguous(2)": 14,
+   "ambiguous(5)": 1,
+   "ambiguous(7)": 1,
+   "ambiguous(3)": 3,
+   "ambiguous(6)": 3,
+   "no-hit": 3
+  },
+  "data_sections_placed": 82
+ }
+}

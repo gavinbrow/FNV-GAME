@@ -1,0 +1,1 @@
+struct Pair {int first, second;}; struct C {void __thiscall FUN_00db7cf0(int,int);}; struct W {int x,y; C* inner; void __thiscall FUN_00db7d40(Pair);}; void W::FUN_00db7d40(Pair pair){inner->FUN_00db7cf0(pair.first,pair.second);}

@@ -1,0 +1,1 @@
+struct FUN_00ec1a90_Class { void FUN_00ec1a90(); };struct MemoryManager{void Deallocate(void*);};extern MemoryManager g_memoryManager;struct FUN_00ec2ff0_shell: FUN_00ec1a90_Class{void* FUN_00ec2ff0(unsigned int flags);};void* FUN_00ec2ff0_shell::FUN_00ec2ff0(unsigned int flags){volatile char pad[24];FUN_00ec1a90();if(flags&1)g_memoryManager.Deallocate(this);return this;}

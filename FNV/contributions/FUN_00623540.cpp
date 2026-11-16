@@ -1,0 +1,3 @@
+struct FUN_006234d0 { ~FUN_006234d0(); };
+struct FUN_00623540 : FUN_006234d0 { virtual ~FUN_00623540(); };
+FUN_00623540::~FUN_00623540() {}

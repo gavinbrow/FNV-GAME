@@ -1,0 +1,3 @@
+union Command {struct {unsigned int operation; unsigned int first; unsigned int second;} fields; unsigned char payload[32];};
+struct H {void __thiscall FUN_0087d160(Command*); void __thiscall FUN_0087b3b0(unsigned int, unsigned int);};
+void __thiscall H::FUN_0087b3b0(unsigned int a,unsigned int b){Command request; request.fields.operation=22; request.fields.first=a; request.fields.second=b; FUN_0087d160(&request);}

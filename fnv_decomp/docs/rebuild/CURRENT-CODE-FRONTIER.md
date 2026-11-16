@@ -1,0 +1,19 @@
+# Current immediate CODE frontier
+
+The versioned metadata planner joins the accepted V5 unresolved groups to the complete planned physical-owner map and accepted prepared cohorts. It accounts for all 208 CODE demands without reading original source bodies, original native objects or the game image. It does not replay the old owner or binding streams.
+
+The successor exclusion epoch preserves the earlier 14,329 ordinary records and four broader candidates, appends the twelve accepted typed ordinary exports, and records the separately accepted EH File parent as a fifth broader candidate. This gives 14,341 ordinary names and 14,346 disjoint collision exclusions. The EH File artifact retains its original selected namespace and explicit projected object/symbol identity. The earlier IOTask physical candidate retains its unbound logical-demand distinction. Counts do not select an application cohort.
+
+The EH File receipt explicitly leaves original member-layout verification false. The collision ledger preserves that limitation and binds its later independent artifact review; it does not promote layout, native conformance or ABI authority.
+
+Every immediate demand receives an explicit state: prepared skip, cached bare positive awaiting fresh classification, cached original omission blocker, new selected root needing observation, or unselected/unproved namespace. Canonical selected identities are joined by exact name and physical owner, never inferred from a nearby target address. The planner retains each group hash and cached singleton locator. A positive omission observation does not establish field or serialization eligibility.
+
+One metadata output contains the successor epoch, complete frontier ledger, exact missing-root request and cached-positive request. The central collector receives only genuinely new selected roots; existing 205 observations remain immutable. Its new observation epoch keeps distinct source and receipt identities. The production successor will use every supported unprepared positive root in the current frontier, preserving conservative quarantine and fresh original graph, operand, namespace, serializer and plain-MATCH gates.
+
+Planning is bounded to 900 seconds, 1 GiB sampled process memory and 128 MiB private output. Source/input review precedes its single metadata run. Original producers, archives and reference gates remain frozen. Native conformance, provider/ABI adoption, executable linking and Game execution are separate scopes.
+
+The reviewed metadata run completed once in 3.203 seconds, with 329,162,752 bytes of peak process memory, 15,260,259 bytes of output and 56 stable input fingerprints. Its exact V5 partition was 59 cached bare positives, ten new selected roots, 120 cached blockers, sixteen prepared skips and three unselected or unproved namespaces. The metadata receipt is `9e8849e43686622544d15d3639234868d4d6d7617c206ea3ebfa980a0b3b1266`; independent outcome review is `618808fb03b51e445071e41f72976e044700f46788a14c6b7584342d42a85370`.
+
+The separate new-only observation accounted for all ten roots across nine recipes in nineteen records, using one binding pass and no old-root or owner-stream replay. One root, `0x00877720`, had complete positive omission proof; nine retained blockers. That accepted new epoch and the 59 cached positives formed the complete sixty-root production request. The later production emitted 59 supported members and quarantined one canonical reference group, preserving the full 208-demand ledger.
+
+This post-outcome documentation update follows the preserved pre-emission document `bebb5240ba0a96a262aad6b7d2c5dcd520e60d5a1ac77832e0cf7d619b486dcc`. The metadata source remains `34ad6b6aacf0a9c5b0cfd68cf26fdd57e18cec4f9b74e24b48296049703397bc`. Its exclusion epoch is historical once a new prepared cohort is accepted; the next batch needs a successor including those exports.

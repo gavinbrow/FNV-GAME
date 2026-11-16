@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "policy_id": "whole-raw-address-demands-v1",
+  "owned_sha256": "3a87f92f011e5dc9179ddf733cf08be2b39ea6e5b7a8a9e3a9a72dafcc1b104d",
+  "reference_sha256": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
+  "nonexec_identity_sha256": "2089a87127041bb39c60b7013554a15adbe0c52d55f377f4ab63384bf2863b54",
+  "recipes_sha256": "62f2c8da5f0daa912abdf4576328706711c6561eef7f01c93a89cb71ad46fb6c",
+  "fragment": {
+    "fragment_id": "374b2034599e26fb66895c38ed20cdebd079783c94fde6c9ba470cacb54e88b4",
+    "start": 18362368,
+    "size": 255676,
+    "flags": 3221225536,
+    "alignment": 4096,
+    "domain_ordinal": 91188,
+    "arena_geometry": {
+      "PE_file_alignment_observed": 512,
+      "PE_section_alignment_observed": 4096,
+      "alignment_approval": null,
+      "arena_id": "section-2",
+      "domain": "ORDINARY_ARENA_GEOMETRY_CANDIDATE",
+      "event": "ARENA_GEOMETRY",
+      "flags": 3221225536,
+      "logical_extent": 977564,
+      "materialization_approved": false,
+      "object_extent": null,
+      "object_type": null,
+      "original_end": 19339932,
+      "original_start": 18362368,
+      "provider_selected": false,
+      "raw_backed_extent": 262656,
+      "raw_padding_excluded": 0,
+      "raw_section_sha256": "1be6fd80601e1a20206f4bed9ed02ed0124a6830bee5d583ef6747f3f82825e7",
+      "runtime_eligible": false,
+      "section": ".data",
+      "virtual_zero_extent": 714908,
+      "writable": true
+    }
+  },
+  "fields": 13869,
+  "legacy_field_sequence_sha256": "fb3e7927c686c2af78a2de19f8e6b8f8c9205ade1c3f832461e49de992336c67",
+  "protected_source_intervals": [
+    {
+      "start": 16899632,
+      "size": 8
+    },
+    {
+      "start": 17110656,
+      "size": 8
+    }
+  ],
+  "roles": [
+    "original-executable-address-v1",
+    "original-nonexec-storage-address-v1"
+  ],
+  "source_projection_candidates": "unselected alternatives only; no target allocation or physical source owner chosen",
+  "identity_bridges": [],
+  "target_provider_definitions": [],
+  "default_action": "verify-only",
+  "private_projection_requires_exact_review": true,
+  "input_pins": {
+    "candidate_fields": "99daf14954a75d1e68f025534d46ab57528e0e13b11d4e23714c58bd8bb21281",
+    "owner_details": "c54abfd434ac715a16d31711fa8afb498d4b41420bec3bfcc25347d0eab9bd08",
+    "data_plan": "127644b75ed0c2826a3c1d89e4718076f4617b5a0d1f949b5faa4d61f54e6e93",
+    "data_details": "92c4058fa8ce0a74dd05d8919cc664ebf8326e9d76303d2e67338969880e5fc6",
+    "binding_details": "4dfc437064b16c1bb933008aebf7def8d279a903eef9cca24d0fedcc12d7d826",
+    "address_evidence": "2e7bfee400512522db0677eaae54e61c7a60f36b27f4c38d7bc39b5def673d61"
+  },
+  "runtime_eligible": false,
+  "provider_selected": false,
+  "materialization_approved": false,
+  "link_ready": false,
+  "game_fixups_approved": 0,
+  "implementation_pins": {
+    "tools/rebuild/coff_rewrite.py": "48cea438b05a1c2de992eea4200b45a1eb14e49a27704a5c6fff98f941b1ae4c",
+    "tools/rebuild/coff_inventory.py": "3518c044738046e7cd9c8be37a3b1077af750fb2e7a19db793b09999a07ee0d2",
+    "tools/rebuild/data_plan.py": "e013ed5f217f9beeeaf571d089a36df22b645559063e826554179cea506f5bf8"
+  }
+}

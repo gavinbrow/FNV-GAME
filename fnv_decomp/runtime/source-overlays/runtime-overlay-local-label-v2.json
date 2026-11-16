@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "kind": "fnv-fixed-runtime-overlay-label-proof",
+  "policy": "runtime-overlay-inputs-local-label-v2",
+  "original_registry_implementation_sha256": "a983ab2274a4029c1831b226a7d63810d98d70cd7d5e9d53830c30131cdfe6a3",
+  "original_failed_registry_sha256": "e16c796b12d6795b78947c6d22d1f4d293cbcb99701df71f6354b6402ba2b4f1",
+  "unit_recipe_index": 2763,
+  "allowed": [
+    {
+      "function_address": "0x00c0abd0",
+      "function_symbol": "?FUN_00c0abd0@Shader@ShaderSelection@@QAEPAXI@Z",
+      "function_size": 3855,
+      "source_label": "finished",
+      "old_name": "$finished$16352",
+      "new_name": "$finished$16353",
+      "source_span_sha256": "1e320d276615e41a3db037b151b97121fe9d2fd7fbcb324c5c8d672c7da31173",
+      "physical_use_count": 1,
+      "field_offsets": [
+        3484
+      ]
+    }
+  ],
+  "provider_selected": false,
+  "runtime_eligible": false
+}

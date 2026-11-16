@@ -1,0 +1,2 @@
+void __cdecl FUN_00a29660(void* dst, const void* src);
+void __cdecl FUN_00a2cfd0(void* target, const unsigned char* source, unsigned int count) { for (unsigned int remaining = count; remaining > 0; --remaining) { FUN_00a29660(target, source); source += 20; } }

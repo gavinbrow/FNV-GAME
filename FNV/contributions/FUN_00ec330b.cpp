@@ -1,0 +1,2 @@
+struct Record { char bytes[24]; }; extern "C" Record DAT_0126fb30[];extern "C" void FUN_00ec3aff(void*); // @fnv 0x00ec330b
+void __fastcall FUN_00ec330b(int* index){if (*index < 4) FUN_00ec3aff(&DAT_0126fb30[*index]);}

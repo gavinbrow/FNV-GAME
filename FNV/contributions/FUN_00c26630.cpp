@@ -1,0 +1,70 @@
+struct ArrHdr {
+ unsigned int unk00, unk04;
+ unsigned short unk08,unk0A,unk0C,unk0E;
+ void Grow(unsigned int n);
+ void SetAt(unsigned int index, void** item);
+ void Add(void* value) {
+ unsigned int index=unk0A;
+ unsigned int capacity=unk08;
+ if(index>=capacity) Grow(unk0E+index);
+ SetAt(index,&value);
+}
+};extern "C" void* g_01202680;
+extern "C" void* __cdecl FUN_00a7d330(void*);
+extern "C" void* __cdecl FUN_00a7d490(const char*, unsigned int);
+extern "C" void* __cdecl FUN_00a7d550(const char*, float);
+extern "C" void* __cdecl FUN_00a7d370(const char*, unsigned int);
+extern "C" char str_010be5ec[], str_010be5dc[], str_010be5d0[], str_010be5c4[];
+struct FUN_00c26630_cls {
+    unsigned int unk00;
+    unsigned int unk04;
+    unsigned int unk08;
+    unsigned int unk0c;
+    unsigned int unk10;
+    unsigned int unk14;
+    unsigned int unk18;
+    unsigned int unk1c;
+    unsigned int unk20;
+    unsigned int unk24;
+    unsigned int unk28;
+    unsigned int unk2c;
+    unsigned int unk30;
+    unsigned int unk34;
+    unsigned int unk38;
+    unsigned int unk3c;
+    unsigned int unk40;
+    unsigned int unk44;
+    unsigned int unk48;
+    unsigned int unk4c;
+    unsigned int unk50;
+    unsigned int unk54;
+    unsigned int unk58;
+    unsigned int unk5c;
+    unsigned int unk60;
+    unsigned int unk64;
+    unsigned int unk68;
+    unsigned int unk6c;
+    unsigned int unk70;
+    unsigned int unk74;
+    unsigned int unk78;
+    unsigned int unk7c;
+    unsigned short m80, unk82;
+    float m84, m88;
+    unsigned char m8c;
+    void FUN_00c255b0(struct ArrHdr* a);
+    void FUN_00c26630(void* p);
+};
+void FUN_00c26630_cls::FUN_00c26630(void* p) {
+    ArrHdr* a=(ArrHdr*)p;
+    FUN_00c255b0(a);
+    p=FUN_00a7d330(g_01202680);
+    a->Add(p);
+    p=FUN_00a7d490(str_010be5ec,m80);
+    a->Add(p);
+    p=FUN_00a7d550(str_010be5dc,m84);
+    a->Add(p);
+    p=FUN_00a7d550(str_010be5d0,m88);
+    a->Add(p);
+    p=FUN_00a7d370(str_010be5c4,m8c);
+    a->Add(p);
+}

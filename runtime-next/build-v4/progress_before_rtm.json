@@ -1,0 +1,116 @@
+{
+ "headline_pct_text_from_our_compile_or_library": 80.83,
+ "headline_definition": ".text bytes written by obj_v3 compile / SP1 CRT-lib output, non-padding (ref not 0xCC/0x00), excluding 4-byte relocation fields borrowed from the reference, divided by 12,441,088",
+ "raw_text_bytes": 12441088,
+ "ours_bytes": 10056102,
+ "ours_by_origin": {
+  "recipe_functions": 9703062,
+  "recipe_eh_tails": 120571,
+  "eh_pieces_outside_recipe": 108743,
+  "crt_lib_functions": 123726
+ },
+ "padding_bytes_total": 1521834,
+ "padding_inside_produced_pieces": 1032304,
+ "padding_holes_left_0xCC_matching_reference": 489530,
+ "borrowed_relocation_field_bytes": 31644,
+ "pct_if_borrowed_field_bytes_counted_as_ours": 81.084,
+ "missing_bytes_total": 863152,
+ "missing_excluding_borrowed_fields": 831508,
+ "missing_a_uncompiled_units_275": 730875,
+ "missing_b_unverified_or_failed_pieces": 7516,
+ "missing_b_detail": {
+  "in_recipe_range_of_compiled_unit_unplaced": 0,
+  "in_rejected_piece_outside_recipe": 7516
+ },
+ "missing_c_undecompiled_no_recipe_entry": 92904,
+ "missing_d_everything_else": 213,
+ "missing_d_note": "no recipe entry and reference byte is 0x90 (nop padding) or otherwise unclassified",
+ "missing_that_are_ref_0x00": 71156,
+ "missing_with_ref_0x90": 1573,
+ "uncompiled_units": 274,
+ "pieces": {
+  "functions_placed": 67296,
+  "function_bytes": 10726226,
+  "fn_reject_reasons": {
+   "fn-duplicate-address": 10
+  },
+  "eh": {
+   "located": 21180,
+   "accepted-in-recipe-tail": 8074,
+   "nothing-new(already placed/inside function range)": 4964,
+   "not-ok(matcher)": 837,
+   "accepted-outside-recipe(new)": 7305
+  },
+  "crt": {
+   "matched": 595,
+   "accepted_by_rerun": 595,
+   "json_crt": 595,
+   "rerun_equals_json": 595,
+   "placed": 595
+  },
+  "old_obj_eh_pieces_bytes_not_in_v4": 0
+ },
+ "filled_equals_reference": true,
+ "filled_diff_ranges": [],
+ "sha256": {
+  "strict": "fb18b512349a916ca6619b4e0d94d145689a538ebf65c934159609ece38d7eaf",
+  "filled": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
+  "reference": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7"
+ },
+ "strict_nonCC_text_bytes": 11065868,
+ "strict_nonCC_not_produced": 0,
+ "relocation_fields": {
+  "total_in_placed_code": 506520,
+  "borrowed_from_reference": 7779,
+  "resolved_agree": 498741,
+  "by_status": {
+   "agree": 498741,
+   "borrow": 7686,
+   "disagree": 93
+  },
+  "by_source": {
+   "c": 458965,
+   "a": 35161,
+   "f": 4191,
+   "null": 3535,
+   "lib-matched": 1874,
+   "unresolved": 2287,
+   "symbol-map": 323,
+   "import": 144,
+   "self": 40
+  }
+ },
+ "rebase_test": {
+  "delta": "0xfc00000",
+  "reloc_table_highlow_sites": 351931,
+  "reloc_sites_in_text": 201766,
+  "text_bytes_differing_ours_vs_rebased_reference": 282,
+  "text_bytes_compared": 12441088,
+  "differing_all_inside_produced_bytes": true,
+  "our_dir32_sites_total": 190969,
+  "our_dir32_resolved_by_us": 189364,
+  "our_dir32_borrowed_rebased_by_delta": 1605,
+  "borrowed_dir32_sites_in_reloc_table": 1605,
+  "borrowed_dir32_sites_not_in_reloc_table": 0,
+  "dir32_resolved_by_us_NOT_in_reloc_table": 1094,
+  "dir32_resolved_by_us_target_outside_image": 1040,
+  "reloc_sites_in_our_placed_code": 189962,
+  "of_which_we_produced_DIR32": 188270,
+  "of_which_borrowed_field": 1605,
+  "of_which_we_logged_non_DIR32_kind": 0,
+  "of_which_no_relocation_at_all_in_our_output": 87,
+  "of_which_partially_placed": 0,
+  "no_reloc_examples": [
+   "0x0048551c",
+   "0x00485568",
+   "0x004a900e",
+   "0x004a9030",
+   "0x004ff7ec",
+   "0x00509a59",
+   "0x00509a63",
+   "0x0056e64a"
+  ],
+  "borrowed_fields_all_kinds": 7779
+ },
+ "seconds": 32
+}

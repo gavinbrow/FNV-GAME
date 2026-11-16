@@ -1,0 +1,1 @@
+struct X { void FUN_00a25bb0(); }; void X::FUN_00a25bb0() {}

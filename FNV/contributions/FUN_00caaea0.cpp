@@ -1,0 +1,88 @@
+struct ScaleMatrix {
+float m00;
+float m04;
+float m08;
+float m0c;
+float m10;
+float m14;
+float m18;
+float m1c;
+float m20;
+float m24;
+float m28;
+float m2c;
+};
+struct SourceObject {
+int m00;
+int m04;
+int m08;
+int m0c;
+float scale;
+};
+struct FUN_00caaea0_shell {
+virtual void v00() = 0;
+virtual void v01() = 0;
+virtual void v02() = 0;
+virtual void v03() = 0;
+virtual void v04() = 0;
+virtual void v05() = 0;
+virtual void v06() = 0;
+virtual void v07() = 0;
+virtual void v08() = 0;
+virtual void v09() = 0;
+virtual void v10() = 0;
+virtual void v11() = 0;
+virtual void v12() = 0;
+virtual void v13() = 0;
+virtual void v14() = 0;
+virtual void v15() = 0;
+virtual void v16() = 0;
+virtual void v17() = 0;
+virtual void v18() = 0;
+virtual void v19() = 0;
+virtual void v20() = 0;
+virtual void v21() = 0;
+virtual void v22() = 0;
+virtual void v23() = 0;
+virtual void v24() = 0;
+virtual void v25() = 0;
+virtual void v26() = 0;
+virtual void v27() = 0;
+virtual void v28() = 0;
+virtual void v29() = 0;
+virtual void v30() = 0;
+virtual void v31() = 0;
+virtual void v32() = 0;
+virtual void v33() = 0;
+virtual void v34() = 0;
+virtual void v35() = 0;
+virtual void v36() = 0;
+virtual void v37() = 0;
+virtual void v38() = 0;
+virtual void v39() = 0;
+virtual void v40() = 0;
+virtual void v41() = 0;
+virtual void v42() = 0;
+virtual void v43() = 0;
+virtual void v44() = 0;
+virtual ScaleMatrix* getMatrix(bool* outFlag) = 0;
+void FUN_00c84df0(void* context, SourceObject* source);
+void FUN_00caaea0(void* context, SourceObject* source);
+};
+void FUN_00caaea0_shell::FUN_00caaea0(void* context, SourceObject* source) {
+    bool flag;
+    ScaleMatrix* matrix = getMatrix(&flag);
+    float scale = source->scale;
+    if (scale != 1.0f) {
+        matrix->m10 *= scale;
+        matrix->m14 *= scale;
+        matrix->m18 *= scale;
+        matrix->m1c *= scale;
+        matrix->m20 *= scale;
+        matrix->m24 *= scale;
+        matrix->m28 *= scale;
+        matrix->m2c *= scale;
+        matrix->m04 *= scale;
+    }
+    FUN_00c84df0(context, source);
+}

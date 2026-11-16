@@ -1,0 +1,7 @@
+struct FUN_00657a80 : FUN_0065d3a0 {
+    FUN_00657a80();
+};
+
+FUN_00657a80::FUN_00657a80() : FUN_0065d3a0(FUN_006815c0()) {
+    ((FUN_00657dd0_cls*)this)->FUN_00657dd0(0);
+}

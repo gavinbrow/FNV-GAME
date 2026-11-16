@@ -1,0 +1,7 @@
+# Prepared V13 CODE exclusion successor
+
+`tools/rebuild/prepared_cached_v13_successor.py` is a pure transform. Its production entry point `from_bytes` checks five exact raw hashes: the UUID-qualified parent epoch, accepted 21-member handoff and independent peer, full member ledger, and full compressed field-proof stream. It reads no files, original objects, archives, SDKs, executable images or native tools. Its `build` function accepts already authenticated in-memory values for review and synthetic tests; it is not an independent authority.
+
+The transform reconciles all 21 root, member, certificate, source, ordinal, serialized map, full proof and before/after plain-MATCH records. It appends only those exact physical identities to the complete 14,535-entry parent exclusion census. All parent records, order, original negative evidence and UUID-qualified full-path dependency remain unchanged. The resulting prospective census has 14,550 ordinary names and 14,556 broader exclusions; it preserves unknown application selection and the absence of an application-adoption flag.
+
+This source does not publish an epoch or approve provider, ABI, native link or runtime behavior. A reviewed exact-input metadata gate, separate bounded publication and independent full-output reconstruction are required. Synthetic tests use authored fixtures only; the separate UUID dependency and its native conformance remain independently scoped.

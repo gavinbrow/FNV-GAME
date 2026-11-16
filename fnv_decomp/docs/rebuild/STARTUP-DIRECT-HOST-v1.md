@@ -1,0 +1,11 @@
+# Experimental direct-source startup host
+
+`runtime/startup/game_startup_host_direct.cpp` is a new runtime-only WinMain adapter. Its C++ declaration of `FUN_0086a850` matches the four-unsigned-int `__stdcall` source definition at `src/fallout/misc/main.cpp:6515`. It forwards all four WinMain values exactly as the existing host does and returns the real result; no initializer or application code is replaced. It does not change the reference recipe or original host. The direct host SHA-256 is `b53865b583f731d104c71650504f76a52fd3cc4ffbe5af43f31d665fffaa52f5`.
+
+Two source-only tests check the actual source signature and equality of the full forwarding body to the original host with only the target name changed. No synthetic executable, compiler, linker or game was invoked by these tests.
+
+## Proposed finite compile
+
+After independent source and exact-input review, root authorization and a fresh CPU-heavy lease, compile this one source once with SP1 VC9 x86, cl.exe SHA-256 `2954bed141f2f283e3109b2187406704a2d5cb6378cb3074f1b09bc5045d65c1`, `/c /nologo /MT /Od /Oy- /GS /EHsc /Gy /GF /showIncludes`, to a new private `build/rebuild/startup-direct-host-compile-v1/host.obj`. These are explicit experimental host flags; the host is not in the reference recipe. Use the SDK/compiler INCLUDE and PATH construction in `tools/rebuild/toolchain.py`, clear implicit `CL` and `_CL_`, and capture all include observations, stdout, stderr, exit, source/compiler hashes and durable intent/start/PID/creation/terminal. Use the root-authorized bounded host-managed compile path and reconcile the lease before release. No execution, linking, MATCH claim or retry of an uncertain start is authorized by this plan.
+
+A successful compile should be followed by an independently reviewed COFF symbol observation confirming that the host requires the C++ `?FUN_0086a850@@YGHIIII@Z` and defines normal WinMain, and confirming its dependencies. That observation must be separately authorized and must not claim runtime readiness. A later link needs the direct main object, true source providers and their normal CRT, imports, initialization, data and exception handling. No `/FORCE`, fake provider or skipped initializer is allowed.

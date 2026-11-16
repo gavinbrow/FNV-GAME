@@ -1,0 +1,48 @@
+extern "C" char DAT_010b5140;
+extern "C" char DAT_010b511c;
+struct FUN_00b91a40 : ImageSpaceShader {
+  void* primaryVTable;
+  void* unk04;
+  void* unk08;
+  void* unk0c;
+  void* unk10;
+  void* unk14;
+  void* unk18;
+  void* unk1c;
+  void* unk20;
+  void* unk24;
+  void* unk28;
+  void* unk2c;
+  void* unk30;
+  void* unk34;
+  void* unk38;
+  void* unk3c;
+  void* unk40;
+  void* unk44;
+  void* unk48;
+  void* unk4c;
+  void* unk50;
+  void* unk54;
+  void* unk58;
+  void* unk5c;
+  void* unk60;
+  void* unk64;
+  void* unk68;
+  void* secondaryVTable;
+  void* unk70;
+  void* unk74;
+  void* unk78;
+  void* unk7c;
+  void* unk80;
+  void* unk84;
+  void* unk88;
+  void* unk8c;
+  void* unk90;
+  NiTPrimitiveArray_ImageSpaceTexture___ textures;
+  FUN_00b91a40();
+};
+FUN_00b91a40::FUN_00b91a40() {
+  primaryVTable = &DAT_010b5140;
+  secondaryVTable = &DAT_010b511c;
+  textures.SetSize(2);
+}

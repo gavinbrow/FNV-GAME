@@ -1,0 +1,177 @@
+struct Vec3 {
+    float x, y, z;
+    void FUN_0043d410(float x, int y, int z);
+};
+struct Matrix3 {
+    float xx, xy, xz;
+    float yx, yy, yz;
+    float zx, zy, zz;
+    int FUN_004b45b0();
+    Matrix3* FUN_0043f8d0(int);
+};
+struct GameNode {
+    Matrix3* FUN_00461130(Matrix3*);
+};
+struct OtherNode {
+    virtual void UnknownVirtual000();
+    virtual void UnknownVirtual001();
+    virtual void UnknownVirtual002();
+    virtual void UnknownVirtual003();
+    virtual void UnknownVirtual004();
+    virtual void UnknownVirtual005();
+    virtual void UnknownVirtual006();
+    virtual void UnknownVirtual007();
+    virtual void UnknownVirtual008();
+    virtual void UnknownVirtual009();
+    virtual void UnknownVirtual010();
+    virtual void UnknownVirtual011();
+    virtual void UnknownVirtual012();
+    virtual void UnknownVirtual013();
+    virtual void UnknownVirtual014();
+    virtual void UnknownVirtual015();
+    virtual void UnknownVirtual016();
+    virtual void UnknownVirtual017();
+    virtual void UnknownVirtual018();
+    virtual void UnknownVirtual019();
+    virtual void UnknownVirtual020();
+    virtual void UnknownVirtual021();
+    virtual void UnknownVirtual022();
+    virtual void UnknownVirtual023();
+    virtual void UnknownVirtual024();
+    virtual void UnknownVirtual025();
+    virtual void UnknownVirtual026();
+    virtual void UnknownVirtual027();
+    virtual void UnknownVirtual028();
+    virtual void UnknownVirtual029();
+    virtual void UnknownVirtual030();
+    virtual void UnknownVirtual031();
+    virtual void UnknownVirtual032();
+    virtual void UnknownVirtual033();
+    virtual void UnknownVirtual034();
+    virtual void UnknownVirtual035();
+    virtual void UnknownVirtual036();
+    virtual void UnknownVirtual037();
+    virtual void UnknownVirtual038();
+    virtual void UnknownVirtual039();
+    virtual void UnknownVirtual040();
+    virtual void UnknownVirtual041();
+    virtual void UnknownVirtual042();
+    virtual void UnknownVirtual043();
+    virtual void UnknownVirtual044();
+    virtual void UnknownVirtual045();
+    virtual void UnknownVirtual046();
+    virtual void UnknownVirtual047();
+    virtual void UnknownVirtual048();
+    virtual void UnknownVirtual049();
+    virtual void UnknownVirtual050();
+    virtual void UnknownVirtual051();
+    virtual void UnknownVirtual052();
+    virtual void UnknownVirtual053();
+    virtual void UnknownVirtual054();
+    virtual void UnknownVirtual055();
+    virtual void UnknownVirtual056();
+    virtual void UnknownVirtual057();
+    virtual void UnknownVirtual058();
+    virtual void UnknownVirtual059();
+    virtual void UnknownVirtual060();
+    virtual void UnknownVirtual061();
+    virtual void UnknownVirtual062();
+    virtual void UnknownVirtual063();
+    virtual void UnknownVirtual064();
+    virtual void UnknownVirtual065();
+    virtual void UnknownVirtual066();
+    virtual void UnknownVirtual067();
+    virtual void UnknownVirtual068();
+    virtual void UnknownVirtual069();
+    virtual void UnknownVirtual070();
+    virtual void UnknownVirtual071();
+    virtual void UnknownVirtual072();
+    virtual void UnknownVirtual073();
+    virtual void UnknownVirtual074();
+    virtual void UnknownVirtual075();
+    virtual void UnknownVirtual076();
+    virtual void UnknownVirtual077();
+    virtual void UnknownVirtual078();
+    virtual void UnknownVirtual079();
+    virtual void UnknownVirtual080();
+    virtual void UnknownVirtual081();
+    virtual void UnknownVirtual082();
+    virtual void UnknownVirtual083();
+    virtual void UnknownVirtual084();
+    virtual void UnknownVirtual085();
+    virtual void UnknownVirtual086();
+    virtual void UnknownVirtual087();
+    virtual void UnknownVirtual088();
+    virtual void UnknownVirtual089();
+    virtual void UnknownVirtual090();
+    virtual void UnknownVirtual091();
+    virtual void UnknownVirtual092();
+    virtual void UnknownVirtual093();
+    virtual void UnknownVirtual094();
+    virtual void UnknownVirtual095();
+    virtual void UnknownVirtual096();
+    virtual void UnknownVirtual097();
+    virtual void UnknownVirtual098();
+    virtual void UnknownVirtual099();
+    virtual void UnknownVirtual100();
+    virtual void UnknownVirtual101();
+    virtual void UnknownVirtual102();
+    virtual void UnknownVirtual103();
+    virtual void UnknownVirtual104();
+    virtual void UnknownVirtual105();
+    virtual void UnknownVirtual106();
+    virtual void UnknownVirtual107();
+    virtual void UnknownVirtual108();
+    virtual void UnknownVirtual109();
+    virtual void UnknownVirtual110();
+    virtual void UnknownVirtual111();
+    virtual void UnknownVirtual112();
+    virtual void UnknownVirtual113();
+    virtual void UnknownVirtual114();
+    virtual void UnknownVirtual115();
+    virtual void UnknownVirtual116();
+    virtual void UnknownVirtual117();
+    virtual void UnknownVirtual118();
+    virtual void UnknownVirtual119();
+    virtual void UnknownVirtual120();
+    virtual void UnknownVirtual121();
+    virtual void UnknownVirtual122();
+    virtual void UnknownVirtual123();
+    virtual void UnknownVirtual124();
+    virtual void UnknownVirtual125();
+    virtual void UnknownVirtual126();
+    virtual void UnknownVirtual127();
+    virtual void UnknownVirtual128();
+    virtual void UnknownVirtual129();
+    virtual void UnknownVirtual130();
+    virtual GameNode* GetSecondary();
+};
+typedef GameNode* (__thiscall *NodeGetter)(void*);
+typedef void (__thiscall *VectorSetter)(GameNode*, Vec3*);
+typedef GameNode* (__thiscall *SecondaryGetter)(void*);
+float FUN_009b3da0(GameNode*);
+extern double _DAT_0106b9e8;
+struct ProjectileObject {
+    OtherNode* FUN_00874480();
+    void FUN_009b3320();
+};
+void ProjectileObject::FUN_009b3320()
+{
+    GameNode* node = ((NodeGetter)(*reinterpret_cast<void***>(this))[0x1d0 / 4])(this);
+    if (node) {
+        GameNode* secondary = FUN_00874480()->GetSecondary();
+        if (secondary) {
+            Vec3 vec;
+            vec.FUN_0043d410(0.0f, 0, 0);
+            ((VectorSetter)(*reinterpret_cast<void***>(node))[0xb8 / 4])(node, &vec);
+            Matrix3 firstMatrix;
+            Matrix3 second;
+            *reinterpret_cast<Matrix3*>(reinterpret_cast<char*>(this) + 0x94) =
+                *(((NodeGetter)(*reinterpret_cast<void***>(this))[0x1d0 / 4])(this)
+                    ->FUN_00461130(&second)
+                    ->FUN_0043f8d0(secondary->FUN_00461130(&firstMatrix)->FUN_004b45b0()));
+        }
+        *reinterpret_cast<float*>(reinterpret_cast<char*>(this) + 0x154) =
+            FUN_009b3da0(node) * _DAT_0106b9e8;
+    }
+}

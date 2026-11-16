@@ -1,0 +1,50 @@
+{
+ "layout": "U",
+ "out": "C:\\Projects\\Decompilation\\runtime-next\\layout-v2\\FalloutNV_image_U.exe",
+ "sections": {
+  ".data": {
+   "rva": 4096,
+   "virt": 977564,
+   "raw": 262656
+  },
+  ".rdata": {
+   "rva": 983040,
+   "virt": 1716752,
+   "raw": 1717248
+  },
+  "CONST": {
+   "rva": 2703360,
+   "virt": 512,
+   "raw": 512
+  },
+  ".tls": {
+   "rva": 2707456,
+   "virt": 1024,
+   "raw": 1024
+  },
+  ".text": {
+   "rva": 2711552,
+   "virt": 12444224,
+   "raw": 12444672
+  },
+  ".rsrc": {
+   "rva": 15159296,
+   "virt": 834184,
+   "raw": 834560
+  },
+  ".reloc": {
+   "rva": 15994880,
+   "virt": 734848,
+   "raw": 735232
+  }
+ },
+ "reference_code_bytes": 0,
+ "data_fields": {
+  "value-rule-kept-literal": 297,
+  "code": 101449,
+  "data": 48716
+ },
+ "rel32": 323911,
+ "dir32": 201766,
+ "entry": 18567291
+}

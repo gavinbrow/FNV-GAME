@@ -1,0 +1,1 @@
+char __cdecl FUN_00e814f0(void) { return *(int *)(DAT_0126f74c + 0x5c) != 0; }

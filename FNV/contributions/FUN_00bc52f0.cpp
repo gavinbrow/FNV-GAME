@@ -1,0 +1,123 @@
+struct FUN_00bc52f0_class
+{
+    virtual void unk00() = 0;
+    virtual void unk01() = 0;
+    virtual void unk02() = 0;
+    virtual void unk03() = 0;
+    virtual void unk04() = 0;
+    virtual void unk05() = 0;
+    virtual void unk06() = 0;
+    virtual void unk07() = 0;
+    virtual void unk08() = 0;
+    virtual void unk09() = 0;
+    virtual void unk10() = 0;
+    virtual void unk11() = 0;
+    virtual void unk12() = 0;
+    virtual void unk13() = 0;
+    virtual void unk14() = 0;
+    virtual void unk15() = 0;
+    virtual void unk16() = 0;
+    virtual void unk17() = 0;
+    virtual void unk18() = 0;
+    virtual void unk19() = 0;
+    virtual void unk20() = 0;
+    virtual void unk21() = 0;
+    virtual void unk22() = 0;
+    virtual void unk23() = 0;
+    virtual void unk24() = 0;
+    virtual void unk25() = 0;
+    virtual void unk26() = 0;
+    virtual void unk27() = 0;
+    virtual void unk28() = 0;
+    virtual void unk29() = 0;
+    virtual void unk30() = 0;
+    virtual void unk31() = 0;
+    virtual void unk32() = 0;
+    virtual void unk33() = 0;
+    virtual void unk34() = 0;
+    virtual void unk35() = 0;
+    virtual void unk36() = 0;
+    virtual void unk37() = 0;
+    virtual void unk38() = 0;
+    virtual void unk39() = 0;
+    virtual void unk40() = 0;
+    virtual void unk41() = 0;
+    virtual void unk42() = 0;
+    virtual void unk43() = 0;
+    virtual void unk44() = 0;
+    virtual void unk45() = 0;
+    virtual void unk46() = 0;
+    virtual void unk47() = 0;
+    virtual void unk48() = 0;
+    virtual void unk49() = 0;
+    virtual void unk50() = 0;
+    virtual void unk51() = 0;
+    virtual void unk52() = 0;
+    virtual void unk53() = 0;
+    virtual void unk54() = 0;
+    virtual void unk55() = 0;
+    virtual void unk56() = 0;
+    virtual void unk57() = 0;
+    virtual void unk58() = 0;
+    virtual void unk59() = 0;
+    virtual void unk60() = 0;
+    virtual void unk61() = 0;
+    virtual void unk62() = 0;
+    virtual void unk63() = 0;
+    virtual void unk64() = 0;
+    virtual void unk65() = 0;
+    virtual void unk66() = 0;
+    virtual void unk67() = 0;
+    virtual void unk68() = 0;
+    virtual void unk69() = 0;
+    virtual void unk70() = 0;
+    virtual void unk71() = 0;
+    virtual void unk72() = 0;
+    virtual void unk73() = 0;
+    virtual void unk128(int) = 0;
+
+    void* field04;
+    void* field08;
+    void* field0c;
+    void* field10;
+    void* field14;
+    void* field18;
+    void* field1c;
+    void* field20;
+    void* field24;
+    void* field28;
+    void* field2c;
+    void* field30;
+    void* field34;
+    void* field38;
+    void* field3c;
+    void* field40;
+    void* field44;
+    void* field48;
+    void* field4c;
+    void* field50;
+    void* field54;
+    void* field58;
+    void* field5c;
+    void* field60;
+    void* field64;
+    void* field68;
+
+    int field6c;
+    int field70;
+    int field74;
+
+    void __thiscall FUN_00bc52f0();
+};
+
+void __thiscall FUN_00bc52f0_class::FUN_00bc52f0()
+{
+    int* p = &field6c;
+    int count = 3;
+
+    do {
+        unk128(*p);
+        ++p;
+        --count;
+    } while (count != 0);
+}

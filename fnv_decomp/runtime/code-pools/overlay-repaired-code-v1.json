@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "kind": "fnv-fixed-overlay-code-projection",
+  "policy": "overlay-code-old-logical-provider-v1",
+  "inputs": {
+    "build/rebuild/runtime-overlay-inputs-native-v2/registry.json": "ca72c5bb1dc723c75c2ab4920ddf4d41f1a32d0009afbe78ce4237a64cb3def3",
+    "build/rebuild/runtime-overlay-inputs-native-v2/root-observer-inputs.jsonl.gz": "b28645c73dc3985ead69723da0ea269bdc53ba733bb9f98beb61d040d182d40f",
+    "build/rebuild/runtime-code-inventory-native-v1.json": "02a77cce3f43c1786cd027e72ffb17e76ffe6766c2823872254015b6e40549f6",
+    "build/rebuild/runtime-code-inventory-native-v1.jsonl.gz": "91cdc91af6530e6e80e2104cdfeb9bd6928e17fa0f75bcf066734985248f1031",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/coverage.jsonl.gz": "e29cef9c0169ea19ac39724d3acb33163b101d9f21e8eed970c8071253d4ec16",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/members.jsonl": "a3232bd7c19dd41b67f0d4e85d8b3a9e8b4c18b8f95d065f2286dd75fe7da105",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/receipt.json": "ad870815321b42485378b0f896340bfd0b70cd52aea0dd27ffc39725bd93ce14",
+    "build/rebuild/bulk-code-pool-all-current-native-v1/receipt.json": "b78ab291de0298b0bfb53ce03f1f440eadad7822e256abc11a5b3bb9c1c55978",
+    "build/rebuild/import-plan-native-v1.json": "33c62960764eac0029bfc69445e6a678a28e8373f4a4f5b5e48508fd257b9508",
+    "build/rebuild/bulk-code-pool-all-current-v1/production/code-pool-0000.lib": "1d5d9ae7ba169f2389a3e9928a46fcbeb8f25b829bcdaee627db3f43e9d89aa5"
+  },
+  "registry_roots": 13,
+  "max_fully_repaired_roots": 10,
+  "expected_registry_rows": 931,
+  "original_missing_in_registry": 29,
+  "remaining_missing_in_registry": 7,
+  "repaired_fields": 22,
+  "baseline_selected": 68657,
+  "baseline_exports": 12946,
+  "ordinary_observer_sha256": "4bfdb5001380a3d7e5db7517033285d49ab211be68e2fcba15964f0ad5b03c53",
+  "parser_sha256": "76244d2d4dca4c1f8aa72224be1ef5c92f68976b5cda7d31b5cfe23d3cc29e64",
+  "namespace_semantics": "baseline-logical-provider-fresh-overlay-physical-source",
+  "root_subset_policy": "largest-closure-and-namespace-proved-subset-per-recipe-lexicographic-tie",
+  "unknown_omissions_may_be_waived": false,
+  "provider_selected": false,
+  "runtime_eligible": false,
+  "link_ready": false
+}

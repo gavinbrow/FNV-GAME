@@ -1,0 +1,66 @@
+{
+ "pid": 203840,
+ "placed_ranges_merged": 66184,
+ "placed_bytes": 10835576,
+ "live_vs_ref_diff_runs_before": 0,
+ "skipped_hook_bytes": 0,
+ "bytes_to_write": 10835576,
+ "bytes_that_change_value": 40,
+ "text_regions_before": [
+  [
+   "0x401000",
+   "0xfde58b",
+   "0x20"
+  ]
+ ],
+ "suspended_ms": 729,
+ "bytes_written": 10835576,
+ "write_errors": 0,
+ "text_regions_after": [
+  [
+   "0x401000",
+   "0xfde58b",
+   "0x20"
+  ]
+ ],
+ "verify_mismatch_bytes_in_placed": 0,
+ "live_vs_pinned_after_total_diff": 0,
+ "live_vs_reference_after_total_diff": 40,
+ "samples": [
+  {
+   "t_s": 0,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  },
+  {
+   "t_s": 10,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  },
+  {
+   "t_s": 20,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  },
+  {
+   "t_s": 30,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  },
+  {
+   "t_s": 40,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  },
+  {
+   "t_s": 50,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  },
+  {
+   "t_s": 60,
+   "exit_code_query": 259,
+   "ps": "True|True|Fallout: New Vegas|65|199"
+  }
+ ]
+}

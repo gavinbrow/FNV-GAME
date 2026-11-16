@@ -1,0 +1,65 @@
+struct FileContext { void FUN_00a64670(); };
+struct H_00c8b1d0 {
+    virtual void reservedVirtual0();
+    virtual void reservedVirtual1();
+    virtual void reservedVirtual2();
+    virtual void reservedVirtual3();
+    virtual void reservedVirtual4();
+    virtual void reservedVirtual5();
+    virtual void reservedVirtual6();
+    virtual void reservedVirtual7();
+    virtual void reservedVirtual8();
+    virtual void reservedVirtual9();
+    virtual void reservedVirtual10();
+    virtual void reservedVirtual11();
+    virtual void reservedVirtual12();
+    virtual void reservedVirtual13();
+    virtual void reservedVirtual14();
+    virtual void reservedVirtual15();
+    virtual void reservedVirtual16();
+    virtual void reservedVirtual17();
+    virtual void reservedVirtual18();
+    virtual void reservedVirtual19();
+    virtual void reservedVirtual20();
+    virtual void reservedVirtual21();
+    virtual void reservedVirtual22();
+    virtual void reservedVirtual23();
+    virtual void reservedVirtual24();
+    virtual void reservedVirtual25();
+    virtual void reservedVirtual26();
+    virtual void reservedVirtual27();
+    virtual void reservedVirtual28();
+    virtual void reservedVirtual29();
+    virtual void reservedVirtual30();
+    virtual void reservedVirtual31();
+    virtual void reservedVirtual32();
+    virtual void reservedVirtual33();
+    virtual void reservedVirtual34();
+    virtual void reservedVirtual35();
+    virtual void reservedVirtual36();
+    virtual void reservedVirtual37();
+    virtual void reservedVirtual38();
+    virtual void reservedVirtual39();
+    virtual void reservedVirtual40();
+    virtual void reservedVirtual41();
+    virtual void* GetSharedData();
+    virtual void reservedVirtual43();
+    virtual void reservedVirtual44();
+    virtual char* GetDataPosition(FileContext* volatile* object);
+    void FUN_00c84d00(FileContext* object);
+    void FUN_00c8b1d0(FileContext* object);
+};
+void __cdecl FUN_00cf0930(char* data, void* shared, char* component);
+void __cdecl FUN_00cf10f0(FileContext* object, char* component);
+void H_00c8b1d0::FUN_00c8b1d0(FileContext* volatile object) {
+ FileContext* stableObject = object;
+ stableObject->FUN_00a64670();
+ FUN_00c84d00(stableObject);
+ char* data=GetDataPosition(&object);
+ if (reinterpret_cast<unsigned char*>(stableObject)[0x1E5]!=1) {
+     void* shared=GetSharedData();
+     FUN_00cf0930(data,shared,data+0x10);
+     FUN_00cf0930(data,shared,data+4);
+ }
+ FUN_00cf10f0(stableObject,data+0x10);
+}

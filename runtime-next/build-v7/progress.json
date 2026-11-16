@@ -1,0 +1,256 @@
+{
+ "headline_pct_text_from_our_compile_or_library": 87.161,
+ "ours_bytes": 10843747,
+ "nonpadding_text_bytes": 10843747,
+ "coverage_pct_of_nonpadding_text": 100.0,
+ "ours_by_origin": {
+  "recipe_functions": 10384531,
+  "recipe_eh_tails": 125275,
+  "eh_pieces_outside_recipe": 123475,
+  "crt_lib_functions": 132464,
+  "verified_contributions": 71310,
+  "contribution_eh_pieces": 6692
+ },
+ "borrowed_relocation_field_bytes": 0,
+ "missing_excluding_borrowed_fields": 0,
+ "missing_b_failed_pieces": 0,
+ "missing_c_undecompiled": 0,
+ "pieces": {
+  "contributions": {
+   "placed": 1087,
+   "bytes": 80042
+  },
+  "contribution_eh": {
+   "located": 437,
+   "placed": 437,
+   "new_bytes": 6720
+  },
+  "functions_placed": 69027,
+  "fn_reject_reasons": {
+   "fn-duplicate-address": 10
+  },
+  "eh": {
+   "located": 21682,
+   "accepted-in-recipe-tail": 8073,
+   "nothing-new(already placed/inside function range)": 5947,
+   "not-ok(matcher)": 782,
+   "accepted-although-matcher-not-ok": 380,
+   "accepted-not-ok-new_bytes": 4951,
+   "accepted-outside-recipe(new)": 7652,
+   "bytes-differ-from-reference": 10,
+   "healed-borrowed-fields": 230
+  },
+  "crt": {
+   "matched": 595,
+   "accepted_by_rerun": 595,
+   "json_crt": 595,
+   "rerun_equals_json": 595,
+   "placed": 595
+  },
+  "crt5": {
+   "code_matches": 595,
+   "small_matches": 0,
+   "small_bytes": 0,
+   "data": {
+    "wanted": 405,
+    "data_candidates": 178,
+    "no-distinct-window": 20,
+    "placed": 81,
+    "ambiguous(9)": 52,
+    "ambiguous(2)": 14,
+    "ambiguous(5)": 1,
+    "ambiguous(7)": 1,
+    "ambiguous(3)": 3,
+    "ambiguous(6)": 3,
+    "no-hit": 3
+   },
+   "data_sections_placed": 81
+  }
+ },
+ "filled_equals_reference": true,
+ "reference_sha256_expected_match": true,
+ "sha256": {
+  "strict": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
+  "filled": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
+  "reference": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7"
+ },
+ "undecompiled_bytes": 0,
+ "strict_nonCC_not_produced": 0,
+ "relocation_fields": {
+  "total_in_placed_code": 528796,
+  "borrowed_from_reference": 2,
+  "resolved_agree": 528794,
+  "by_status": {
+   "agree": 528794,
+   "borrow": 2
+  },
+  "by_source": {
+   "c": 473944,
+   "a": 36227,
+   "b": 5552,
+   "overlay-field": 389,
+   "f": 4312,
+   "eh-stub": 94,
+   "overlay-name": 2915,
+   "sized-delete-rule": 530,
+   "icf-fold": 354,
+   "overlay-global": 1387,
+   "lib-matched": 1842,
+   "member-section": 747,
+   "symbol-map": 309,
+   "import": 144,
+   "self": 40,
+   "linker-imagebase": 10
+  },
+  "borrowed_by_cause": {
+   "tail:k14:overlay-name": 2
+  },
+  "borrowed_by_origin_kind_source_status": {
+   "tail|k14|overlay-name|borrow": 2
+  }
+ },
+ "literal_inference": {
+  "candidates_imm_disp_in_image_without_reloc_record": 197182,
+  "inferred_as_address": 0,
+  "rule": "mnemonic in ['fcomp', 'fld', 'fstp', 'lea', 'mov', 'push'], value == exact address of an object known to our build (our resolved targets, units.json symbol addresses, recipe function addresses), value not round (low 16 bits 0 / 0xffffff / 0xfff pattern)"
+ },
+ "rebase_test": {
+  "delta": "0xfc00000",
+  "reloc_table_highlow_sites": 351931,
+  "reloc_sites_in_text": 201766,
+  "our_dir32_agree_classes": {
+   "address": 201766,
+   "target-outside-image(no base reloc)": 1092
+  },
+  "text_bytes_differing": {
+   "v4_rule": 0,
+   "v5_rule": 0,
+   "table_assisted": 0
+  },
+  "text_bytes_differing_note": "v4_rule = shift every DIR32 we resolved whose target is in the image (as v4); v5_rule = own rule + literal inference; table_assisted = original .reloc decides (not independent)",
+  "remaining_diff_fields_by_cause": {}
+ },
+ "icf_fold": {
+  "wanted_names": 1937,
+  "wanted_fields": 3085,
+  "names_to_fold_incl_closure": 2149,
+  "no_body_in_our_objects": 1029,
+  "body_but_no_identical_placed_function": 600,
+  "folded_unique": 325,
+  "folded_ambiguous_lowest": 195,
+  "rounds": 2,
+  "wanted_resolved_names": 516,
+  "wanted_resolved_fields": 983,
+  "ambiguity_sizes": {
+   "37": 53,
+   "2": 111,
+   "3": 2,
+   "267": 14,
+   "278": 1,
+   "11": 13,
+   "268": 1
+  },
+  "seconds": 2,
+  "check_vs_tail_alias_candidates": {
+   "agree": 246,
+   "disagree": 264,
+   "folded_names_not_in_candidates": 10,
+   "candidates_with_multiple_targets": 9,
+   "disagree_ambiguous": 140,
+   "unique_disagree_diag": {
+    "ref-target-different-bytes": 117,
+    "ref-target-not-a-recipe-fn": 1,
+    "ref-target-same-bytes-in-index": 6
+   },
+   "disagree_examples": [
+    [
+     "??1?$BBB3500Pointer@VBBB3500RefObject@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ],
+    [
+     "??1?$CE340Array@UCE340Vec4@@@@QAE@XZ",
+     "0xcce0d0",
+     [
+      "0x66da50"
+     ],
+     false
+    ],
+    [
+     "??1?$FNV_STUB_NiPointer@URenderContext@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ],
+    [
+     "??1?$NiPointer@UBA02F0RefObject@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ],
+    [
+     "??1?$NiPointer@UBSRenderedTexture@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ],
+    [
+     "??1?$NiPointer@UBSRenderedTexture@fnv_00c03d80@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ],
+    [
+     "??1?$NiPointer@UItem@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ],
+    [
+     "??1?$NiPointer@UMaterial@@@@QAE@XZ",
+     "0xb66f20",
+     [
+      "0x45cec0"
+     ],
+     false
+    ]
+   ]
+  }
+ },
+ "seconds": 35,
+ "own_reloc": {
+  "original_text_sites": 201766,
+  "original_total_sites": 351931,
+  "original_types": {
+   "3": 351931,
+   "0": 1717
+  },
+  "our_text_sites": 201766,
+  "our_by_origin": {
+   "object": 199782,
+   "crt": 1984
+  },
+  "ours_not_in_original": 0,
+  "original_not_in_ours": 0,
+  "skipped_by_rule": {
+   "target outside image: no base reloc": 1092
+  },
+  "own_table_bytes": 734888,
+  "original_table_bytes": 734888,
+  "own_sites_total": 351931,
+  "roundtrip_ok": true
+ }
+}

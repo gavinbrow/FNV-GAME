@@ -1,0 +1,136 @@
+struct BlockRecord {
+    unsigned int unk00;
+    unsigned int unk04;
+    unsigned int unk08;
+    unsigned int unk0c;
+    unsigned int unk10;
+    unsigned int unk14;
+    unsigned int unk18;
+    unsigned int unk1c;
+    unsigned int unk20;
+    unsigned int unk24;
+    unsigned int eventType;
+};
+struct DispatchInfo {
+    unsigned int unk00;
+    unsigned int unk04;
+    unsigned int unk08;
+    unsigned int unk0c;
+    unsigned int unk10;
+    unsigned int unk14;
+    unsigned int unk18;
+    unsigned int unk1c;
+    unsigned short eventCode;
+};
+struct DispatchHandler {
+    virtual void unknownVirtual0();
+    virtual void unknownVirtual1();
+    virtual void unknownVirtual2();
+    virtual void unknownVirtual3();
+    virtual void unknownVirtual4();
+    virtual void unknownVirtual5();
+    virtual void unknownVirtual6();
+    virtual void unknownVirtual7();
+    virtual void unknownVirtual8();
+    virtual void unknownVirtual9();
+    virtual void unknownVirtual10();
+    virtual void unknownVirtual11();
+    virtual void unknownVirtual12();
+    virtual void unknownVirtual13();
+    virtual void unknownVirtual14();
+    virtual void unknownVirtual15();
+    virtual void unknownVirtual16();
+    virtual void unknownVirtual17();
+    virtual void unknownVirtual18();
+    virtual void unknownVirtual19();
+    virtual void unknownVirtual20();
+    virtual void unknownVirtual21();
+    virtual void unknownVirtual22();
+    virtual void unknownVirtual23();
+    virtual void unknownVirtual24();
+    virtual void unknownVirtual25();
+    virtual void unknownVirtual26();
+    virtual void unknownVirtual27();
+    virtual void unknownVirtual28();
+    virtual void unknownVirtual29();
+    virtual void Dispatch(void* target, unsigned int eventType, unsigned short eventCode, int mode, unsigned int eventData);
+};
+struct DispatchRegistry {
+    unsigned int unk00;
+    unsigned int unk04;
+    unsigned int unk08;
+    unsigned int unk0c;
+    unsigned int unk10;
+    unsigned int unk14;
+    unsigned int unk18;
+    unsigned int unk1c;
+    unsigned int unk20;
+    unsigned int unk24;
+    unsigned int unk28;
+    unsigned int unk2c;
+    unsigned int unk30;
+    unsigned int unk34;
+    unsigned int unk38;
+    unsigned int unk3c;
+    unsigned int unk40;
+    unsigned int unk44;
+    unsigned int unk48;
+    unsigned int unk4c;
+    unsigned int unk50;
+    unsigned int unk54;
+    unsigned int unk58;
+    DispatchHandler* handler;
+};
+extern DispatchRegistry* DAT_0126f74c;
+struct EventSystem {
+    void FUN_00e6fe30(BlockRecord* block, unsigned int token, int zero, int type, int enabled);
+};
+extern EventSystem* DAT_011f9508;
+struct EventInvoker {
+    unsigned int unk00;
+    unsigned int unk04;
+    unsigned int unk08;
+    unsigned int unk0c;
+    unsigned int unk10;
+    unsigned int unk14;
+    unsigned int unk18;
+    unsigned int unk1c;
+    unsigned int unk20;
+    unsigned int unk24;
+    unsigned int unk28;
+    unsigned int unk2c;
+    unsigned int unk30;
+    unsigned int unk34;
+    unsigned int disabledFlag;
+    unsigned int unk3c;
+    unsigned int unk40;
+    unsigned int unk44;
+    unsigned int unk48;
+    unsigned int unk4c;
+    unsigned int unk50;
+    unsigned int unk54;
+    unsigned int unk58;
+    unsigned int unk5c;
+    unsigned int unk60;
+    unsigned int unk64;
+    unsigned int unk68;
+    unsigned int unk6c;
+    unsigned int unk70;
+    unsigned int unk74;
+    unsigned int unk78;
+    unsigned int unk7c;
+    unsigned int unk80;
+    unsigned int unk84;
+    unsigned int unk88;
+    void* channel;
+    int FUN_00bcb460(int unused1, BlockRecord* block, DispatchInfo* info, int unused4, int unused5, int unused6, unsigned int token, int unused8);
+};
+int EventInvoker::FUN_00bcb460(int unused1, BlockRecord* block, DispatchInfo* info, int unused4, int unused5, int unused6, unsigned int token, int unused8)
+{
+    if (block != 0 && info != 0 && disabledFlag == 0 && channel != 0)
+    {
+        DAT_011f9508->FUN_00e6fe30(block, token, 0, 3, 1);
+        DAT_0126f74c->handler->Dispatch(channel, block->eventType, info->eventCode, 3, info->unk04);
+    }
+    return 0;
+}
