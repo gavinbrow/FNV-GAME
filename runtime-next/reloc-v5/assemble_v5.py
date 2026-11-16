@@ -4,7 +4,7 @@ Pass 2: place recipe functions, EH pieces (exact-bytes acceptance), CRT pieces (
 Outputs: strict/filled images, progress.json, relocs_v4.tsv.gz, rebase test."""
 import sys, os, json, struct, collections, time, gzip, bisect, hashlib
 sys.dont_write_bytecode = True
-sys.path.append(r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')
+sys.path.append(__import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 HERE = Path(__file__).resolve().parent

@@ -394,7 +394,7 @@ def _reject_preloaded_workspace(workspace,allowed_main_file):
             _require(name=='__main__' and resolved==allowed,'preloaded workspace module rejected: '+name)
 
 
-PSUTIL_ROOT=Path(r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages\psutil')
+PSUTIL_ROOT=Path(__import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages\psutil'))
 EXPECTED_PSUTIL={
  'version':'6.1.1',
  'module':{'path':str(PSUTIL_ROOT/'__init__.py'),'sha256':'7538e99b4bf449ad5133381926d82752fe81713c5d3f0c401802ca8bb42e2b45','size':91640},

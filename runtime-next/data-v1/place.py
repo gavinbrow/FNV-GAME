@@ -7,7 +7,7 @@ reference .rdata/.data and resolve its relocation fields. Placement tiers (a pie
 Writes a scratch pickle for report.py."""
 import sys, os, json, struct, collections, pickle, gzip, hashlib, re, time
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 RN = HERE.parent

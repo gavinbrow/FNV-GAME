@@ -4,7 +4,7 @@ write contrib_status.csv, contrib_pieces.json (verified pieces incl. relocation 
 Read-only on FNV; writes only under build-v7. usage: python -I verify_contrib.py [jobs]"""
 import sys, os, json, csv, subprocess, hashlib, shutil, struct, collections, bisect
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 HERE = Path(__file__).resolve().parent

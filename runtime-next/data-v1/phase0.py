@@ -2,7 +2,7 @@
 and every relocation resolved with the same resolver as build-v7 (assemble_v3.resolve_field + ICF map). Writes scratch pickle."""
 import sys, os, json, struct, collections, pickle, re
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 RN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next'))

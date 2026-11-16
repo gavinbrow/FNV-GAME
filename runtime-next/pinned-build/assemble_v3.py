@@ -9,7 +9,7 @@ from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))   # numpy lives in user site; -I hides it
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))   # numpy lives in user site; -I hides it
 HERE = Path(__file__).resolve().parent
 FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\fnv_decomp'))
 sys.path.insert(0, str(FN / 'tools'))

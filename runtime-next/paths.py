@@ -17,5 +17,5 @@ MSVC9_SP1 = os.environ.get('FNV_MSVC9_ROOT') or J(_DEF_PROJ, 'FNV', 'tools', 'vc
 MSVC8 = os.environ.get('FNV_MSVC8_ROOT') or J(_DEF_PROJ, 'FNV', 'tools', 'vc8sp1')
 MSVC9_RTM = os.environ.get('FNV_MSVC9_RTM_ROOT') or J(_DEF_PROJ, 'FNV', 'tools', 'vc2008rtm')
 REF_IMAGE = os.environ.get('FNV_REF_IMAGE') or J(_DEF_PROJ, 'FNV', 'work', 'worker1', 'FalloutNV.runtime-text.exe')
-PY_SITE = os.environ.get('FNV_PY_SITE') or J('C:' + chr(92), 'Users', 'cjhub', 'AppData', 'Roaming', 'Python', 'Python312', 'site-packages')
+PY_SITE = os.environ.get('FNV_PY_SITE') or J(os.environ.get('APPDATA', ''), 'Python', 'Python312', 'site-packages')
 def sub(*p): return J(PROJ, *p)

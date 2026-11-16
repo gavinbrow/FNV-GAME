@@ -2,7 +2,7 @@
 write FalloutNV_data_strict.exe (build-v7 strict .text + produced .rdata/.data pieces, rest of .rdata/.data = 0x00) and the filled variant, progress.json."""
 import sys, struct, collections, pickle, json, hashlib, gzip, re, time
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 import numpy as np
 sys.argv = [sys.argv[0]] + sys.argv[1:]
 import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

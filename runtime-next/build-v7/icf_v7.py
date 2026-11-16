@@ -6,7 +6,7 @@ Iterates to a fixpoint (leaf destructors first). No reference bytes/addresses ar
 Writes icf_map.json (name -> address), icf_report.json. usage: python -I icf_v7.py [workers]"""
 import sys, os, json, struct, gzip, hashlib, collections, re, time
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 HERE = Path(__file__).resolve().parent

@@ -1,7 +1,7 @@
 """Task D: characterise the uncovered non-trivial runs of .text; test stock CRT libs (libcmt/libcpmt) against them.  Read-only."""
 import sys, json, struct, re, collections
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 import numpy as np
 HERE = Path(__file__).resolve().parent

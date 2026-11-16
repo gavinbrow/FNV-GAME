@@ -3,7 +3,7 @@ from the VC++ 2008 SP1 libcmt/libcpmt matched against uncovered .text.  Read-onl
 usage: python -I build_extra.py eh|crt|all"""
 import sys, os, re, json, struct, collections
 sys.dont_write_bytecode = True
-sys.path.append((__import__('os').environ.get('FNV_PY_SITE', r'C:\Users\cjhub\AppData\Roaming\Python\Python312\site-packages')))
+sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\pinned-build'))

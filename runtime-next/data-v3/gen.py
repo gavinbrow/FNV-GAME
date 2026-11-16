@@ -107,6 +107,9 @@ if os.environ.get('DV3_CNAMES') == '1':     # link-v2: extra D_<va> labels for e
     for _v in json.load(open(RN + r'\link-v2\extra_labels.json')):
         _p = place_of(_v)
         if _p: labels[_p].add(_v)
+if os.environ.get('DV3_NOLABEL'):      # link-v2: addresses whose symbol is supplied by the CRT/linker instead (e.g. the TLS index)
+    _nl = {int(x, 16) for x in json.load(open(os.environ['DV3_NOLABEL']))}
+    for p in list(labels): labels[p] -= _nl
 # a label strictly inside another field's bytes -> retarget to the field start label (rare)
 field_starts = sorted(fields)
 def inside_field(va):
@@ -145,8 +148,11 @@ def emit_bytes(lines, blob):
             continue
         lines.append('db ' + ','.join('0%02Xh' % b for b in blob[i:i + 16 if i + 16 <= n else n])); i += min(16, n - i)
 used_ext = collections.defaultdict(set)
-SEGDEF = {'.rdata': ("CONST", "SEGMENT DWORD READONLY PUBLIC 'CONST'"), '.data': ('_DATA', "SEGMENT DWORD PUBLIC 'DATA'"),
-          '.tls': ('_TLS', "SEGMENT DWORD PUBLIC 'DATA'"), 'CONST': ('_CONSTPE', "SEGMENT DWORD READONLY PUBLIC 'CONST'")}
+_PH = os.environ.get('DV3_PHASE') == '1'      # link-v2 only: PAGE-aligned segments with original phase (default output is the original DWORD segments)
+SEGDEF = ({'.rdata': ("_RDATAP", "SEGMENT PAGE READONLY PUBLIC 'CONST'"), '.data': ('_DATAP', "SEGMENT PAGE PUBLIC 'DATA'"),
+           '.tls': ('_TLS', "SEGMENT PAGE PUBLIC 'DATA'"), 'CONST': ('_CONSTPE', "SEGMENT PAGE READONLY PUBLIC 'CONST'")} if _PH else
+          {'.rdata': ("CONST", "SEGMENT DWORD READONLY PUBLIC 'CONST'"), '.data': ('_DATA', "SEGMENT DWORD PUBLIC 'DATA'"),
+           '.tls': ('_TLS', "SEGMENT DWORD PUBLIC 'DATA'"), 'CONST': ('_CONSTPE', "SEGMENT DWORD READONLY PUBLIC 'CONST'")})
 FILES = {'.rdata': 'rdata', '.data': 'data', '.tls': 'tls', 'CONST': 'const'}
 segmap = {}
 manifest = []
@@ -156,16 +162,23 @@ def write_chunk(name, k, lines, exts, locl, tail, start, size):
     asm = ['.386', '.model flat', 'option casemap:none']
     for e in sorted(exts | locl): asm.append('EXTERNDEF %s:%s' % (e, 'BYTE' if e.startswith(('D_', 'X_')) else 'NEAR'))
     for e in sorted(locl): asm.append('PUBLIC %s' % e)
-    asm.append('%s %s' % (seg, defn)); asm += lines; asm.append('%s ENDS' % seg)
+    asm.append('%s %s' % (seg, defn))
+    _ph = (SEC[name]['va'] + start) % 256 if os.environ.get('DV3_PHASE') == '1' else 0
+    if _ph: asm.append('db %d dup(0)' % _ph)
+    asm += lines; asm.append('%s ENDS' % seg)
     if tail:
-        asm.append("_BSS SEGMENT DWORD PUBLIC 'BSS'"); asm += tail; asm.append('_BSS ENDS')
+        if _PH:
+            asm.append("_BSSP SEGMENT PAGE PUBLIC 'BSS'")
+            if bss_lo % 256: asm.append('db %d dup(?)' % (bss_lo % 256))
+            asm += tail; asm.append('_BSSP ENDS')
+        else: asm.append("_BSS SEGMENT DWORD PUBLIC 'BSS'"); asm += tail; asm.append('_BSS ENDS')
     asm.append('END')
     fn_ = '%s_%02d' % (FILES[name], k)
     open(os.path.join(OUT, fn_ + '.asm'), 'w').write(chr(10).join(asm) + chr(10))
     manifest.append(dict(file=fn_, section=name, va=SEC[name]['va'] + start, size=size, object_section={'.rdata': '.rdata', '.data': '.data', '.tls': '_TLS (rename to .tls)', 'CONST': '_CONSTPE (rename to CONST)'}[name]))
     return len(lines)
 def emit_section(name):
-    s = SEC[name]; blob = bytearray(ref[s['off']:s['off'] + s['raw']])
+    s = SEC[name]; blob = bytearray(ref[s['off']:s['off'] + s['raw']]) if SKIP else ref[s['off']:s['off'] + s['raw']]
     for _a, _n in SKIP:
         if s['va'] <= _a < s['va'] + s['raw']: blob[_a - s['va']:_a - s['va'] + _n] = bytes(min(_n, s['raw'] - (_a - s['va'])))
     evs = sorted([(f - s['va'], 'f') for f in fields if s['va'] <= f < s['va'] + s['raw']] + [(v - s['va'], 'l') for v in labels.get(name, ()) if s['va'] <= v < s['va'] + s['raw']])
