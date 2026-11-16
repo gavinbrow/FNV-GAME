@@ -21,9 +21,12 @@ def text(src):
         cache[src] = open(os.path.join(ROOT, src), encoding='latin1').read()
     return cache[src]
 
-def src_files_with(old):
-    out = []
-    pat = re.compile(r'(?<![0-9A-Za-z_])' + re.escape(old) + r'(?![0-9A-Za-z_])')
+_idx = None
+_tok = re.compile(r'[0-9A-Za-z_]+')
+def _build():
+    global _idx
+    _idx = {}   # FUN_ identifier -> list of file paths ; plus per-file token sets
+    toks = {}
     for d, _, fs in os.walk(os.path.join(ROOT, 'src')):
         for fn in fs:
             if fn.endswith(('.cpp', '.h', '.inl')):
@@ -32,9 +35,17 @@ def src_files_with(old):
                     t = open(p, encoding='latin1').read()
                 except OSError:
                     continue
-                if pat.search(t):
-                    out.append((p, t))
-    return out
+                s = set(_tok.findall(t))
+                toks[p] = s
+                for w in s:
+                    if w.startswith('FUN_'):
+                        _idx.setdefault(w, []).append(p)
+    _idx['__toks'] = toks
+
+def src_files_with(old):
+    if _idx is None:
+        _build()
+    return [(p, _idx['__toks'][p]) for p in _idx.get(old, [])]
 
 rows, errs, seen = [], [], set()
 for addr, new, ev in N:
@@ -52,7 +63,7 @@ for addr, new, ev in N:
         scope = '::'.join(reversed([s for s in scope if s]))
     files = src_files_with(old)
     newpat = re.compile(r'(?<![0-9A-Za-z_])' + re.escape(new) + r'(?![0-9A-Za-z_])')
-    clash = [os.path.relpath(p, ROOT).replace('\\', '/') for p, t in files if newpat.search(t)]
+    clash = [os.path.relpath(p, ROOT).replace('\\', '/') for p, t in files if new in t]
     rows.append(dict(address='0x' + addr, old=old, new=new, scope=scope, size=f['size'], unit=src,
                      evidence=ev, files=len(files), clash=clash))
     if clash:

@@ -14,6 +14,13 @@ them.
 The fnv_decomp licence ([fnv_decomp/LICENSE](fnv_decomp/LICENSE)) applies to that source: no licence is granted,
 and the contributors keep the rights to their own contributions.
 
+## Function names
+
+Most readable function names in the name map (`fnv_decomp/tools/function_names_data.py`, documented in
+[fnv_decomp/docs/function-names.md](fnv_decomp/docs/function-names.md)) come from
+[fnv_decomp pull request 42](https://github.com/momusdigital/fnv_decomp/pull/42) by mathisto, which links PC
+functions to the original names in two Xbox 360 development builds. Only its high-confidence links are used.
+
 ## This repository
 
 The build pipeline in `runtime-next/` (compiling, laying out code and data, assembling and testing the executable),
