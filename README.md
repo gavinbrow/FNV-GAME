@@ -4,6 +4,9 @@ This repository holds C++ source code decompiled from the Steam release of *Fall
 1.4.0.525), plus the build system that compiles that source with the original Microsoft compilers and assembles it
 into a working `FalloutNV` executable.
 
+The decompiled source comes from **[momusdigital/fnv_decomp](https://github.com/momusdigital/fnv_decomp)** and its
+contributors. See [CREDITS.md](CREDITS.md).
+
 ## Legal note (please read)
 
 - **No game assets are included.** This repository contains no game files, no executables, no archives (`.bsa`),
