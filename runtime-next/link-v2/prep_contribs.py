@@ -69,6 +69,32 @@ for p in sorted((HERE / 'obj_contrib').glob('*.obj')):
         for i, nm, sec in pick: idxn[i] = 'C_%08x' % addr
         if good: stat['other-name function chosen by byte match'] += 1
         if idxn: nb, _n = coffrw.rewrite_idx(nb, idxn); stat['defined function (other name) -> C_'] += 1
+    # dynamic initializers / CRT$XC entries inside a contribution are compiler by-products: the original initializer lives in another unit, so they are not linked
+    _s0 = coffrw.sections(nb); _sy = list(coffrw.symbols(nb))
+    _keep = {sec for i, nm, value, sec, ty, sc, naux, o in _sy if nm == 'C_%08x' % addr and sec > 0}
+    _dr = {x['index'] for x in _s0 if (x['name'] in ('.text$yc', '.text$yd') or x['name'].startswith('.CRT$XC')) and x['index'] not in _keep}
+    _inf = coffrw.comdat_info(nb); _chg = True
+    while _chg:
+        _chg = False
+        for k_, (sel_, num_, ex_) in _inf.items():
+            if sel_ == 5 and num_ in _dr and k_ not in _dr and k_ not in _keep: _dr.add(k_); _chg = True
+    if _dr: nb = coffrw.rebuild(nb, _dr, {}); stat['initializer sections dropped'] += len(_dr)
+    # unreachable by-product COMDAT code (deleting destructors, inline helpers) that nothing in the kept contribution references is not linked
+    _s1 = coffrw.sections(nb); _y1 = list(coffrw.symbols(nb)); _inf1 = coffrw.comdat_info(nb); _ss = {i: sec for i, nm, value, sec, ty, sc, naux, o in _y1}
+    _cand = {k for k, (sel_, num_, ex_) in _inf1.items() if sel_ != 5 and (_s1[k - 1]['flags'] & 0x20) and not any(n_.startswith('C_') for n_, t_ in ex_)}
+    if _cand:
+        _roots = [x['index'] for x in _s1 if x['index'] not in _cand]; _seen = set(_roots); _st = list(_roots)
+        while _st:
+            k = _st.pop(); x = _s1[k - 1]
+            for r in range(x['nrel']):
+                t = _ss.get(struct.unpack_from('<I', nb, x['relptr'] + 10 * r + 4)[0], 0)
+                if t > 0 and t not in _seen: _seen.add(t); _st.append(t)
+        _un = _cand - _seen; _chg = True
+        while _chg:
+            _chg = False
+            for k_, (sel_, num_, ex_) in _inf1.items():
+                if sel_ == 5 and num_ in _un and k_ not in _un: _un.add(k_); _chg = True
+        if _un: nb = coffrw.rebuild(nb, _un, {}); stat['unreachable by-product COMDATs dropped'] += len(_un)
     # per-site binding for names with no address: our compiled function is byte-identical in shape to the original at <addr>, so the original call/ptr at the same field gives the target
     from common import ref as _ref
     _T = _ref[SEC['.text']['off']:SEC['.text']['off'] + SEC['.text']['raw']]

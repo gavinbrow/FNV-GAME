@@ -18,7 +18,7 @@ RN = HERE.parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(RN / 'pinned-build')); sys.path.insert(0, str(RN / 'data-v3'))
 import coffrw
 import uncovered_v2 as U
-from common import SEC, TLO, THI, sec_of, read_ref
+from common import SEC, TLO, THI, sec_of, read_ref, ref
 
 units = json.loads(open(r'C:\Projects\Decompilation\fnv_decomp\build\units.json').read())['units']
 symaddr = json.load(open(HERE / 'symaddr.json'))
@@ -63,7 +63,50 @@ def reloc_syms(b, secs, drop):
 
 
 _TT = ref[SEC['.text']['off']:SEC['.text']['off'] + SEC['.text']['raw']]
+SUPP = set(json.load(open(HERE / 'supp_names.json'))) if (HERE / 'supp_names.json').exists() else set()
+IATSLOTS = {0x400000 + _d['iat'] + 4 * _k for _d in json.load(open(RN / 'direct-v1' / 'iat_spec.json'))['dlls'] for _k in range(len(_d['ents']))}
 REV = set(json.load(open(HERE / 'revive_names.json'))) if (HERE / 'revive_names.json').exists() else set()
+def locate_section(b1, s, sa, symname):
+    """original address of a compiler-generated code section (initializer/atexit stub): masked unique byte match in the reference .text, disambiguated by the verified addresses of its relocation targets"""
+    rptr, = struct.unpack_from('<I', b1, s['hdr'] + 20); data = bytes(b1[rptr:rptr + s['size']])
+    if len(data) < 6: return None
+    rl = []
+    mask = bytearray(b'' * len(data))
+    for r in range(s['nrel']):
+        ro, = struct.unpack_from('<I', b1, s['relptr'] + 10 * r); si, ty = struct.unpack_from('<IH', b1, s['relptr'] + 10 * r + 4)
+        rl.append((ro, ty, symname.get(si, ('', 0, 0))[0]))
+        for q in range(ro, min(ro + 4, len(data))): mask[q] = 0
+    best = None; i = 0
+    while i < len(data):
+        if mask[i]:
+            j = i
+            while j < len(data) and mask[j]: j += 1
+            if best is None or j - i > best[1] - best[0]: best = (i, j)
+            i = j
+        else: i += 1
+    if not best or best[1] - best[0] < 5: return None
+    a, e = best; key = data[a:e][:12]; hits = []; p = _TT.find(key)
+    while p >= 0 and len(hits) < 2000:
+        st = p - a
+        if st >= 0 and st + len(data) <= len(_TT) and all(_TT[st + q] == data[q] for q in range(len(data)) if mask[q]): hits.append(st)
+        p = _TT.find(key, p + 1)
+    good = []
+    for st in hits:
+        ok = True; nchk = 0
+        for ro, ty, nm in rl:
+            ad = sa.get(nm)
+            if not ad or len(ad) != 1: continue
+            ours, = struct.unpack_from('<i', data, ro)
+            if ty == 6: exp = ad[0] + ours
+            elif ty == 0x14: exp = ad[0] + ours + 4 - (TLO + st + ro + 4)
+            else: continue
+            got, = struct.unpack_from('<i', _TT, st + ro) if st + ro + 4 <= len(_TT) else (None,)
+            nchk += 1
+            if got is None or (got & 0xffffffff) != (exp & 0xffffffff): ok = False; break
+        if ok and nchk: good.append(st)
+    return TLO + good[0] if len(good) == 1 else None
+
+
 for p in sorted((RN / 'pinned-build' / 'obj_v3').glob('*.obj'), key=lambda x: int(x.stem)):
     idx = int(p.stem); b = p.read_bytes(); u = units[idx] if idx < len(units) else None
     ren = {}
@@ -135,7 +178,7 @@ for p in sorted((RN / 'pinned-build' / 'obj_v3').glob('*.obj'), key=lambda x: in
                 if va is not None: newnames[i] = 'D_%08x' % va; extra.add(va)
             elif isdata(secs[sec - 1]) and sc in (2, 3) and not (sc == 3 and naux >= 1 and nm.startswith('.')):
                 a = sa.get(nm)
-                if a and len(a) == 1 and kind_of(a[0]) == 'D' and value == 0:
+                if a and len(a) == 1 and kind_of(a[0]) == 'D':
                     newnames[i] = 'D_%08x' % a[0]; extra.add(a[0]); stat['defined data symbol redirected by verified address'] += 1
         # EH stubs: the original handler stub (known address of `__ehhandler$...`) loads the original FuncInfo; redirect our stub's FuncInfo reference to that D_<va>
         relnames0 = {}
@@ -183,6 +226,7 @@ for p in sorted((RN / 'pinned-build' / 'obj_v3').glob('*.obj'), key=lambda x: in
         secbase = {}
         for i, nm, value, sec, ty, sc, naux, o in syms:
             if sec > 0 and sc == 2 and nm.startswith('C_') and value == 0 and sec not in secbase: secbase[sec] = int(nm[2:], 16)
+        locbase = {}
         cpos = collections.defaultdict(list)
         for i, nm, value, sec, ty, sc, naux, o in syms:
             if sec > 0 and sc == 2 and nm.startswith('C_'): cpos[sec].append((value, int(nm[2:], 16)))
@@ -192,26 +236,34 @@ for p in sorted((RN / 'pinned-build' / 'obj_v3').glob('*.obj'), key=lambda x: in
             for r in range(s['nrel']):
                 si, = struct.unpack_from('<I', b1, s['relptr'] + 10 * r + 4); ro, = struct.unpack_from('<I', b1, s['relptr'] + 10 * r)
                 nm, sec_, sc_ = symname.get(si, ('', 0, 0))
-                if os.environ.get('PK_DBG2') == str(idx) and 'PointerArrayBase' in nm: print('DBG1', s['index'], s['name'], nm, sec_, sc_, s['index'] in drop)
-                if sc_ != 2 or nm.startswith(('C_', 'D_', '__imp_')) or nm in libnames: continue
+                if os.environ.get('PK_DBG2') == str(idx) and os.environ.get('PK_NM', 'x') in nm: print('DBG1', s['index'], s['name'], nm, sec_, sc_, s['index'] in drop)
+                if sc_ == 3 and sec_ > 0 and sec_ in rem and not nm.startswith(('.', 'C_', 'D_')):
+                    _a3 = sa.get(nm)
+                    if _a3 and len(_a3) == 1 and kind_of(_a3[0]) is not None:
+                        relnames[(s['index'], r)] = '%s_%08x' % (kind_of(_a3[0]), _a3[0]); stat['static symbol of a removed section bound by address'] += 1
+                        (ctargets if kind_of(_a3[0]) == 'C' else extra).add(_a3[0]); continue
+                if sc_ != 2 or nm.startswith(('C_', 'D_', '__imp_')) or nm in libnames or nm in SUPP: continue
                 if sec_ != 0 and sec_ not in rem: continue
                 a = sa.get(nm)
-                if a and len(a) == 1: continue
+                if a and len(a) == 1 and kind_of(a[0]) is not None: continue
                 fva = None
                 if s['index'] in secbase and not cpos.get(s['index']): fva = secbase[s['index']] + ro
                 elif cpos.get(s['index']) and any(v_ <= ro for v_, a_ in cpos[s['index']]):
                     _l = [(v_, a_) for v_, a_ in cpos[s['index']] if v_ <= ro]
                     if ro - _l[-1][0] < 8192: fva = _l[-1][1] + ro - _l[-1][0]
+                elif s['name'] in ('.text$yc', '.text$yd') and s['index'] not in secbase:
+                    if s['index'] not in locbase: locbase[s['index']] = locate_section(b1, s, sa, symname)
+                    if locbase[s['index']] is not None: fva = locbase[s['index']] + ro
                 elif str(s['index']) in pcs2:
                     for s0, s1, at in pcs2[str(s['index'])]:
                         if s0 <= ro < s1: fva = at + ro - s0; break
                 base = fa.get(str(fva)) if fva is not None else None
-                if base is None and fva is not None and s['index'] in secbase_or_pieces(s['index']) and TLO <= fva < THI - 4:
-                    _ty, = struct.unpack_from('<H', b1, s['relptr'] + 10 * r + 8); _raw, = struct.unpack_from('<i', read_ref_raw(fva, 4), 0) if False else (struct.unpack_from('<i', _TT, fva - TLO)[0],)
+                if base is None and fva is not None and TLO <= fva < THI - 4:
+                    _ty, = struct.unpack_from('<H', b1, s['relptr'] + 10 * r + 8); _raw, = struct.unpack_from('<i', _TT, fva - TLO)
                     base = ((fva + 4 + _raw) & 0xffffffff) if _ty == 0x14 else ((_raw & 0xffffffff) if _ty == 6 else None)
                     if base is not None and kind_of(base) is not None: stat['relocations bound per site (reference field decode)'] += 1
                     else: base = None
-                if os.environ.get('PK_DBG2') == str(idx) and 'PointerArrayBase' in nm: print('DBG2', s['index'], s['name'], nm, fva, base, s['index'] in secbase, s['index'] in pcs2)
+                if os.environ.get('PK_DBG2') == str(idx) and os.environ.get('PK_NM', 'x') in nm: print('DBG2', s['index'], s['name'], nm, fva, base, s['index'] in secbase, s['index'] in pcs2)
                 if base is None: continue
                 k = kind_of(base)
                 if k is None: continue
@@ -235,9 +287,17 @@ for p in sorted((RN / 'pinned-build' / 'obj_v3').glob('*.obj'), key=lambda x: in
     # --- remaining undefined names -> addresses
     ren2 = {}
     for i, nm, value, sec, ty, sc, naux, o in coffrw.symbols(b2):
-        if sc != 2 or sec != 0 or value != 0 or nm in ren2 or nm.startswith(('C_', 'D_')): continue
+        if sc != 2 or sec != 0 or value != 0 or nm in ren2 or nm.startswith(('C_', 'D_')) or nm in SUPP: continue
+        if nm.startswith('__imp_') and nm not in libnames:
+            _a = sa.get(nm)
+            if _a and len(_a) == 1 and kind_of(_a[0]) == 'D' and _a[0] not in IATSLOTS:
+                ren2[nm] = 'D_%08x' % _a[0]; extra.add(_a[0]); stat['__imp_ data cell (not an IAT slot) -> D'] += 1; continue
         if nm.startswith('__imp_') or nm in libnames: stat['kept (lib/import)'] += 1; continue
         a = sa.get(nm)
+        if not a:
+            _m = re.search(r'(?<![0-9A-Za-z])(?:FUN|DAT|PTR|LAB|SUB|UNK|OFF|g)_([0-9a-f]{8})(?![0-9A-Za-z])', nm)
+            if _m and kind_of(int(_m.group(1), 16)) is not None and not nm.startswith('g_target') and 'value_anchor' not in nm:
+                a = [int(_m.group(1), 16)]; stat['undefined named by embedded address'] += 1
         if not a: stat['undefined, no address'] += 1; unresolved[nm] += 1; continue
         if len(a) > 1: stat['undefined, several addresses (per-site binding)'] += 1; multi[nm] += 1; continue
         va = a[0]; k = kind_of(va)
