@@ -33,6 +33,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-harness", action="store_true")
     ap.add_argument("--notes", default="")
+    ap.add_argument("--use-dist", action="store_true", help="publish the exe already in dist/ (built and tested) without rebuilding")
     a = ap.parse_args()
 
     run([sys.executable, os.path.join(REPO, "tools", "export_repo.py")])
@@ -44,9 +45,9 @@ def main():
 
     dist = os.path.join(REPO, "dist")
     build = [os.path.join(PROJ, "runtime-next", "build-all.cmd"), "--out", dist]
-    if a.no_harness:
-        build.append("--no-harness")
-    run(["cmd", "/c"] + build)
+    build.append("--no-harness" if a.no_harness else "--require-harness")   # a failed game test stops the release
+    if not a.use_dist:
+        run(["cmd", "/c"] + build)
     exe = os.path.join(dist, "FalloutNV_selfbuilt.exe")
     if not os.path.isfile(exe):
         sys.exit("build produced no exe")

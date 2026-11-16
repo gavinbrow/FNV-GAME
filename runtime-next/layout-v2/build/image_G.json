@@ -1,6 +1,6 @@
 {
  "layout": "G",
- "out": "C:\\Projects\\Decompilation\\runtime-next\\layout-v2\\ci\\dist_live\\FalloutNV_selfbuilt.exe",
+ "out": "C:\\Projects\\Decompilation\\FNV-GAME\\dist\\FalloutNV_selfbuilt.exe",
  "sections": {
   ".data": {
    "rva": 4096,
