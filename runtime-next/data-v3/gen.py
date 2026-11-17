@@ -73,7 +73,7 @@ for nm in DATA_SECS:
         if IMG_LO <= v < IMG_HI:
             if v in K: fields[va] = (v, 'value-rule'); n_extra += 1
             else: extra_lit += 1
-SKIP = []
+SKIP = []; GHOST = set()
 DROPT = set()
 if os.environ.get('DV3_DROPT'):     # link-v2: pointer fields whose target is CRT/lib code that no linked object defines are dead captured CRT tables: emitted as zero, no reloc
     DROPT = {int(x, 16) for x in json.load(open(os.environ['DV3_DROPT']))}
@@ -81,8 +81,13 @@ if os.environ.get('DV3_DROPT'):     # link-v2: pointer fields whose target is CR
         if fields[_f][0] in DROPT: del fields[_f]
 if os.environ.get('DV3_SKIP'):      # link-v2: ranges whose bytes come from our objects (EH tables): emitted as zeros, no pointer fields, no labels
     SKIP = json.load(open(os.environ['DV3_SKIP']))
+    GHOST = set()       # FNV_M3 phase 1b: pointer fields of our generated globals stay in `fields` (so labels, field counts and the chunk boundaries are identical to the default build) but emit zeros, no relocation
+    _sk = sorted(SKIP); _sk_lo = [_a for _a, _n in _sk]      # FNV_M3_DV1: tens of thousands of disjoint ranges: bisect instead of a linear scan per field
     for _f in list(fields):
-        if any(_a <= _f < _a + _n for _a, _n in SKIP): del fields[_f]
+        _j = bisect.bisect_right(_sk_lo, _f) - 1
+        if _j >= 0 and _sk[_j][0] <= _f < _sk[_j][0] + _sk[_j][1]:
+            if os.environ.get('DV_M3') == '1': GHOST.add(_f)
+            else: del fields[_f]
 print('fields', len(fields), 'orig-reloc', len(drel), 'value-rule', n_extra, 'literal look-alikes', extra_lit)
 # ---------------------------------------------------------------- labels
 bss_lo = SEC['.data']['va'] + SEC['.data']['raw']; bss_hi = SEC['.data']['va'] + SEC['.data']['vs']
@@ -209,7 +214,9 @@ def emit_section(name):
         ks = byoff[nxt]; ofs_i += 1
         if 'l' in ks:
             lines.append('D_%08x LABEL BYTE' % (s['va'] + nxt)); locl.add('D_%08x' % (s['va'] + nxt))
-        if 'f' in ks:
+        if 'f' in ks and (s['va'] + nxt) in GHOST:
+            nf += 1; emit_bytes(lines, blob[nxt:nxt + 4]); pos = nxt + 4
+        elif 'f' in ks:
             sym, add, kind = fdesc[s['va'] + nxt]
             exts.add(sym); nf += 1
             lines.append('dd offset %s%s' % (sym, ('%+d' % add) if add else ''))

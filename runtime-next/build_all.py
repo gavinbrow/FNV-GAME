@@ -60,10 +60,17 @@ if missing: finish('failed', 'missing inputs: ' + '; '.join(missing))
 if not buildlock.acquire('build-all', a.lock_wait): finish('failed', 'could not get build.lock')
 # ---- 1..4 compile and rebuild
 step(1, 'compile-units', [PY, '-I', J(RN, 'pinned-build', 'compile_units_v3.py'), '30'])
+M3 = os.environ.get('FNV_M3') == '1'      # opt-in M3 phase 1 (generated DAT_ globals defined in our source); unset = the build is byte-identical to before
+if M3:
+    step(1, 'm3-gen', [PY, '-I', J(RN, 'm3', 'gen_m3.py')])
+    env.update(FNV_M3='1', DV_M3='1', DV3_SKIP=J(RN, 'm3', 'gen', 'skip_ranges.json'))
+M3_DV1 = M3 and os.environ.get('FNV_M3_DV1') == '1'      # opt-in batch 5: splice data-v1 placed pieces of our unit objects (needs FNV_M3=1)
+if M3_DV1: env.update(FNV_M3_DV1='1', DV3_SKIP=J(RN, 'm3', 'gen', 'skip_ranges_b5.json'))
 step(2, 'build-v7', ['cmd', '/c', J(RN, 'build-v7', 'rebuild.cmd')])
 if not a.skip_data_v1:
     step(3, 'data-v1', ['cmd', '/c', J(RN, 'data-v1', 'rebuild.cmd')])
     step(4, 'dump-pieces', [PY, '-I', J(RN, 'data-v3', 'dump_pieces.py')])
+    if M3_DV1: step(4, 'm3-dv1', [PY, '-I', J(RN, 'm3', 'dv1_splice.py'), J(env.get('TEMP') or os.environ.get('TEMP'), 'dv1_placed.pkl')] + (['--kinds', os.environ['FNV_M3_DV1_KINDS']] if os.environ.get('FNV_M3_DV1_KINDS') else []))
 step(5, 'data-v3', ['cmd', '/c', J(RN, 'data-v3', 'rebuild.cmd')])
 # ---- 5..6 image
 step(6, 'snapshot', [PY, J(RN, 'layout-v2', 'snapshot.py')])
@@ -82,6 +89,11 @@ try:
     im = json.load(open(J(RN, 'layout-v2', 'build', 'image_%s.json' % a.layout)))
     prov['code_bytes_taken_from_filled_image'] = im.get('reference_code_bytes'); prov['data_pointer_fields'] = im.get('data_fields'); prov['rel32_fields'] = im.get('rel32'); prov['dir32_fields'] = im.get('dir32')
 except Exception as e: prov['image_json_error'] = str(e)
+if M3:
+    try:
+        lg = json.load(open(J(RN, 'm3', 'gen', 'm3_gen.log.json'))); prov['m3'] = dict(globals=lg['kept'], dropped=len(lg['dropped']), bytes=lg['bytes_by_section'], negctl=lg['negctl'])
+        if M3_DV1: dl = json.load(open(J(RN, 'm3', 'gen', 'dv1_log.json'))); prov['m3_dv1'] = dict(pieces=dl['selected'], bytes=dl['bytes'], relocs=dl['relocs'], by_kind=dl['by_kind'], rejected_bytes_by_reason=dl['rejected_bytes_by_reason'], ext=dl.get('ext'), rejected_unique_uncovered=dl.get('rejected_unique_uncovered'))
+    except Exception as e: prov['m3_error'] = str(e)
 summary['provenance'] = prov
 # ---- harness (needs an interactive desktop)
 hv = None

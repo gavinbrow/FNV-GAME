@@ -36,6 +36,7 @@ BAN_PREFIX = [
     "runtime-next/coverage-v3/",    # coverage measurement scripts; build keeps build_extra.py + its outputs
     "runtime-next/reloc-v5/",       # relocation prototype; build keeps what build-v7 imports/reads
     "runtime-next/layout-v2/ci/dist_live/",  # copy of an old build summary
+    "runtime-next/m3/gen/",         # M3 generated sources/objects, rebuilt by the m3-gen build step
 ]
 KEEP = {
     "runtime-next/data-v2/libsecs.py",

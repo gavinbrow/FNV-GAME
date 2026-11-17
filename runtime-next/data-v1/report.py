@@ -256,6 +256,7 @@ pd = dict(
     sha256=dict(v7_strict_used=v7sha, data_strict=sha(bytes(strict)), data_filled=sha(bytes(filled)), reference=sha(ref)),
     filled_equals_reference=filled_ok,
 )
+if os.environ.get('DV_M3') == '1': pd['tier_legend']['M'] = 'M3 generated global: placed by the manifest address of our own definition, bytes verified against the reference there'
 (HERE / 'progress.json').write_text(json.dumps(pd, indent=1))
 # compact piece table (address, size, tier, kind id), no names
 with gzip.open(HERE / 'pieces.tsv.gz', 'wt') as f:

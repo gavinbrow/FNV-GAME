@@ -132,6 +132,8 @@ def build_state(p0path):
     P0 = pickle.load(open(p0path, 'rb'))['res']
     if os.environ.get('DV_LIB', '1') == '1':   # wB data-v2: CRT/STL library members' data sections as pseudo-units (id 100000+)
         sys.path.insert(0, str(RN / 'data-v2')); import libsecs; P0.update(libsecs.lib_units())
+    if os.environ.get('DV_M3') == '1':   # M3 phase 1: generated DAT_ globals as pseudo-unit 200000 (tier M, placed by manifest address)
+        sys.path.insert(0, str(RN / 'm3')); import m3secs; P0.update(m3secs.m3_units())
     st = State()
     def keyof(s):
         comdat = bool(s['flags'] & 0x1000)
@@ -143,7 +145,7 @@ def build_state(p0path):
         for s in r['secs']:
             nsec += 1
             if s['name'].startswith('.bss'): s['kind'] = 'bss'
-            else: s['kind'] = kind_of(s)
+            else: s['kind'] = s.get('kind0') or kind_of(s)
             k = keyof(s); st.KEYOF[(u, s['k'])] = k
             e = st.SEC.get(k)
             sym_val = {d[0]: d[1] for d in s['defs']}
@@ -191,6 +193,7 @@ def run(st):
         for k in todo:
             if k in placed: continue
             s = SEC[k]
+            if s.get('forced') and verify_at(s, {r_[0]: r_[8] for r_ in s['relocs'] if r_[7] == 'm3'}, s['forced']): place(k, s['forced'], 'M'); newp += 1; continue   # M3: placement by name/address, bytes verified
             if k not in H1: H1[k] = search(s, {}); info[k] = dict(nB=(None if H1[k][0] is None else (-1 if H1[k][1] else len(H1[k][0]))))
             hits1, cap1 = H1[k]
             if hits1 is not None and not cap1 and len(hits1) == 1: place(k, hits1[0], 'B'); newp += 1; continue

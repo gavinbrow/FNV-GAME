@@ -1,6 +1,6 @@
 {
  "layout": "G",
- "out": "C:\\Projects\\Decompilation\\ba_scratch2\\FalloutNV_selfbuilt.exe",
+ "out": "C:\\Projects\\Decompilation\\runtime-next\\m3\\out\\batch7-restore\\FalloutNV_selfbuilt.exe",
  "sections": {
   ".data": {
    "rva": 4096,

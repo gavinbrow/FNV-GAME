@@ -162,6 +162,52 @@ for m in manifest:
         ch['relocs'].append((off, c.symbols[ri]['name'], add))
     chunks[m['file']] = ch
 log('data objects:', {k: (v['size'], len(v['relocs'])) for k, v in chunks.items()}, 'relocations', sum(len(v['relocs']) for v in chunks.values()))
+# ---- M3 phase 1 (opt-in FNV_M3=1): the bytes of the generated global definitions come from OUR compiled object (m3_data.obj), overlaid at their original offsets.
+# data-v3 emitted these ranges as zeros (DV3_SKIP), so a non-zero byte here can only come from the compiled definitions.
+M3_STAT = None
+if os.environ.get('FNV_M3') == '1':
+    sys.path.insert(0, RN + r'\m3'); import splice
+    M3_STAT = collections.Counter()
+    for r_ in splice.load(os.path.join(B7, 'm3', 'm3_manifest.json'), os.path.join(B7, 'm3', 'm3_data.obj')):
+        n_ = len(r_['data']); va_ = r_['va']; sec_ = r_['entry']['section']
+        ch_ = [c_ for c_ in chunks.values() if c_['sec'] == sec_ and c_['va'] <= va_ and va_ + n_ <= c_['va'] + c_['size']]
+        assert len(ch_) == 1, hex(va_)
+        ch_ = ch_[0]; o_ = va_ - ch_['va']
+        assert not any(ch_['data'][o_:o_ + n_]), 'range not zeroed by DV3_SKIP: %x' % va_
+        # phase 1b: pointer fields. The captured relocations inside the overlaid range are dropped (DV3_SKIP already removed them from the data-v3 object, so normally 0)
+        # and ours are added, symbols mapped to their original VA through alladdr; the common rewrite loop below then emits Lone(target)+addend and the .reloc site.
+        nd_ = len(ch_['relocs']); ch_['relocs'] = [x_ for x_ in ch_['relocs'] if not (o_ <= x_[0] < o_ + n_)]; M3_STAT['captured_relocs_dropped'] += nd_ - len(ch_['relocs'])
+        for (ro_, rnm_, radd_), rva_ in zip(r_['relocs'], r_['reloc_va']):
+            assert alladdr.get(rnm_, rva_) == rva_, (rnm_, hex(rva_))
+            alladdr[rnm_] = rva_; ch_['relocs'].append((o_ + ro_, rnm_, radd_)); M3_STAT['relocs_added'] += 1
+            M3_STAT['relocs_to_code' if TV <= rva_ < TV + TS else 'relocs_to_data'] += 1
+        ch_['data'][o_:o_ + n_] = r_['data']
+        M3_STAT['globals'] += 1; M3_STAT['bytes_overlaid'] += n_; M3_STAT['nonzero_bytes_overlaid'] += sum(1 for b_ in r_['data'] if b_); M3_STAT['bytes_' + sec_] += n_
+    log('M3 overlay: bytes taken from our compiled m3_data.obj:', dict(M3_STAT), 'data relocations now', sum(len(v['relocs']) for v in chunks.values()))
+# ---- M3 batch 5 (opt-in FNV_M3_DV1=1, requires FNV_M3=1): pieces of OUR unit objects placed by data-v1 (strings, constants, vtables, RTTI, EH tables, ...) overlaid the same way.
+# Pointer fields are DIR32 relocations of the compiled objects, re-linked to the VA our resolution produced (synthetic symbol 'M5T_<va>', addend 0).
+DV1_STAT = None
+if os.environ.get('FNV_M3_DV1') == '1':
+    assert M3_STAT is not None, 'FNV_M3_DV1=1 requires FNV_M3=1'
+    DV1_STAT = collections.Counter(); DV1_KIND = collections.defaultdict(collections.Counter)
+    _bysec = collections.defaultdict(list)
+    for c_ in chunks.values(): _bysec[c_['sec']].append(c_)
+    for r_ in splice.load_dv1(os.path.join(B7, 'm3', 'dv1_pieces.json')):
+        n_ = len(r_['data']); va_ = r_['va']; sec_ = r_['entry']['section']
+        ch_ = [c_ for c_ in _bysec[sec_] if c_['va'] <= va_ and va_ + n_ <= c_['va'] + c_['size']]
+        assert len(ch_) == 1, hex(va_)
+        ch_ = ch_[0]; o_ = va_ - ch_['va']
+        assert not any(ch_['data'][o_:o_ + n_]), 'range not zeroed by DV3_SKIP: %x' % va_
+        nd_ = len(ch_['relocs']); ch_['relocs'] = [x_ for x_ in ch_['relocs'] if not (o_ <= x_[0] < o_ + n_)]; DV1_STAT['captured_relocs_dropped'] += nd_ - len(ch_['relocs'])
+        kd_ = r_['entry']['kind']
+        for (ro_, rnm_, radd_), rva_ in zip(r_['relocs'], r_['reloc_va']):
+            assert alladdr.get(rnm_, rva_) == rva_, (rnm_, hex(rva_))
+            alladdr[rnm_] = rva_; ch_['relocs'].append((o_ + ro_, rnm_, radd_)); DV1_STAT['relocs_added'] += 1; DV1_KIND[kd_]['relocs'] += 1
+            DV1_STAT['relocs_to_code' if TV <= rva_ < TV + TS else 'relocs_to_data'] += 1
+        ch_['data'][o_:o_ + n_] = r_['data']
+        DV1_STAT['pieces'] += 1; DV1_STAT['bytes_overlaid'] += n_; DV1_STAT['bytes_' + sec_] += n_; DV1_KIND[kd_]['pieces'] += 1; DV1_KIND[kd_]['bytes'] += n_
+    DV1_STAT = dict(DV1_STAT, by_kind={k_: dict(v_) for k_, v_ in sorted(DV1_KIND.items())})
+    log('M3 batch 5 overlay: bytes taken from our compiled unit objects (data-v1 pieces):', DV1_STAT, 'data relocations now', sum(len(v['relocs']) for v in chunks.values()))
 # ---- new section placement
 sec_order = ['.rdata', '.data', 'CONST', '.tls', '.text', '.rsrc', '.reloc'] if not a.text_first else ['.text', '.rdata', '.data', 'CONST', '.tls', '.rsrc', '.reloc']
 sec_order = ['.data', '.rdata', 'CONST', '.tls', '.text', '.rsrc', '.reloc'] if not a.text_first else sec_order
@@ -345,6 +391,6 @@ struct.pack_into('<I', img, o + 64, pefile.PE(data=bytes(img)).generate_checksum
 open(out, 'wb').write(img)
 log('wrote', out, len(img))
 json.dump(dict(layout=a.layout, out=out, sections={s: dict(rva=rva[s], virt=virt[s], raw=raw[s]) for s in sec_order}, reference_code_bytes=REF_CODE_BYTES,
-               data_fields=dict(stat), rel32=len(rel_all), dir32=len(dir_f), entry=Lone(0xecc4db)),
+               data_fields=dict(stat), **({'m3_overlay': dict(M3_STAT)} if M3_STAT else {}), **({'dv1_overlay': DV1_STAT} if DV1_STAT else {}), rel32=len(rel_all), dir32=len(dir_f), entry=Lone(0xecc4db)),
           open(os.path.join(HERE, 'build', 'image_%s.json' % a.layout), 'w'), indent=1)
 np.savez(os.path.join(HERE, 'build', 'map_%s.npz' % a.layout), bs=bs, be=be, NS=NS, nbva=np.array([NBVA]))

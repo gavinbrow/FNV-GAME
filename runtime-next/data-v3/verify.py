@@ -39,6 +39,10 @@ for m in manifest:
             alladdr[sy['name']] = a
     objs.append((m, c, secs))
 ok_all = True; stats = collections.Counter()
+M3SPL = []; M3SITES = set()
+if os.environ.get('DV_M3') == '1':
+    sys.path.insert(0, RN + r'\m3'); import splice; M3SPL = splice.load(); M3SITES = set(orig_reloc_sites())
+    if os.environ.get('FNV_M3_DV1') == '1': M3SPL += splice.load_dv1()      # batch 5: data-v1 placed pieces of our unit objects, same overlay + same relocation checks
 for nm, a in alladdr.items():
     if nm.startswith('D_') and int(nm[2:], 16) != a: print('LABEL MISPLACED', nm, hex(a)); ok_all = False
     stats['labels'] += 1
@@ -60,6 +64,17 @@ for m, c, secs in objs:
             elif w != (nm, add): print('MISMATCH', pn, start + off, w, (nm, add)); ok_all = False
             nrel += 1
         stats['relocs'] += nrel
+        if M3SPL and pn != '.bss':      # FNV_M3=1: bytes of the generated definitions overlay the zeroed (DV3_SKIP) ranges
+            for _r in M3SPL:
+                _o = _r['va'] - SEC[pn]['va'] - start
+                if sec_of(_r['va']) == pn and 0 <= _o and _o + len(_r['data']) <= m['size']:
+                    data[_o:_o + len(_r['data'])] = _r['data']; stats['m3-overlay-bytes'] += len(_r['data'])
+                    for (_ro, _rn, _ra), _tv in zip(_r['relocs'], _r['reloc_va']):      # phase 1b: our pointer fields: install the relocation and check it against symbolic.json
+                        # out\symbolic.json is written after DV3_SKIP, so it has no entry for our fields: check them against the ORIGINAL .reloc sites and the reference value instead
+                        _fva = SEC[pn]['va'] + start + _o + _ro; struct.pack_into('<I', data, _o + _ro, (_tv + _ra) & 0xffffffff)
+                        if _fva not in M3SITES: print('M3 RELOC NOT AN ORIGINAL .reloc SITE', hex(_fva), _rn); ok_all = False
+                        elif struct.unpack('<I', read_ref(_fva))[0] != (_tv + _ra) & 0xffffffff: print('M3 RELOC VALUE MISMATCH', hex(_fva), _rn, hex(_tv), _ra); ok_all = False
+                        nrel += 1; stats['relocs'] += 1; stats['m3-overlay-relocs'] += 1
         if pn != '.bss':
             S = SEC[pn]; refb = ref[S['off'] + start:S['off'] + start + m['size']]
             same = bytes(data) == refb
@@ -71,5 +86,8 @@ for m, c, secs in objs:
             print(m['file'], '.bss bytes', len(data), 'expected', SEC['.data']['vs'] - SEC['.data']['raw'])
 nf = len(want)
 print('relocs total', stats['relocs'], 'fields in symbolic.json', nf)
-if stats['relocs'] != nf: ok_all = False
+if stats['relocs'] != nf: ok_all = False      # nf includes our pointer fields (gen.py keeps them as ghost fields under DV_M3)
 print('ROUND TRIP', 'OK' if ok_all else 'FAILED', dict(stats))
+if not ok_all:
+    if os.environ.get('FNV_M3_NEGCTL') in ('1', 'ptr', 'b4v', 'b4p', 'b5v', 'b5p', 'b6v', 'b6p', 'b7v', 'b7p'): print('(negative control: failure is expected, exit code 0 so the build continues to the image)')
+    else: sys.exit(1)
