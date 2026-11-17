@@ -1,8 +1,8 @@
 FalloutNV self-built exe (private build)
 =======================================
 
-This exe was compiled and linked from this repo's decompiled source. It's the game's program only. You need your
-own installed copy of Fallout: New Vegas for the game content (the Data folder: maps, models, sounds, quests).
+This exe was compiled and linked from this repo's decompiled source. It's the game's program only. The game content
+(the Data folder: maps, models, sounds, quests) comes from the "game-data" release, or from an installed copy.
 
 How to play without an installed copy (any PC)
 1. Make a new folder, for example C:\Games\FNV-selfbuilt, and unzip this build release into it.

@@ -9,10 +9,6 @@ contributors. See [CREDITS.md](CREDITS.md).
 
 ## Legal note (please read)
 
-- **No game assets are included.** This repository contains no game files, no executables, no archives (`.bsa`),
-  no plugins (`.esm`/`.esp`), no textures, models, sounds or videos, and no compiler or SDK files.
-- **You need your own copy of the game.** The build reads (never writes) a legitimately installed copy of
-  *Fallout: New Vegas*, and the result only runs together with the `Data` folder of that install.
 - Built executables still contain data taken from the original program (see Status), so keep them private and do
   not redistribute them.
 - *Fallout*, *Fallout: New Vegas* and related names are trademarks of their respective owners. This project is not
@@ -27,8 +23,8 @@ contributors. See [CREDITS.md](CREDITS.md).
   its own relocations.
 - **Data: partly still taken from the original executable.** Parts of the data sections (and some tables such as
   imports and resources) are still copied from the original exe, or from a legitimately installed game, while the
-  rest is already generated from source. This is why a build needs a legitimate installed copy of the game and the
-  reference image described below.
+  rest is already generated from source. This is why a build needs the game files and the reference image described
+  below.
 - **Playable:** the self-built `FalloutNV_selfbuilt.exe` starts directly (without the Steam DRM wrapper), loads a
   save and plays; an automated harness exercises start, load, play, cell change, quicksave/quickload and exit.
   See [README-PLAY.md](README-PLAY.md).
@@ -51,7 +47,7 @@ Detailed, dated status notes live in [runtime-next/CURRENT.md](runtime-next/CURR
 ## How to build
 
 Requirements: Windows, Python 3.12 with `numpy`, `capstone` and `pefile`, the Microsoft Visual C++ 2008 (SP1 and
-RTM) and 2005 SP1 toolchains the game was built with (not included), and your own installed copy of the game.
+RTM) and 2005 SP1 toolchains the game was built with (not included), and a folder with the game files.
 
 1. Set the environment variables from [runtime-next/paths.py](runtime-next/paths.py) (every one has a default that
    only suits the original author's machine, so set them all):
@@ -59,7 +55,7 @@ RTM) and 2005 SP1 toolchains the game was built with (not included), and your ow
    | Variable | Meaning |
    |---|---|
    | `FNV_PROJ_ROOT` | Root of this checkout (`build-all.cmd` derives it from its own location if unset). |
-   | `FNV_GAME_DIR` | Your installed *Fallout: New Vegas* folder. Read only. |
+   | `FNV_GAME_DIR` | A *Fallout: New Vegas* game folder. Read only. |
    | `FNV_MSVC9_ROOT` | VC 2008 SP1 toolchain root (cl, ml, cvtres, libs). |
    | `FNV_MSVC9_RTM_ROOT` | VC 2008 RTM toolchain root. |
    | `FNV_MSVC8_ROOT` | VC 2005 SP1 toolchain root. |
@@ -84,9 +80,10 @@ The build never writes into the game folder. Full details: [runtime-next/BUILD-A
 
 ## How to play
 
-See [README-PLAY.md](README-PLAY.md). In short: put the built exe in its own folder, run `tools\setup_play.cmd` (it
-links the `Data` folder of your install and copies the small companion DLLs and default INI), then start
-`FalloutNV_selfbuilt.exe`. Do not replace the original `FalloutNV.exe` in your install.
+See [README-PLAY.md](README-PLAY.md). In short: put the built exe in its own folder together with the six
+`FNV-gamedata-*.zip` parts from the `game-data` release, run `tools\setup_play.cmd` (it unpacks the `Data` folder,
+DLLs and INIs), then start `FalloutNV_selfbuilt.exe`. No installed copy or Steam is needed. If you do have an
+install, `setup_play.cmd` can link its `Data` folder instead; don't replace the original `FalloutNV.exe` there.
 
 ## Contributing
 
