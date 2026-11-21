@@ -284,11 +284,7 @@ struct ScriptParameterKind
 };
 extern ScriptParameterKind DAT_0118cdd0[];
 int Warning(const char*, ...);
-class TESContainer
-{
-  public:
-    static bool IsValidContainerType(unsigned char type);
-};
+
 bool ExtractArgs(const ScriptParameter*, const char*, unsigned int*, TESObjectREFR*, TESObjectREFR*, Script*,
                  ScriptLocals*, ...);
 

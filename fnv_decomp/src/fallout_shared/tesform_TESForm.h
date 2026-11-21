@@ -6,6 +6,8 @@
 #include "tesform_layout_support.h"
 #include "tesform_BaseFormComponent.h"
 #include "tesform_containers.h"
+struct BGSSaveFormBuffer;
+class BGSLoadFormBuffer;
 class TESForm : public BaseFormComponent
 {
   public:
@@ -14,6 +16,10 @@ class TESForm : public BaseFormComponent
     unsigned int iFormID;                   // +0xC
     BSSimpleList<TESFile*> m_kSourceFiles;  // +0x10
     virtual ~TESForm();
+    virtual void Init();
+    virtual void Free();
+    virtual void CopyFromBase(BaseFormComponent* apCopyFC);
+    virtual bool CompareWithBase(BaseFormComponent* apOther);
     virtual void InitializeComponent();
     virtual void ClearData();
     virtual bool Unk_07(void);
@@ -30,14 +36,14 @@ class TESForm : public BaseFormComponent
     virtual void MarkAsModified(unsigned int changedFlags);
     virtual void MarkAsUnmodified(unsigned int changedFlags);
     virtual unsigned int GetSaveSize(unsigned int changedFlags);
-    virtual void Unk_15(void* arg);
+    virtual void Unk_15(BGSSaveFormBuffer* arg);
     virtual void SaveGame(unsigned int changedFlags);
-    virtual void LoadGame(void* arg);
+    virtual void LoadGame(BGSLoadFormBuffer* arg);
     virtual void LoadGame2(unsigned int changedFlags);
     virtual void Unk_19(void* arg);
     virtual void Unk_1A();
     virtual void Unk_1B(void* arg0, void* arg1);
-    virtual void Revert(unsigned int changedFlags);
+    virtual void Revert(BGSLoadFormBuffer* buffer);
     virtual void Unk_1D(void* arg);
     virtual void Unk_1E(void* arg);
     virtual bool Unk_1F(void* arg);
@@ -47,13 +53,13 @@ class TESForm : public BaseFormComponent
     virtual unsigned int GetTypeID(void);
     virtual void GetDebugName(BSStringT<char>* dst);
     virtual bool IsQuestItem(void);
-    virtual bool Unk_26(void);
-    virtual bool Unk_27(void);
-    virtual bool Unk_28(void);
-    virtual bool Unk_29(bool set);
-    virtual bool Unk_2A(bool set);
+    virtual bool Unk_26(void) const;
+    virtual bool Unk_27(void) const;
+    virtual bool Unk_28(void) const;
+    virtual bool Unk_29(void);
+    virtual bool Unk_2A(void);
     virtual bool Unk_2B(void);
-    virtual bool Unk_2C(void);
+    virtual bool Unk_2C(void) const;
     virtual bool Unk_2D(void);
     virtual bool Unk_2E(void);
     virtual void Unk_2F(bool set);

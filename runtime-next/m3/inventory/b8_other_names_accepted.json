@@ -1,0 +1,1213 @@
+{
+  "schema_version": 1,
+  "scope": "Scalar heads only; saved metadata and lexical source evidence; independently compile and verify before integration. Entries do not assert ownership of interval tails. Isolated exact candidate M3-named scalar definitions compiled and checked through splice.slice_entry; full integrated build remains outstanding.",
+  "selection_ready_for_compile": false,
+  "summary": {
+    "accepted": 26,
+    "bytes": 41,
+    "rejected_review_candidates": 3
+  },
+  "entries": [
+    {
+      "selection": {
+        "va": 18388116,
+        "tc": "M"
+      },
+      "source_name": "DAT_01189494",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_01189494",
+      "declared_type": "float",
+      "declared_extent": 4,
+      "reference_hex": "0000a044",
+      "section": ".data",
+      "generator_initializer": "1280.0f",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout\\misc\\bgsmovieplayer.cpp",
+          "line": 124,
+          "text": "extern \"C\" float DAT_01189494;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od.cpp",
+          "line": 2774,
+          "text": "extern \"C\" float DAT_01189494;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od_ctx_variant.cpp",
+          "line": 1065,
+          "text": "extern \"C\" float DAT_01189494;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od_decl_variant.cpp",
+          "line": 1067,
+          "text": "extern \"C\" float DAT_01189494;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od_rtm_variant.cpp",
+          "line": 1065,
+          "text": "extern \"C\" float DAT_01189494;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_01189494",
+        "coff_symbol": "?M3_01189494@@3MA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18477884,
+        "tc": "H"
+      },
+      "source_name": "DAT_0119f33c",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0119f33c",
+      "declared_type": "int",
+      "declared_extent": 4,
+      "reference_hex": "ffffffff",
+      "section": ".data",
+      "generator_initializer": "-1",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout\\interface\\hotkeyswheel.cpp",
+          "line": 971,
+          "text": "extern \"C\" int DAT_0119f33c;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0119f33c",
+        "coff_symbol": "?M3_0119f33c@@3HA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18480560,
+        "tc": "E"
+      },
+      "source_name": "DAT_0119fdb0",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0119fdb0",
+      "declared_type": "unsigned char",
+      "declared_extent": 1,
+      "reference_hex": "01",
+      "section": ".data",
+      "generator_initializer": "(unsigned char)1",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout\\interface\\menus\\bartermenu.cpp",
+          "line": 1404,
+          "text": "extern \"C\" unsigned char DAT_0119fdb0;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0119fdb0",
+        "coff_symbol": "?M3_0119fdb0@@3EA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18519164,
+        "tc": "M"
+      },
+      "source_name": "DAT_011a947c",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_011a947c",
+      "declared_type": "float",
+      "declared_extent": 4,
+      "reference_hex": "0000803f",
+      "section": ".data",
+      "generator_initializer": "1.0f",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_00c2a9e0.cpp",
+          "line": 2,
+          "text": "extern \"C\" float DAT_011a947c;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\gamebryo2.2\\corelibs\\niparticle\\nipsysgravityfieldmodifier.cpp",
+          "line": 157,
+          "text": "extern \"C\" float DAT_011a947c;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_011a947c",
+        "coff_symbol": "?M3_011a947c@@3MA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18543772,
+        "tc": "E"
+      },
+      "source_name": "DAT_011af49c",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_011af49c",
+      "declared_type": "unsigned char",
+      "declared_extent": 1,
+      "reference_hex": "01",
+      "section": ".data",
+      "generator_initializer": "(unsigned char)1",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od.cpp",
+          "line": 424,
+          "text": "extern \"C\" unsigned char DAT_011af49c;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od_ob1_variant.cpp",
+          "line": 163,
+          "text": "extern \"C\" unsigned char DAT_011af49c;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_011af49c",
+        "coff_symbol": "?M3_011af49c@@3EA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18543773,
+        "tc": "E"
+      },
+      "source_name": "DAT_011af49d",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_011af49d",
+      "declared_type": "unsigned char",
+      "declared_extent": 1,
+      "reference_hex": "01",
+      "section": ".data",
+      "generator_initializer": "(unsigned char)1",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od.cpp",
+          "line": 1525,
+          "text": "extern \"C\" unsigned char DAT_011af49d;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od_ob1_variant.cpp",
+          "line": 597,
+          "text": "extern \"C\" unsigned char DAT_011af49d;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_011af49d",
+        "coff_symbol": "?M3_011af49d@@3EA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18543774,
+        "tc": "E"
+      },
+      "source_name": "DAT_011af49e",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_011af49e",
+      "declared_type": "unsigned char",
+      "declared_extent": 1,
+      "reference_hex": "01",
+      "section": ".data",
+      "generator_initializer": "(unsigned char)1",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od.cpp",
+          "line": 1526,
+          "text": "extern \"C\" unsigned char DAT_011af49e;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od_ob1_variant.cpp",
+          "line": 598,
+          "text": "extern \"C\" unsigned char DAT_011af49e;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_011af49e",
+        "coff_symbol": "?M3_011af49e@@3EA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 18543775,
+        "tc": "E"
+      },
+      "source_name": "DAT_011af49f",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_011af49f",
+      "declared_type": "unsigned char",
+      "declared_extent": 1,
+      "reference_hex": "01",
+      "section": ".data",
+      "generator_initializer": "(unsigned char)1",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od.cpp",
+          "line": 1527,
+          "text": "extern \"C\" unsigned char DAT_011af49f;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c20000_od_ob1_variant.cpp",
+          "line": 599,
+          "text": "extern \"C\" unsigned char DAT_011af49f;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_011af49f",
+        "coff_symbol": "?M3_011af49f@@3EA",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 16912060,
+        "tc": "D"
+      },
+      "source_name": "DAT_01020ebc",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_01020ebc",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "48",
+      "section": ".rdata",
+      "generator_initializer": "(char)72",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od.cpp",
+          "line": 1817,
+          "text": "extern \"C\" char DAT_01020ebc;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od_ctx_variant.cpp",
+          "line": 810,
+          "text": "extern \"C\" char DAT_01020ebc;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od_decl_variant.cpp",
+          "line": 812,
+          "text": "extern \"C\" char DAT_01020ebc;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_004c0000_od_rtm_variant.cpp",
+          "line": 810,
+          "text": "extern \"C\" char DAT_01020ebc;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_01020ebc",
+        "coff_symbol": "?M3_01020ebc@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17018440,
+        "tc": "D"
+      },
+      "source_name": "DAT_0103ae48",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0103ae48",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "53",
+      "section": ".rdata",
+      "generator_initializer": "(char)83",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\tesscriptfunctions.cpp",
+          "line": 34347,
+          "text": "extern \"C\" char DAT_0103ae48;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0103ae48",
+        "coff_symbol": "?M3_0103ae48@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17018608,
+        "tc": "D"
+      },
+      "source_name": "DAT_0103aef0",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0103aef0",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "53",
+      "section": ".rdata",
+      "generator_initializer": "(char)83",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\tesscriptfunctions.cpp",
+          "line": 34346,
+          "text": "extern \"C\" char DAT_0103aef0;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0103aef0",
+        "coff_symbol": "?M3_0103aef0@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17019600,
+        "tc": "M"
+      },
+      "source_name": "DAT_0103b2d0",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0103b2d0",
+      "declared_type": "float",
+      "declared_extent": 4,
+      "reference_hex": "00c07944",
+      "section": ".rdata",
+      "generator_initializer": "999.0f",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_005c6b60.cpp",
+          "line": 1,
+          "text": "extern \"C\" float DAT_0103b2d0;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\tesscriptfunctions.cpp",
+          "line": 34831,
+          "text": "extern \"C\" float DAT_0103b2d0;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0103b2d0",
+        "coff_symbol": "?M3_0103b2d0@@3MB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17220760,
+        "tc": "D"
+      },
+      "source_name": "DAT_0106c498",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0106c498",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "4e",
+      "section": ".rdata",
+      "generator_initializer": "(char)78",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\pathfinding\\navmeshobstaclemanager.cpp",
+          "line": 6336,
+          "text": "extern \"C\" char DAT_0106c498;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0106c498",
+        "coff_symbol": "?M3_0106c498@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17228160,
+        "tc": "H"
+      },
+      "source_name": "DAT_0106e180",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0106e180",
+      "declared_type": "int",
+      "declared_extent": 4,
+      "reference_hex": "4d4f4445",
+      "section": ".rdata",
+      "generator_initializer": "1162104653",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\distant terrain system\\bgsterrainchunk.cpp",
+          "line": 1339,
+          "text": "extern \"C\" int DAT_0106e180;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\distant terrain system\\bgsterrainchunk_ctx_variant.cpp",
+          "line": 998,
+          "text": "extern \"C\" int DAT_0106e180;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0106e180",
+        "coff_symbol": "?M3_0106e180@@3HB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17229024,
+        "tc": "D"
+      },
+      "source_name": "DAT_0106e4e0",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0106e4e0",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "44",
+      "section": ".rdata",
+      "generator_initializer": "(char)68",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\bgsterrainnode.cpp",
+          "line": 1092,
+          "text": "extern \"C\" char DAT_0106e4e0;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0106e4e0",
+        "coff_symbol": "?M3_0106e4e0@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17292584,
+        "tc": "D"
+      },
+      "source_name": "DAT_0107dd28",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_0107dd28",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "53",
+      "section": ".rdata",
+      "generator_initializer": "(char)83",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout\\dialogue\\menutopic.cpp",
+          "line": 888,
+          "text": "extern \"C\" char DAT_0107dd28;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_0107dd28",
+        "coff_symbol": "?M3_0107dd28@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17387420,
+        "tc": "D"
+      },
+      "source_name": "DAT_01094f9c",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_01094f9c",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "46",
+      "section": ".rdata",
+      "generator_initializer": "(char)70",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\bsmenu\\debugtext_ob1_variant.cpp",
+          "line": 2816,
+          "text": "extern \"C\" char DAT_01094f9c;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\bsmenu\\debugtext_ob1_variant.cpp",
+          "line": 2978,
+          "text": "extern \"C\" char DAT_01094f9c;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_01094f9c",
+        "coff_symbol": "?M3_01094f9c@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17401836,
+        "tc": "D"
+      },
+      "source_name": "DAT_010987ec",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010987ec",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "6d",
+      "section": ".rdata",
+      "generator_initializer": "(char)109",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_00a48ea0.cpp",
+          "line": 3,
+          "text": "extern \"C\" char DAT_010987ec;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\gamebryo2.2\\corelibs\\nianimation\\niquaternioninterpolator.cpp",
+          "line": 493,
+          "text": "extern \"C\" char DAT_010987ec;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010987ec",
+        "coff_symbol": "?M3_010987ec@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17401856,
+        "tc": "D"
+      },
+      "source_name": "DAT_01098800",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_01098800",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "6d",
+      "section": ".rdata",
+      "generator_initializer": "(char)109",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_00a48ea0.cpp",
+          "line": 2,
+          "text": "extern \"C\" char DAT_01098800;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\gamebryo2.2\\corelibs\\nianimation\\niquaternioninterpolator.cpp",
+          "line": 492,
+          "text": "extern \"C\" char DAT_01098800;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_01098800",
+        "coff_symbol": "?M3_01098800@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17444904,
+        "tc": "D"
+      },
+      "source_name": "DAT_010a3028",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010a3028",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "43",
+      "section": ".rdata",
+      "generator_initializer": "(char)67",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\fallout_shared\\tesobject_ob1_variant.cpp",
+          "line": 3043,
+          "text": "extern \"C\" char DAT_010a3028;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010a3028",
+        "coff_symbol": "?M3_010a3028@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17455080,
+        "tc": "D"
+      },
+      "source_name": "DAT_010a57e8",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010a57e8",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "42",
+      "section": ".rdata",
+      "generator_initializer": "(char)66",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\speedtree\\libspline_source\\idvspline.cpp",
+          "line": 726,
+          "text": "extern \"C\" char DAT_010a57e8;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\speedtree\\libspline_source\\idvspline_ob1_variant.cpp",
+          "line": 74,
+          "text": "extern \"C\" char DAT_010a57e8;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010a57e8",
+        "coff_symbol": "?M3_010a57e8@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17521356,
+        "tc": "D"
+      },
+      "source_name": "DAT_010b5acc",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010b5acc",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "54",
+      "section": ".rdata",
+      "generator_initializer": "(char)84",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_00b92390.cpp",
+          "line": 5,
+          "text": "extern \"C\" char DAT_010b5acc;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00b80000_o2.cpp",
+          "line": 7169,
+          "text": "extern \"C\" char DAT_010b5acc;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00b80000_o2_ehsized_variant.cpp",
+          "line": 7165,
+          "text": "extern \"C\" char DAT_010b5acc;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010b5acc",
+        "coff_symbol": "?M3_010b5acc@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17521364,
+        "tc": "D"
+      },
+      "source_name": "DAT_010b5ad4",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010b5ad4",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "69",
+      "section": ".rdata",
+      "generator_initializer": "(char)105",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_00b92390.cpp",
+          "line": 1,
+          "text": "extern \"C\" char DAT_010b5ad4;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00b80000_o2.cpp",
+          "line": 7165,
+          "text": "extern \"C\" char DAT_010b5ad4;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00b80000_o2_ehsized_variant.cpp",
+          "line": 7161,
+          "text": "extern \"C\" char DAT_010b5ad4;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010b5ad4",
+        "coff_symbol": "?M3_010b5ad4@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17573248,
+        "tc": "D"
+      },
+      "source_name": "DAT_010c2580",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010c2580",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "44",
+      "section": ".rdata",
+      "generator_initializer": "(char)68",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\FNV\\contributions\\FUN_00c509a0.cpp",
+          "line": 7,
+          "text": "extern \"C\" char DAT_010c2580;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od.cpp",
+          "line": 5883,
+          "text": "extern \"C\" char DAT_010c2580;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od_ehs_ob1_noehsc_variant.cpp",
+          "line": 2472,
+          "text": "extern \"C\" char DAT_010c2580;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od_ob1_variant.cpp",
+          "line": 2843,
+          "text": "extern \"C\" char DAT_010c2580;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od_ob1_variant_helpers_variant.cpp",
+          "line": 2453,
+          "text": "extern \"C\" char DAT_010c2580;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od_ob1_variant_rtm_variant.cpp",
+          "line": 2820,
+          "text": "extern \"C\" char DAT_010c2580;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010c2580",
+        "coff_symbol": "?M3_010c2580@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17576616,
+        "tc": "D"
+      },
+      "source_name": "DAT_010c32a8",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010c32a8",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "41",
+      "section": ".rdata",
+      "generator_initializer": "(char)65",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od_ob1_variant.cpp",
+          "line": 20362,
+          "text": "extern \"C\" char DAT_010c32a8;"
+        },
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00c40000_od_ob1_variant_rtm_variant.cpp",
+          "line": 13387,
+          "text": "extern \"C\" char DAT_010c32a8;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010c32a8",
+        "coff_symbol": "?M3_010c32a8@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    },
+    {
+      "selection": {
+        "va": 17767396,
+        "tc": "D"
+      },
+      "source_name": "DAT_010f1be4",
+      "source_linkage": "extern C",
+      "source_coff_key": "_DAT_010f1be4",
+      "declared_type": "char",
+      "declared_extent": 1,
+      "reference_hex": "42",
+      "section": ".rdata",
+      "generator_initializer": "(char)66",
+      "declarations": [
+        {
+          "file": "C:\\path\\to\\Decompilation\\fnv_decomp\\src\\staging\\blk_00ec0000_od.cpp",
+          "line": 2176,
+          "text": "extern \"C\" char DAT_010f1be4;"
+        }
+      ],
+      "validation": {
+        "unit_key_only": true,
+        "captured_declarations_agree": true,
+        "legacy_inventory_type_agrees": true,
+        "no_captured_source_alias_or_definition": true,
+        "natural_alignment": true,
+        "within_one_chunk": true,
+        "no_interior_symbol_or_label": true,
+        "no_intersecting_field_or_relocation": true,
+        "no_overlap_saved_b7_or_unit_or_production_or_listed_rewrites": true,
+        "isolated_vc2008_object_bytes_section_storage_relocations": true
+      },
+      "emission_requirement": "Use distinct M3 name or implement matching extern C linkage; current scalar generator DAT name has C++ linkage.",
+      "tested_emission": {
+        "name": "M3_010f1be4",
+        "coff_symbol": "?M3_010f1be4@@3DB",
+        "compiler": "VC2008 SP1",
+        "flags": "/MT /Od /Oy- /GS /EHsc /Gy"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "va": 17829044,
+      "reasons": [
+        "legacy DAT inventory missing or conflicting declared type"
+      ]
+    },
+    {
+      "va": 17829588,
+      "reasons": [
+        "legacy DAT inventory missing or conflicting declared type"
+      ]
+    },
+    {
+      "va": 17829764,
+      "reasons": [
+        "legacy DAT inventory missing or conflicting declared type"
+      ]
+    }
+  ],
+  "selection_ready_for_integration": true
+}

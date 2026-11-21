@@ -217,11 +217,8 @@ bool BGSBodyPart::Load(TESFile* file)
 extern int DAT_0104540c;
 
 // @fnv 0x005e3be0
-TESModel* __fastcall FUN_005e3be0(TESModel* pThis)
+TESModelPSA::TESModelPSA()
 {
-    pThis->TESModel::TESModel();
-    *(int**)pThis = &DAT_0104540c;
-    return pThis;
 }
 
 void __fastcall _ref_006815c0(void*);
@@ -290,34 +287,8 @@ void Outer005e3d50::FUN_005e3d50()
     b.F1();
 }
 
-struct FUN_005e3c60_psa
-{
-    int unk00;
-    int unk04;
-    int unk08;
-    int unk0C;
-    int unk10;
-    int unk14;
-    ~FUN_005e3c60_psa();
-};
-
-class FUN_005e3c60_cls
-{
-  public:
-    virtual ~FUN_005e3c60_cls();
-    void FUN_005e3d50();
-
-    BSStringT<char> NodeName;
-    BSStringT<char> TargetName;
-    BSStringT<char> m_kVATSNodeName;
-    BSStringT<char> m_kPartName;
-    BSStringT<char> m_kGoreName;
-    TESModel m_kModel;
-    FUN_005e3c60_psa m_kRagdollModel;
-};
-
 // @fnv 0x005e3c60
-FUN_005e3c60_cls::~FUN_005e3c60_cls()
+BGSBodyPart::~BGSBodyPart()
 {
     FUN_005e3d50();
 }
@@ -501,3 +472,4 @@ FUN_005e50c0_shell::~FUN_005e50c0_shell()
     if (1)
         _Deallocate(this);
 }
+

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "va": 18446368,
+      "tc": "P",
+      "ptr": 17073248,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern \"C\" void* DAT_01197820;",
+        "extern const char* DAT_01197820;",
+        "extern char* DAT_01197820;"
+      ],
+      "mangled_declarations": [
+        "?DAT_01197820@@3PBDB",
+        "?DAT_01197820@fnv_00563890@@3PADA",
+        "?DAT_01197820@fnv_005659f0@@3PBDB"
+      ],
+      "raw_hex": "60840401",
+      "target_section": ".rdata",
+      "symbol": "M3_01197820",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18447196,
+      "tc": "P",
+      "ptr": 16909436,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern const char* DAT_01197b5c;",
+        "extern \"C\" void* DAT_01197b5c;",
+        "extern char* DAT_01197b5c;"
+      ],
+      "mangled_declarations": [
+        "?DAT_01197b5c@fnv_00563890@@3PADA",
+        "?DAT_01197b5c@fnv_005672c0@@3PBDB"
+      ],
+      "raw_hex": "7c040201",
+      "target_section": ".rdata",
+      "symbol": "M3_01197b5c",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18489892,
+      "tc": "P",
+      "ptr": 17299280,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern char* DAT_011a2224;"
+      ],
+      "mangled_declarations": [
+        "?DAT_011a2224@@3PADA"
+      ],
+      "raw_hex": "50f70701",
+      "target_section": ".rdata",
+      "symbol": "M3_011a2224",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18493424,
+      "tc": "P",
+      "ptr": 17311816,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern const char* DAT_011a2ff0;",
+        "extern const char* const DAT_011a2ff0;"
+      ],
+      "mangled_declarations": [
+        "?DAT_011a2ff0@@3PBDB",
+        "?DAT_011a2ff0@fnv_005b72f0@@3QBDB"
+      ],
+      "raw_hex": "48280801",
+      "target_section": ".rdata",
+      "symbol": "M3_011a2ff0",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18493428,
+      "tc": "P",
+      "ptr": 17013900,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern const char* DAT_011a2ff4;",
+        "extern const char* const DAT_011a2ff4;"
+      ],
+      "mangled_declarations": [
+        "?DAT_011a2ff4@@3PBDB",
+        "?DAT_011a2ff4@fnv_005b72f0@@3QBDB"
+      ],
+      "raw_hex": "8c9c0301",
+      "target_section": ".rdata",
+      "symbol": "M3_011a2ff4",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18493432,
+      "tc": "P",
+      "ptr": 17311796,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern const char* DAT_011a2ff8;",
+        "extern char* DAT_011a2ff8;"
+      ],
+      "mangled_declarations": [
+        "?DAT_011a2ff8@@3PBDB",
+        "?DAT_011a2ff8@fnv_005b72f0@@3PBDB",
+        "?DAT_011a2ff8@fnv_00a22e10@@3PADA"
+      ],
+      "raw_hex": "34280801",
+      "target_section": ".rdata",
+      "symbol": "M3_011a2ff8",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18535276,
+      "tc": "P",
+      "ptr": 17454672,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern const char* DAT_011ad36c;"
+      ],
+      "mangled_declarations": [
+        "?DAT_011ad36c@@3PBDB"
+      ],
+      "raw_hex": "50560a01",
+      "target_section": ".rdata",
+      "symbol": "M3_011ad36c",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    },
+    {
+      "va": 18609756,
+      "tc": "P",
+      "ptr": 17437796,
+      "sec": ".data",
+      "size": 4,
+      "align": 4,
+      "source_declarations": [
+        "extern const char* DAT_011bf65c;"
+      ],
+      "mangled_declarations": [
+        "?DAT_011bf65c@@3PBDB",
+        "?DAT_011bf65c@fnv_00e85d10@@3PBDB"
+      ],
+      "raw_hex": "64140a01",
+      "target_section": ".rdata",
+      "symbol": "M3_011bf65c",
+      "note": "Explicit pointer declarations; type alias identity unresolved; no tail claimed."
+    }
+  ]
+}

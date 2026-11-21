@@ -7,6 +7,23 @@ into a working `FalloutNV` executable.
 The decompiled source comes from **[momusdigital/fnv_decomp](https://github.com/momusdigital/fnv_decomp)** and its
 contributors. See [CREDITS.md](CREDITS.md).
 
+## Licence and credit
+
+Original contributions owned by gavinbrow are free to use, modify and
+redistribute under the [MIT licence](LICENSE), including commercially. This
+covers original source and header changes anywhere in the repository,
+including `fnv_decomp/` and `FNV/`, along with tools and documentation. Other
+contributors must expressly license their contributions on these terms.
+Keep the copyright and permission notices with copies or substantial portions
+to provide attribution. Please also retain [CREDITS.md](CREDITS.md).
+
+This permission covers only rights held by the licensing contributor. It does
+not relicense upstream code or grant rights in the original game. Mixed files
+retain the restrictions on their pre-existing contents;
+[fnv_decomp/LICENSE](fnv_decomp/LICENSE) grants no licence to the upstream
+source or its contributors' work. The complete reconstructed game is therefore
+not offered under MIT.
+
 ## Legal note (please read)
 
 - Built executables still contain data taken from the original program (see Status), so keep them private and do
@@ -28,10 +45,16 @@ contributors. See [CREDITS.md](CREDITS.md).
 - **Playable:** the self-built `FalloutNV_selfbuilt.exe` starts directly (without the Steam DRM wrapper), loads a
   save and plays; an automated harness exercises start, load, play, cell change, quicksave/quickload and exit.
   See [README-PLAY.md](README-PLAY.md).
-- Remaining work is mostly readability (many functions still carry placeholder names such as `FUN_00xxxxxx`) and
-  moving the last pieces of data from "copied" to "generated".
+- Initialized data from compiled objects is **1,614,032 / 1,979,392 bytes
+  (81.5%)** at the latest accepted checkpoint. This is a data coverage figure,
+  not a Phase 2 completion percentage.
+- Phase 2 remains open: class layouts, inheritance, virtual function order,
+  global ownership and the remaining data placement need work. Development is
+  paused; privately tested candidates still need combined integration and
+  production verification. See [the current checkpoint](docs/STATUS.md).
 
-Detailed, dated status notes live in [runtime-next/CURRENT.md](runtime-next/CURRENT.md).
+See [docs/STATUS.md](docs/STATUS.md) for the latest accepted results. Detailed
+historical notes also live in [runtime-next/CURRENT.md](runtime-next/CURRENT.md).
 
 ## Folder map
 

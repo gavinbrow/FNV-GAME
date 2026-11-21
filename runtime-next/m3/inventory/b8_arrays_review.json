@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "scope": "source and saved-input review; no generated definitions or compiler tests",
+  "arrays": [
+    {
+      "va": "0x01190910",
+      "declarations": [
+        "fnv_decomp/src/fallout_shared/tesparameters.cpp:183",
+        "fnv_decomp/src/fallout_shared/tesscriptfunctions.cpp:29120"
+      ],
+      "layout": "40 bytes on 32-bit: _CommandEntry has 20-byte prefix, pointer at +0x14, 16-byte suffix; CommandDescription has four 4-byte first fields and six ints",
+      "count_evidence": "tesscriptfunctions.cpp:29158 loops i < 640; tesscriptcompiler.cpp:21-25 indexes g_scriptCommands over 0x1000..0x127f but address identity is not independently established",
+      "accessed_elements": 640,
+      "stride": 40,
+      "accessed_bytes": 25600,
+      "accessed_end": "0x01196d10",
+      "total_extent": "unknown: unsized extern, loop proves at least accessed span only",
+      "coverage": "no Batch 7, frozen DV1, or produced range overlap in accessed span",
+      "reference_relocations": 3802,
+      "relocation_offsets_per_record": {
+        "0": 640,
+        "4": 640,
+        "12": 640,
+        "20": 377,
+        "24": 615,
+        "28": 640,
+        "32": 250
+      },
+      "phase1": "Potential isolated typed prefix, not safe to assert full array extent or select until field-level typing and all relocation/COFF/placement checks pass."
+    },
+    {
+      "va": "0x0118e8e0",
+      "declarations": [
+        "fnv_decomp/src/fallout_shared/tesscriptcompiler_packet_decls.h:92",
+        "fnv_decomp/src/fallout_shared/tesscriptfunctions.cpp:29120",
+        "fnv_decomp/include/ScriptFunctionInfo.h:6"
+      ],
+      "layout": "40 bytes; source static assertions document offsets 0x00,04,08,0c,10,12,14,18,1c,20,24,25; local compiler view is opaque char[40]",
+      "count_evidence": "tesscriptfunctions.cpp:29148 and tesscriptcompiler.cpp:692 loop i < 205; GetFunctionByOpcode 0x100 <= opcode < 0x1cd",
+      "accessed_elements": 205,
+      "stride": 40,
+      "accessed_bytes": 8200,
+      "accessed_end": "0x011908e8",
+      "total_extent": "unknown: unsized extern, loops prove at least accessed span only",
+      "coverage": "existing DV1/produced [0x011906e8,0x011906ec); Batch 7 [0x011906ec,0x011908f0) overlaps accessed span and continues 8 bytes beyond",
+      "reference_relocations": 1122,
+      "relocation_offsets_per_record": {
+        "0": 205,
+        "4": 205,
+        "12": 205,
+        "20": 97,
+        "24": 205,
+        "28": 205
+      },
+      "phase1": "Full accessed span cannot be selected without resolving existing ownership; same field-level and verification requirements apply."
+    },
+    {
+      "va": "0x01187ac8",
+      "declarations": [
+        "fnv_decomp/src/fallout_shared/bgsprimitive.cpp:2775"
+      ],
+      "layout": "three double members x, y, z; 24-byte stride on target x86 ABI",
+      "count_evidence": "bgsprimitive.cpp:2796-2800 loops i < 0x70 and reads each member",
+      "accessed_elements": 112,
+      "stride": 24,
+      "accessed_bytes": 2688,
+      "accessed_end": "0x01188548",
+      "total_extent": "unknown: unsized extern, loop proves at least accessed span only",
+      "coverage": "no Batch 7, frozen DV1, or produced range overlap in accessed span",
+      "reference_relocations": 0,
+      "reference_values": "336 finite doubles, eight negative zeros; byte-identical literal compilation is unverified",
+      "phase1": "Potential isolated typed prefix, no proof this is the full array. Preserve negative zero and verify all compiled bytes and placement before use."
+    }
+  ]
+}

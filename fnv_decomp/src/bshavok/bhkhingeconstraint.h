@@ -17,12 +17,8 @@
 //   - NiRTTI.h: the real NiRTTI declaration (name/base members and
 //     constructor) and the bhkConstraint layout.
 
-class NiRTTI
-{
-  public:
-    const char* m_pcName;
-    const NiRTTI* m_pBaseRTTI;
-};
+#include "NiRTTI.h"
+FNV_STATIC_ASSERT(sizeof(NiRTTI) == 8);
 
 class bhkConstraint
 {

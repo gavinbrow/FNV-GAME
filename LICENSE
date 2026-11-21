@@ -1,0 +1,51 @@
+FNV-GAME licensing scope
+========================
+
+The MIT License below applies to the original contributions to FNV-GAME for
+which gavinbrow holds copyright, wherever those contributions appear in this
+repository. This includes original additions and changes to source code and
+headers in fnv_decomp/ and FNV/, as well as build, maintenance and testing
+tools, generators and documentation. It also applies to contributions whose
+copyright holders expressly make them available under these terms.
+
+Covered contributions may be used, modified and redistributed free of charge,
+including commercially, subject to retaining the copyright and permission
+notices below. Those notices provide the required attribution. CREDITS.md
+records additional project and upstream acknowledgements.
+
+This permission covers only the original material and rights held by the
+licensing contributor. A change to an upstream file does not relicense that
+file's pre-existing contents. No permission is granted here for upstream
+contributors' work, third-party software, or code, data, assets, resources and
+executables owned by the original game's rights holders. Their existing
+notices and terms remain in effect, including fnv_decomp/LICENSE, which grants
+no licence to that upstream project's source or contributions. Mixed files
+remain subject to the rights in their pre-existing contents; this licence
+alone does not authorize reuse of the whole file or reconstructed game.
+
+This licence grants no rights in Fallout: New Vegas or its trademarks. See
+CREDITS.md for attribution and upstream notices. Git history identifies the
+FNV-GAME changes but is not, by itself, proof of copyright ownership.
+
+MIT License
+===========
+
+Copyright (c) 2026 gavinbrow and FNV-GAME contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

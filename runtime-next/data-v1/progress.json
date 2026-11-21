@@ -18,15 +18,15 @@
   }
  },
  "produced_bytes_by_region": {
-  ".rdata": 654146,
-  ".data": 23364,
+  ".rdata": 1515105,
+  ".data": 215868,
   ".tls": 638,
   "CONST": 0
  },
- "produced_pct_of_rdata_data_raw": 34.228,
+ "produced_pct_of_rdata_data_raw": 87.45,
  "produced_bytes_by_kind": {
   "crt-init-array": {
-   ".rdata": 11808
+   ".rdata": 32
   },
   "data-unit": {
    ".rdata": 28,
@@ -38,28 +38,32 @@
   "float-const": {
    ".rdata": 4225
   },
+  "m3-global": {
+   ".rdata": 871231,
+   ".data": 183632
+  },
   "rdata-other": {
    ".rdata": 1149,
    ".data": 4
   },
   "rdata-other-unit": {
-   ".rdata": 77627,
+   ".rdata": 77625,
    ".data": 28
   },
   "rtti1": {
-   ".rdata": 30071
+   ".rdata": 30099
   },
   "rtti2": {
-   ".rdata": 4451
+   ".rdata": 4464
   },
   "rtti3": {
-   ".rdata": 12748
+   ".rdata": 12764
   },
   "rtti4": {
-   ".rdata": 33023
+   ".rdata": 33043
   },
   "string": {
-   ".rdata": 201641,
+   ".rdata": 201646,
    ".data": 738
   },
   "tls": {
@@ -67,72 +71,77 @@
    ".tls": 638
   },
   "vtable": {
-   ".rdata": 13440
+   ".rdata": 14864
   },
   "data": {
    ".data": 40
   },
   "rtti0": {
-   ".data": 17738
+   ".data": 26610
   }
  },
  "placed_pieces_by_tier": {
-  "H": 5691,
-  "B": 10412,
-  "V": 11188,
+  "H": 5705,
+  "M": 8472,
+  "B": 10665,
+  "V": 11198,
   "O": 202,
-  "L": 5303
+  "L": 5299
  },
  "placed_bytes_by_tier": {
-  "H": 107907,
-  "B": 402337,
-  "V": 427005,
+  "H": 108250,
+  "M": 1054906,
+  "B": 411133,
+  "V": 427195,
   "O": 22375,
-  "L": 100540
+  "L": 100468
  },
  "placed_pieces_by_kind": {
   "data-unit": 126,
   "crt-init-array": 8,
-  "string": 9173,
+  "m3-global": 8472,
+  "string": 9191,
   "vtable": 5386,
   "rdata-other": 75,
   "rdata-other-unit": 1071,
   "float-const": 696,
-  "rtti2": 617,
+  "rtti2": 619,
   "tls": 12,
   "rtti4": 4141,
   "rtti3": 1854,
-  "rtti1": 2353,
+  "rtti1": 2352,
   "eh-tables": 6720,
-  "rtti0": 559,
+  "rtti0": 813,
   "data": 5
  },
  "tier_legend": {
   "B": "bytes with reloc fields masked: exactly one aligned hit in the reference",
   "V": "bytes + our own resolved reloc values: exactly one hit",
-  "H": "no unique hit; placed at the symbol-map hint address after bytes verified there"
+  "H": "no unique hit; placed at the symbol-map hint address after bytes verified there",
+  "M": "M3 generated global: placed by the manifest address of our own definition, bytes verified against the reference there"
  },
- "unique_sections": 62469,
- "placed_sections": 32796,
+ "unique_sections": 71183,
+ "placed_sections": 41541,
  "hint_crosscheck": {
-  "B:no-hint": 1509,
-  "V:no-hint": 4648,
-  "B:hint-equal": 8799,
-  "V:hint-equal": 6498,
+  "B:no-hint": 1494,
+  "V:no-hint": 4654,
+  "B:hint-equal": 9066,
+  "V:hint-equal": 6502,
   "V:hint-differs": 42,
-  "B:hint-differs": 104,
-  "H:hint-equal": 5691,
-  "L:no-hint": 5303,
+  "B:hint-differs": 105,
+  "M:hint-equal": 8472,
+  "H:hint-equal": 5705,
+  "L:no-hint": 5299,
   "O:no-hint": 202
  },
  "B_tier_strength": {
-  "B>=8 unmasked bytes": 9573,
+  "B>=8 unmasked bytes": 9826,
   "B<8 unmasked bytes": 839
  },
- "B_tier_hint_differs": 104,
+ "B_tier_hint_differs": 105,
  "ceiling_code_pointing_relocs_in_our_data": {
   "eh-tables|placed": 15111,
-  "vtable|placed": 13431,
+  "vtable|placed": 13446,
   "vtable|unplaced": 1114,
   "data-unit|unplaced": 24,
   "data-unit|placed": 38,
@@ -142,12 +151,12 @@
   "rdata-other-unit|unplaced": 3,
   "rdata-other-unit|placed": 18
  },
- "ceiling_total": 36152,
+ "ceiling_total": 36167,
  "inferable_from_reference_circular": {
-  "unresolved_extern_names": 6041,
-  "names_with_one_reference_value": 5708,
-  "fields_of_those": 9798,
-  "all_fields": 14964
+  "unresolved_extern_names": 6034,
+  "names_with_one_reference_value": 5703,
+  "fields_of_those": 9531,
+  "all_fields": 14529
  },
  "placed_bytes_by_kind_tier": {
   "crt-init-array|H": 32,
@@ -164,51 +173,52 @@
   "float-const|B": 3380,
   "float-const|H": 884,
   "float-const|O": 8,
+  "m3-global|M": 1054906,
   "rdata-other|B": 1655,
   "rdata-other|H": 219,
   "rdata-other-unit|B": 89045,
   "rdata-other-unit|H": 3110,
   "rdata-other-unit|O": 16496,
   "rdata-other-unit|V": 40,
-  "rtti0|B": 17786,
-  "rtti1|B": 8512,
+  "rtti0|B": 26610,
+  "rtti1|B": 8484,
   "rtti1|L": 3556,
   "rtti1|V": 53816,
-  "rtti2|V": 6817,
+  "rtti2|V": 6835,
   "rtti3|B": 160,
-  "rtti3|L": 26656,
-  "rtti3|V": 2848,
+  "rtti3|L": 26624,
+  "rtti3|V": 2880,
   "rtti4|B": 280,
-  "rtti4|L": 69560,
-  "rtti4|V": 12980,
+  "rtti4|L": 69520,
+  "rtti4|V": 13020,
   "string|B": 235439,
-  "string|H": 20507,
+  "string|H": 20906,
   "string|O": 107,
   "tls|B": 20,
   "tls|H": 1263,
-  "vtable|H": 79316,
-  "vtable|V": 21084
+  "vtable|H": 79260,
+  "vtable|V": 21184
  },
  "unplaced_sections": {
   "rtti0|bytes-match-nowhere": {
-   "n": 6433,
-   "bytes": 207781
+   "n": 6430,
+   "bytes": 207679
   },
   "rtti1|bytes-ambiguous(many)": {
-   "n": 4913,
-   "bytes": 137564
+   "n": 4911,
+   "bytes": 137508
   },
   "rtti3|bytes-ambiguous(many)": {
-   "n": 4261,
-   "bytes": 68176
+   "n": 4259,
+   "bytes": 68144
   },
   "tls|bytes-ambiguous(many)": {
    "n": 42,
    "bytes": 60871
   },
   "rtti2|bytes-ambiguous(many)": {
-   "n": 6224,
-   "bytes": 53952
+   "n": 6220,
+   "bytes": 53924
   },
   "eh-tables|bytes-ambiguous(many)": {
    "n": 1249,
@@ -227,24 +237,24 @@
    "bytes": 34477
   },
   "rtti4|bytes-ambiguous(many)": {
-   "n": 1494,
-   "bytes": 29880
+   "n": 1493,
+   "bytes": 29860
   },
   "eh-tables|bytes-ambiguous(2-50)": {
    "n": 400,
    "bytes": 19356
   },
-  "string|bytes-match-nowhere": {
-   "n": 480,
-   "bytes": 18653
-  },
   "rdata-other-unit|bytes-ambiguous(2-50)": {
    "n": 206,
    "bytes": 18312
   },
+  "string|bytes-match-nowhere": {
+   "n": 466,
+   "bytes": 18275
+  },
   "vtable|no-unmasked-bytes": {
-   "n": 870,
-   "bytes": 14108
+   "n": 869,
+   "bytes": 14100
   },
   "rtti1|bytes-ambiguous(2-50)": {
    "n": 469,
@@ -279,8 +289,8 @@
    "bytes": 1512
   },
   "data-unit|no-unmasked-bytes": {
-   "n": 124,
-   "bytes": 1020
+   "n": 125,
+   "bytes": 1024
   },
   "rdata-other|bytes-ambiguous(many)": {
    "n": 146,
@@ -291,12 +301,12 @@
    "bytes": 412
   },
   "rdata-other-unit|bytes-ambiguous(many)": {
-   "n": 68,
-   "bytes": 378
+   "n": 67,
+   "bytes": 370
   },
   "string|bytes-ambiguous(2-50)": {
-   "n": 70,
-   "bytes": 314
+   "n": 68,
+   "bytes": 298
   },
   "rtti3|bytes-match-nowhere": {
    "n": 16,
@@ -318,13 +328,13 @@
    "n": 2,
    "bytes": 72
   },
-  "string|bytes-ambiguous(many)": {
-   "n": 26,
-   "bytes": 64
-  },
   "data|bytes-ambiguous(many)": {
    "n": 1,
    "bytes": 60
+  },
+  "string|bytes-ambiguous(many)": {
+   "n": 24,
+   "bytes": 59
   },
   "crt-init-array|bytes-ambiguous(many)": {
    "n": 5,
@@ -342,47 +352,46 @@
  "unplaced_with_hint_by_kind": {
   "tls": 53,
   "rtti0": 112,
-  "rdata-other-unit": 12,
-  "string": 166,
+  "string": 165,
   "float-const": 5,
   "vtable": 4,
   "data-unit": 4,
+  "rdata-other-unit": 11,
   "eh-tables": 3,
   "rdata-other": 1
  },
  "bss": {
   "sections": 520,
-  "bytes": 68273,
+  "bytes": 69993,
   "with_hint_in_data_virtual_tail": 205,
   "note": "no file bytes; only the layout is known"
  },
  "fields_in_placed_pieces": {
-  "borrow": 17339,
-  "agree": 24125,
-  "disagree": 1911
+  "borrow": 16986,
+  "agree": 119892,
+  "disagree": 1910
  },
  "fields_unresolved_or_disagree_causes": {
-  "extern-unmapped:other-named": 10643,
-  "unplaced-local-section:rtti0": 5525,
-  "extern-unmapped:unnamed-virtual-slot(Unk_/vfn_)": 3114,
-  "unplaced-local-section:rtti3": 2318,
-  "c|different-function": 1601,
-  "unplaced-local-section:rtti2": 1294,
+  "extern-unmapped:other-named": 10228,
+  "unplaced-local-section:rtti0": 5520,
+  "extern-unmapped:unnamed-virtual-slot(Unk_/vfn_)": 3105,
+  "unplaced-local-section:rtti3": 2317,
+  "c|different-function": 1606,
+  "unplaced-local-section:rtti2": 1292,
   "unplaced-local-section:rtti4": 1215,
   "extern-unmapped:purecall": 1196,
   "b|different-function": 681,
-  "unplaced-local-section:other-named": 581,
+  "unplaced-local-section:other-named": 582,
   "placed-section|data-target-different": 270,
   "unplaced-local-section:unwindfunclet": 240,
   "unplaced-local-section:catch": 139,
   "b|ours-code(ref-not-code)": 123,
   "unplaced-local-section:rtti1": 95,
   "unplaced-local-section:other": 93,
-  "a|different-function": 78,
+  "a|different-function": 76,
   "placed-section|ours-not-code(ref-code)": 51,
   "unplaced-local-section:string": 17,
   "c|data-target-different": 15,
-  "extern-unmapped:vtable": 11,
   "a|ours-code(ref-not-code)": 5,
   "unplaced-local-section:unwindtable": 5,
   "unplaced-local-section:catchsym": 4,
@@ -390,8 +399,7 @@
   "unplaced-local-section:tryblock": 2,
   "c|ours-code(ref-not-code)": 1,
   "unplaced-local-section:unnamed-virtual-slot(Unk_/vfn_)": 1,
-  "b|ours-not-code(ref-code)": 1,
-  "unplaced-local-section:vtable": 1
+  "b|ours-not-code(ref-code)": 1
  },
  "data_to_code": {
   "total_orig_reloc": 101449,
@@ -399,27 +407,29 @@
    ".rdata": 98619,
    ".data": 2830
   },
-  "our_agree": 12940,
-  "our_disagree": 1593,
-  "borrowed_unresolved": 11996,
-  "produced_bytes_but_no_reloc_record": 2974,
-  "no_placed_piece": 71946,
+  "our_agree": 78903,
+  "our_disagree": 1592,
+  "borrowed_unresolved": 11659,
+  "produced_bytes_but_no_reloc_record": 30,
+  "no_placed_piece": 9265,
   "agree_by_tier": {
-   "H": 542,
-   "V": 9761,
+   "M": 65624,
+   "H": 877,
+   "V": 9765,
    "B": 2637
   },
   "agree_by_source": {
-   "a": 767,
-   "c": 340,
+   "m3": 65624,
+   "a": 1120,
+   "c": 326,
    "b": 10,
    "eh-piece": 11823
   },
   "disagree_causes": {
-   "unresolved:extern-unmapped:other-named": 7512,
-   "unresolved:extern-unmapped:unnamed-virtual-slot(Unk_/vfn_)": 2423,
+   "unresolved:extern-unmapped:other-named": 7183,
+   "unresolved:extern-unmapped:unnamed-virtual-slot(Unk_/vfn_)": 2415,
    "unresolved:extern-unmapped:purecall": 1167,
-   "c|different-function": 1015,
+   "c|different-function": 1014,
    "b|different-function": 494,
    "unresolved:unplaced-local-section:other-named": 368,
    "unresolved:unplaced-local-section:rtti4": 274,
@@ -434,9 +444,10 @@
    "b|ours-not-code(ref-code)": 1
   },
   "agree_by_kind": {
-   "vtable|borrow": 11689,
-   "vtable|disagree": 1578,
-   "vtable|agree": 875,
+   "m3-global|agree": 65624,
+   "vtable|borrow": 11352,
+   "vtable|disagree": 1577,
+   "vtable|agree": 1214,
    "rtti2|agree": 8,
    "data-unit|agree": 2,
    "rdata-other-unit|borrow": 10,
@@ -508,15 +519,15 @@
  },
  "leftover_unproduced": {
   ".rdata|import-dir/IAT": 1548,
-  ".rdata|zero-bytes(padding/zero-init)": 379014,
-  ".rdata|nonzero-other": 682028,
+  ".rdata|zero-bytes(padding/zero-init)": 93732,
+  ".rdata|nonzero-other": 106351,
   ".data|import-dir/IAT": 0,
-  ".data|zero-bytes(padding/zero-init)": 73903,
-  ".data|nonzero-other": 165389
+  ".data|zero-bytes(padding/zero-init)": 21643,
+  ".data|nonzero-other": 25145
  },
  "sha256": {
   "v7_strict_used": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
-  "data_strict": "a46315940e6cd1a2430cd7fe5b456a38ca31565d31efbc6a2fb3b5443ae0dfca",
+  "data_strict": "2143a400c537ac8eabbd7b5bdc4c89e044a3195cfa506930ec650e412bb9eca2",
   "data_filled": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
   "reference": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7"
  },

@@ -1,5 +1,5 @@
 DAT_ global inventory
-reference image: C:\Projects\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe (image base 0x00400000)
+reference image: C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe (image base 0x00400000)
 files scanned: 9555
 distinct DAT_ addresses: 15333
 total references: 101320

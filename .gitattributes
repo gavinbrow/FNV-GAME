@@ -1,2 +1,9 @@
 *.cmd text eol=crlf
 *.bat text eol=crlf
+
+# These accepted inputs are pinned by raw-byte SHA-256. Preserve their exact
+# bytes so Git's line-ending settings cannot invalidate the build identity.
+fnv_decomp/build/units.json -text whitespace=cr-at-eol
+runtime-next/m3/phase2/selection.json -text whitespace=cr-at-eol
+runtime-next/m3/phase2/library_candidates.json -text whitespace=cr-at-eol
+runtime-next/m3/config.py -text whitespace=cr-at-eol

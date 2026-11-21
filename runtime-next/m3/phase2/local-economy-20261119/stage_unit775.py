@@ -1,0 +1,16 @@
+"""Prepare the reviewed unit775 pilot as private bytes; never installs or compiles."""
+import hashlib,json,pathlib
+R=pathlib.Path(__file__).resolve().parents[4]; M=R/'runtime-next/m3';F=R/'fnv_decomp';OUT=M/'out/phase2-local-economy-20261119/pilot';E=M/'out/phase2-web-e2e-export-2';V=M/'out/phase2-web-e2e-validation-1';SRC=F/'src/fallout_shared/inventorychanges_ctxr_variant.cpp';RECIPE='825d444f16df19589bf9f10764b064f4dee5cae44dc2f50b47ad1bc5c6ce2d68';OLD='4d778925d80a99d10ab4c9900ade804380fe2868029d05186c45f268d0f84e24';NORM='0b810a4e1a9e8f991c0c7e489173b67834a84936d7cc6ed4e98f7cfbeb29d08e';NEW='bc36b3e267fbc2bc2c73850c75466820ba175939a5ee56d375a3d5f09fb98041';HEADER='747785741a94b4a10eaa7c38be866e707ea5d2c27169c12ca30dabb65d9e4f85';VALID='cd093294c1e95eb717c7e874ffe5e479b8b7c69b24c05d4f4ad09f3966ed4ed4';h=lambda x:hashlib.sha256(x).hexdigest()
+def main():
+ if OUT.exists():raise FileExistsError(OUT)
+ raw=SRC.read_bytes();recipe=(F/'build/units.json').read_bytes();header=(F/'include/TESContainer.h').read_bytes();result=(V/'result.json').read_bytes();assert (h(raw),h(recipe),h(header),h(result))==(OLD,RECIPE,HEADER,VALID)
+ proof=json.loads(result);assert proof['pass'] and proof['production_source_and_recipe_unchanged'] and not proof['production_installation'];assert [(x['unit'],x['functions'],x['candidate_matches'],x['candidate_EH_sections']) for x in proof['units']]==[(775,1,1,2),(980,31,31,28)];assert all(all(x['gates'].values()) for x in proof['units'])
+ manifest=json.loads((E/'proposal-manifest.json').read_bytes());assert manifest['job']=='P2N19-000-TESContainer775';
+ for name,digest in manifest['proposed_hashes'].items():assert h((E/name).read_bytes())==digest
+ obj=json.loads((E/'runtime-proposals/P2N19-000-TESContainer775/changes.json').read_bytes());assert obj['schema']==1 and len(obj['edits'])==3
+ text=raw.decode('utf-8-sig').replace('\r\n','\n');assert h(text.encode())==NORM
+ for x in obj['edits']:
+  assert x['path']=='src/fallout_shared/inventorychanges_ctxr_variant.cpp' and x['source_sha256']==NORM and x['old_text'] and text.count(x['old_text'])==1;text=text.replace(x['old_text'],x['new_text'],1)
+ candidate=text.encode();assert h(candidate)==NEW and candidate==(V/'candidate-source.cpp').read_bytes();units=json.loads(recipe)['units'];affected=[i for i,x in enumerate(units) if x['source']=='src/fallout_shared/inventorychanges_ctxr_variant.cpp'];assert affected==[775]
+ OUT.mkdir(parents=True);(OUT/'source.original').write_bytes(raw);(OUT/'source.generated').write_bytes(candidate);record={'scope':'private proposal only; no install','path':str(SRC.relative_to(F)),'old_sha256':OLD,'normalized_old_sha256':NORM,'new_sha256':NEW,'header_sha256':HEADER,'recipe_sha256':RECIPE,'review_result_sha256':VALID,'export_manifest_sha256':h((E/'proposal-manifest.json').read_bytes()),'direct_recipe_units':affected,'owner_validation_unit':980,'limitations':['include and ODR closure outside mapped functions requires review','fresh production object, code/EH/relocations and full W103 gate after install','do not apply before currently frozen W103 suite']};(OUT/'manifest.json').open('x').write(json.dumps(record,indent=2));print(json.dumps(record))
+if __name__=='__main__':main()

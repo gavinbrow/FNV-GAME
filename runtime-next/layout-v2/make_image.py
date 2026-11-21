@@ -14,8 +14,8 @@ import sys, os, struct, json, collections, argparse, time, pickle, bisect
 sys.dont_write_bytecode = True
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-RN = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next')
-sys.path.insert(0, RN + r'\direct-v1'); sys.path.insert(0, (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\fnv_decomp\tools'))
+RN = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next')
+sys.path.insert(0, RN + r'\direct-v1'); sys.path.insert(0, (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\fnv_decomp\tools'))
 import model
 from model import TV, TS, B7
 import build_imports, build_rsrc
@@ -165,14 +165,17 @@ log('data objects:', {k: (v['size'], len(v['relocs'])) for k, v in chunks.items(
 # ---- M3 phase 1 (opt-in FNV_M3=1): the bytes of the generated global definitions come from OUR compiled object (m3_data.obj), overlaid at their original offsets.
 # data-v3 emitted these ranges as zeros (DV3_SKIP), so a non-zero byte here can only come from the compiled definitions.
 M3_STAT = None
+M3_ALIGNED16 = []
 if os.environ.get('FNV_M3') == '1':
     sys.path.insert(0, RN + r'\m3'); import splice
-    M3_STAT = collections.Counter()
+    M3_STAT = collections.Counter(); M3_CLAIMS = splice.RangeClaims()
     for r_ in splice.load(os.path.join(B7, 'm3', 'm3_manifest.json'), os.path.join(B7, 'm3', 'm3_data.obj')):
+        if r_['entry'].get('align') == 16: M3_ALIGNED16.append((r_['va'], r_['entry']['sym']))
         n_ = len(r_['data']); va_ = r_['va']; sec_ = r_['entry']['section']
         ch_ = [c_ for c_ in chunks.values() if c_['sec'] == sec_ and c_['va'] <= va_ and va_ + n_ <= c_['va'] + c_['size']]
         assert len(ch_) == 1, hex(va_)
         ch_ = ch_[0]; o_ = va_ - ch_['va']
+        M3_CLAIMS.add(va_, n_)
         assert not any(ch_['data'][o_:o_ + n_]), 'range not zeroed by DV3_SKIP: %x' % va_
         # phase 1b: pointer fields. The captured relocations inside the overlaid range are dropped (DV3_SKIP already removed them from the data-v3 object, so normally 0)
         # and ours are added, symbols mapped to their original VA through alladdr; the common rewrite loop below then emits Lone(target)+addend and the .reloc site.
@@ -197,6 +200,7 @@ if os.environ.get('FNV_M3_DV1') == '1':
         ch_ = [c_ for c_ in _bysec[sec_] if c_['va'] <= va_ and va_ + n_ <= c_['va'] + c_['size']]
         assert len(ch_) == 1, hex(va_)
         ch_ = ch_[0]; o_ = va_ - ch_['va']
+        M3_CLAIMS.add(va_, n_)
         assert not any(ch_['data'][o_:o_ + n_]), 'range not zeroed by DV3_SKIP: %x' % va_
         nd_ = len(ch_['relocs']); ch_['relocs'] = [x_ for x_ in ch_['relocs'] if not (o_ <= x_[0] < o_ + n_)]; DV1_STAT['captured_relocs_dropped'] += nd_ - len(ch_['relocs'])
         kd_ = r_['entry']['kind']
@@ -280,6 +284,8 @@ def Lone(v):
     r = int(Lall(np.array([v]))[0])
     if r == v and v in END_EXTRA: r = int(Lall(np.array([v - 1]))[0]) + 1     # one-past-the-end of a section's last chunk
     return r
+for aligned_va, aligned_sym in M3_ALIGNED16:
+    if Lone(aligned_va) % 16: raise ValueError('translated M3 destination lacks 16-byte alignment: %s' % aligned_sym)
 # ------------------------------------------------------------------ rewrite code
 new = bytearray(b'\xcc' * text_total); tb = bytes(text)
 for bi in range(nb): new[NS[bi]:NS[bi] + be[bi] - bs[bi]] = tb[bs[bi]:be[bi]]

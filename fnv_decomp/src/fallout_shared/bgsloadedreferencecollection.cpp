@@ -41,10 +41,7 @@ extern TESObjectSTAT* DAT_011ca264;
 TESObjectREFR* __fastcall _FNV_GetObjectReference(TESObjectREFR* object);
 unsigned int __fastcall _FNV_GetFormType(TESForm* object);
 
-struct TESContainer
-{
-    static bool __cdecl IsValidContainerType(unsigned char type);
-};
+#include "TESContainer.h"
 
 struct FUN_00526c40_Class
 {

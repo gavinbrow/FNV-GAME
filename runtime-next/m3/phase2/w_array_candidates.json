@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "scope": "Nine exact 256-byte W ranges with explicit source array bounds, matching single unit symbol and no fields/relocations; selected ranges unchanged. Scope/alias checks and compiled identity remain required.",
+  "count": 9,
+  "bytes": 2304,
+  "entries": [
+    {
+      "va": 18510912,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7440@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13132
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18511168,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7540@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13133
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18511424,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7640@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13134
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18511680,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7740@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13135
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18511936,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7840@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13136
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18512192,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7940@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13137
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18512448,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7a40@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13138
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18512704,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7b40@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13139
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    },
+    {
+      "va": 18512960,
+      "size": 256,
+      "namespace": "sa238a0",
+      "element_type": "unsigned char",
+      "const": false,
+      "symbol": "?DAT_011a7c40@sa238a0@@3PAEA",
+      "source": {
+        "path": "fnv_decomp/src/fallout/misc/main.cpp",
+        "line": 13140
+      },
+      "body_uses": "CharTable::FUN_00a238a0 bounds iChar to 0..255",
+      "original_w_alignment": 4
+    }
+  ],
+  "deferred": {
+    "va": 18513216,
+    "reason": "W range is 288 bytes: split 256-byte array and independently owned 32-byte tail before replacement"
+  }
+}

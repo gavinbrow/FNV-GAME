@@ -15,7 +15,7 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-RN = r"C:\Projects\Decompilation\runtime-next"
+RN = r"C:\path\to\Decompilation\runtime-next"
 sys.path.append(RN)
 import paths  # noqa: E402  (shared path config, read-only use)
 

@@ -3,6 +3,8 @@
 // a file-scope object; constructors, exit thunks and argument data remain original (bound by address). Owner classes
 // are named after their constructor address. Excluded from the runtime hook (they run only at CRT startup).
 #include "original_global_object_initializers.h"
+#include "NiRTTI.h"
+extern NiRTTI g_011f4428;
 
 // @fnv 0x00f35420
 GlobalObject_00a2e180 g_011c32f0;
@@ -9614,7 +9616,7 @@ GlobalObject_00a7b610 g_0120436c(g_0120436c_arg0, g_0120436c_arg1);
 // @fnv 0x00fbc840
 GlobalObject_00a7b610 g_01204378(g_01204378_arg0, g_01204378_arg1);
 // @fnv 0x00fbc860
-GlobalObject_00a7b610 g_01204380(g_01204380_arg0, g_01204380_arg1);
+NiRTTI g_01204380(g_01204380_arg0, &g_011f4428);
 // @fnv 0x00fbc880
 GlobalObject_00a7b610 g_01204388(g_01204388_arg0, g_01204388_arg1);
 // @fnv 0x00fbc8a0

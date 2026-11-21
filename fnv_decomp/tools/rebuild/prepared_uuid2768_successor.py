@@ -140,7 +140,7 @@ def build(parent,handoff,handoff_peer,native,native_peer):
     need(type(directive.get('extent')) is int and directive['extent']==93 and len(raw)==93 and
          hashlib.sha256(raw).hexdigest()==directive['payload_sha256']=='c7366a9d7fda0fe26a40098fc6ae83ea281c3d5d1f666a434b407eede5ed6f0c' and
          directive.get('ordered_tokens')==TOKENS and type(handoff.get('future_uuid_response_token')) is str and
-         handoff['future_uuid_response_token']==r'C:\Projects\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib' and
+         handoff['future_uuid_response_token']==r'C:\path\to\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib' and
          handoff['declaration'].get('canonical_sha256')==
          '26e13ca4ee534ef4dd7df52b5b31b388dfd49ba79a4099561ffe2bf9fa8c73d9','directive/dependency obligation differs')
     new=copy.deepcopy(records)

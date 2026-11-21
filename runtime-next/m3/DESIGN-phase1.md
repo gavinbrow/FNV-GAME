@@ -70,15 +70,16 @@ Measured from units.json names + reference + `symbolic.json` fields + `produced_
 
 About 550 usable scalars. Pilot = **150**: all 63 `.data` int + 38 unsigned (101), plus 25 `.data` float and 24 `.rdata` float/double chosen by lowest VA (to cover both sections and both widths). Defer bool/uchar until the int path is green, never char, pointers (61 .data, 577 .rdata), struct and array types. Pointer step (phase 1b) = the 171 `.data` / 1,706 `.rdata` entries that have a pointer field inside, starting with `.data` function-pointer scalars (`InterlockedCompareExchange`-style) targeting recipe functions.
 
-Verification, in order:
+Historical pilot verification plan (the current frozen Batch 8 selection fails closed instead of pruning):
 1. `gen_m3.py` self-check: compiled slice == reference bytes for every kept entry; 0 `.CRT$XCU`; list of pruned entries with the reason (expected prune rate: a few floats).
 2. Full `build-all --out X --no-harness` with and without `FNV_M3=1`: both `FalloutNV_selfbuilt.exe` sha256 must be `c267a197...`; `image_G.json` `data_fields` identical (same relocation count: SKIP removes none net because spliced relocs replace them).
 3. Counter delta (`data-v1\progress.json` of the M3 run vs the default run): `placed_pieces_by_tier` gains `'M': 150`; `produced_bytes_by_region` `.data`/`.rdata` rise by exactly the sum of the sizes (about 600-900 B for the pilot); `filled_equals_reference` stays true; `produced_ranges.json` has 150 more rows; `symbolic.json` `ours` count unchanged for old fields.
 4. Negative control: change one pilot initializer; sha must change (proves the exe bytes are ours, since SKIP zeroed the captured bytes) and `verify.py` must fail.
 5. Harness (`--extended`) must pass on the M3 exe. Chunk offsets are unchanged, so the risk is purely byte equality.
-Rollback: unset `FNV_M3`; no default file is modified apart from env-guarded branches.
+Historical pilot rollback was to unset `FNV_M3`. After the verified Batch 8 promotion, use `FNV_M3=0` for rollback/comparison; unsetting it selects the new default.
 
-## 6. After phase 1 (not in scope)
+## 6. Historical pilot follow-up outline (superseded by PLAN-M3.md)
+This early phase numbering is historical. Current Phase 2 is classes/vtables/RTTI and is approval-gated as described in `PLAN-M3.md` and `TODO.md`.
 Phase 1b: pointer fields. Phase 2: file-resident zero globals and .bss definitions (needs layout records). M4: replace the splice by a real link: our generated object plus link-v2's `D_<va>` renaming; at that point the pilot definitions simply stop being skipped ranges in data-v3.
 
 ## 7. Status (implemented 2026-11-16, pilot green)
@@ -168,3 +169,92 @@ What each stage needs for relocations:
 - Verification: see the batch 7 report (outputs `out\batch7*`). Negative controls `b7v` (first dword of the first non-IAT new object +1) and `b7p` (first pointer cell of the first new object with pointers retargeted).
 - Finding (negative control, first attempt): the first new object sat inside the import directory/IAT, which make_image re-bases and rewrites after the overlay, so changing it left the exe sha unchanged (round trip failed, image unchanged). Those 7,908 B are now excluded from the selection and the negative controls skip tail-sec/tail-rw kinds.
 - Default build restored after batch 7: sha256 c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f, round trip OK (150,462 relocs, no m3 overlay).
+
+### Read-only inventory and saved-evidence tooling (2026-11-18)
+
+`tools/inventory_symbol_forms.py` is an opt-in source-name inventory; it accepts explicit files or `--files-from` and optionally `--section-metadata inventory/dat_globals.json`. It preserves names sharing an address and declaration lines without interpreting types; storage classifications are based solely on saved section bounds. Existing DAT inventory and build inputs remain unchanged.
+
+A local scan using the legacy inventory's approved source-file discovery covered 9,555 files and found 15,500 spellings at 15,354 addresses. File-resident / memory-only / unmapped spellings: DAT 7,620 / 7,710 / 3; PTR 52 / 16 / 0; _DAT 59 / 40 / 0; OFF 0. There were 146 same-address alias groups: 92 DAT/_DAT and 54 DAT/PTR. Multiple distinct single-line extern declaration texts appeared for 2,792 DAT and 16 _DAT spellings; these counts do not establish conflicting types. The lexical scan is not a full C++ parser.
+
+A separate read-only scan of `fnv_decomp/build/units.json` symbol keys found unique addresses: DAT 12,403 (all in saved DAT inventory), PTR 1 (in inventory), _DAT 1,049 (1,042 in inventory, 7 outside), OFF 0. These are different inputs and symbol spellings, so counts need not match. Both scans found no OFF spelling; recognition in the Batch 7 selector does not establish that any exist in these inputs or explain the earlier estimated category. No object extents or content were inferred from these counts.
+
+Saved Batch 7 evidence can be checked without opening executables from the `runtime-next/m3` directory:
+
+```powershell
+python tools/verify_saved_runs.py --positive out/batch7/build-summary.json --default out/batch7-restore/build-summary.json --control out/batch7-negctl-b7p/build-summary.json --control out/batch7-negctl-b7v/build-summary.json --verdict out/batch7/harness-verdict.json
+```
+
+The recorded hashes, control flags and extended harness verdict pass this check. The saved boolean flags do not identify which mutation each control applied, and checking saved evidence does not rerun a build or harness. At this historical checkpoint Batch 8 and promotion were open; the later Batch 8 section records their completed gate.
+
+### Synthetic file-backed zero object (2026-11-18)
+
+A temporary, original C++ fixture compiled with local VC2008 SP1 demonstrated a supported `.data` route:
+
+```cpp
+#pragma section(".data", read, write)
+extern "C" {
+unsigned char neighbor[4] = {1, 2, 3, 4};
+__declspec(allocate(".data")) __declspec(align(4)) unsigned char file_zero[16] = {0};
+__declspec(align(4)) unsigned char memory_zero[16] = {0};
+}
+```
+
+The compiler warned C4325 that standard `.data` attributes were ignored. The explicit allocation nevertheless produced an initialized `.data` section containing exactly 16 zero bytes, flags `0xC0300040` (4-byte alignment, initialized read/write data), with no relocations. The ordinary zero definition instead produced a 16-byte `.bss` section, flags `0xC0300080` (uninitialized read/write data), with raw-data pointer zero. The non-zero neighbor and `file_zero` occupied separate `.data` sections; the latter did not require the neighbor for its file backing. A temporary manifest naming `_file_zero` and `.data` passed the actual `splice.load` reader, and `m3secs.m3_units` produced the expected 16-byte record and flags. A separate `.zero` custom-section experiment also emitted 16 raw zeros at 16-byte alignment, but current M3 placement records support `.data`/`.rdata` and alignments 1–8, so the supported `.data` fixture is the applicable result.
+
+This synthetic checkpoint established a compiler/reader technique only: no target range, end-to-end placement, linker behavior, or original bytes had yet been verified. Batch 8, file-resident zero selection and promotion were open at that point; the later Batch 8 section records the subsequent accepted runs.
+
+A follow-on synthetic loader check found that `compare.Coff` synthesizes zeros for raw-less uninitialized sections. A `.bss` symbol was rejected against a `.data` manifest by name, but a raw-less synthetic section named `.data` was previously accepted. `splice.slice_entry` now requires the requested symbol range to have a nonzero raw-data pointer and fit within both the section raw size and object file, rejecting synthesized memory-only bytes. Synthetic VC2008 writable `.data` and read-only `.rdata` zero definitions both pass the actual loader; raw-less sections fail, including when a synthetic header marks one initialized. This checks object backing, not end-to-end placement.
+
+### Saved-evidence and placement checks (2026-11-18)
+
+`tools/verify_saved_runs.py --check-control-logs --require-extended-mode` adds optional checks to the previously documented command. Saved control generator logs identify one Batch 7 value mutation and one pointer mutation; their data-v3 logs record the expected round-trip failures and corresponding diagnostics. The summaries also record M3 and DV1 steps with extended DV1 enabled. These logs and summaries corroborate, but do not independently rerun, the runs. The exact selection/environment was not recorded in those summaries, so mode identity cannot be fully established from this evidence. The default summary is checked for M3 stages/provenance/errors.
+
+The existing overlay verifies each object fits one destination chunk and requires its current bytes to be zero; this cannot by itself detect overlap with an earlier all-zero object. `splice.load` now rejects overlapping M3 manifest ranges by address, independent of content. The saved current M3 manifest has 8,199 entries, no mutual overlaps, no alignment violations, no range outside saved raw section bounds, and no overlap with the three directory ranges listed in `b7_select.py`. The DV1 selector independently rejects overlap with M3 and other selected pieces. These metadata checks do not prove the rewritten-directory list is exhaustive or verify an end-to-end build.
+
+Synthetic VC2008 pointer-object tests also found that `splice.slice_entry` previously accepted a DIR32 relocation extending past an object's end and missed a DIR32 relocation crossing its start. It now rejects both boundary crossings and accepts a complete four-byte cell. Tests use only temporary synthetic objects and manifests.
+
+The evidence checker’s extended-mode option also checks recorded 100% code coverage, zero borrowed/undecompiled/copied instruction bytes, and matching REL32, DIR32 and data-pointer counters across the positive, default and control summaries. Matching counters do not prove relocation-table byte identity.
+
+Additional synthetic checks showed that destination alignment was not enforced by `splice.load`, and overlapping DIR32 cells were accepted. It now enforces the existing 1/2/4/8-byte M3 alignment model and rejects overlapping DIR32 cells. A zero-content overlay check also cannot detect overlap between independently loaded M3 and DV1 zero records. The verifier and image builder now use the shared address-range claim check when combining overlays; adjacent synthetic ranges pass and overlapping ones fail regardless of contents. At this checkpoint those checks had only been exercised with synthetic objects and saved metadata; later Batch 8 runs exercise them end to end. Selector exclusions alone do not prove the rewrite list is exhaustive; see the later builder audit.
+
+Future opt-in M3 build summaries record `provenance.m3_config` with the selection filename, effective DV1 and EXT switches, and the recognized negative-control identifier. For those summaries, `verify_saved_runs.py --expected-selection <filename> --expected-control <id> --expected-control <id>` checks the recorded settings in the same order as the `--control` arguments. The filename identifies the selected input by name. Existing Batch 7 summaries predate these fields and continue to use the saved-log checks above.
+
+The symbol inventory now captures straightforward multiline extern declarations. A repeat scan of the 9,555 approved source files found 715 multiline evidence entries, including 416 symbols whose captured declaration evidence appeared only across multiple lines. These counts record source text evidence and do not establish object types or extents.
+
+A read-only check of the saved Batch 7 generated objects and unit records passed the current splice loader, placement-record conversion, and combined overlap check. It covered 8,199 M3 records (1,026,376 bytes, 90,528 relocations) and 15,435 unit records (533,292 bytes, 20,981 relocations). Full image assembly and gameplay were still open at this checkpoint; the later Batch 8 acceptance section supersedes that status.
+
+Future opt-in M3 reports also record a SHA-256 digest of the selection file immediately before the generator runs, when the file is readable. Pass `--expected-selection-sha256 <digest>` to compare the recorded digest across the positive run and all controls. The Batch 7 reports predate this field.
+
+### Batch 8 final selection and acceptance runs (2026-11-18, gate complete with deferrals)
+
+The four Terra work streams reviewed other-name aliases, conflicting/non-scalar declarations, zero/BSS storage, and integration/verification. The accepted scope is compiled storage with supported declaration heads or source-accessed prefixes, with unresolved original identities and bounds explicitly deferred. This does not claim that every original declaration or W type is resolved; Phase 2 generated source changes remain approval-gated.
+
+`batch8_final_selection.json` SHA-256 is `42d84f21776429e139502ebe391302d7c8b36f1833a6403d96009a99bbabcfe7`. It preserves Batch 7's 8,199 entries and adds 64 entries, 36,597 bytes (22,984 nonzero and 13,613 zero reference bytes), and 4,860 relocation cells. The additions include two command-record prefixes (640 and 192 records, 33,280 bytes, with opaque fields retained), the 112-vertex sphere prefix, three source-used NUL-terminated format prefixes, declaration-supported scalar/pointer heads, and ten explicitly allocated file-backed zero scalars. Two one-byte heads in the earlier pilot selection are replaced by the corresponding strings; no duplicate head is claimed. All prefixes use separate M3 storage names and do not establish complete original array extents or native alias linkage.
+
+`b8_select.py --final` combines the reviewed evidence and checks existing coverage, raw bounds, chunks, alignment, original field boundaries and builder rewrite exclusions. `b8_records.py` emits the reviewed 40-byte record views with symbolic references and explicit opaque fields. `gen_m3.py` supports separate M3 names, explicit `.data`/`.rdata` file allocation for zero objects, and `b8v`/`b8p` controls. Explicitly configured frozen selections now fail if missing or if any compiler/COFF check rejects an entry; they cannot silently fall back to the pilot or prune rejected definitions. The log checker rejects ambiguous multiple mutation labels. Isolated compiler fixtures, 29 unittest cases and five configuration checks pass.
+
+The fresh unchanged default baseline (`out/batch8-baseline`) matches `c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f`. The smaller initial pilot (`out/batch8`, selection `batch8_selection.json`, 2,843 new bytes) recorded passing legacy HUD-only extended flags; it is not semantic restoration evidence or the final selection's acceptance run.
+
+The final positive (`out/batch8-final`) matches the required executable SHA-256 and exact baseline relocation-directory bytes: 734,884 bytes, SHA-256 `364b83a38aae50e6faf0a4f0512fdfa8b338bd1dab47b39fec0bd7b03fd26057`. It retained all 8,263 selected entries with zero drops. M3 contributes 1,062,973 bytes and DV1 contributes 533,292 bytes, of which five are `.tls`; initialized `.data`/`.rdata` object coverage is 1,596,260 / 1,979,392 (80.6%). The legacy harness recorded passing menu/load, 69.7 seconds of play, HUD-based extended flags and exit code 0. Those earlier flags did not establish semantic quickload restoration; the later stronger run does. Stable manifests, objects, selections and logs are archived in `out/batch8-final/evidence`.
+
+The remaining 383,132 raw bytes are partitioned without overlap: 67,551 uncovered nonzero, 100,045 uncovered zero, 207,636 produced-but-unspliced outside recorded rewrites, and 7,900 bytes in the recorded rewrite union. The historical 207,671 includes 35 rewritten bytes. The original image has 1,282,880 nonzero raw bytes; Batch 7's selected reference ranges cover 1,052,812 of them, correcting the older 757,854 figure above. Final selected reference ranges cover 1,075,796 nonzero and 520,464 zero bytes. These are reference-byte coverage counts, not nonzero COFF addend counts. See `BATCH8-deferrals.md` and `inventory/b8_deferred_accounting.json` for exact categories, the CRT-related Phase 3 interval, BSS and type-quality deferrals.
+
+Both full-build controls passed their expected failure gate with all 8,263 entries retained. `out/batch8-final-negctl-b8v` changed a newly selected byte from `48` to `49`, failed the round trip, and produced SHA-256 `75a6950b1151c3c7741759e5224502e8153a7e4c3f7837418350a1165ea43e25`. `out/batch8-final-negctl-b8p` retargeted the new `M3_01197820` pointer, failed the round trip with the pointer mismatch diagnostic, and produced SHA-256 `3c02a6eef0f28722d01ebfd9640807ea0cd5aeeae0c84d430eb1c3f4b06116eb`. The exact relocation-directory bytes of both controls still match the baseline; neither mutation changes a relocation site's position.
+
+The independent clean repeat (`out/batch8-final-repeat`) also passed the required image SHA, exact relocation bytes, all 8,263 retained entries and the legacy HUD-only harness (69.7 seconds of play, exit 0). Its old extended flags were not semantic quickload proof. The then-current saved-evidence checker passes with the baseline and both controls; final acceptance below additionally requires the stronger cell-state checks.
+
+After the repeat image checks, `build_all.py` resolves defaults through `m3/config.py`: M3, DV1 and EXT enabled with the pinned final selection. Explicit `FNV_M3=0` selects the legacy comparison route and clears stale child flags. Effective configuration is used consistently for subprocesses and provenance. The driver rejects active DV1 with `--skip-data-v1` or a diagnostic output redirect; both actual CLI guard checks fail before any build step. Gameplay uses a unique run tag and `harness_evidence.accepted_verdict`, requiring return code 0, exact True, matching executable path and tag; reused output folders cannot retain a previous copied verdict. The initial promotion passed 34 unittest cases and five configuration checks. Its first fresh image matched, but gameplay verification exposed the automation issues described below; it was not accepted as a passing default run.
+
+#### Stronger gameplay proof after the first promoted run
+
+The first no-overrides image matched the canonical hash, but its harness drifted into the pause menu and correctly failed. Follow-up checks exposed two additional automation problems: the isolated profile binds QuickLoad to F6 (`0040FFFF`) while the old harness sent F9, and the exit sequence chose Main Menu instead of Exit Game. Earlier passing HUD flags therefore did not establish quickload restoration. The original failed build and failed direct checks remain archived; they have not been rewritten as passing results.
+
+The harness now checks both HUD bars between actions, permits one bounded Escape only for a recognized pause menu, and closes a console only when its history/caret state is recognized. Unknown/loading states wait and fail with a screenshot on timeout. QuickSave/QuickLoad use the actual isolated preference bindings. `game_state.py` reads only the launched process: it verifies the loaded main module and PE32 `.data` section, locates the player global by the preserved original `.data` offset `0x5ba3c`, and samples the owning-cell form ID with stable complete reads. It does not use the original image RVA in the reordered output. Saving requires a stable cell; COC must change it; quickload must restore it with the HUD visible. Native `QuitGame` alias `qqq` sets the same quit flag used by the menu path; acceptance still requires an actual exit code 0, no forced kill and no WER crash. This verifies location restoration, not every serialized game-state field.
+
+`out/batch8-harness-guard-check3` passed this stronger direct test on the canonical promoted image: 71.8 seconds, configured scan codes 63/64, cell IDs 1291213 -> 1073541 -> 1291213, a new quicksave and native game exit code 0. Independent screenshot review corroborated the saved camera/location returning. All 61 unittest cases and five configuration checks pass.
+
+The fresh complete no-overrides run at **`out/batch8-promoted-default-verified` passed** with status `ok`. The actual executable SHA-256 is the required `c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f`; the exact relocation directory matches the baseline. Automatic configuration selected the pinned final SHA, DV1/EXT enabled, no mutation, all 8,263 entries retained and zero drops. Its independent archived-range audit confirms 1,596,260 initialized `.data`/`.rdata` bytes from M3/DV1, with five `.tls` bytes separate.
+
+The final full run also passed 71.8 seconds of semantic gameplay: scan codes 63/64, new save, stable saved cell 1291213, changed cell 1073541, restored cell 1291213 and `console_quitgame` exit code 0 without forced termination. One recognized console-close action at `console_after_set` restored the HUD; no pause recovery was recorded. The strict saved checker passed with `--require-cell-state`, the legacy baseline, both controls, expected control identifiers and selection digest. Snapshots, logs, verdict, coverage audit and tooling hashes are preserved in that run's `evidence` directory. Failed prior runs remain failed and archived.
+
+This closes the **Phase 1 acceptance milestone with explicit deferrals**, and the verified selection is now the default. It does not resolve all original globals, native identities, W types, BSS definitions or later-phase bytes. Phase 2 generated source changes remain approval-gated. The probe is read-only and assumes the custom image preserves original internal `.data` offsets; a future native-link layout needs separate validation. See `BATCH8-verification.md`, `BATCH8-gameplay-evidence-review.md`, `BATCH8-state-probe.md` and `BATCH8-deferrals.md` for proof and limits.

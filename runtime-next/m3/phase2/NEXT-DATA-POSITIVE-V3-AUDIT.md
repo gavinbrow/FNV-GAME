@@ -1,0 +1,11 @@
+# Next-data positive v3 artifact audit
+
+The archived v3 freeze reports command return code zero, unchanged watched inputs, and explicitly contains the consumed `cost245_records.py` SHA-256 `42770efbf44d39d9bcded7ab3e93f8d038d80a26bc7120d43c7fa197685cb64a`. This corrects the v2 freeze omission; it does not by itself prove every external dependency or complete the other build gates.
+
+The read-only `evidence/data-artifact-audit.json` reports 8,268 kept M3 entries, unchanged M3 range union, and disjoint M3/DV1 ranges. Archived raw `.data`/`.rdata` coverage is 1,613,010 bytes, with five `.tls` bytes separate. M3 reference values are 340,207 zero and 722,766 nonzero; DV1 values are 185,116 zero and 364,921 nonzero. The exact typed COFF symbols, file-backed extents and original relocation sites were checked; the pseudo-unit targets for the 58 Cost245 head relocations and four retained tail relocations match original reference words. This establishes the transport values, not native pointer semantics.
+
+The two SIMD objects have 16-byte COFF and pseudo-unit alignment. Using the archived data-v3 chunk manifest, default reversed `.rdata` order and the actual output PE, their original VAs `0x010cb620` and `0x010cb630` translate to `0x005316c0` and `0x005316d0`. Both final addresses are 16-byte aligned and contain the expected bytes.
+
+The separate fresh `evidence/data-library-replay.json` validates all 405 selected pieces / 16,730 bytes against the archived placement, actual M3 and non-library DV1 claims, archived symbolic fields and chunks, and hash-matched helper sources. It checks compiler archive/member and original whole-section or split-piece identity and matches each archived library piece. Relative to the prior accepted archive, 35 pieces / 10,356 bytes are incremental; the remaining 370 / 6,374 were already present.
+
+This is positive-run evidence only. Preserve the prior accepted partition until the required controls, repeat and default/promotion gates pass. The candidate remainder would be 366,382 bytes, including 190,886 previously produced-but-unspliced, 67,551 uncovered nonzero, 100,045 uncovered zero and 7,900 rewritten bytes. The unselected overlapping atan annotations remain an explicit provenance limitation.

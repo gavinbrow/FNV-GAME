@@ -3,7 +3,7 @@
 #define FNV_NIMEMOBJECT_H
 #include "layout_support.h"
 #pragma pack(push, 4)
-class NiMemObject
+struct NiMemObject
 {
   public:
 };

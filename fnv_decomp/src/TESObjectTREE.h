@@ -235,6 +235,7 @@ FNV_STATIC_ASSERT(sizeof(TESIconTree) == 12);
 class BGSDestructibleObjectForm : public BaseFormComponent
 {
   public:
+    ~BGSDestructibleObjectForm();
     // base BaseFormComponent at +0x0, size 4
     CollisionComponent* pData;  // +0x4, 4 bytes
     void InitItem(TESForm* form);

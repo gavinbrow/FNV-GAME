@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "method": "Conservative scalar storage heads only; candidates require generator/COFF and round-trip validation before use.",
+  "entries": [
+    {
+      "va": 18376512,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern unsigned int DAT_01186740;",
+        "extern int DAT_01186740;"
+      ],
+      "raw_hex": "00280000",
+      "unsigned_value": 10240,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_01186740",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18388072,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_01189468;",
+        "extern unsigned int DAT_01189468;"
+      ],
+      "raw_hex": "03010000",
+      "unsigned_value": 259,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_01189468",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18388076,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_0118946c;",
+        "extern unsigned int DAT_0118946c;"
+      ],
+      "raw_hex": "01010000",
+      "unsigned_value": 257,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_0118946c",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18388088,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_01189478;",
+        "extern unsigned int DAT_01189478;"
+      ],
+      "raw_hex": "29000000",
+      "unsigned_value": 41,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_01189478",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18388092,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_0118947c;",
+        "extern unsigned int DAT_0118947c;"
+      ],
+      "raw_hex": "80020000",
+      "unsigned_value": 640,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_0118947c",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18388096,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_01189480;",
+        "extern unsigned int DAT_01189480;"
+      ],
+      "raw_hex": "e0010000",
+      "unsigned_value": 480,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_01189480",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18400900,
+      "size": 1,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "C",
+        "E"
+      ],
+      "source_declarations": [
+        "extern signed char DAT_0118c684;",
+        "extern unsigned char DAT_0118c684;"
+      ],
+      "raw_hex": "ff",
+      "unsigned_value": 255,
+      "proposed_c_type": "unsigned char",
+      "proposed_symbol": "M3_0118c684",
+      "alignment": 1,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18536372,
+      "size": 1,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "D",
+        "E"
+      ],
+      "source_declarations": [
+        "extern unsigned char DAT_011ad7b4;",
+        "extern char DAT_011ad7b4;"
+      ],
+      "raw_hex": "01",
+      "unsigned_value": 1,
+      "proposed_c_type": "unsigned char",
+      "proposed_symbol": "M3_011ad7b4",
+      "alignment": 1,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18536488,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_011ad828;",
+        "extern unsigned int DAT_011ad828;"
+      ],
+      "raw_hex": "06000000",
+      "unsigned_value": 6,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_011ad828",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18536492,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_011ad82c;",
+        "extern unsigned int DAT_011ad82c;"
+      ],
+      "raw_hex": "ff000000",
+      "unsigned_value": 255,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_011ad82c",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18536560,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_011ad870;",
+        "extern unsigned int DAT_011ad870;"
+      ],
+      "raw_hex": "72000000",
+      "unsigned_value": 114,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_011ad870",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18540380,
+      "size": 2,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "F",
+        "G"
+      ],
+      "source_declarations": [
+        "extern short DAT_011ae75c;",
+        "extern unsigned short DAT_011ae75c;"
+      ],
+      "raw_hex": "0f00",
+      "unsigned_value": 15,
+      "proposed_c_type": "unsigned short",
+      "proposed_symbol": "M3_011ae75c",
+      "alignment": 2,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18544396,
+      "size": 1,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "D",
+        "E"
+      ],
+      "source_declarations": [
+        "extern unsigned char DAT_011af70c;",
+        "extern char DAT_011af70c;"
+      ],
+      "raw_hex": "01",
+      "unsigned_value": 1,
+      "proposed_c_type": "unsigned char",
+      "proposed_symbol": "M3_011af70c",
+      "alignment": 1,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18546300,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern unsigned int DAT_011afe7c;",
+        "extern int DAT_011afe7c;"
+      ],
+      "raw_hex": "64000000",
+      "unsigned_value": 100,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_011afe7c",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18609500,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern unsigned int DAT_011bf55c;",
+        "extern int DAT_011bf55c;"
+      ],
+      "raw_hex": "02000000",
+      "unsigned_value": 2,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_011bf55c",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    },
+    {
+      "va": 18609504,
+      "size": 4,
+      "section": ".data",
+      "source_bucket": "multi-type",
+      "encoded_types": [
+        "H",
+        "I"
+      ],
+      "source_declarations": [
+        "extern int DAT_011bf560;",
+        "extern unsigned int DAT_011bf560;"
+      ],
+      "raw_hex": "02000000",
+      "unsigned_value": 2,
+      "proposed_c_type": "unsigned int",
+      "proposed_symbol": "M3_011bf560",
+      "alignment": 4,
+      "extent_evidence": "simple scalar extern declarations of same width in source and encoded unit symbols",
+      "unresolved": "signedness and original symbol/namespace aliases are not resolved; no tail claimed"
+    }
+  ],
+  "rejections": {
+    "noninteger-or-unknown-encoding": 379,
+    "field-or-relocation": 24,
+    "source-type-mismatch-or-complex": 28,
+    "different-widths": 11,
+    "zero-or-short": 11,
+    "alignment-or-interval": 2
+  }
+}

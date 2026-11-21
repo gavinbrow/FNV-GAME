@@ -513,10 +513,6 @@ struct B006815c0 : public NiPoint2
 {
     B006815c0();
 };
-struct DestructibleTail
-{
-    ~DestructibleTail();
-};
 struct SoundPlaybackHandle
 {
     void SetFormType(int);
@@ -529,8 +525,7 @@ extern NiPoint2 DAT_011f4980;
 struct FUN_0051b6e0 : public FUN_0050f7a0,
                       public FUN_0051b930,
                       public FUN_0051b970_shell,
-                      public BGSDestructibleObjectForm,
-                      public DestructibleTail
+                      public BGSDestructibleObjectForm
 {
     FUN_00474790 m5c;
     float f6c;

@@ -11,7 +11,7 @@
 // Compiler: MSVC9 SP1 15.00.30729.01, flags /Od /Oy- /GS /EHsc /Gy
 #include "bhkhingeconstraint.h"
 
-const NiRTTI bhkHingeConstraint::ms_kRTTI;
+// Definition is owned by the existing typed dynamic initializer unit.
 
 // @fnv 0x009ba510
 const NiRTTI* bhkHingeConstraint::GetRTTI() const

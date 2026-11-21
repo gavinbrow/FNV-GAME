@@ -1,6 +1,6 @@
 # reloc-v5 notes (2026-11-15)
 
-Rebuild: `set FNV_MSVC9_RTM_ROOT=C:\Projects\Decompilation\FNV\tools\vc2008rtm` then
+Rebuild: `set FNV_MSVC9_RTM_ROOT=C:\path\to\Decompilation\FNV\tools\vc2008rtm` then
 `python -I runtime-next/reloc-v5/assemble_v5.py` (about 80 s; needs obj_v3 as before). Writes no executables.
 Optional: `FNV_V5_FIXUPS=1` applies `callee_fixups.json` (reference-assisted, see 3).
 v4 and pinned-build are untouched. `assemble_v5.py` = v4 + changes below; `crt5.py` = new CRT matcher.

@@ -1,0 +1,7 @@
+# BGSBodyPart constructor vptr ownership
+
+The existing unit 620 `BGSBodyPart::BGSBodyPart` source contains no manual vptr store. It zeroes `Data`, initializes it and calls its helper; MSVC generates the vptr initialization from the class's virtual interface. The original and five-header split objects each contain a `??_7BGSBodyPart@@6B@` relocation at constructor-relative offset 43. The original reference stores vptr `0x01045404`, and the independently inspected reference table's observed first slot is `QueueResourceLoad` at `0x005e45e0`.
+
+The source problem was instead the old declaration: unit 620 used a placeholder virtual `vfn_00` and declared the actual queue method nonvirtual. The split candidate declares the queue method virtual and has a matching observed BGSBodyPart locator, hierarchy and one-slot prefix. Its constructor code and reference checks match under the separately documented native-model bindings. This does not prove that the entire original table ends at one entry, or establish final record ownership and linkage.
+
+The separate `TESModelPSA` constructor source previously called the model constructor manually and wrote `0x0104540c`; that is a different function and member. The private split candidate replaces it with an actual native PSA constructor, whose generated code and vptr relocation require the explicit reference-supported symbol binding and metadata checks already documented in `BGSBODYPART-SPLIT-RESULTS.md`.

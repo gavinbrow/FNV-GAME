@@ -40,7 +40,7 @@ def fixture():
                  object=dict(sha256=m.OBJECT),archive=dict(sha256=m.ARCHIVE),field_proofs=dict(sha256=m.PROOFS,fields=9),
                  producer_receipt=dict(sha256='d'*64),directive=directive,
                  declaration=dict(canonical_sha256='26e13ca4ee534ef4dd7df52b5b31b388dfd49ba79a4099561ffe2bf9fa8c73d9'),
-                 future_uuid_response_token=r'C:\Projects\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib',**flags)
+                 future_uuid_response_token=r'C:\path\to\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib',**flags)
     peer=dict(status='accepted-qualified-metadata-handoff',handoff_sha256=m.HANDOFF,whole_payload_matches_independently_reviewed_draft=True,
               complete_fields=9,native_conformance_claim_created=False,namespace_adoption_authorized=False,provider_selected=False,runtime_eligible=False)
     directive_facts=dict(payload_bytes=93,tokens=copy.deepcopy(m.TOKENS),exact_directive_token_sequence_matches=True,

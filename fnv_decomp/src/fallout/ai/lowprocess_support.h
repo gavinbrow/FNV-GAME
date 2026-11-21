@@ -142,7 +142,7 @@ class NavMeshInfo_const;
 class NiControllerSequence;
 class NiExtraData;
 class NiFixedString;
-class NiMemObject;
+struct NiMemObject;
 class NiNode;
 class NiObject;
 class NiObjectNET;

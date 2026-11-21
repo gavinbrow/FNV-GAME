@@ -8,8 +8,8 @@ sys.path.append(__import__('os').path.expandvars(r'%APPDATA%\Python\Python312\si
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 HERE = Path(__file__).resolve().parent
-PB = Path(r'C:\Projects\Decompilation\runtime-next\pinned-build')
-CV = Path(r'C:\Projects\Decompilation\runtime-next\coverage-v3')
+PB = Path(r'C:\path\to\Decompilation\runtime-next\pinned-build')
+CV = Path(r'C:\path\to\Decompilation\runtime-next\coverage-v3')
 sys.path.insert(0, str(PB)); sys.path.insert(0, str(CV)); sys.path.insert(0, str(HERE))
 import numpy as np
 import assemble_v3 as A
@@ -262,7 +262,7 @@ def main():
     # ---- CRT
     import crt5
     dsecs = [(pe.base + rva, bytes(orig[raw:raw + rsz])) for (rva, vs, rsz, raw) in pe.sections[1:] if rsz]
-    crt, crt_rej, nmatch, crt5stat = crt5.run_crt5(BE, units, pe, cover, TEXT_VA, rs, ref, Path('C:/Projects/Decompilation/FNV/tools/vc2008/VC/lib'), ehm, dsecs)
+    crt, crt_rej, nmatch, crt5stat = crt5.run_crt5(BE, units, pe, cover, TEXT_VA, rs, ref, Path('C:/path/to/Decompilation/FNV/tools/vc2008/VC/lib'), ehm, dsecs)
     crt_stat = collections.Counter(matched=nmatch, accepted_by_rerun=len(crt), json_crt=sum(1 for p in ep['pieces'] if p['kind'] == 'crt'))
     jc = {p['address']: p['data'] for p in ep['pieces'] if p['kind'] == 'crt'}
     crt_stat['rerun_equals_json'] = sum(1 for c in crt if jc.get(c['address']) == c['data'].hex())

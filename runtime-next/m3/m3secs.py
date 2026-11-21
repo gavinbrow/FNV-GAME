@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import splice
 UID = 200000
-ALIGN = {1: 0x00100000, 2: 0x00200000, 4: 0x00300000, 8: 0x00400000}      # IMAGE_SCN_ALIGN_1/2/4/8BYTES
+ALIGN = {1: 0x00100000, 2: 0x00200000, 4: 0x00300000, 8: 0x00400000, 16: 0x00500000}      # IMAGE_SCN_ALIGN_1/2/4/8/16BYTES
 FLAGS = {'.data': 0xC0000040, '.rdata': 0x40000040}
 
 

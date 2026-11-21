@@ -26,6 +26,17 @@ functions to the original names in two Xbox 360 development builds. Only its hig
 The build pipeline in `runtime-next/` (compiling, laying out code and data, assembling and testing the executable),
 the play setup and the release tooling in `tools/` were built on top of fnv_decomp for this repository.
 
+Original contributions owned by gavinbrow, including original source and
+header changes in any directory, tooling and documentation, are available
+under the [MIT licence](LICENSE), within the scope stated there. Contributions
+from others are covered only when their copyright holders expressly choose
+these terms. Free use, modification and redistribution require keeping the
+copyright and permission notices as attribution.
+Please retain this credits file when sharing the project so the upstream
+contributors remain acknowledged. Upstream work and original game materials
+keep their existing terms. Licensing an original addition does not grant
+permission to reuse the pre-existing material in a mixed file.
+
 ## Third-party code
 
 - zlib 1.2.1 by Jean-loup Gailly and Mark Adler, under its own licence

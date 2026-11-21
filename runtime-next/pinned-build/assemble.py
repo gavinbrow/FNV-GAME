@@ -10,13 +10,13 @@ from concurrent.futures import ProcessPoolExecutor
 
 sys.dont_write_bytecode = True
 HERE = Path(__file__).resolve().parent
-FN = Path(r'C:\Projects\Decompilation\fnv_decomp')
+FN = Path(r'C:\path\to\Decompilation\fnv_decomp')
 sys.path.insert(0, str(FN / 'tools'))
 import compare as CMP                      # noqa
 from compare import Coff, Pe, compare, same_literal   # noqa
 import build_and_match as BAM              # noqa
 
-IMG = Path(r'C:\Projects\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')
+IMG = Path(r'C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')
 M32 = 0xffffffff
 KINDS = {0x06: 'DIR32', 0x14: 'REL32', 0x07: 'DIR32NB', 0x0B: 'SECREL'}
 ADDR_RE = re.compile(r'(?<![0-9A-Za-z])(?:FUN|DAT|PTR|LAB|SUB|UNK|OFF|BYTE|WORD|DWORD|switchD|caseD|LOC)_([0-9a-f]{8})(?![0-9A-Za-z])')

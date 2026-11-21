@@ -1,0 +1,52 @@
+{
+  "scope": "One source-native NiPoint3 aggregate head; W tail remains synthetic and preserves old run items and two original relocations.",
+  "head": {
+    "va": 18521136,
+    "size": 12,
+    "namespace": "fnv_005c25f0",
+    "class_name": "NiPoint3",
+    "symbol": "?DAT_011a9c30@fnv_005c25f0@@3VNiPoint3@1@A",
+    "source": {
+      "path": "fnv_decomp/src/fallout_shared/tesscriptfunctions.cpp",
+      "class_line": 50845,
+      "declaration_line": 50853
+    }
+  },
+  "tail": {
+    "va": 18521148,
+    "tc": "W",
+    "size": 252,
+    "kind": "tail-m3",
+    "ns": "",
+    "named": false,
+    "head": null,
+    "runs": [
+      [
+        "M",
+        5
+      ],
+      [
+        "P",
+        2
+      ],
+      [
+        "S",
+        100
+      ],
+      [
+        "P",
+        3
+      ],
+      [
+        "S",
+        112
+      ]
+    ],
+    "align": 4
+  },
+  "tail_relocation_offsets": [
+    20,
+    132
+  ],
+  "limitation": "Private fixture only; no evidence all 264 bytes belong to the class."
+}

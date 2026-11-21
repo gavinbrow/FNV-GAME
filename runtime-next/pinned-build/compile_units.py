@@ -3,8 +3,8 @@ import sys, os, json, subprocess, time
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 HERE = Path(__file__).resolve().parent
-FN = Path(r'C:\Projects\Decompilation\fnv_decomp')
-VC = Path(r'C:\Projects\Decompilation\FNV\tools\vc2008\VC')   # only toolchain present: VC2008 SP1 15.00.30729.01
+FN = Path(r'C:\path\to\Decompilation\fnv_decomp')
+VC = Path(r'C:\path\to\Decompilation\FNV\tools\vc2008\VC')   # only toolchain present: VC2008 SP1 15.00.30729.01
 ENV = os.environ.copy()
 ENV['INCLUDE'] = f'{VC}\include;{VC}\PlatformSDK\include'
 ENV['LIB'] = f'{VC}\lib;{VC}\PlatformSDK\lib'

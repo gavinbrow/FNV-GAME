@@ -1,0 +1,689 @@
+{
+  "schema": 1,
+  "description": "Conservative W heads with exact scalar-size W object, one namespaced unit scalar encoding, consistent lexical source declaration and no original relocation; review candidates, not integration-ready.",
+  "candidates": [
+    {
+      "va": 16969656,
+      "size": 8,
+      "namespace": "fnv_0054c030",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_0102efb8@fnv_0054c030@@3NB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/tesobjectcell.cpp",
+          "line": 13539
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/tesobjectcell.cpp",
+          "line": 13539,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 16969856,
+      "size": 8,
+      "namespace": "CellShadow",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_0102f080@CellShadow@@3NB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/tesobjectcell.cpp",
+          "line": 20024
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/tesobjectcell.cpp",
+          "line": 20024,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17101480,
+      "size": 4,
+      "namespace": "fnv_00641830",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_0104f2a8@fnv_00641830@@3MA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/sky/sun.cpp",
+          "line": 945
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/sky/sun.cpp",
+          "line": 945,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17216756,
+      "size": 4,
+      "namespace": "PathDebugRender",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_0106b4f4@PathDebugRender@@3MB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/staging/blk_006a0000_od.cpp",
+          "line": 13327
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/staging/blk_006a0000_od.cpp",
+          "line": 13327,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17216780,
+      "size": 4,
+      "namespace": "PathDebugRender",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_0106b50c@PathDebugRender@@3MB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/staging/blk_006a0000_od.cpp",
+          "line": 13331
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/staging/blk_006a0000_od.cpp",
+          "line": 13331,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17231692,
+      "size": 4,
+      "namespace": "fnv_0070a130",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_0106ef4c@fnv_0070a130@@3MB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/interfacemanager.cpp",
+          "line": 3483
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/interfacemanager.cpp",
+          "line": 3483,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17243268,
+      "size": 4,
+      "namespace": "fnv_007539a0",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_01071c84@fnv_007539a0@@3MB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/chargenmenu.cpp",
+          "line": 846
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/chargenmenu.cpp",
+          "line": 846,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17249416,
+      "size": 8,
+      "namespace": "fnv_00771700",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_01073488@fnv_00771700@@3NB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 9501
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 9501,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17249528,
+      "size": 8,
+      "namespace": "fnv_00778b80",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_010734f8@fnv_00778b80@@3NA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 916
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 916,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17256444,
+      "size": 4,
+      "namespace": "fnv_0079b8e0",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_01074ffc@fnv_0079b8e0@@3MA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/mapmenu.cpp",
+          "line": 1360
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/mapmenu.cpp",
+          "line": 1360,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17321352,
+      "size": 4,
+      "namespace": "fnv_008a4810",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_01084d88@fnv_008a4810@@3MA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/actor.cpp",
+          "line": 68979
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/actor.cpp",
+          "line": 68979,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17334592,
+      "size": 8,
+      "namespace": "fnv_008df1e0",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_01088140@fnv_008df1e0@@3NA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/highprocess.cpp",
+          "line": 31211
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ],
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/highprocess.cpp",
+          "line": 31211,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17376520,
+      "size": 8,
+      "namespace": "fnv_009e8000",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_01092508@fnv_009e8000@@3NA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/movement/detailedactorpathhandler.cpp",
+          "line": 4250
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/movement/detailedactorpathhandler.cpp",
+          "line": 4250,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17670824,
+      "size": 8,
+      "namespace": "ConstraintInit",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_010da2a8@ConstraintInit@@3NB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "line": 602
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "line": 602,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 17670832,
+      "size": 8,
+      "namespace": "ConstraintInit",
+      "proposed_type": "double",
+      "unit_symbol": "?DAT_010da2b0@ConstraintInit@@3NB",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "line": 601
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          2
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "line": 601,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18481440,
+      "size": 4,
+      "namespace": "fnv_00774090",
+      "proposed_type": "int",
+      "unit_symbol": "?DAT_011a0120@fnv_00774090@@3HA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 5740
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 5740,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18484080,
+      "size": 4,
+      "namespace": "fnv_007ec3a0",
+      "proposed_type": "int",
+      "unit_symbol": "?DAT_011a0b70@fnv_007ec3a0@@3HA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 11206
+        },
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/vatsmenu.cpp",
+          "line": 4003
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 11206,
+          "namespace_marker_before_unclosed_comment": false,
+          "const_matches_mangled": true
+        },
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/vatsmenu.cpp",
+          "line": 4003,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18493460,
+      "size": 1,
+      "namespace": "fnv_0086a0a0",
+      "proposed_type": "unsigned char",
+      "unit_symbol": "?DAT_011a3014@fnv_0086a0a0@@3EA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/staging/blk_00860000_od.cpp",
+          "line": 7324
+        }
+      ],
+      "w_runs": [
+        [
+          "B",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/staging/blk_00860000_od.cpp",
+          "line": 7324,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18496304,
+      "size": 1,
+      "namespace": "fnv_0094df80",
+      "proposed_type": "unsigned char",
+      "unit_symbol": "?DAT_011a3b30@fnv_0094df80@@3EA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/playercharacter.cpp",
+          "line": 20968
+        }
+      ],
+      "w_runs": [
+        [
+          "B",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/playercharacter.cpp",
+          "line": 20968,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18534684,
+      "size": 4,
+      "namespace": "fnv_00b06c10",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_011ad11c@fnv_00b06c10@@3MA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/speedtree/speedtreert_ob1_variant.cpp",
+          "line": 3783
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/speedtree/speedtreert_ob1_variant.cpp",
+          "line": 3783,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18534688,
+      "size": 4,
+      "namespace": "fnv_00b06c10",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_011ad120@fnv_00b06c10@@3MA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/speedtree/speedtreert_ob1_variant.cpp",
+          "line": 3784
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/speedtree/speedtreert_ob1_variant.cpp",
+          "line": 3784,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18536440,
+      "size": 4,
+      "namespace": "fnv_00b4e490",
+      "proposed_type": "float",
+      "unit_symbol": "?DAT_011ad7f8@fnv_00b4e490@@3MA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/bsshader/bsfadenode.cpp",
+          "line": 866
+        }
+      ],
+      "w_runs": [
+        [
+          "M",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/bsshader/bsfadenode.cpp",
+          "line": 866,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    },
+    {
+      "va": 18536552,
+      "size": 4,
+      "namespace": "fnv_00b5e870",
+      "proposed_type": "int",
+      "unit_symbol": "?DAT_011ad868@fnv_00b5e870@@3HA",
+      "source_locations": [
+        {
+          "path": "fnv_decomp/src/bsshader/shadowscenenode.cpp",
+          "line": 8244
+        }
+      ],
+      "w_runs": [
+        [
+          "U",
+          1
+        ]
+      ],
+      "kind": "ns",
+      "limitation": "Lexical source evidence does not establish all scopes, alias identity or no earlier ownership; requires targeted source and COFF verification.",
+      "scope_checks": [
+        {
+          "path": "fnv_decomp/src/bsshader/shadowscenenode.cpp",
+          "line": 8244,
+          "namespace_marker_before_unclosed_comment": true,
+          "const_matches_mangled": true
+        }
+      ]
+    }
+  ],
+  "count": 23,
+  "bytes": 118
+}

@@ -1,5 +1,22 @@
 # TODO
 
+## Current checkpoint - 2026-11-21
+
+Development is paused. See [docs/STATUS.md](docs/STATUS.md) for the accepted
+checkpoint, validation and remaining work. The older checklist below is
+historical and does not override this section.
+
+- [x] Finish Phase 1 with explicit deferred ranges and promote the verified default.
+- [x] Accept 430 native runtime type records and 227 additional native RTTI descriptors.
+- [x] Reach 1,614,032 / 1,979,392 initialized data bytes from compiled objects.
+- [ ] Compose and verify the private Settings/Havok/type/string/allocation candidates.
+- [ ] Finish integration and verification of 123 additional descriptor candidates.
+- [ ] Resolve remaining class layouts, inheritance, virtual tables and global ownership.
+- [ ] Place 190,698 bytes that already compile but remain outside the image.
+- [ ] Finish later startup/exception work and fix the ordinary-linker Steam startup crash.
+
+## Historical checklist through 2026-11-17
+
 Plan and background: [PLAN-M3.md](PLAN-M3.md). Newest entries at the top of "Done".
 
 ## Now: M3 phase 1 (globals)

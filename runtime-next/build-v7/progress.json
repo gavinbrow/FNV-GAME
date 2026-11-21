@@ -4,11 +4,11 @@
  "nonpadding_text_bytes": 10843747,
  "coverage_pct_of_nonpadding_text": 100.0,
  "ours_by_origin": {
-  "recipe_functions": 10384531,
+  "recipe_functions": 10384577,
   "recipe_eh_tails": 125275,
   "eh_pieces_outside_recipe": 123475,
-  "crt_lib_functions": 132464,
-  "verified_contributions": 71310,
+  "crt_lib_functions": 132432,
+  "verified_contributions": 71296,
   "contribution_eh_pieces": 6692
  },
  "borrowed_relocation_field_bytes": 0,
@@ -17,15 +17,15 @@
  "missing_c_undecompiled": 0,
  "pieces": {
   "contributions": {
-   "placed": 1087,
-   "bytes": 80042
+   "placed": 1086,
+   "bytes": 80026
   },
   "contribution_eh": {
    "located": 437,
    "placed": 437,
    "new_bytes": 6720
   },
-  "functions_placed": 69027,
+  "functions_placed": 69029,
   "fn_reject_reasons": {
    "fn-duplicate-address": 10
   },
@@ -33,22 +33,22 @@
    "located": 21682,
    "accepted-in-recipe-tail": 8073,
    "nothing-new(already placed/inside function range)": 5947,
-   "not-ok(matcher)": 782,
-   "accepted-although-matcher-not-ok": 380,
-   "accepted-not-ok-new_bytes": 4951,
+   "not-ok(matcher)": 777,
+   "accepted-although-matcher-not-ok": 378,
+   "accepted-not-ok-new_bytes": 4910,
    "accepted-outside-recipe(new)": 7652,
    "bytes-differ-from-reference": 10,
-   "healed-borrowed-fields": 230
+   "healed-borrowed-fields": 228
   },
   "crt": {
-   "matched": 595,
-   "accepted_by_rerun": 595,
+   "matched": 594,
+   "accepted_by_rerun": 594,
    "json_crt": 595,
-   "rerun_equals_json": 595,
-   "placed": 595
+   "rerun_equals_json": 594,
+   "placed": 594
   },
   "crt5": {
-   "code_matches": 595,
+   "code_matches": 594,
    "small_matches": 0,
    "small_bytes": 0,
    "data": {
@@ -85,10 +85,10 @@
    "borrow": 2
   },
   "by_source": {
-   "c": 473944,
-   "a": 36227,
-   "b": 5552,
-   "overlay-field": 389,
+   "c": 473518,
+   "a": 36660,
+   "b": 5549,
+   "overlay-field": 386,
    "f": 4312,
    "eh-stub": 94,
    "overlay-name": 2915,
@@ -97,7 +97,7 @@
    "overlay-global": 1387,
    "lib-matched": 1842,
    "member-section": 747,
-   "symbol-map": 309,
+   "symbol-map": 308,
    "import": 144,
    "self": 40,
    "linker-imagebase": 10
@@ -132,7 +132,7 @@
  },
  "icf_fold": {
   "wanted_names": 1937,
-  "wanted_fields": 3085,
+  "wanted_fields": 3083,
   "names_to_fold_incl_closure": 2149,
   "no_body_in_our_objects": 1029,
   "body_but_no_identical_placed_function": 600,
@@ -230,7 +230,7 @@
    ]
   }
  },
- "seconds": 34,
+ "seconds": 33,
  "own_reloc": {
   "original_text_sites": 201766,
   "original_total_sites": 351931,

@@ -1,0 +1,53 @@
+{
+  "scope": "Private two source-view SIMD objects plus retained one-pointer W tail; requires 16-byte COFF, original and translated output alignment.",
+  "entries": [
+    {
+      "va": 17610272,
+      "size": 16,
+      "align": 16,
+      "symbol": "?DAT_010cb620@fnv_00cd9d10@@3U__m128@1@A",
+      "namespace": "fnv_00cd9d10",
+      "type_name": "__m128",
+      "source": {
+        "path": "fnv_decomp/src/staging/blk_00cc0000_o2.cpp",
+        "class_line": 28044,
+        "declaration_line": 28065
+      },
+      "original_w_size": 16
+    },
+    {
+      "va": 17610288,
+      "size": 16,
+      "align": 16,
+      "symbol": "?DAT_010cb630@fnv_00cd9d10@@3U__m128@1@A",
+      "namespace": "fnv_00cd9d10",
+      "type_name": "__m128",
+      "source": {
+        "path": "fnv_decomp/src/staging/blk_00cc0000_o2.cpp",
+        "class_line": 28044,
+        "declaration_line": 28069
+      },
+      "original_w_size": 20
+    }
+  ],
+  "tail": {
+    "va": 17610304,
+    "tc": "W",
+    "size": 4,
+    "kind": "tail-m3",
+    "ns": "",
+    "named": false,
+    "head": null,
+    "runs": [
+      [
+        "P",
+        1
+      ]
+    ],
+    "align": 4
+  },
+  "tail_relocation_offsets": [
+    0
+  ],
+  "source_sha256": "1f7c0e4a8d9275870b315fad87e81d66f9c830cef022ecf9a732f1ba065d5730"
+}

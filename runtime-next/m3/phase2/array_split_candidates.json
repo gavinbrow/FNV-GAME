@@ -1,0 +1,119 @@
+{
+  "scope": "Source-declared array candidates with exact source evidence, unique units key and W run-boundary splits; targeted source/COFF and end-to-end checks still required.",
+  "array_candidates": [
+    {
+      "va": 18513216,
+      "size": 256,
+      "element_type_code": "E",
+      "namespace": "sa238a0",
+      "symbol": "?DAT_011a7d40@sa238a0@@3PAEA",
+      "source_line": 13141,
+      "original_w_size": 288,
+      "tail_va": 18513472,
+      "tail_size": 32,
+      "tail_runs": [
+        [
+          "P",
+          8
+        ]
+      ],
+      "tail_original_reloc_offsets": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28
+      ],
+      "limitation": "Tail remains address-named W scaffolding; native ownership/type unproven."
+    },
+    {
+      "va": 18534104,
+      "size": 36,
+      "element_type_code": "I",
+      "namespace": "fnv_00af4550",
+      "symbol": "?DAT_011aced8@fnv_00af4550@@3PAIA",
+      "source_line": 6153,
+      "original_w_size": 224,
+      "tail_va": 18534140,
+      "tail_size": 188,
+      "tail_runs": [
+        [
+          "P",
+          2
+        ],
+        [
+          "S",
+          16
+        ],
+        [
+          "P",
+          2
+        ],
+        [
+          "S",
+          16
+        ],
+        [
+          "P",
+          2
+        ],
+        [
+          "S",
+          24
+        ],
+        [
+          "P",
+          2
+        ],
+        [
+          "S",
+          20
+        ],
+        [
+          "P",
+          2
+        ],
+        [
+          "S",
+          28
+        ],
+        [
+          "P",
+          2
+        ],
+        [
+          "U",
+          9
+        ]
+      ],
+      "tail_original_reloc_offsets": [
+        0,
+        24,
+        48,
+        80,
+        108,
+        144
+      ],
+      "limitation": "Tail remains address-named W scaffolding; native ownership/type unproven."
+    },
+    {
+      "va": 17382252,
+      "size": 16,
+      "element_type_code": "H",
+      "namespace": "fnv_009f9e50",
+      "symbol": "?DAT_01093b6c@fnv_009f9e50@@3PAHA",
+      "source_line": 6205,
+      "original_w_size": 16,
+      "tail_va": null,
+      "tail_size": 0,
+      "tail_runs": [],
+      "tail_original_reloc_offsets": [],
+      "limitation": "Tail remains address-named W scaffolding; native ownership/type unproven."
+    }
+  ],
+  "array_bytes": 308,
+  "coverage_change": 0
+}

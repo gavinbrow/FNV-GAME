@@ -1,5 +1,5 @@
 r"""Shared path configuration for every build script (environment first, today's local paths as defaults).
-  FNV_PROJ_ROOT         project root holding fnv_decomp/, runtime-next/ (and FNV/ for the MCP-era inputs). Default: C:\Projects\Decompilation
+  FNV_PROJ_ROOT         project root holding fnv_decomp/, runtime-next/ (and FNV/ for the MCP-era inputs). Default: C:\path\to\Decompilation
   FNV_GAME_DIR          installed Fallout New Vegas folder (read only, never modified)
   FNV_MSVC9_RTM_ROOT    VC 2008 RTM toolchain root;   FNV_MSVC9_ROOT  VC 2008 SP1 toolchain root (FNV/tools/vc2008)
   FNV_REF_IMAGE         the decrypted reference image (FalloutNV.runtime-text.exe): READ ONLY, never copied; the matcher/assembler use it as oracle

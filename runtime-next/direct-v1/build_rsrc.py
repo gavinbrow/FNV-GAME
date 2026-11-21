@@ -1,7 +1,7 @@
 """rebuild .rsrc: extract_res (build-time binaries) -> rc_lite (.rc -> .res) -> cvtres.exe -> link_rsrc (section image)."""
 import subprocess, os, sys
 here = os.path.dirname(os.path.abspath(__file__))
-CVTRES = (__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\Projects\Decompilation\FNV\tools\vc2008') + r'\VC\bin\cvtres.exe')
+CVTRES = (__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\path\to\Decompilation\FNV\tools\vc2008') + r'\VC\bin\cvtres.exe')
 def build(rva):
     import extract_res  # noqa (runs extraction on import)
     import rc_lite, link_rsrc

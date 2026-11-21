@@ -2947,9 +2947,9 @@ void Owner007f::FUN_007fdf40()
 }
 
 struct NiAVObjectS;
-struct BGSBodyPart
+struct FORenderedMenuNodeView
 {
-    NiAVObjectS* GetPartName();
+    NiAVObjectS* GetMenuNode();
 };
 struct NiAVObjectS : NiAVObject
 {
@@ -3025,11 +3025,11 @@ struct FUN_007ff740_shell : public FORenderedMenu
 // @fnv 0x007ff740
 void FUN_007ff740_shell::UpdateBodyPart()
 {
-    if (((BGSBodyPart*)this)->GetPartName())
+    if (((FORenderedMenuNodeView*)this)->GetMenuNode())
     {
-        ((BGSBodyPart*)this)->GetPartName()->FUN_00450f90(true);
+        ((FORenderedMenuNodeView*)this)->GetMenuNode()->FUN_00450f90(true);
         NiUpdateData upd(0.0f, false, false);
-        ((BGSBodyPart*)this)->GetPartName()->Update(upd);
+        ((FORenderedMenuNodeView*)this)->GetMenuNode()->Update(upd);
     }
     ((SSNVt*)FUN_00450b80(1))->v3a(this->GetMenuRoot());
     ((MenuStub*)this)->ResetMenuState();

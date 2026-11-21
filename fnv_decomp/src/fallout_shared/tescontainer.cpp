@@ -59,23 +59,7 @@ void InventoryItemEntry::Copy(InventoryItemEntry* other)
     }
 }
 
-class TESContainer : public BaseFormComponent
-{
-  public:
-    BSSimpleList<InventoryStackRecord*> objectList;
-    virtual void Init();
-    BSSimpleList<InventoryStackRecord*>* GetObjectList();
-    void AddObject(InventoryItemEntry* object);
-    void ClearObjects();
-    void InitItem(TESForm* form);
-    virtual void Free();
-    virtual void CopyFromBase(BaseFormComponent* component);
-    ~TESContainer();
-    bool HasObjectOfType(TESObject* object);
-    int GetObjectCount(TESObject* object);
-    static bool IsValidContainerType(unsigned char type);
-    TESContainer();
-};
+#include "TESContainer.h"
 
 // Constructs a TESContainer, initializing its objectList and calling Init().
 // @fnv 0x00481610
@@ -1388,15 +1372,11 @@ FUN_00482910_rec* FUN_00482910_cls::FindBestRecord(FUN_00482910_obj* pScorer)
     return result2;
 }
 
-struct FUN_00481d10_shell : TESContainer
-{
-    bool FUN_00481d10(BaseFormComponent* other);
-};
 void* __fastcall _ref_00717e50(void*);
 int __fastcall _ref_005ae380(void*);
 // Compares this container's entries against another TESContainer's entries, returning true when they differ or the counts do not match.
 // @fnv 0x00481d10
-bool FUN_00481d10_shell::FUN_00481d10(BaseFormComponent* other)
+bool TESContainer::CompareWithBase(BaseFormComponent* other)
 {
     TESContainer* otherContainer = dynamic_cast<TESContainer*>(other);
     if (otherContainer == 0)

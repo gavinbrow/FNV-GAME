@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "scope": "Private next-batch proposal, not a frozen or approved build. Current combined positive still under verification.",
+  "inputs": {
+    "next_m3_selection": {
+      "path": "out/phase2-cost245-proposal/selection.json",
+      "sha256": "a0a8e8d2c9818f777f6e07ae18b5cc7d55ff94ca0bd6ccd952ff98ab836d9c3a"
+    },
+    "next_generator": {
+      "path": "out/phase2-cost245-proposal/candidate-gen_m3.py",
+      "sha256": "0ae6999c180682514c7f44d43a694ed25adf8029979de2c78bcaf78f5c12b241"
+    },
+    "cost245_hardened_helper": {
+      "path": "out/phase2-cost245-proposal/candidate-cost245_records.py",
+      "sha256": "42770efbf44d39d9bcded7ab3e93f8d038d80a26bc7120d43c7fa197685cb64a"
+    },
+    "simd_splice": {
+      "path": "out/phase2-align16/candidate-splice.py",
+      "sha256": "63b3dad2f2a8a1016a74c19382de343d001b3e2ad75699d6f1b68906b896af34"
+    },
+    "simd_m3secs": {
+      "path": "out/phase2-align16/candidate-m3secs.py",
+      "sha256": "386a42cee22dfd266cf40735261345a9cd768be014089b92bca3e2e323790625"
+    },
+    "simd_image_builder": {
+      "path": "out/phase2-align16/candidate-make_image.py",
+      "sha256": "f2a3284e9869a28d6117e5e85e6b28ea9a7a43ec13f0ac256f869030ebec060c"
+    },
+    "next_library_selection": {
+      "path": "out/phase2-library-splits/selection-with-atan.json",
+      "sha256": "74e3815454a8926ee3d8f70abf939e8d61eadd7173a7514c93e66fee92589700"
+    },
+    "next_library_overlay": {
+      "path": "out/phase2-library-splits/candidate-library_overlay.py",
+      "sha256": "dbdc7d9440ed99f4f64716fc77445df0f7cff21a5472925e875526b1cc9be1f7"
+    },
+    "current_smoke_pieces": {
+      "path": "out/phase2-library-cli-smoke/dv1_pieces.json",
+      "sha256": "6b5d19c75ff155d9b240af8796f0265e4855f2563058b187893146d9951e8bfc"
+    },
+    "current_m3_selection": {
+      "path": "out/phase2-w-arrays-expanded/selection.json",
+      "sha256": "2dc3eb28083648d0d701268d8aa858a4d90fddd45e6ffb2613073cbb83672045"
+    }
+  },
+  "m3": {
+    "current_entries": 8265,
+    "next_entries": 8268,
+    "selected_range_union_unchanged": true,
+    "incremental_typed_w_bytes": 364,
+    "typed_heads": [
+      {
+        "kind": "NiPoint3",
+        "va": 18521136,
+        "size": 12,
+        "retained_w_tail_bytes": 252,
+        "retained_tail_relocations": 2
+      },
+      {
+        "kind": "__m128",
+        "va": 17610272,
+        "size": 16,
+        "alignment": 16,
+        "retained_w_tail_bytes": 0
+      },
+      {
+        "kind": "__m128",
+        "va": 17610288,
+        "size": 16,
+        "alignment": 16,
+        "retained_w_tail_bytes": 4,
+        "retained_tail_relocations": 1
+      },
+      {
+        "kind": "Cost245[16]",
+        "va": 18384544,
+        "size": 320,
+        "head_relocations_in_source_int_fields": 58,
+        "retained_w_tail_bytes": 64,
+        "retained_tail_relocations": 1
+      }
+    ],
+    "native_semantics_limit": "Cost245 int fields are source-view integer fields with address relocations; native pointer types and alias identity are not established.",
+    "cost245_review_limit": "Independent review confirmed source scope and declared array use; exact original unit COFF symbol and all aliases were not independently verified by that review. The private staged helper now rejects any non-int-field or unaligned original relocation; its installation and compiled verification remain pending."
+  },
+  "library": {
+    "selected_pieces": 405,
+    "selected_bytes": 16730,
+    "identical_to_smoke_pieces": 370,
+    "identical_to_smoke_bytes": 6374,
+    "incremental_disjoint_pieces": 35,
+    "incremental_disjoint_bytes": 10356,
+    "incremental_reference_zero": 4014,
+    "incremental_reference_nonzero": 6342,
+    "smoke_total_dv1_bytes_including_tls": 539686,
+    "smoke_raw_data_rdata_bytes": 539681,
+    "atan_alias_limitation": "Whole section chosen; smaller overlapping unselected library annotations remain unresolved provenance."
+  },
+  "checks": {
+    "next_m3_union_equals_current": true,
+    "next_m3_disjoint_from_smoke_dv1": true,
+    "next_library_internal_disjoint": true,
+    "next_library_increment_disjoint_from_smoke_dv1": true,
+    "current_smoke_not_final_accepted": true
+  },
+  "fixtures": {
+    "point3": "out/phase2-point3/isolated-fixture/result.json PASS 12+252 and 2 relocs",
+    "cost245_source_view": "out/phase2-cost245/isolated-fixture/result.json PASS 320+64 and 59 relocs",
+    "simd": "pending exact COFF and 16-alignment fixture",
+    "staged_cost245_emitter": "pending compiled object fixture",
+    "controls_repeat_full_image": "pending"
+  },
+  "commands": [
+    "python -I runtime-next/m3/phase2/compile_simd_fixture.py",
+    "python -I runtime-next/m3/phase2/compile_cost245_staged.py",
+    "python -I runtime-next/m3/phase2/test_align16_staged.py",
+    "python -I runtime-next/m3/phase2/test_cost245_staged.py",
+    "python -I runtime-next/m3/phase2/test_library_splits_staged.py"
+  ],
+  "integration_warning": "The Cost245 staged generator imports runtime-next/m3/phase2/cost245_records.py; the hardened staged helper must be installed and reviewed in a released integration window before compiling or using that selection. All staged 16-byte alignment paths must be reviewed and installed together.",
+  "source_evidence": [
+    {
+      "path": "fnv_decomp/src/fallout_shared/tesscriptfunctions.cpp",
+      "sha256": "508663ccbd68153274fa01137235884057715f4141f80a1afeaac903dfa94c20"
+    },
+    {
+      "path": "fnv_decomp/src/staging/blk_00cc0000_o2.cpp",
+      "sha256": "1f7c0e4a8d9275870b315fad87e81d66f9c830cef022ecf9a732f1ba065d5730"
+    },
+    {
+      "path": "fnv_decomp/src/fallout_shared/bgssceneinfo.cpp",
+      "sha256": "359002f014620781c489ffb3c4691fc4191ffdefb81fd01673df7552b58475c6"
+    }
+  ]
+}

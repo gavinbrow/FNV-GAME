@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "va": 18417936,
+      "tc": "R",
+      "size": 25600,
+      "n": 640,
+      "generated_name": "M3_01190910",
+      "partial": true,
+      "batch": "b8-command-prefixes",
+      "evidence": "640-record source-accessed prefix; full extent and opaque fields unresolved"
+    },
+    {
+      "va": 18409696,
+      "tc": "R",
+      "size": 7680,
+      "n": 192,
+      "generated_name": "M3_0118e8e0",
+      "partial": true,
+      "batch": "b8-command-prefixes",
+      "evidence": "192-record unowned prefix of 205 source-accessed records; full extent and opaque fields unresolved"
+    }
+  ]
+}

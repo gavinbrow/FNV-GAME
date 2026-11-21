@@ -142,7 +142,7 @@ class NiControllerSequence;
 class NiExtraData;
 class NiFixedString;
 class ThreeByThreeMatrix;
-class NiMemObject;
+struct NiMemObject;
 class NiNode;
 class NiObject;
 class NiObjectNET;

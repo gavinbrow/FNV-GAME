@@ -2,7 +2,7 @@
 import sys, struct, gzip, json, bisect, collections
 sys.dont_write_bytecode = True
 import numpy as np
-RN = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next')
+RN = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next')
 import os
 SNAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'snapshot')   # frozen inputs (snapshot.py)
 B7 = SNAP

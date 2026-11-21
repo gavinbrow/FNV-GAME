@@ -8,12 +8,12 @@ extern "C" void* __cdecl memset(void*, int, unsigned int);
 BGSEncounterZone::BGSEncounterZone()
 {
     SetFormType((ENUM_FORM_ID)0x61);
-    ResetFormData();
+    BGSEncounterZone::InitializeComponent();
 }
 
 // Clears the Data and GameData members by zeroing their memory.
 // @fnv 0x00525d00
-void BGSEncounterZone::ResetFormData()
+void BGSEncounterZone::InitializeComponent()
 {
     memset(&Data, 0, sizeof(Data));
     memset(&GameData, 0, sizeof(GameData));
@@ -45,7 +45,7 @@ void BGSEncounterZone::CreateDefaultEncounterZone()
 
 // Reads an encounter zone record from file: checks form type 0x61, loads the header, then handles EDID, OBND and DATA chunks.
 // @fnv 0x00525d40
-bool BGSEncounterZone::Load(TESFile* file)
+bool BGSEncounterZone::LoadForm(TESFile* file)
 {
     unsigned char formType = file->GetTESForm();
     if (formType != 0x61)
@@ -198,16 +198,8 @@ FUN_00525cb0_shell* FUN_00525cb0_shell::Destroy(unsigned int flags)
     return this;
 }
 
-struct Base5a
-{
-    virtual ~Base5a();
-};
-struct FUN_00525ce0 : Base5a
-{
-    virtual ~FUN_00525ce0();
-};
 // @fnv 0x00525ce0
-FUN_00525ce0::~FUN_00525ce0()
+BGSEncounterZone::~BGSEncounterZone()
 {}
 
 struct S004855a0
@@ -220,12 +212,8 @@ struct S00485680
 };
 bool __cdecl FUN_00401500();
 void __cdecl AppendChunk(unsigned int, void*, unsigned int);
-struct FUN_00525e70 : BGSEncounterZone
-{
-    void Save();
-};
 // @fnv 0x00525e70
-void FUN_00525e70::Save()
+void BGSEncounterZone::SaveForm()
 {
     TESForm* powner;
     reinterpret_cast<S004855a0*>(this)->FUN_004855a0();
@@ -456,23 +444,19 @@ struct S00484d60
 {
     void SaveIfChanged(BGSSaveFormBuffer*);
 };
-struct FUN_00526410 : BGSEncounterZone
-{
-    void SaveGame(BGSSaveFormBuffer* apSaveGameBuffer);
-};
 // @fnv 0x00526410
-void FUN_00526410::SaveGame(BGSSaveFormBuffer* apSaveGameBuffer)
+void BGSEncounterZone::Unk_15(BGSSaveFormBuffer* apSaveGameBuffer)
 {
     unsigned char ctempFlags;
-    reinterpret_cast<S00484d60*>(this)->SaveIfChanged(apSaveGameBuffer);
-    if (apSaveGameBuffer->GetChangeFlags(2))
+    reinterpret_cast<S00484d60*>(this)->SaveIfChanged(reinterpret_cast<BGSSaveFormBuffer*>(apSaveGameBuffer));
+    if (reinterpret_cast<BGSSaveFormBuffer*>(apSaveGameBuffer)->GetChangeFlags(2))
     {
         ctempFlags = *(signed char*)((char*)this + 0x1e) & 1;
-        apSaveGameBuffer->FUN_00865e50(&ctempFlags, 1, 0);
+        reinterpret_cast<BGSSaveFormBuffer*>(apSaveGameBuffer)->FUN_00865e50(&ctempFlags, 1, 0);
     }
-    if (apSaveGameBuffer->GetChangeFlags(0x80000000))
+    if (reinterpret_cast<BGSSaveFormBuffer*>(apSaveGameBuffer)->GetChangeFlags(0x80000000))
     {
-        apSaveGameBuffer->FUN_00865e50((char*)this + 0x20, 0x10, 0);
+        reinterpret_cast<BGSSaveFormBuffer*>(apSaveGameBuffer)->FUN_00865e50((char*)this + 0x20, 0x10, 0);
     }
 }
 
@@ -487,56 +471,49 @@ struct BGSLoadFormBuffer
 {
     FormChangeMask GetOldChangeFlags(unsigned int f);
 };
-struct FUN_00526570_shell : BGSEncounterZone
-{
-    void RevertAndClearIfChanged(BGSLoadFormBuffer* buf);
-};
-// @fnv 0x00526570
-void FUN_00526570_shell::RevertAndClearIfChanged(BGSLoadFormBuffer* pLoadBuffer)
-{
-    TESForm::Revert(reinterpret_cast<unsigned int>(pLoadBuffer));
-    if (pLoadBuffer->GetOldChangeFlags(0x80000000))
-        memset((char*)this + 0x20, 0, 0x10);
-}
 }  // namespace fnv_00526570
 
-struct BGSLoadFormBuffer
+// @fnv 0x00526570
+void BGSEncounterZone::Revert(BGSLoadFormBuffer* pLoadBuffer)
 {
+    TESForm::Revert(pLoadBuffer);
+    if (reinterpret_cast<fnv_00526570::BGSLoadFormBuffer*>(pLoadBuffer)->GetOldChangeFlags(0x80000000))
+        memset((char*)this + 0x20, 0, 0x10);
+}
+
+class BGSLoadFormBuffer
+{
+  public:
     virtual unsigned char GetVersion();
     FormChangeMask GetChangeFlags(unsigned int);
     void ReadTypedData(void*, unsigned int);
 };
 
-struct FUN_005264a0_shell : public BGSEncounterZone
-{
-    void FUN_005264a0(BGSLoadFormBuffer* apLoadGameBuffer);
-};
-
 // Loads the encounter zone from the buffer, reading a flag byte and, for version 8+, a 16-byte field at offset 0x20.
 // @fnv 0x005264a0
-void FUN_005264a0_shell::FUN_005264a0(BGSLoadFormBuffer* apLoadGameBuffer)
+void BGSEncounterZone::LoadGame(BGSLoadFormBuffer* apLoadGameBuffer)
 {
     unsigned char ctempFlags;
 
     TESForm::LoadGame(apLoadGameBuffer);
 
-    if (apLoadGameBuffer->GetChangeFlags(2))
+    if (reinterpret_cast<BGSLoadFormBuffer*>(apLoadGameBuffer)->GetChangeFlags(2))
     {
         ctempFlags = 0;
-        apLoadGameBuffer->ReadTypedData(&ctempFlags, 1);
+        reinterpret_cast<BGSLoadFormBuffer*>(apLoadGameBuffer)->ReadTypedData(&ctempFlags, 1);
         *(char*)((char*)this + 0x1e) = (*(char*)((char*)this + 0x1e) & ~1) | (*(char*)((char*)this + 0x1e) & 1);
     }
 
-    if (apLoadGameBuffer->GetChangeFlags(0x80000000))
+    if (reinterpret_cast<BGSLoadFormBuffer*>(apLoadGameBuffer)->GetChangeFlags(0x80000000))
     {
-        if (apLoadGameBuffer->GetVersion() >= 8)
+        if (reinterpret_cast<BGSLoadFormBuffer*>(apLoadGameBuffer)->GetVersion() >= 8)
         {
-            apLoadGameBuffer->ReadTypedData((char*)this + 0x20, 0x10);
+            reinterpret_cast<BGSLoadFormBuffer*>(apLoadGameBuffer)->ReadTypedData((char*)this + 0x20, 0x10);
         }
         else
         {
             char acTempData[8];
-            apLoadGameBuffer->ReadTypedData(acTempData, 8);
+            reinterpret_cast<BGSLoadFormBuffer*>(apLoadGameBuffer)->ReadTypedData(acTempData, 8);
         }
     }
 }
@@ -546,13 +523,9 @@ struct ZoneBaseComparison
 {
     bool FUN_00485270(TESForm*);
 };
-struct ZoneComparison : BGSEncounterZone
-{
-    bool FUN_00526000(TESForm* other);
-};
 // Returns true when other is not a BGSEncounterZone, the base comparison returns true, or the Data bytes differ.
 // @fnv 0x00526000
-bool ZoneComparison::FUN_00526000(TESForm* other)
+bool BGSEncounterZone::Compare(TESForm* other)
 {
     BGSEncounterZone* zone = dynamic_cast<BGSEncounterZone*>(other);
     if (!zone)
@@ -571,16 +544,11 @@ struct FormComponentCopy
     void FUN_004851b0(TESForm* source);
 };
 
-struct EncounterZoneCopy : BGSEncounterZone
-{
-    void FUN_00525fa0(TESForm* source);
-};
-
 // Copies encounter zone data from another BGSEncounterZone into this instance via FormComponentCopy and a raw memcpy of Data.
 // @fnv 0x00525fa0
-void EncounterZoneCopy::FUN_00525fa0(TESForm* source)
+void BGSEncounterZone::CopyFrom(const TESForm* source)
 {
-    BGSEncounterZone* other = dynamic_cast<BGSEncounterZone*>(source);
+    BGSEncounterZone* other = dynamic_cast<BGSEncounterZone*>(const_cast<TESForm*>(source));
     if (!other)
         return;
     reinterpret_cast<FormComponentCopy*>(this)->FUN_004851b0(other);

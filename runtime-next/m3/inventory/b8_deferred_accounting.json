@@ -1,0 +1,51 @@
+{
+  "selection_sha256": "42d84f21776429e139502ebe391302d7c8b36f1833a6403d96009a99bbabcfe7",
+  "basis": "Final positive archived M3 manifest and DV1 pieces, checked against final selection and reference raw section metadata; recorded builder rewrite union has precedence.",
+  "raw_data_rdata_bytes": 1979392,
+  "batch8_additions": {
+    "objects": 64,
+    "bytes": 36597,
+    "zero": 13613,
+    "nonzero": 22984
+  },
+  "unspliced_dv1_detail": {
+    "historical_including_rewrites": 207671,
+    "overlap_rewritten_nonzero": 32,
+    "overlap_rewritten_zero": 3
+  },
+  "rewrite_detail": {
+    "union": 7900,
+    "zero": 1482,
+    "nonzero": 6418,
+    "previously_uncovered_zero": 1479,
+    "previously_uncovered_nonzero": 6386
+  },
+  "replacement": "The two earlier char heads at 0x0103ae48 and 0x0103aef0 are replaced by string prefixes and counted only once.",
+  "bss": {
+    "distinct_units_dat_addresses": 7171,
+    "file_bytes": 0,
+    "status": "deferred; object extents and definitions unresolved"
+  },
+  "validation": "Fresh promoted default archived ranges validated by out/batch8-promoted-default-verified/evidence/coverage-audit.json. Reference counts are values at those archived ranges; image and relocation checks are separate build evidence.",
+  "observed_from_archived_ranges": {
+    "batch7_m3": 1026376,
+    "batch8_additions": 36597,
+    "dv1": 533287,
+    "total": 1596260
+  },
+  "remaining_after_archived_ranges": {
+    "total": 383132,
+    "uncovered_nonzero_excluding_rewrites": 67551,
+    "uncovered_zero_excluding_rewrites": 100045,
+    "dv1_produced_unspliced_excluding_rewrites": 207636,
+    "recorded_rewrite_union": 7900
+  },
+  "observed_reference_values": {
+    "m3_zero": 340207,
+    "m3_nonzero": 722766,
+    "dv1_zero": 180257,
+    "dv1_nonzero": 353030,
+    "zero_total": 520464,
+    "nonzero_total": 1075796
+  }
+}

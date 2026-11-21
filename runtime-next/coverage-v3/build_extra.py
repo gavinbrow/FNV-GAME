@@ -6,7 +6,7 @@ sys.dont_write_bytecode = True
 sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
-PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\pinned-build'))
+PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\pinned-build'))
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(PB))
 import assemble_v2 as A
@@ -222,7 +222,7 @@ def main():
     ehm = np.zeros(rs, np.uint8)
     for e in ehp: a = e['address'] - TEXT_VA; ehm[a:a + e['size']] = 1
     if mode in ('crt', 'all'):
-        libdir = Path((__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\Projects\Decompilation\FNV\tools\vc2008') + r'\VC\lib'))
+        libdir = Path((__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\path\to\Decompilation\FNV\tools\vc2008') + r'\VC\lib'))
         crt, st, rs_ = run_crt(units, pe, cover, TEXT_VA, rs, text, libdir, 'SP1', ehm)
         res['crt_stats'] = dict(st); res['crt_bytes'] = sum(e['size'] for e in crt)
         res['crt_relocs'] = {k: sum(e['relocs'][k] for e in crt) for k in ('agree', 'disagree', 'borrowed')}

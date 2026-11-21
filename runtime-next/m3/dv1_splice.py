@@ -9,10 +9,10 @@ Per piece (conservative; every drop is logged by reason):
   bytes (relocation fields replaced by the resolved value) == reference; target of every pointer inside the image (.text or a data chunk); range inside ONE data-v3 chunk;
   not all zero; no overlap with the m3 generated ranges or with another selected piece (identical/contained duplicates collapse onto the larger piece = COMDAT dedupe: one piece -> one position).
 Writes (m3\gen): dv1_pieces.json, dv1_skip_ranges.json, skip_ranges_b5.json (m3 skip + dv1 skip, sorted, for DV3_SKIP), dv1_log.json."""
-import os, sys, json, struct, collections, pickle, bisect, hashlib
+import os, sys, json, struct, collections, pickle, bisect, hashlib, re
 sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
-PROJ = os.environ.get('FNV_PROJ_ROOT') or r'C:\Projects\Decompilation'
+PROJ = os.environ.get('FNV_PROJ_ROOT') or r'C:\path\to\Decompilation'
 RN = os.path.join(PROJ, 'runtime-next')
 GEN = os.path.join(HERE, 'gen')
 EXT = os.environ.get('FNV_M3_DV1_EXT') == '1'          # batch 6 (opt-in): placed-section resolution preference + link placement of unplaced target pieces verified with their own resolved relocations
@@ -36,6 +36,15 @@ FLD = sorted(SEC[r[0]]['va'] + r[1] for r in sj['fields'])
 chunks = [(m['va'], m['va'] + m['size'], m['section'], m['file']) for m in json.load(open(os.path.join(RN, 'data-v3', 'out', 'manifest.json')))]
 bss_lo = SEC['.data']['va'] + SEC['.data']['raw']; bss_hi = SEC['.data']['va'] + SEC['.data']['vs']
 m3skip = json.load(open(os.path.join(GEN, 'skip_ranges.json'))); m3rng = sorted((a, a + n) for a, n in m3skip)
+RTTI_PROVEN = None
+if os.environ.get('FNV_M3_RTTI_NAME_LITERAL') not in (None, '0', '1'): raise ValueError('invalid FNV_M3_RTTI_NAME_LITERAL')
+if os.environ.get('FNV_M3_RTTI_NAME_LITERAL') == '1':
+    sys.path.insert(0, os.path.join(HERE, 'phase2'))
+    import selector_bridge as RTTI_BRIDGE
+    RTTI_PROVEN, RTTI_OBJECTS = RTTI_BRIDGE.prepare_selector(st, sj, SEC, ORIGSET, read_ref, chunks, m3rng, os.path.join(RN, 'pinned-build', 'obj_v3'))
+    RTTI_FIELDS = {field for _, field in RTTI_PROVEN}
+    VR = [field for field in VR if field not in RTTI_FIELDS]
+
 def any_in(sl, lo, hi):
     i = bisect.bisect_left(sl, lo); return i < len(sl) and sl[i] < hi
 def hit_range(rngs, lo, hi):
@@ -189,14 +198,36 @@ for c in cand:
         rej[(c['kind'], why)] += 1; rejb[(c['kind'], why)] += c['size']; rejrng[why].append((c['va'], c['va'] + c['size'])); continue
     k2 = _b.bisect_left(starts, lo); starts.insert(k2, lo); accl.insert(k2, c)
 acc = accl
+# Explicit, digest-pinned experimental library path. The default selector
+# continues to exclude library units. Validate every entry before writing output.
+lib_meta = None
+lib_selection = os.environ.get('FNV_M3_LIB_SELECTION')
+if lib_selection:
+    expected = os.environ.get('FNV_M3_LIB_SHA256', '')
+    if not re.fullmatch(r'[0-9a-fA-F]{64}', expected):
+        raise SystemExit('FNV_M3_LIB_SHA256 must pin the library selection')
+    sys.path.insert(0, os.path.join(HERE, 'phase2'))
+    sys.path.insert(0, os.path.join(RN, 'data-v2'))
+    import library_overlay, libsecs
+    additions, lib_meta = library_overlay.select_library(lib_selection, expected, st, m3skip, acc, chunks, FLD, ORIGSET, read_ref, libsecs)
+    acc = sorted(acc + additions, key=lambda c: c['va'])
+elif os.environ.get('FNV_M3_LIB_SHA256'):
+    raise SystemExit('FNV_M3_LIB_SHA256 requires FNV_M3_LIB_SELECTION')
 # ---- outputs
 dv1skip = sorted([c['va'], c['size']] for c in acc)
 merged = sorted(m3skip + dv1skip)
 for x, y in zip(merged, merged[1:]): assert x[0] + x[1] <= y[0], ('overlap in merged skip ranges', x, y)
 pieces = [dict(va=c['va'], size=c['size'], section=c['section'], chunk=c['chunk'], kind=c['kind'], tier=c['tier'], unit=c['unit'], nunits=c['nunits'], names=c['names'], ext=c['ext'],
-               data=c['data'].hex(), relocs=[[o, t, a] for o, t, a, sr in c['relocs']]) for c in sorted(acc, key=lambda c: c['va'])]
-json.dump(dict(note='M3 batch 5: data-v1 placed pieces of our unit objects (bytes as compiled, relocation fields hold the object addend); relocs = [offset, resolved target VA, object addend]',
-               pieces=pieces), open(os.path.join(GOUT, 'dv1_pieces.json'), 'w'), separators=(',', ':'))
+               data=c['data'].hex(), relocs=[[o, t, a] for o, t, a, sr in c['relocs']],
+               **({'library_opt_in': True} if c.get('library_opt_in') else {})) for c in sorted(acc, key=lambda c: c['va'])]
+payload = json.dumps(dict(note='M3 batch 5: data-v1 placed pieces of our unit objects (bytes as compiled, relocation fields hold the object addend); relocs = [offset, resolved target VA, object addend]', pieces=pieces), separators=(',', ':')).encode('utf8')
+if RTTI_PROVEN is not None:
+    if os.path.exists(os.path.join(os.environ['TEMP'], 'rtti-name-field-proof.json')): raise FileExistsError('RTTI proof already exists')
+    proof = RTTI_BRIDGE.finish(RTTI_PROVEN, RTTI_OBJECTS, pieces, hashlib.sha256(payload).hexdigest(), os.path.join(PROJ, 'fnv_decomp', 'build', 'units.json'), os.path.join(PROJ, 'FNV', 'work', 'worker1', 'FalloutNV.runtime-text.exe'), pkl)
+with open(os.path.join(GOUT, 'dv1_pieces.json'), 'wb') as f: f.write(payload)
+if RTTI_PROVEN is not None:
+    with open(os.path.join(os.environ['TEMP'], 'rtti-name-field-proof.json'), 'x') as f: json.dump(proof, f, indent=2)
+
 json.dump(dv1skip, open(os.path.join(GOUT, 'dv1_skip_ranges.json'), 'w'))
 json.dump(merged, open(os.path.join(GOUT, 'skip_ranges_b5.json'), 'w'))
 bykind = collections.defaultdict(lambda: [0, 0, 0]); bytier = collections.Counter()
@@ -224,6 +255,7 @@ def uncovered(rs, cov):
 covered = merge([(c['va'], c['va'] + c['size']) for c in acc] + [(a_, a_ + n_) for a_, n_ in m3skip])
 uncov = {w: dict(piece_ranges=len(r), unique_uncovered_bytes=uncovered(r, covered)) for w, r in sorted(rejrng.items())}
 log = dict(selected=len(acc), bytes=sum(c['size'] for c in acc), relocs=sum(len(c['relocs']) for c in acc), kinds_filter=sorted(kinds_only) if kinds_only else None,
+           library_opt_in=lib_meta,
            by_kind={k: dict(pieces=v[0], bytes=v[1], relocs=v[2]) for k, v in sorted(bykind.items())}, bytes_by_tier=dict(bytier),
            by_section={s_: sum(c['size'] for c in acc if c['section'] == s_) for s_ in ('.data', '.rdata', 'CONST', '.tls')},
            rejected={'%s|%s' % k: dict(pieces=v, bytes=rejb[k]) for k, v in sorted(rej.items(), key=lambda kv: -rejb[kv[0]])},

@@ -9,8 +9,8 @@ import struct
 import sys
 
 sys.dont_write_bytecode = True
-B = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\build-v7')
-R = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\reloc-v7')
+B = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\build-v7')
+R = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\reloc-v7')
 d = bytearray(open(B + r'\FalloutNV_v7_filled.exe', 'rb').read())
 peo = struct.unpack_from('<I', d, 0x3c)[0]
 nsec = struct.unpack_from('<H', d, peo + 6)[0]

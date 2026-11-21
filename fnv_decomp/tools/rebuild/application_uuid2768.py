@@ -29,7 +29,7 @@ CERT='7c4704d0c777585656272cd2a39a06437d124e34d4cea712236b982641cf9a26'
 CONTRACT='4480150173b81b205a05fd92fff0f3707ef090ea2402217379bceb121cdad4df'
 COMPOSITION='69076d817070c2411fbb8d3dbf9cf1ea0ca3409d6a438360c25dffc19aa7d238'
 ROOT='0x00c5d4e0'
-EXPECTED_SDK={'path':r'C:\Projects\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib',
+EXPECTED_SDK={'path':r'C:\path\to\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib',
 'sha256':'6f363d2fbc78a5c17354bacfb481e615aeb4b0fd462581c02f9d6aca3e893969',
 'device':11251121510599050284,'inode':1970324839389565,'size':2812980}
 FALSE=('ABI_verified','provider_selected','runtime_eligible','link_ready','compiler_performed',

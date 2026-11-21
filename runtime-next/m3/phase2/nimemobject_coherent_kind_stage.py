@@ -1,0 +1,31 @@
+"""Stage global support-header NiMemObject forward-key corrections privately."""
+import hashlib,json,re,subprocess,sys
+from pathlib import Path
+H=Path(__file__).resolve().parent;M=H.parent;F=M.parent.parent/'fnv_decomp';O=M/'out/phase2-nimemobject-coherent-kind';sys.path.insert(0,str(H));import rtti_class_registry as R
+BASE='6757c8a0b6611e29b38061f489cd0f1e05f862dc65f3700f9dd39b78ccdb8d0c'
+PINS={'include/layout_support.h': '3db3ce3bf18e4e90eb430d811424b2ea135588aa526494c306b7a8f1e25be237', 'include/layout_support_decl_blk_00820000_od.h': '6861f11efe92d807e02023b8eb8da8165df01b51337aba12e88062368c20a70f', 'include/layout_support_decl_combatgoal.h': '7878ba329ecb1dfd94ffaae49d49b125299287e929ce6c893b719ce9d21f2945', 'include/layout_support_rtti2_bgssaveloadgame.h': 'b22d98fdaa14d3b4120e99a49050569eaed1ccdba33260495493fec802e8649b', 'src/bgsencounterzone_layout_support.h': '797e2edf291a97d0211edc8de33f1737bf2bad5857a27b8123f6e9af2614ae13', 'src/fallout/ai/lowprocess_support.h': '8a342d157bbde7306a7654f192d554af979dfdff2345c1e4ba8841f3f7a8603a', 'src/fallout/ai/movement/playermover_layout.h': '53e3b9ecb087cacca7c76303077d2ec1667162019d3cbc760646c082de02d1e5', 'src/fallout/ai/processlists_private/processlists_layout_support.h': '0a15c7c28314a7a7842945824385cbb61dd7c67b6c370ea1ac654987b92feca3', 'src/fallout/dialogue/menutopic_layout.h': '7a602cd57444d0550e9714e2fb0a1a99ef36998750dbe78ea8fa1ed560db667d', 'src/fallout/interface/interface_rebase_layout_support.h': '32d97239c30f1356841689e113167b99cd01a60752cde13466a30df1f3608350', 'src/fallout/interface/menuconsole_support.h': '511fdc11d5db8fbffcc02b4b95c85db60f799b36592ad985397c0f0173556572', 'src/fallout/magic/magiccaster_private_layout_support.h': 'f754023224edb856e6e365385ffdeb9de3309c07bde8cf01ca6dfc109a6c885b', 'src/fallout_shared/combatformulas_support.h': '66825250982b86b05cc1f404a5946461e827dd6d10132fd57816de700b5f8174', 'src/fallout_shared/pathfinding/navmesh_loadsave_layout_support.h': 'dd884dbcb050e04ab7027d2d1f26277d4902cd4507b4941ad215b53263ab35f3', 'src/fallout_shared/teschallenge_support.h': '804fdfa91a00fb239aa04d9212820b5db1433e9e4aff687a0ee7e2815477c837', 'src/fallout_shared/tesconditionfunctions_conditionfn_dep_layout_support.h': 'fecf3923b319fdf0190393a80fa5d21cf58a9b7da8dd5ec703ec64b30472f056', 'src/fallout_shared/tesconditionfunctions_conditionfn_dep_layout_support_decl_tesconditionfunctions.h': '0459c14c22e0c38b06bd0508a12e0d580cf3c6d97047ecb31064f544e88204cc', 'src/fallout_shared/tesresponse_support.h': '66825250982b86b05cc1f404a5946461e827dd6d10132fd57816de700b5f8174', 'src/fallout_shared/tesscriptfunctions_layout_support.h': 'ea0bb3e4d42773e52e733d60efb64b1c1560a83cfec53fda220d38fc0cb8e1fe', 'src/fallout_shared/tesscriptrunmanager_layout.h': '66825250982b86b05cc1f404a5946461e827dd6d10132fd57816de700b5f8174', 'src/fallout_shared/testopicinfo_topicinfo_layout_support.h': 'f9c2b1d13c5e50650007fa95ef31ea50c249f2739f8c19e66c486cdc79245464', 'src/gamebryo2.2/corelibs/nianimation/niblendinterpolator_layout_support.h': '244b98934b08856d69bf3e6f5a0a247e305e8a93b7982e07fcf94cf5e9a11f0f', 'src/gamebryo2.2/corelibs/nianimation/niblendtransforminterpolator_layout_support.h': 'ddd642d739c7d7ef6c4407f8e951e3242793f2a1dd154d2939ed7559baffce8b', 'src/gamebryo2.2/corelibs/nianimation/nitransformdata_layout_support.h': '549e92218338cd2f1c05e5dfd9305c3205ae3c1e20bc74c4a98c9afdeb44d14b', 'src/nipsysrotationmodifier_layout_support.h': 'b30b8f3abaa3e430962531e5d4846fc0deb1b5aa95fb3d0f4da348e823ae71c6', 'src/statsmenu_layout_support.h': '69a1cd3c45f6438348f7d56e7fc0afc13cb6aa612cbbf9b78a7e0bab0aa66c88', 'include/NiMemObject.h': '646bff1721bef044e8fa55d4827e02e26199f9e728664684934131e135f98f04'}
+def sha(b):return hashlib.sha256(b).hexdigest()
+def main():
+ if O.exists():raise FileExistsError('preserve private proposal')
+ raw=(F/'build/units.json').read_bytes()
+ if sha(raw)!=BASE:raise ValueError('recipe differs')
+ r=subprocess.run(['rg','-l',r'\bclass\s+NiMemObject\s*;',str(F/'src'),str(F/'include'),'-g','*.h','-g','*.cpp'],capture_output=True,text=True,check=True);paths=sorted(Path(s).resolve().relative_to(F.resolve()).as_posix() for s in r.stdout.splitlines())
+ if len(paths)!=26 or set(paths)!=(set(PINS)-{'include/NiMemObject.h'}):raise ValueError('forward declaration inventory changed')
+ changes=[]
+ for rel in paths:
+  old=(F/rel).read_bytes()
+  if sha(old)!=PINS[rel]:raise ValueError('source preimage changed '+rel)
+  text=old.decode('utf-8-sig');clean=R.clean(text);hits=list(re.finditer(r'\bclass\s+NiMemObject\s*;',clean))
+  if len(hits)!=1 or clean[:hits[0].start()].count('{')!=clean[:hits[0].start()].count('}'):raise ValueError('not one lexical top-level forward '+rel)
+  before=old[hits[0].start():hits[0].end()]
+  if before!=b'class NiMemObject;':raise ValueError('unsupported byte shape '+rel)
+  new=old[:hits[0].start()]+b'struct NiMemObject;'+old[hits[0].end():];changes.append((rel,old,new,'global-forward'))
+ rel='include/NiMemObject.h';old=(F/rel).read_bytes();needle=b'class NiMemObject';
+ if sha(old)!=PINS[rel]:raise ValueError('public definition changed')
+ if old.count(needle)!=1 or b'public:' not in old:raise ValueError('public definition shape differs')
+ new=old.replace(needle,b'struct NiMemObject',1);changes.append((rel,old,new,'public-definition'))
+ O.mkdir();files=[]
+ for i,(rel,a,b,kind) in enumerate(changes):
+  (O/('%02d.original'%i)).write_bytes(a);(O/('%02d.generated'%i)).write_bytes(b);files.append({'path':rel,'before_sha256':sha(a),'after_sha256':sha(b),'kind':kind,'original':'%02d.original'%i,'generated':'%02d.generated'%i})
+ (O/'manifest.json').write_text(json.dumps({'recipe_sha256':BASE,'files':files,'scope':'26 lexical top-level support forward declarations and one public empty class definition; unrelated definitions untouched','limitations':['conditional compilation, include guards, first declaration order and all consumers must be audited','lexical top-level does not prove native identity or ODR','class-key metadata, actual code/EH, layout, ownership and full image/runtime require proof','no live edits and no compiler invoked']},indent=2));print(json.dumps({'forward_declarations':len(paths),'public_definitions':1,'files':len(files)}))
+if __name__=='__main__':main()

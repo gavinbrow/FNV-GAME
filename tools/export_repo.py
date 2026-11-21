@@ -10,6 +10,7 @@ Copies:
 Never copies game files, executables, objects, libraries, run folders, harness output or backups.
 """
 import os, re, shutil, subprocess, sys, fnmatch
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJ = os.environ.get("FNV_PROJ_ROOT", os.path.dirname(HERE))
@@ -18,7 +19,8 @@ DRY = "--dry-run" in sys.argv
 BAN_EXT = {".exe", ".dll", ".obj", ".lib", ".pdb", ".ilk", ".map", ".bsa", ".esm", ".esp", ".esp",
            ".bik", ".zip", ".7z", ".iso", ".res", ".bin", ".dmp", ".png", ".jpg", ".bmp", ".dds", ".log"}
 BAN_DIR = {"run", "harness-out", "backup", "__pycache__", "out", "logs", "tmp", "scratch", ".git"}
-BAN_GLOB = ["*.bak*", "*.bak", "prev-*", "obj_v*", "ehvar", "*.orig", "*.tmp"]
+BAN_GLOB = ["*.bak*", "*.bak", "prev-*", "obj_v*", "ehvar", "*.orig", "*.tmp",
+            "*.before-*", "promotion-staged*"]
 # Not shipped: superseded stages, one-off debug/experiment scripts, scratch notes, stale result dumps.
 # Everything here was checked against what runtime-next/build_all.py (build-all.cmd) actually runs, directly or
 # through imports and data files it names; nothing under BAN_PREFIX / BAN_FILES is needed by the build.
@@ -36,6 +38,7 @@ BAN_PREFIX = [
     "runtime-next/coverage-v3/",    # coverage measurement scripts; build keeps build_extra.py + its outputs
     "runtime-next/reloc-v5/",       # relocation prototype; build keeps what build-v7 imports/reads
     "runtime-next/layout-v2/ci/dist_live/",  # copy of an old build summary
+    "runtime-next/layout-v2/build/",  # generated image reports, not source inputs
     "runtime-next/m3/gen/",         # M3 generated sources/objects, rebuilt by the m3-gen build step
 ]
 KEEP = {
@@ -49,6 +52,8 @@ KEEP = {
 BAN_FILES = set("""
 runtime-next/PLAN-PLAYABLE.md
 runtime-next/build-v7/progress_phase1.json
+runtime-next/build-v7/contrib_pieces.json
+runtime-next/layout-v2/snapshot/contrib_pieces.json
 runtime-next/direct-v1/d86.py
 runtime-next/direct-v1/dbg.py
 runtime-next/direct-v1/drive.py
@@ -121,11 +126,13 @@ runtime-next/reloc-v7/gaps_out/good.json
 runtime-next/reloc-v7/gaps_out/report.json
 fnv_decomp/AGENTS.md
 fnv_decomp/docs/rebuild/AGENT-WORK.md
+runtime-next/m3/phase2/MCP-CONNECTION-20261119.md
+runtime-next/m3/phase2/PAUSED-NON-AI-20261120.md
 """.split())
 BAN_GLOB_PATH = ["fnv_decomp/docs/rebuild/CLAUDE-*-HANDOFF.md"]   # AI hand-off notes
 
 # Personal paths are rewritten while copying (the build only uses them as defaults that env vars override).
-SCRUB_EXT = {".py", ".cmd", ".md", ".txt", ".ps1", ".bat"}
+SCRUB_EXT = {".py", ".cmd", ".md", ".txt", ".ps1", ".bat", ".json"}
 _NAMES = {os.environ.get("USERNAME"), os.environ.get("USER"), os.path.basename(os.path.expanduser("~"))} - {None, "", "Public", "Default"}
 _ME = b"(?:" + b"|".join(re.escape(x.encode()) for x in sorted(_NAMES) or ["nobody-user"]) + b")"
 SCRUB = [
@@ -134,6 +141,10 @@ SCRUB = [
     (re.compile(rb"(?i)J\('C:' \+ chr\(92\), 'Users', '" + _ME + rb"', 'AppData', 'Roaming', "), rb"J(os.environ.get('APPDATA', ''), "),
     (re.compile(rb"(?i)(Users[\\/]+)" + _ME + rb"(?![A-Za-z0-9_])"), rb"\1<user>"),
     (re.compile(rb"(?i)('Users',\s*)'" + _ME + rb"'"), rb"\1'<user>'"),
+    # Preserve slash escaping in JSON and Python literals while removing the
+    # author's workspace location. FNV_PROJ_ROOT selects the real checkout.
+    (re.compile(rb"(?i)C:([\\/]+)Projects[\\/]+Decompilation"),
+     lambda m: b"C:" + m[1] + b"path" + m[1] + b"to" + m[1] + b"Decompilation"),
 ]
 
 
@@ -141,7 +152,7 @@ def scrubbed(src):
     """Bytes of src with the current user's name removed from paths, or None when src is not scrubbed or is clean."""
     if os.path.splitext(src)[1].lower() not in SCRUB_EXT:
         return None
-    data = open(src, "rb").read()
+    data = Path(src).read_bytes()
     out = data
     for rx, rep in SCRUB:
         out = rx.sub(rep, out)
@@ -211,14 +222,13 @@ def main():
             scrubbed_n += clean is not None
             continue
         if clean is not None:
-            if not (os.path.exists(dst) and open(dst, "rb").read() == clean):
+            if not (os.path.exists(dst) and Path(dst).read_bytes() == clean):
                 os.makedirs(os.path.dirname(dst), exist_ok=True)
-                open(dst, "wb").write(clean)
+                Path(dst).write_bytes(clean)
                 shutil.copystat(src, dst)
             scrubbed_n += 1
             continue
-        if os.path.exists(dst) and os.path.getsize(dst) == os.path.getsize(src) and \
-                os.path.getmtime(dst) >= os.path.getmtime(src):
+        if os.path.exists(dst) and Path(dst).read_bytes() == Path(src).read_bytes():
             continue
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         shutil.copy2(src, dst)

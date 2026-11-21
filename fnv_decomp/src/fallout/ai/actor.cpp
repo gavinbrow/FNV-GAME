@@ -90697,6 +90697,7 @@ struct MagicHitEffectEx : public HitEffectBase
     MagicHitEffectEx(TESObjectREFR* ref, TESEffectShader* shader, float a3);
     virtual bool IsFinished();
     static void* operator new(unsigned int size);
+    static void operator delete(void*, unsigned int);
     int unk04;
     int unk08;
     int unk0c;

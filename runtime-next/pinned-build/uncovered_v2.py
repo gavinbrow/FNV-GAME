@@ -5,11 +5,11 @@ sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').pa
 from pathlib import Path
 import numpy as np
 HERE = Path(__file__).resolve().parent
-FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\fnv_decomp'))
+FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\fnv_decomp'))
 sys.path.insert(0, str(FN / 'tools'))
 from compare import Pe
-IMG = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\Projects\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
-LIBDIR = Path((__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\Projects\Decompilation\FNV\tools\vc2008') + r'\VC\lib'))
+IMG = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
+LIBDIR = Path((__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\path\to\Decompilation\FNV\tools\vc2008') + r'\VC\lib'))
 pe = Pe(IMG); d = pe.data
 rva, vs, rs, raw = pe.sections[0]
 TEXT_VA = pe.base + rva; TEXT_RAW = raw; TEXT_N = rs

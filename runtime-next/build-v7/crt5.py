@@ -157,8 +157,8 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
         elif not hits: dstat['no-hit'] += 1
         else: dstat['ambiguous(%d)' % min(len(hits), 9)] += 1
     _da = defaddr_now()
-    if os.environ.get('FNV_DUMP_SYMADDR') == '1': json.dump(_da, open((__import__('os').environ.get('FNV_PROJ_ROOT', 'C:\\Projects\\Decompilation').replace('\\', '/') + '/runtime-next/link-v2/crt_defaddr.json'), 'w'))
-    if os.environ.get('FNV_DUMP_SYMADDR') == '1': json.dump([[k[0], MEM[(k[0], k[1])][0], k[2], sorted(v)] for k, v in place.items() if v], open(os.environ.get('FNV_PROJ_ROOT', 'C:/Projects/Decompilation').replace(chr(92), '/') + '/runtime-next/link-v2/crt_place.json', 'w'))
+    if os.environ.get('FNV_DUMP_SYMADDR') == '1': json.dump(_da, open((__import__('os').environ.get('FNV_PROJ_ROOT', 'C:\\path\\to\\Decompilation').replace('\\', '/') + '/runtime-next/link-v2/crt_defaddr.json'), 'w'))
+    if os.environ.get('FNV_DUMP_SYMADDR') == '1': json.dump([[k[0], MEM[(k[0], k[1])][0], k[2], sorted(v)] for k, v in place.items() if v], open(os.environ.get('FNV_PROJ_ROOT', 'C:/path/to/Decompilation').replace(chr(92), '/') + '/runtime-next/link-v2/crt_place.json', 'w'))
     out, rejected = resolve(matches, _da)
     stat = dict(code_matches=len(matches), small_matches=len(small), small_bytes=sum(len(f['data']) for _, f in small), data=dict(dstat),
                 data_sections_placed=sum(1 for k in place if k not in {m[1]['key'] for m in matches}))

@@ -8,9 +8,9 @@ import sys, os, json, subprocess, time, re
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 HERE = Path(__file__).resolve().parent
-FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\fnv_decomp'))
+FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\fnv_decomp'))
 OBJ = HERE / 'obj_v3'
-EXPECT = {'sp1': ('FNV_MSVC9_ROOT', '15.00.30729.01', [(__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\Projects\Decompilation\FNV\tools\vc2008'))]),
+EXPECT = {'sp1': ('FNV_MSVC9_ROOT', '15.00.30729.01', [(__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\path\to\Decompilation\FNV\tools\vc2008'))]),
           'rtm': ('FNV_MSVC9_RTM_ROOT', '15.00.21022.08', [r'C:\Program Files (x86)\Microsoft Visual Studio 9.0']),
           'vc8': ('FNV_MSVC8_ROOT', '14.00.50727.762', [r'C:\Program Files (x86)\Microsoft Visual Studio 8'])}
 

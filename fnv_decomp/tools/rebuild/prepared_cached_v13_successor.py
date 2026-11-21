@@ -17,7 +17,7 @@ MEMBERS='91ec69b946927f0650aa66df1c78544c95445ad463a463e8b8a2a287b8b9818c'
 PROOFS='9f4718e8e3273c088ae671db68c7a9314e33848e3912cb79844c8f9b0b210eb8'
 UUID_NEGATIVE='7c4704d0c777585656272cd2a39a06437d124e34d4cea712236b982641cf9a26'
 UUID_COMPOSED='69076d817070c2411fbb8d3dbf9cf1ea0ca3409d6a438360c25dffc19aa7d238'
-UUID_TOKEN=r'C:\Projects\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib'
+UUID_TOKEN=r'C:\path\to\Decompilation\FNV\tools\vc2008\VC\PlatformSDK\Lib\Uuid.Lib'
 ROOT_KEYS={'original_address','recipe_id','recipe_index','object_sha256','source_sha256','symbol','symbol_index','section','value','size'}
 
 

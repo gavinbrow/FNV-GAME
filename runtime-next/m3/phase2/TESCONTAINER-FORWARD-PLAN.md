@@ -1,0 +1,9 @@
+# TESContainer forward-declaration fixture
+
+The staged header in `out/phase2-tescontainer-forward-decls` adds only forward declarations for `TESForm` and `TESObject`; it does not include another layout header. The unit 651 caller uses only `IsValidContainerType(unsigned char)` through a static declaration; its local class shell is replaced in the private mirror. Its four mapped functions and EH section tails require compiler, relocation, reference, and object-section comparison.
+
+The production-layout unit 980 mirror changes only the header. Its 31 mapped functions must retain the reference bytes and relocations; the diagnostic `rtti_tescontainer_forward_compare.py` only proposes renumbered literal keys after pairing exact original/candidate pool data and offsets with recipe-bound reference strings. It rejects any nonliteral change or failed reference comparison. Private mirror success is not enough to install: the actual production object and a complete build and gameplay gate must be reverified after any installation.
+
+Two isolated probes model source-local and include-root `BaseFormComponent.h` arriving first. Each uses the staged header, pinned dependencies, and compiler include trace. The full definition of `BSSimpleList` remains supplied by the chosen `layout_support.h`; these probes must both compile and are not cross-TU ABI proof.
+
+The corrected scoped registry observes 25 lexical global TESContainer declarations and eight named-namespace adapters. The unit 980 canonical header and candidate unit 651 static call cover only these narrow uses. Other global class definitions, including differing raw-layout and virtual shells, remain unresolved; the eight namespace adapters are separate lexical identities. Preprocessor branches, macros, packing, source semantics and ODR still require independent evidence.

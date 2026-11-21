@@ -1,7 +1,7 @@
 @echo off
 rem Build-v7: re-verify accepted local-target contributions (record compiler/flags/entry, CRLF as the checker saw it, EH stub+funclets),
 rem pass 1 assemble without ICF, ICF fold (icf_v7.py), final assemble. About 3 min. Needs 12 workers.
-if "%FNV_MSVC9_RTM_ROOT%"=="" set FNV_MSVC9_RTM_ROOT=C:\Projects\Decompilation\FNV\tools\vc2008rtm
+if "%FNV_MSVC9_RTM_ROOT%"=="" set FNV_MSVC9_RTM_ROOT=C:\path\to\Decompilation\FNV\tools\vc2008rtm
 set FNV_V5_FIXUPS=
 python -I "%~dp0verify_v7.py" 12 || exit /b 1
 set FNV_ICF=0

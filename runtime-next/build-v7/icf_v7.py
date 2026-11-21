@@ -10,7 +10,7 @@ sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').pa
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 HERE = Path(__file__).resolve().parent
-PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\pinned-build')); CV = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\coverage-v3'))
+PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\pinned-build')); CV = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\coverage-v3'))
 sys.path.insert(0, str(PB)); sys.path.insert(0, str(CV)); sys.path.insert(0, str(HERE))
 import assemble_v3 as A
 M32 = 0xffffffff

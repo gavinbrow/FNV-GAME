@@ -11,13 +11,13 @@ from concurrent.futures import ProcessPoolExecutor
 sys.dont_write_bytecode = True
 sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))   # numpy lives in user site; -I hides it
 HERE = Path(__file__).resolve().parent
-FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\fnv_decomp'))
+FN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\fnv_decomp'))
 sys.path.insert(0, str(FN / 'tools'))
 import compare as CMP                      # noqa
 from compare import Coff, Pe, compare, same_literal   # noqa
 import build_and_match as BAM              # noqa
 
-IMG = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\Projects\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
+IMG = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
 M32 = 0xffffffff
 KINDS = {0x06: 'DIR32', 0x14: 'REL32', 0x07: 'DIR32NB', 0x0B: 'SECREL'}
 ADDR_RE = re.compile(r'(?<![0-9A-Za-z])(?:FUN|DAT|PTR|LAB|SUB|UNK|OFF|BYTE|WORD|DWORD|switchD|caseD|LOC)_([0-9a-f]{8})(?![0-9A-Za-z])')
@@ -112,7 +112,7 @@ def import_target(name):
             return th.get(imp[n])
     return None
 
-def resolve_field(coff, unit, locals_, kind, tsym, addend, field_va, orig_raw):
+def _resolve_field_direct(coff, unit, locals_, kind, tsym, addend, field_va, orig_raw):
     """-> (source, expected_abs or None).  Priorities: a function, b embedded address, c symbol map, d imports."""
     pe = G['pe']
     name = tsym['name']
@@ -142,6 +142,34 @@ def resolve_field(coff, unit, locals_, kind, tsym, addend, field_va, orig_raw):
     a = import_target(name)
     if a is not None: return 'd', (a + addend) & M32
     return None, None
+
+def resolve_field(coff, unit, locals_, kind, tsym, addend, field_va, orig_raw):
+    """Preserve direct precedence; opt-in weak fallback uses COFF metadata only."""
+    result = _resolve_field_direct(coff, unit, locals_, kind, tsym, addend, field_va, orig_raw)
+    if os.environ.get('FNV_COFF_WEAK') != '1' or tsym.get('storage') != 105:
+        return result
+    import coff_weak
+    indices = [i for i, symbol in coff.symbols.items() if symbol is tsym]
+    if len(indices) != 1: return None, None
+    try:
+        # Validate the record even when a strong primary mapping wins. A valid
+        # library-search weak symbol may still resolve directly; only its
+        # fallback requires the unavailable library-search proof.
+        coff_weak.validate_chain(coff, indices[0])
+    except coff_weak.WeakResolutionError:
+        return None, None
+    # A name-embedded class address in a decorated virtual symbol is not the
+    # address of the method. Reject this heuristic for weak primaries/fallbacks.
+    if result[0] not in (None, 'b'):
+        return result
+    def normal(candidate):
+        value = _resolve_field_direct(coff, unit, locals_, kind, candidate, addend, field_va, orig_raw)
+        return (None, None) if value[0] == 'b' else value
+    try:
+        return coff_weak.resolve_fallback(coff, indices[0], normal)
+    except coff_weak.WeakResolutionError:
+        return None, None
+
 
 def fill_relocs(coff, unit, locals_, sec, lo, hi, base_va, buf, stats, pats, scope):
     """Resolve every relocation of section `sec` whose field starts in [lo,hi); buf holds bytes lo..hi at VA base_va."""

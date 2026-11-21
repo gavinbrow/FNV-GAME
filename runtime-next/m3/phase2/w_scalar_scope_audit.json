@@ -1,0 +1,929 @@
+{
+  "note": "Lexical brace stack, source and COFF facts; preprocessor not evaluated. No compiler or runtime test.",
+  "candidates": [
+    {
+      "va": 16969656,
+      "expected": "?DAT_0102efb8@fnv_0054c030@@3NB",
+      "proposed_type": "double",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/tesobjectcell.cpp",
+          "line": 13539,
+          "line_text": "extern const double DAT_0102efb8;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_0054c030"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const double"
+      ],
+      "inventory_declarations": [
+        "extern const double DAT_0102efb8;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 1059,
+          "source": "src/fallout_shared/tesobjectcell.cpp",
+          "maps": {
+            "?DAT_0102efb8@fnv_0054c030@@3NB": "0x0102efb8"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_0102efb8@fnv_0054c030@@3NB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 16969856,
+      "expected": "?DAT_0102f080@CellShadow@@3NB",
+      "proposed_type": "double",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/tesobjectcell.cpp",
+          "line": 20024,
+          "line_text": "extern const double DAT_0102f080;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "CellShadow"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const double"
+      ],
+      "inventory_declarations": [
+        "extern const double DAT_0102f080;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 1059,
+          "source": "src/fallout_shared/tesobjectcell.cpp",
+          "maps": {
+            "?DAT_0102f080@CellShadow@@3NB": "0x0102f080"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_0102f080@CellShadow@@3NB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17101480,
+      "expected": "?DAT_0104f2a8@fnv_00641830@@3MA",
+      "proposed_type": "float",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout_shared/sky/sun.cpp",
+          "line": 945,
+          "line_text": "extern float DAT_0104f2a8;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00641830"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "float"
+      ],
+      "inventory_declarations": [
+        "extern float DAT_0104f2a8;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 928,
+          "source": "src/fallout_shared/sky/sun.cpp",
+          "maps": {
+            "?DAT_0104f2a8@fnv_00641830@@3MA": "0x0104f2a8"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_0104f2a8@fnv_00641830@@3MA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17216756,
+      "expected": "?DAT_0106b4f4@PathDebugRender@@3MB",
+      "proposed_type": "float",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/staging/blk_006a0000_od.cpp",
+          "line": 13327,
+          "line_text": "extern const float DAT_0106b4f4;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "PathDebugRender"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const float"
+      ],
+      "inventory_declarations": [
+        "extern const float DAT_0106b4f4;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2670,
+          "source": "src/staging/blk_006a0000_od.cpp",
+          "maps": {
+            "?DAT_0106b4f4@PathDebugRender@@3MB": "0x0106b4f4"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_0106b4f4@PathDebugRender@@3MB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17216780,
+      "expected": "?DAT_0106b50c@PathDebugRender@@3MB",
+      "proposed_type": "float",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/staging/blk_006a0000_od.cpp",
+          "line": 13331,
+          "line_text": "extern const float DAT_0106b50c;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "PathDebugRender"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const float"
+      ],
+      "inventory_declarations": [
+        "extern const float DAT_0106b50c;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2670,
+          "source": "src/staging/blk_006a0000_od.cpp",
+          "maps": {
+            "?DAT_0106b50c@PathDebugRender@@3MB": "0x0106b50c"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_0106b50c@PathDebugRender@@3MB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17231692,
+      "expected": "?DAT_0106ef4c@fnv_0070a130@@3MB",
+      "proposed_type": "float",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/interfacemanager.cpp",
+          "line": 3483,
+          "line_text": "extern const float DAT_0106ef4c;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_0070a130"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const float"
+      ],
+      "inventory_declarations": [
+        "extern const float DAT_0106ef4c;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 439,
+          "source": "src/fallout/interface/interfacemanager.cpp",
+          "maps": {
+            "?DAT_0106ef4c@fnv_0070a130@@3MB": "0x0106ef4c"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_0106ef4c@fnv_0070a130@@3MB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17243268,
+      "expected": "?DAT_01071c84@fnv_007539a0@@3MB",
+      "proposed_type": "float",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/chargenmenu.cpp",
+          "line": 846,
+          "line_text": "extern const float DAT_01071c84;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_007539a0"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const float"
+      ],
+      "inventory_declarations": [
+        "extern const float DAT_01071c84;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 457,
+          "source": "src/fallout/interface/menus/chargenmenu.cpp",
+          "maps": {
+            "?DAT_01071c84@fnv_007539a0@@3MB": "0x01071c84"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_01071c84@fnv_007539a0@@3MB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17249416,
+      "expected": "?DAT_01073488@fnv_00771700@@3NB",
+      "proposed_type": "double",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 9501,
+          "line_text": "extern const double DAT_01073488;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00771700"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const double"
+      ],
+      "inventory_declarations": [
+        "extern const double DAT_01073488;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 467,
+          "source": "src/fallout/interface/menus/hudmainmenu.cpp",
+          "maps": {
+            "?DAT_01073488@fnv_00771700@@3NB": "0x01073488"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_01073488@fnv_00771700@@3NB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17249528,
+      "expected": "?DAT_010734f8@fnv_00778b80@@3NA",
+      "proposed_type": "double",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 916,
+          "line_text": "extern double DAT_010734f8;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00778b80"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "double"
+      ],
+      "inventory_declarations": [
+        "extern double DAT_010734f8;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 467,
+          "source": "src/fallout/interface/menus/hudmainmenu.cpp",
+          "maps": {
+            "?DAT_010734f8@fnv_00778b80@@3NA": "0x010734f8"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_010734f8@fnv_00778b80@@3NA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17256444,
+      "expected": "?DAT_01074ffc@fnv_0079b8e0@@3MA",
+      "proposed_type": "float",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/mapmenu.cpp",
+          "line": 1360,
+          "line_text": "extern float DAT_01074ffc;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_0079b8e0"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "float"
+      ],
+      "inventory_declarations": [
+        "extern float DAT_01074ffc;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 479,
+          "source": "src/fallout/interface/menus/mapmenu.cpp",
+          "maps": {
+            "?DAT_01074ffc@fnv_0079b8e0@@3MA": "0x01074ffc"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_01074ffc@fnv_0079b8e0@@3MA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17321352,
+      "expected": "?DAT_01084d88@fnv_008a4810@@3MA",
+      "proposed_type": "float",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/actor.cpp",
+          "line": 68979,
+          "line_text": "extern float DAT_01084d88;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_008a4810"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "float"
+      ],
+      "inventory_declarations": [
+        "extern float DAT_01084d88;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 253,
+          "source": "src/fallout/ai/actor.cpp",
+          "maps": {
+            "?DAT_01084d88@fnv_008a4810@@3MA": "0x01084d88"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_01084d88@fnv_008a4810@@3MA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17334592,
+      "expected": "?DAT_01088140@fnv_008df1e0@@3NA",
+      "proposed_type": "double",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/highprocess.cpp",
+          "line": 31211,
+          "line_text": "extern double DAT_01088140;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_008df1e0"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "double"
+      ],
+      "inventory_declarations": [
+        "extern double DAT_01088140;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 362,
+          "source": "src/fallout/ai/highprocess.cpp",
+          "maps": {
+            "?DAT_01088140@fnv_008df1e0@@3NA": "0x01088140"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_01088140@fnv_008df1e0@@3NA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17376520,
+      "expected": "?DAT_01092508@fnv_009e8000@@3NA",
+      "proposed_type": "double",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/movement/detailedactorpathhandler.cpp",
+          "line": 4250,
+          "line_text": "extern double DAT_01092508;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_009e8000"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "double"
+      ],
+      "inventory_declarations": [
+        "extern double DAT_01092508;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 388,
+          "source": "src/fallout/ai/movement/detailedactorpathhandler.cpp",
+          "maps": {
+            "?DAT_01092508@fnv_009e8000@@3NA": "0x01092508"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_01092508@fnv_009e8000@@3NA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17670824,
+      "expected": "?DAT_010da2a8@ConstraintInit@@3NB",
+      "proposed_type": "double",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "line": 602,
+          "line_text": "extern const double DAT_010da2a8;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "ConstraintInit"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const double"
+      ],
+      "inventory_declarations": [
+        "extern const double DAT_010da2a8;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2290,
+          "source": "src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "maps": {
+            "?DAT_010da2a8@ConstraintInit@@3NB": "0x010da2a8"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_010da2a8@ConstraintInit@@3NB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 17670832,
+      "expected": "?DAT_010da2b0@ConstraintInit@@3NB",
+      "proposed_type": "double",
+      "const": true,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "line": 601,
+          "line_text": "extern const double DAT_010da2b0;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "ConstraintInit"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "const double"
+      ],
+      "inventory_declarations": [
+        "extern const double DAT_010da2b0;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2290,
+          "source": "src/havok/physics/dynamics/constraint/response/hkpsimplecollisionresponse_rtm_variant.cpp",
+          "maps": {
+            "?DAT_010da2b0@ConstraintInit@@3NB": "0x010da2b0"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_010da2b0@ConstraintInit@@3NB",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18481440,
+      "expected": "?DAT_011a0120@fnv_00774090@@3HA",
+      "proposed_type": "int",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/interface/menus/hudmainmenu.cpp",
+          "line": 5740,
+          "line_text": "extern int DAT_011a0120;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00774090"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "int"
+      ],
+      "inventory_declarations": [
+        "extern int DAT_011a0120;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 467,
+          "source": "src/fallout/interface/menus/hudmainmenu.cpp",
+          "maps": {
+            "?DAT_011a0120@fnv_00774090@@3HA": "0x011a0120"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011a0120@fnv_00774090@@3HA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18493460,
+      "expected": "?DAT_011a3014@fnv_0086a0a0@@3EA",
+      "proposed_type": "unsigned char",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/staging/blk_00860000_od.cpp",
+          "line": 7324,
+          "line_text": "extern unsigned char DAT_011a3014;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_0086a0a0"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "unsigned char"
+      ],
+      "inventory_declarations": [
+        "extern unsigned char DAT_011a3014;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2690,
+          "source": "src/staging/blk_00860000_od.cpp",
+          "maps": {
+            "?DAT_011a3014@fnv_0086a0a0@@3EA": "0x011a3014"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011a3014@fnv_0086a0a0@@3EA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18496304,
+      "expected": "?DAT_011a3b30@fnv_0094df80@@3EA",
+      "proposed_type": "unsigned char",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/fallout/ai/playercharacter.cpp",
+          "line": 20968,
+          "line_text": "extern unsigned char DAT_011a3b30;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_0094df80"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "unsigned char"
+      ],
+      "inventory_declarations": [
+        "extern unsigned char DAT_011a3b30;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 396,
+          "source": "src/fallout/ai/playercharacter.cpp",
+          "maps": {
+            "?DAT_011a3b30@fnv_0094df80@@3EA": "0x011a3b30"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011a3b30@fnv_0094df80@@3EA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18534684,
+      "expected": "?DAT_011ad11c@fnv_00b06c10@@3MA",
+      "proposed_type": "float",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/speedtree/speedtreert_ob1_variant.cpp",
+          "line": 3783,
+          "line_text": "extern float DAT_011ad11c;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00b06c10"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "float"
+      ],
+      "inventory_declarations": [
+        "extern float DAT_011ad11c;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2622,
+          "source": "src/speedtree/speedtreert_ob1_variant.cpp",
+          "maps": {
+            "?DAT_011ad11c@fnv_00b06c10@@3MA": "0x011ad11c"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011ad11c@fnv_00b06c10@@3MA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18534688,
+      "expected": "?DAT_011ad120@fnv_00b06c10@@3MA",
+      "proposed_type": "float",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/speedtree/speedtreert_ob1_variant.cpp",
+          "line": 3784,
+          "line_text": "extern float DAT_011ad120;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00b06c10"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "float"
+      ],
+      "inventory_declarations": [
+        "extern float DAT_011ad120;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 2622,
+          "source": "src/speedtree/speedtreert_ob1_variant.cpp",
+          "maps": {
+            "?DAT_011ad120@fnv_00b06c10@@3MA": "0x011ad120"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011ad120@fnv_00b06c10@@3MA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18536440,
+      "expected": "?DAT_011ad7f8@fnv_00b4e490@@3MA",
+      "proposed_type": "float",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/bsshader/bsfadenode.cpp",
+          "line": 866,
+          "line_text": "extern float DAT_011ad7f8;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00b4e490"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "float"
+      ],
+      "inventory_declarations": [
+        "extern float DAT_011ad7f8;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 115,
+          "source": "src/bsshader/bsfadenode.cpp",
+          "maps": {
+            "?DAT_011ad7f8@fnv_00b4e490@@3MA": "0x011ad7f8"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011ad7f8@fnv_00b4e490@@3MA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    },
+    {
+      "va": 18536552,
+      "expected": "?DAT_011ad868@fnv_00b5e870@@3HA",
+      "proposed_type": "int",
+      "const": false,
+      "scopes": [
+        {
+          "path": "fnv_decomp/src/bsshader/shadowscenenode.cpp",
+          "line": 8244,
+          "line_text": "extern int DAT_011ad868;",
+          "lexical_scope": [
+            [
+              "namespace",
+              "fnv_00b5e870"
+            ]
+          ]
+        }
+      ],
+      "inventory_types": [
+        "int"
+      ],
+      "inventory_declarations": [
+        "extern int DAT_011ad868;"
+      ],
+      "unitmatches": [
+        {
+          "unit": 193,
+          "source": "src/bsshader/shadowscenenode.cpp",
+          "maps": {
+            "?DAT_011ad868@fnv_00b5e870@@3HA": "0x011ad868"
+          },
+          "coff_symbol": [
+            {
+              "name": "?DAT_011ad868@fnv_00b5e870@@3HA",
+              "section": 0,
+              "storage": 2
+            }
+          ],
+          "coff_error": null
+        }
+      ]
+    }
+  ]
+}

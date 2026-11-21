@@ -5,7 +5,7 @@ sys.dont_write_bytecode = True
 sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
-RN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next'))
+RN = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next'))
 PB = RN / 'pinned-build'; CV = RN / 'coverage-v3'; V7 = RN / 'build-v7'
 sys.path.insert(0, str(PB)); sys.path.insert(0, str(CV))
 import assemble_v3 as A

@@ -14,7 +14,7 @@ import crt_v15_job_launcher_v2 as adapter
 ROOT = Path(__file__).resolve().parents[2]
 PACKET = ROOT / 'build/rebuild/steam-import-v15-native-candidate-v1'
 OUT = ROOT / 'build/rebuild/steam-import-v15-lib-once-v1'
-VC = Path(r'C:\Projects\Decompilation\FNV\tools\vc2008\VC\bin')
+VC = Path(r'C:\path\to\Decompilation\FNV\tools\vc2008\VC\bin')
 OWNER = '/root/terra_integration_v15/startup_steam_fast'
 REVIEW_PATH = None
 LEASE_SCOPE = None

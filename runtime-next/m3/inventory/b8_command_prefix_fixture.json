@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "scope": "isolated compiler evidence, no generator support or selection; per-record source views and opaque pointer storage",
+  "records": [
+    {
+      "va": 18417936,
+      "size": 25600,
+      "records": 640,
+      "record_size": 40,
+      "section": ".data",
+      "symbol": "?M3_01190910@@3PAUCommandRecordView@@A",
+      "relocations": 3802,
+      "reference_sha256": "8241c0f3581c02ddf1acc7387d5f3a6958b17de5f93680dd161aaaccc68cc9e6",
+      "partial": true,
+      "unresolved": "complete original array extent, exact pointer/function types and source symbol identity; opaque fields intentionally retained"
+    },
+    {
+      "va": 18409696,
+      "size": 7680,
+      "records": 192,
+      "record_size": 40,
+      "section": ".data",
+      "symbol": "?M3_0118e8e0@@3PAUCommandRecordView@@A",
+      "relocations": 1050,
+      "reference_sha256": "268ccad68a3fd5eb451c815060c2ec7a1351050440e600febaa0026d23247c23",
+      "partial": true,
+      "unresolved": "complete original array extent, exact pointer/function types and source symbol identity; opaque fields intentionally retained"
+    }
+  ]
+}

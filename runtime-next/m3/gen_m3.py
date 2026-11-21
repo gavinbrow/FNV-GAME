@@ -14,7 +14,7 @@ Self-check: every kept definition's bytes sliced out of the object (per symbol) 
 import os, sys, re, json, struct, math, subprocess, collections, bisect
 sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-PROJ = os.environ.get('FNV_PROJ_ROOT') or r'C:\Projects\Decompilation'
+PROJ = os.environ.get('FNV_PROJ_ROOT') or r'C:\path\to\Decompilation'
 RN = os.path.join(PROJ, 'runtime-next')
 sys.path.insert(0, os.path.join(RN, 'data-v3')); sys.path.insert(0, os.path.join(RN, 'pinned-build'))
 from common import ref, SEC, sec_of, orig_reloc_sites, TLO, THI
@@ -31,7 +31,16 @@ NEG4V = os.environ.get('FNV_M3_NEGCTL') == 'b4v'      # batch 4 negative control
 NEG4P = os.environ.get('FNV_M3_NEGCTL') == 'b4p'
 NEG7V = os.environ.get('FNV_M3_NEGCTL') == 'b7v'      # batch 7 negative controls: a value / a pointer inside the new generic objects
 NEG7P = os.environ.get('FNV_M3_NEGCTL') == 'b7p'
-ANYNEG = NEG or NEGP or NEG4V or NEG4P or NEG7V or NEG7P
+NEG8V = os.environ.get('FNV_M3_NEGCTL') == 'b8v'
+NEG8P = os.environ.get('FNV_M3_NEGCTL') == 'b8p'
+NEGP2SV = os.environ.get('FNV_M3_NEGCTL') == 'p2sv'
+NEGP2AV = os.environ.get('FNV_M3_NEGCTL') == 'p2av'
+NEGP2WP = os.environ.get('FNV_M3_NEGCTL') == 'p2wp'
+NEGP2BW = os.environ.get('FNV_M3_NEGCTL') == 'p2bw'
+NEGP2CW = os.environ.get('FNV_M3_NEGCTL') == 'p2cw'
+NEGP2LV = os.environ.get('FNV_M3_NEGCTL') == 'p2lv'
+NEGP2R = os.environ.get('FNV_M3_NEGCTL') in ('p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2cv', 'p2cp')
+ANYNEG = NEG or NEGP or NEG4V or NEG4P or NEG7V or NEG7P or NEG8V or NEG8P or NEGP2SV or NEGP2AV or NEGP2WP or NEGP2BW or NEGP2CW or NEGP2LV or NEGP2R
 TYPES = {'H': ('int', 4), 'I': ('unsigned', 4), 'M': ('float', 4), 'N': ('double', 8),
          'J': ('long', 4), 'K': ('unsigned long', 4), 'F': ('short', 2), 'G': ('unsigned short', 2), 'D': ('char', 1), 'E': ('unsigned char', 1), '_N': ('bool', 1), 'C': ('signed char', 1)}
 PILOT_TYPES = 'HIMN'
@@ -457,6 +466,25 @@ def g_render(e, ext):
     return 'struct M3S_%08x { %s };' % (e['va'], ' '.join(mem)), '{%s}' % ', '.join(ini)
 
 
+def mutate_bsaudio_tail(entries):
+    hits = [e for e in entries if e.get('tc') == 'W' and e.get('va') == 0x011ac972]
+    if len(hits) != 1: raise ValueError('BSAudio tail control requires exactly one tail')
+    e = hits[0]
+    if e['name'] != 'M3_011ac972' or e['size'] != 78 or e['section'] != '.data' or e['align'] != 1 or e['runs'] != [['S',2],['P',2],['S',24],['P',2],['U',9]] or e.get('fields') != [[2,'',0],[34,'',0]] or e.get('tgts') != [0x010f1ee0,0x010f1ee0]: raise ValueError('BSAudio tail control identity mismatch')
+    if e['items'][1][0] != (True,0x010f1ee0): raise ValueError('BSAudio first pointer mismatch')
+    e['items'][1][0] = (True,0x010f1ee4); g_fields(e); e['negctl'] = True
+    print('NEGATIVE CONTROL (p2 BSAudio tail pointer): VA 011ac972 offset 2 changed from 010f1ee0 to 010f1ee4')
+
+
+def mutate_bulk_tail(entries):
+    hits = [e for e in entries if e.get('tc') == 'W' and e.get('va') == 0x01183f98]
+    if len(hits) != 1: raise ValueError('bulk control requires one residual fragment')
+    e = hits[0]
+    if e['name'] != 'M3_01183f98' or e['size'] != 28 or e['section'] != '.data' or e['align'] != 1 or not e.get('file_backed') or e['runs'] != [['P',2],['S',20]] or e.get('fields') != [[0,'',0]] or e.get('tgts') != [0x010f1ee0] or e['items'][0][0] != (True,0x010f1ee0): raise ValueError('bulk residual fragment identity mismatch')
+    e['items'][0][0] = (True,0x010f1ee4); g_fields(e); e['negctl'] = True
+    print('NEGATIVE CONTROL (p2 bulk tail pointer): VA 01183f98 offset 0 changed from 010f1ee0 to 010f1ee4')
+
+
 def check_g(e, data, rel, tab):
     """generic object: relocation offsets == original .reloc sites inside, each DIR32 with target + addend == the reference dword and addend bytes == reference minus target;
     every other byte equals the reference. -> reason or None"""
@@ -477,10 +505,81 @@ def check_g(e, data, rel, tab):
 
 
 
+def explicit_scalar_identity(r):
+    """Validate an opt-in namespaced scalar identity against its exact COFF spelling."""
+    if not any(k in r for k in ('scalar_namespace', 'scalar_const', 'scalar_symbol')):
+        return None
+    ns, const, symbol = r.get('scalar_namespace'), r.get('scalar_const'), r.get('scalar_symbol')
+    if r.get('tc') not in TYPES or not isinstance(ns, str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', ns):
+        raise ValueError('invalid explicit scalar namespace or type')
+    if type(const) is not bool or not isinstance(symbol, str) or r.get('generated_name'):
+        raise ValueError('invalid explicit scalar constness or name')
+    expected = '?DAT_%08x@%s@@3%s%s' % (r['va'], ns, r['tc'], 'B' if const else 'A')
+    if symbol != expected or r.get('decl') != [symbol]:
+        raise ValueError('explicit scalar declaration does not match symbol')
+    return ns, const, symbol
+
+
+def explicit_array_identity(r):
+    """Validate the explicitly source-evidenced bounded array allowlist."""
+    keys = ('array_namespace', 'array_const', 'array_symbol')
+    if not any(k in r for k in keys): return None
+    a = r.get('va'); ns = r.get('array_namespace'); const = r.get('array_const'); symbol = r.get('array_symbol')
+    approved = {x: ('E', 256, 'sa238a0', 'PAEA') for x in range(0x011a7440, 0x011a7e40, 0x100)}
+    approved.update({0x011aced8: ('I', 36, 'fnv_00af4550', 'PAIA'), 0x01093b6c: ('H', 16, 'fnv_009f9e50', 'PAHA')})
+    if type(a) is not int or a not in approved: raise ValueError('unreviewed array address')
+    et, size, expected_ns, suffix = approved[a]
+    expected = '?DAT_%08x@%s@@3%s' % (a, expected_ns, suffix)
+    if (r.get('tc') != 'A' or r.get('et') != et or r.get('size') != size or
+        ns != expected_ns or const is not False or symbol != expected or r.get('decl') != [expected] or
+        r.get('align') != 4 or a % 4 or r.get('generated_name')):
+        raise ValueError('invalid reviewed array identity, type, extent or alignment')
+    section = sec_of(a)
+    if section not in ('.data', '.rdata'): raise ValueError('invalid array section')
+    s = SEC[section]
+    if not (s['va'] <= a and a + size <= s['va'] + s['raw']): raise ValueError('array outside raw section')
+    with open(os.path.join(RN, 'data-v3', 'symbolic.json')) as f: sj = json.load(f)
+    fields = {SEC[x[0]]['va'] + x[1] for x in sj['fields']} | ORIG_SET
+    if any(a - 3 <= x < a + size for x in fields): raise ValueError('array overlaps field or relocation')
+    with open(os.path.join(RN, 'data-v3', 'out', 'manifest.json')) as f: chunks = json.load(f)
+    if not any(x['section'] == section and x['va'] <= a and a + size <= x['va'] + x['size'] for x in chunks):
+        raise ValueError('array crosses data chunk')
+    return ns, const, symbol
+
+
 def build_entries(sel):
     out = []
     for r in sel:
         va, tc = r['va'], r['tc']; n = sec_of(va)
+        if tc == 'Y':
+            sys.path.insert(0, os.path.join(RN, 'm3', 'phase2'))
+            import cost245_records
+            out.append(cost245_records.build_entry(r, sys.modules[__name__])); continue
+        if tc == 'V':
+            approved = (0x010cb620, 0x010cb630)
+            expected = '?DAT_%08x@fnv_00cd9d10@@3U__m128@1@A' % va
+            if (va not in approved or r.get('size') != 16 or r.get('align') != 16 or r.get('class_namespace') != 'fnv_00cd9d10' or r.get('class_name') != '__m128' or r.get('class_symbol') != expected or r.get('decl') != [expected] or va % 16): raise ValueError('invalid source SIMD identity')
+            with open(os.path.join(RN, 'data-v3', 'symbolic.json')) as f: sj = json.load(f)
+            fields = {SEC[x[0]]['va']+x[1] for x in sj['fields']} | ORIG_SET
+            with open(os.path.join(RN, 'data-v3', 'out', 'manifest.json')) as f: chunks = json.load(f)
+            if sec_of(va) != '.rdata' or any(va-3 <= f < va+16 for f in fields) or not any(x['section']=='.rdata' and x['va']<=va and va+16<=x['va']+x['size'] for x in chunks): raise ValueError('invalid source SIMD range')
+            raw = refbytes(va,16)
+            if len(raw) != 16 or any(not _floatok4(raw[i:i+4], 'M') for i in range(0,16,4)): raise ValueError('unsupported source SIMD float')
+            init = '{%s}' % ', '.join(fmt('M',raw[i:i+4]) for i in range(0,16,4))
+            out.append(dict(sym=expected,name='DAT_%08x'%va,ns='fnv_00cd9d10',va=va,size=16,type='__m128',tc='V',section='.rdata',init=init,ref=raw.hex(),simd=True,file_backed=True,align=16)); continue
+        if tc == 'Q':
+            if (va != 0x011a9c30 or r.get('size') != 12 or r.get('align') != 4 or r.get('class_namespace') != 'fnv_005c25f0' or r.get('class_name') != 'NiPoint3' or r.get('class_symbol') != '?DAT_011a9c30@fnv_005c25f0@@3VNiPoint3@1@A' or r.get('decl') != [r.get('class_symbol')]): raise ValueError('invalid source-point identity')
+            sj = json.load(open(os.path.join(RN, 'data-v3', 'symbolic.json')))
+            fields = {SEC[x[0]]['va']+x[1] for x in sj['fields']} | ORIG_SET
+            chunks = json.load(open(os.path.join(RN, 'data-v3', 'out', 'manifest.json')))
+            if sec_of(va) != '.data' or any(va-3 <= f < va+12 for f in fields) or not any(x['section']=='.data' and x['va']<=va and va+12<=x['va']+x['size'] for x in chunks): raise ValueError('invalid source-point range')
+            raw = refbytes(va,12)
+            if len(raw) != 12 or any(not _floatok4(raw[i:i+4], 'M') for i in range(0,12,4)): raise ValueError('unsupported source-point float')
+            init = '{%s}' % ', '.join(fmt('M',raw[i:i+4]) for i in range(0,12,4))
+            out.append(dict(sym=r['class_symbol'],name='DAT_011a9c30',ns=r['class_namespace'],va=va,size=12,type='NiPoint3',tc='Q',section='.data',init=init,ref=raw.hex(),point3=True,align=4)); continue
+        if tc == 'R':
+            import b8_records
+            out.append(b8_records.build_entry(r, sys.modules[__name__])); continue
         if tc == 'W':        # batch 7: generic typed object (run descriptors frozen in the selection, items re-derived from the reference bytes)
             raw = refbytes(va, r['size']); runs = [list(x) for x in r['runs']]; items = g_items(va, raw, runs); nm = ('DAT_%08x' if r.get('named') else 'M3_%08x') % va
             e = dict(sym=None, name=nm, ns=r.get('ns') or '', va=va, size=r['size'], type='M3S', tc='W', section=n, kind=r['kind'], ref=raw.hex(), align=r['align'], runs=runs, items=items, decl=r.get('decl'), head=r.get('head'))
@@ -514,6 +613,29 @@ def build_entries(sel):
         cty, sz = TYPES[tc]; raw = refbytes(va, sz)
         out.append(dict(sym='?DAT_%08x@@3%s%s' % (va, tc, 'B' if n == '.rdata' else 'A'), name='DAT_%08x' % va, va=va, size=sz, type=cty, tc=tc,
                         section=n, init=fmt(tc, raw), ref=raw.hex()))
+    # Batch 8 uses separate generated names for declarations whose native
+    # linkage or semantic aliases are unresolved.  Preserve the reviewed
+    # evidence without pretending that a storage definition resolves aliases.
+    for e, r in zip(out, sel):
+        identity = explicit_scalar_identity(r)
+        if identity:
+            e['ns'], e['scalar_const'], e['sym'] = identity
+            # Explicit placement permits mutable objects in .rdata and const
+            # objects in .data without changing their native C++ identity.
+            e['file_backed'] = True
+        array_identity = explicit_array_identity(r)
+        if array_identity:
+            e['ns'], e['array_const'], e['sym'] = array_identity
+            if e['section'] == '.rdata': e['file_backed'] = True
+        if r.get('generated_name'):
+            if not re.fullmatch(r'M3_[0-9a-f]{8}', r['generated_name']):
+                raise ValueError('invalid generated storage name')
+            if r['generated_name'] != 'M3_%08x' % e['va']:
+                raise ValueError('generated storage name/address mismatch')
+            e['name'] = r['generated_name']; e['sym'] = None
+        for key in ('batch', 'evidence', 'file_backed', 'partial'):
+            if key in r: e[key] = r[key]
+        if 'align' in r: e['align'] = r['align']
     return out
 
 
@@ -540,7 +662,12 @@ def tyname(e):
     """(type, name with dimensions) of a definition / declaration of entry e"""
     rd = e['section'] == '.rdata'; tc = e['tc']
     if tc == 'T': return ('void* const' if rd else 'void*'), '%s[%d]' % (e['name'], e['n'])
-    if tc in ('X', 'A'): return (('const ' if rd else '') + e['type']), '%s[%d]' % (e['name'], e['n'])
+    if tc in ('X', 'A'):
+        isconst = e['array_const'] if 'array_const' in e else rd
+        return (('const ' if isconst else '') + e['type']), '%s[%d]' % (e['name'], e['n'])
+    if e.get('simd'): return e['type'], e['name']
+    if 'scalar_const' in e:
+        return (('const ' if e['scalar_const'] else '') + e['type']), e['name']
     ty = ('%s const' % e['type']) if e.get('ptr') and rd else (('const ' + e['type']) if rd else e['type'])
     return ty, e['name']
 
@@ -570,24 +697,50 @@ def render_tab(e, ents, starts):
 
 def cpp(entries):
     L = ['// M3 phase 1: generated DAT_ globals (gen_m3.py). Do not edit.']
-    gents = [e for e in entries if e['tc'] == 'W']; entries = [e for e in entries if e['tc'] != 'W']
+    for section in sorted({e['section'] for e in entries if e.get('file_backed')}):
+        if section not in ('.data', '.rdata'): raise ValueError('unsupported file-backed section')
+        L.append('#pragma section("%s", read%s)' % (section, ', write' if section == '.data' else ''))
+    cents = [e for e in entries if e['tc'] == 'Y']
+    rents = [e for e in entries if e['tc'] == 'R']
+    gents = [e for e in entries if e['tc'] == 'W']; entries = [e for e in entries if e['tc'] not in ('W', 'R', 'Y')]
     ents = sorted(entries, key=lambda x: x['va']); starts = [x['va'] for x in ents]
     ext = {}; hostdecl = {}; defs = []; RENDER_STAT.clear()
+    if cents:
+        sys.path.insert(0, os.path.join(RN, 'm3', 'phase2')); import cost245_records
+        L += ['#include <stddef.h>', cost245_records.STRUCT]
+        defs += [cost245_records.render_entry(e, ext, sys.modules[__name__]) for e in cents]
     for e in entries:
         if e.get('ptr'):
             tv = e['ptr']['target']; ext[tv] = 'extern "C" void M3F_%08x(void);' % tv if e['ptr']['kind'] == 'code' else 'extern "C" char M3D_%08x;' % tv
+    if any(e.get('simd') for e in entries): L.append('namespace fnv_00cd9d10 { struct __declspec(intrin_type) __declspec(align(16)) __m128 { float x,y,z,w; }; }')
+    if any(e.get('point3') for e in entries): L.append('namespace fnv_005c25f0 { class NiPoint3 { public: float x, y, z; }; }')
     for e in entries:
         ty, nm = tyname(e)
         if e['tc'] in ('T', 'X'):
             init, x, hs = render_tab(e, ents, starts); ext.update(x)
+            if any('scalar_const' in h or 'array_const' in h or h.get('point3') or h.get('simd') for h in hs):
+                raise ValueError('namespaced explicit object used as a table host')
             for h in hs: hostdecl[h['va']] = h
         else: init = e['init']
-        defs.append('%s%s %s = %s;' % ('extern ' if e['section'] == '.rdata' else '', ty, nm, init))
+        allocation = '__declspec(allocate("%s")) ' % e['section'] if e.get('file_backed') else ''
+        definition = '%s%s%s %s = %s;' % ('extern ' if e['section'] == '.rdata' or e.get('scalar_const') else '', allocation, ty, nm, init)
+        if 'scalar_const' in e: definition = 'namespace %s { %s }' % (e['ns'], definition)
+        if 'array_const' in e: definition = 'namespace %s { %s }' % (e['ns'], definition)
+        if e.get('point3') or e.get('simd'): definition = 'namespace %s { %s }' % (e['ns'], definition)
+        defs.append(definition)
     for pat in sorted({e['pat'] for e in entries if e['tc'] == 'X'}): L.append('struct M3R_%s { %s };' % (pat, ' '.join('%s f%d;' % ('void*' if c == 'P' else 'int', i) for i, c in enumerate(pat))))
     gdef = {}; gstruct = []
     for e in gents:
         sd, ini = g_render(e, ext); gstruct.append(sd)
-        gdef.setdefault(e['ns'], []).append('%sstruct M3S_%08x %s = %s;' % ('extern const ' if e['section'] == '.rdata' else '', e['va'], e['name'], ini))
+        allocation = '__declspec(allocate("%s")) ' % e['section'] if e.get('file_backed') else ''
+        gdef.setdefault(e['ns'], []).append('%s%sstruct M3S_%08x %s = %s;' % ('extern const ' if e['section'] == '.rdata' else '', allocation, e['va'], e['name'], ini))
+    if rents:
+        import b8_records
+        record_structs = set()
+        for e in rents:
+            sd, definition = b8_records.render_entry(e, ext)
+            record_structs.add(sd); defs.append(definition)
+        L += sorted(record_structs)
     L += [ext[k] for k in sorted(ext)]
     for va in sorted(hostdecl):
         ty, nm = tyname(hostdecl[va]); L.append('extern %s %s;' % (ty, nm))
@@ -691,7 +844,7 @@ def check(entries):
         elif e['tc'] == 'W':
             r = check_g(e, data, rel, tab)
             if r: bad[e['name']] = r
-        elif e['tc'] in ('A', 'T', 'X'):
+        elif e['tc'] in ('A', 'T', 'X', 'R', 'Y'):
             r = check_elems(e, data, rel, tab)
             if r: bad[e['name']] = r
         elif e.get('ptr'):
@@ -724,12 +877,59 @@ def main():
         json.dump(dict(note='frozen batch4 selection (gen_m3.py --select-batch4): batch3 entries first, then %d arrays/strings/pointer tables/mixed tables %s; bytes %s; skipped: %s' % (len(new), dict(kinds), dict(nb), dict(why)), entries=b3 + new), open(BATCH4, 'w'), indent=0)
         return
     if '--select-batch3' in sys.argv: sel = select(False, True); print('wrote', BATCH3, len(sel)); return
+    frozen = bool(os.environ.get('FNV_M3_SEL')) and '--select' not in sys.argv
+    if frozen and not os.path.isfile(SELF):
+        raise SystemExit('configured M3 selection is missing: %s' % SELF)
     if '--select' in sys.argv or not os.path.exists(SELF): sel = select()
     else: sel = json.load(open(SELF))['entries']
     entries = build_entries(sel)
     for e in entries:
         if e['tc'] in ('T', 'X'): set_fields(e)
     partition(entries)
+    if NEGP2AV:
+        candidates = [x for x in entries if x['tc'] == 'A' and x.get('ns') and 'array_const' in x and x.get('sym') and x['et'] == 'E']
+        if not candidates: raise ValueError('p2av requires an explicit namespaced unsigned char array')
+        e = candidates[0]; raw = bytes.fromhex(e['ref']); value = (raw[0] + 1) & 255
+        e['els'][0] = fmt('E', bytes([value])); e['init'] = '{%s}' % ', '.join(e['els']); e['negctl'] = True
+        print('NEGATIVE CONTROL (p2 array value): VA %08x symbol %s element 0 changed from %02x to %02x' % (e['va'], e['sym'], raw[0], value))
+    if NEGP2BW: mutate_bsaudio_tail(entries)
+    if NEGP2CW: mutate_bulk_tail(entries)
+    if NEGP2WP:
+        candidates = [x for x in entries if x['tc'] == 'W' and x['va'] in (0x011a7e40, 0x011acefc) and x.get('tgts')]
+        if not candidates: raise ValueError('p2wp requires a reviewed split tail with pointers')
+        e = candidates[0]; old = e['tgts'][0]; code = TLO <= old < THI
+        targets = [v for x in entries for v in x.get('tgts', []) if v != old and (TLO <= v < THI) == code]
+        if not targets: raise ValueError('p2wp requires an alternative same-kind target')
+        k = next(i for i, (c, n) in enumerate(e['runs']) if c == 'P' and any(flag for flag, v in e['items'][i]))
+        j = next(i for i, (flag, v) in enumerate(e['items'][k]) if flag)
+        e['items'][k][j] = (True, targets[0]); g_fields(e); e['negctl'] = True
+        print('NEGATIVE CONTROL (p2 tail pointer): VA %08x symbol %s run %d cell %d now points to %08x instead of %08x' % (e['va'], e['name'], k, j, targets[0], old))
+    if NEGP2SV:
+        candidates = [x for x in entries if x.get('ns') and 'scalar_const' in x and x.get('sym') and x['tc'] in ('M', 'N')]
+        if not candidates: raise ValueError('p2sv requires an explicit namespaced floating scalar')
+        e = next((x for x in candidates if bytes.fromhex(x['ref']) != struct.pack('<f' if x['tc'] == 'M' else '<d', 1.0)), None)
+        if e is None: raise ValueError('p2sv requires a scalar different from 1.0')
+        e['init'] = '1.0f' if e['tc'] == 'M' else '1.0'; e['negctl'] = True
+        print('NEGATIVE CONTROL (p2 scalar value): VA %08x symbol %s initializer changed to %s (reference bytes %s)' % (e['va'], e['sym'], e['init'], e['ref']))
+    if NEG8V:
+        e = next(x for x in entries if x.get('batch') == 8 and x['tc'] in ('H', 'I', 'J', 'K', 'F', 'G', 'D', 'E', 'C'))
+        raw = bytes.fromhex(e['ref']); value = (int.from_bytes(raw, 'little') + 1) % (1 << (8 * len(raw)))
+        # Keep a writable control file-backed when the deliberate +1 wraps.
+        if value == 0: value = 1
+        e['init'] = fmt(e['tc'], value.to_bytes(len(raw), 'little')); e['negctl'] = True
+        print('NEGATIVE CONTROL (b8 value): %s initializer changed to %s (reference bytes %s)' % (e['name'], e['init'], raw.hex()))
+    if NEG8P:
+        candidates = [x for x in entries if x.get('ptr')]
+        if not candidates: raise ValueError('b8p requires a pointer definition')
+        e = next((x for x in candidates if x.get('batch') == 8), None)
+        if e is None: e = candidates[0]
+        old = e['ptr']['target']; code = e['ptr']['kind'] == 'code'
+        targets = [x['ptr']['target'] for x in candidates] + [t for x in entries for t in x.get('tgts', [])]
+        alt = next(t for t in targets if (TLO <= t < THI) == code and t != old)
+        kind = 'M3F' if code else 'M3D'
+        e['ptr']['target'] = alt; e['init'] = '(void*)&%s_%08x' % (kind, alt)
+        e['fields'] = [[0, '_%s_%08x' % (kind, alt), 0]]; e['negctl'] = True
+        print('NEGATIVE CONTROL (b8 pointer): %s now points to %08x instead of %08x' % (e['name'], alt, old))
     if NEG7V:
         e = next(x for x in entries if x['tc'] == 'W' and x['kind'] not in ('tail-sec', 'tail-rw') and any(c == 'U' for c, n in x['runs'])); k = next(i for i, (c, n) in enumerate(e['runs']) if c == 'U')
         raw = e['items'][k][0]; v = (struct.unpack('<I', raw)[0] + 1) & 0xffffffff; e['items'][k][0] = struct.pack('<I', v); e['negctl'] = True
@@ -766,9 +966,11 @@ def main():
     for it in range(8):
         bad = compile_obj(entries) or check(entries)
         if not bad: break
+        if frozen:
+            raise SystemExit('frozen M3 selection failed compiler/COFF checks; refusing to prune: %s' % bad)
         dropped.update(bad); entries = [e for e in entries if e['name'] not in bad]
     else: raise SystemExit('prune loop did not converge')
-    json.dump(dict(entries=[{k: v for k, v in e.items() if k not in ('elems', 'els', 'init', 'items')} if e['tc'] in ('A', 'T', 'X', 'W') else e for e in entries], negctl=ANYNEG, objs=sorted({e.get('obj', 0) for e in entries})), open(splice.MANIFEST, 'w'), indent=0)
+    json.dump(dict(entries=[{k: v for k, v in e.items() if k not in ('elems', 'els', 'init', 'items')} if e['tc'] in ('A', 'T', 'X', 'W', 'R', 'Y') else e for e in entries], negctl=ANYNEG, objs=sorted({e.get('obj', 0) for e in entries})), open(splice.MANIFEST, 'w'), indent=0)
     json.dump([[e['va'], e['size']] for e in entries], open(os.path.join(GEN, 'skip_ranges.json'), 'w'))
     tot = collections.Counter()
     for e in entries: tot[e['section']] += e['size']

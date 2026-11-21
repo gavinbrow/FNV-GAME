@@ -5,12 +5,12 @@ import json
 import sys
 
 sys.dont_write_bytecode = True
-sys.path.insert(0, r'C:\Projects\Decompilation\runtime-next\pinned-build')
+sys.path.insert(0, r'C:\path\to\Decompilation\runtime-next\pinned-build')
 import uncovered_v2 as U
 from pathlib import Path
 
-LIB = Path(r'C:\Projects\Decompilation\FNV\tools\vc2008\VC\lib')
-R = r'C:\Projects\Decompilation\runtime-next\reloc-v7'
+LIB = Path(r'C:\path\to\Decompilation\FNV\tools\vc2008\VC\lib')
+R = r'C:\path\to\Decompilation\runtime-next\reloc-v7'
 ov = json.load(open(R + r'\binding_overlay.json'))
 names = set(ov['global_name'])
 defs = collections.defaultdict(list)       # name -> [(lib, member, kind, secname, size, nbytes)]

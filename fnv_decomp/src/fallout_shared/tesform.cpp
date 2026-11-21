@@ -49,6 +49,12 @@ bool TESForm::GetDisabled() const
 // @fnv 0x00483710
 void TESForm::ClearData()
 {}
+
+// Private hypothesis: same no-op ABI as the source ClearData body.
+void TESForm::Init()
+{}
+void TESForm::Free()
+{}
 // @fnv 0x00484490
 void TESForm::NotifySaveLoadGameOfFormChange()
 {
@@ -176,7 +182,7 @@ void TESForm::MarkAsUnmodified(unsigned int flags)
 }
 // Reads 4 bytes of change flags from the load buffer when flag 1 is set and merges the masked bits into the form's flags field.
 // @fnv 0x00484da0
-void TESForm::LoadGame(void* apLoadBuffer)
+void TESForm::LoadGame(BGSLoadFormBuffer* apLoadBuffer)
 {
     if (static_cast<BGSLoadFormBuffer*>(apLoadBuffer)->GetChangeFlags(1))
     {
@@ -836,7 +842,11 @@ struct FUN_004011d0_shell : public TESForm
 };
 
 // @fnv 0x004011d0
-bool FUN_004011d0_shell::FUN_004011d0()
+bool TESForm::Unk_29()
+{
+    return (m_uiFormFlags & 0x20000) ? true : false;
+}
+bool TESForm::Unk_2A()
 {
     return (m_uiFormFlags & 0x20000) ? true : false;
 }
@@ -1021,17 +1031,13 @@ struct CachedValuesOwner
     void PrecalculateCachedValues();
 };
 typedef char _sizecheck_CachedValuesOwner[sizeof(CachedValuesOwner) == 4 ? 1 : -1];
-struct FUN_004011f0_shell : public TESForm
-{
-    bool FUN_004011f0();
-};
 
 // @fnv 0x004011f0
-bool FUN_004011f0_shell::FUN_004011f0()
+}  // namespace fnv_004011f0
+bool TESForm::Unk_2B()
 {
     return (m_uiFormFlags & 0x80000) ? true : false;
 }
-}  // namespace fnv_004011f0
 
 struct S3c60
 {
@@ -1103,7 +1109,7 @@ struct FUN_004849d0_shell
 };
 
 // @fnv 0x004849d0
-void FUN_004849d0_shell::SetFlag200(bool abVal)
+void TESForm::Unk_2F(bool abVal)
 {
     if (abVal)
         m_uiFormFlags |= 0x200;
@@ -1346,7 +1352,11 @@ struct FUN_004011b0_shell
 };
 
 // @fnv 0x004011b0
-bool FUN_004011b0_shell::IsFlagSet() const
+bool TESForm::Unk_27() const
+{
+    return (m_uiFormFlags & 0x10000) ? true : false;
+}
+bool TESForm::Unk_28() const
 {
     return (m_uiFormFlags & 0x10000) ? true : false;
 }
@@ -1360,7 +1370,7 @@ struct FUN_00401210_shell
 };
 
 // @fnv 0x00401210
-bool FUN_00401210_shell::HasFlag() const
+bool TESForm::Unk_2C() const
 {
     return (m_uiFormFlags & 0x2000000) ? true : false;
 }
@@ -1373,7 +1383,7 @@ struct FUN_00401250_shell
 };
 
 // @fnv 0x00401250
-bool FUN_00401250_shell::IsFlag200Set()
+bool TESForm::Unk_2E()
 {
     return (m_uiFormFlags & 0x200) ? true : false;
 }
@@ -1633,17 +1643,17 @@ struct Fake84860
 };
 // Sets or clears bit 0x400 in _flags according to abQuest, then calls v18(1).
 // @fnv 0x00484860
-void Fake84860::FUN_00484860(bool abQuest)
+void TESForm::SetQuestItem(bool abQuest)
 {
     if (abQuest)
     {
-        _flags |= 0x400;
+        m_uiFormFlags |= 0x400;
     }
     else
     {
-        _flags &= ~0x400;
+        m_uiFormFlags &= ~0x400;
     }
-    v18(1);
+    MarkAsModified(1);
 }
 
 struct PC7d
@@ -1653,10 +1663,10 @@ struct PC7d
 };
 // If bit 0 of aiFlags is set, calls FUN_00484ce0 on the object at this+8 with 4.
 // @fnv 0x00484c20
-void PC7d::FUN_00484c20(unsigned int aiFlags)
+void TESForm::SaveGame(unsigned int aiFlags)
 {
     if (aiFlags & 1)
-        FUN_00484ce0((unsigned int)((char*)this + 8), 4);
+        reinterpret_cast<PC7d*>(this)->FUN_00484ce0((unsigned int)((char*)this + 8), 4);
 }
 
 struct SGL_Stub
@@ -1829,7 +1839,7 @@ struct FUN_00549580_shell
 };
 
 // @fnv 0x00549580
-bool FUN_00549580_shell::FUN_00549580() const
+bool TESForm::Unk_26() const
 {
     return (((const TESForm*)this)->m_uiFormFlags & 64) ? true : false;
 }
@@ -2254,10 +2264,6 @@ struct ActorValueInfo : public TESForm, public TESFullName, public TESDescriptio
     char m_apEnumeratedNames[40];
 };
 typedef char _sizecheck_ActorValueInfo[sizeof(ActorValueInfo) == 196 ? 1 : -1];
-struct FUN_00484730_shell : public TESForm
-{
-    void FUN_00484730(bool);
-};
 
 struct Pathing
 {
@@ -2278,16 +2284,17 @@ struct NiTLargeArray_TESTopicInfo
 };
 
 // @fnv 0x00484730
-void FUN_00484730_shell::FUN_00484730(bool abAltered)
+}  // namespace fnv_00484730
+void TESForm::SetAltered(bool abAltered)
 {
     if (abAltered)
     {
-        if (!((Pathing*)this)->FUN_00460340() && !IsTemporary() && ms_pAllForms)
+        if (!((fnv_00484730::Pathing*)this)->FUN_00460340() && !IsTemporary() && ms_pAllForms)
         {
             bool bAddToList = true;
             for (unsigned int iIndex = 0; iIndex < ((TESForm*)ms_pAllForms)->GetFormID(); iIndex++)
             {
-                if (*((Arr*)ms_pAllForms)->GetAt(iIndex) == (unsigned int)this)
+                if (*((fnv_00484730::Arr*)ms_pAllForms)->GetAt(iIndex) == (unsigned int)this)
                 {
                     bAddToList = false;
                     break;
@@ -2295,20 +2302,20 @@ void FUN_00484730_shell::FUN_00484730(bool abAltered)
             }
             if (bAddToList)
             {
-                ((FormArray*)ms_pAllForms)->AddElement((void*)this);
+                ((fnv_00484730::FormArray*)ms_pAllForms)->AddElement((void*)this);
             }
         }
         *(unsigned int*)((char*)this + 8) |= 2;
     }
     else
     {
-        if (((Pathing*)this)->FUN_00460340() && ms_pAllForms)
+        if (((fnv_00484730::Pathing*)this)->FUN_00460340() && ms_pAllForms)
         {
             for (unsigned int iIndex = 0; iIndex < ((TESForm*)ms_pAllForms)->GetFormID(); iIndex++)
             {
-                if (*((Arr*)ms_pAllForms)->GetAt(iIndex) == (unsigned int)this)
+                if (*((fnv_00484730::Arr*)ms_pAllForms)->GetAt(iIndex) == (unsigned int)this)
                 {
-                    ((NiTLargeArray_TESTopicInfo*)ms_pAllForms)->RemoveAt(iIndex);
+                    ((fnv_00484730::NiTLargeArray_TESTopicInfo*)ms_pAllForms)->RemoveAt(iIndex);
                     break;
                 }
             }
@@ -2316,7 +2323,6 @@ void FUN_00484730_shell::FUN_00484730(bool abAltered)
         *(unsigned int*)((char*)this + 8) &= ~2u;
     }
 }
-}  // namespace fnv_00484730
 
 struct BGSSaveFormBuffer;
 struct TESAttributes : public BaseFormComponent
@@ -2517,23 +2523,19 @@ struct Pathing
 {
     bool FUN_00460340();
 };
-struct FUN_00485340_shell : public TESForm
-{
-    void FUN_00485340(BaseFormComponent* apCopyFC);
-};
 // Copies the form type, flags and a pathing state from apCopyFC into this form, marking it altered when the pathing state differs.
 // @fnv 0x00485340
-void FUN_00485340_shell::FUN_00485340(BaseFormComponent* apCopyFC)
+}  // namespace fnv_00485340
+void TESForm::CopyFromBase(BaseFormComponent* apCopyFC)
 {
     TESForm* pCopy = dynamic_cast<TESForm*>(apCopyFC);
     if (!pCopy)
         return;
-    if (((Pathing*)this)->FUN_00460340() != ((Pathing*)pCopy)->FUN_00460340())
-        SetAltered(((Pathing*)pCopy)->FUN_00460340());
+    if (((fnv_00485340::Pathing*)this)->FUN_00460340() != ((fnv_00485340::Pathing*)pCopy)->FUN_00460340())
+        SetAltered(((fnv_00485340::Pathing*)pCopy)->FUN_00460340());
     *((unsigned char*)this + 4) = pCopy->GetFormType();
-    m_uiFormFlags = ((ArrSI*)pCopy)->GetFlags() & 0xffffbfff | (m_uiFormFlags & 0x4000);
+    m_uiFormFlags = ((fnv_00485340::ArrSI*)pCopy)->GetFlags() & 0xffffbfff | (m_uiFormFlags & 0x4000);
 }
-}  // namespace fnv_00485340
 
 namespace fnv_00436180 {
 struct BSExtraData
@@ -2948,14 +2950,13 @@ bool FUN_00509540_obj::FUN_00485270(TESForm* apArg)
 
 struct CompareForm : TESForm
 {
-    bool FUN_004853e0(BaseFormComponent* rhs);
     int FUN_00474cb0();
     unsigned int FUN_0044ddc0();
 };
 extern "C" int __cdecl FUN_00404dc0(const char*, const char*);
 
 // @fnv 0x004853e0
-bool CompareForm::FUN_004853e0(BaseFormComponent* apOther)
+bool TESForm::CompareWithBase(BaseFormComponent* apOther)
 {
     TESForm* otherForm = dynamic_cast<TESForm*>(apOther);
     if (!otherForm)
@@ -2964,9 +2965,9 @@ bool CompareForm::FUN_004853e0(BaseFormComponent* apOther)
     if (m_ucFormType != otherForm->GetFormType())
         return true;
 
-    if (FUN_00474cb0() || reinterpret_cast<CompareForm*>(otherForm)->FUN_00474cb0())
+    if (reinterpret_cast<CompareForm*>(this)->FUN_00474cb0() || reinterpret_cast<CompareForm*>(otherForm)->FUN_00474cb0())
     {
-        if (FUN_00474cb0() != reinterpret_cast<CompareForm*>(otherForm)->FUN_00474cb0())
+        if (reinterpret_cast<CompareForm*>(this)->FUN_00474cb0() != reinterpret_cast<CompareForm*>(otherForm)->FUN_00474cb0())
             return true;
         else
         {
@@ -2975,7 +2976,7 @@ bool CompareForm::FUN_004853e0(BaseFormComponent* apOther)
         }
     }
 
-    unsigned int flagsA = FUN_0044ddc0();
+    unsigned int flagsA = reinterpret_cast<CompareForm*>(this)->FUN_0044ddc0();
     unsigned int flagsB = reinterpret_cast<CompareForm*>(otherForm)->FUN_0044ddc0();
     flagsA &= 0xffffbff4;
     flagsB &= 0xffffbff4;

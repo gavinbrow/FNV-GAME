@@ -1,0 +1,27 @@
+"""Compile the isolated hkp destructor hypothesis; private output, one unit."""
+import hashlib,json,subprocess,sys
+from pathlib import Path
+H=Path(__file__).resolve().parent;M=H.parent;RN=M.parent;PROJECT=RN.parent;OUT=M/'out/phase2-hkp-polymorphic-v4';BASE=M/'out/phase2-hkp-postsim-v3'
+sys.path.insert(0,str(RN/'pinned-build'));import compile_units_v3 as CU
+
+
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def main():
+ m=json.loads((OUT/'manifest.json').read_text());src=OUT/'hkpconstraintviewer.cpp';prior=BASE/'hkpconstraintviewer.cpp';units=PROJECT/'fnv_decomp/build/units.json';obj=OUT/'2501.hierarchy.obj';log=OUT/'compile.log';result=OUT/'compile-result.json';tmp=OUT/'compiler-tmp'
+ if sha(src)!=m['new_overlay_sha256'] or sha(prior)!=m['prior_overlay_sha256'] or sha(units)!=m['units_sha256']:raise ValueError('input hash mismatch')
+ if any(p.exists() for p in (obj,log,result,tmp)):raise FileExistsError('refusing overwrite')
+ tc=CU.find_toolchains()['sp1']
+ if not tc.get('ok'):raise RuntimeError('VC2008 SP1 unavailable')
+ vc=Path(tc['vc']);env=CU.make_env(vc,Path(tc['sdk']) if tc['sdk']!='None' else None);tmp.mkdir();env['TMP']=env['TEMP']=str(tmp)
+ cmd=[str(vc/'bin/cl.exe'),'/c','/nologo']+m['flags']+['/I'+str(PROJECT/'fnv_decomp/include'),str(src),'/Fo'+str(obj)]
+ p=subprocess.run(cmd,cwd=OUT,env=env,capture_output=True,text=True,errors='replace',stdin=subprocess.DEVNULL,timeout=900)
+ with log.open('x',encoding='utf8') as f:f.write(p.stdout+'\n'+p.stderr)
+ row={'rc':p.returncode,'object_present':obj.is_file(),'compiler_version':tc['version'],'unit_index':2501,'flags':m['flags'],'source_sha256':m['new_overlay_sha256']}
+ if obj.is_file():row['object_sha256']=sha(obj)
+ with result.open('x',encoding='utf8') as f:json.dump(row,f,indent=2)
+ print(json.dumps(row))
+ if p.returncode or not obj.is_file():raise SystemExit(1)
+
+if __name__=='__main__':main()

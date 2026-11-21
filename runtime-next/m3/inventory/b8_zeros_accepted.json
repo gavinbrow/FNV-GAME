@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "description": "Strict lexical source + matching global COFF type; no existing claims or recorded rewrites; names and labels checked within extent. Source declaration inventory is not a complete C++ parser. No padding accepted without ownership proof.",
+  "accepted": [
+    {
+      "selection": {
+        "va": 17595720,
+        "tc": "E",
+        "file_backed": true
+      },
+      "size": 1,
+      "section": ".rdata",
+      "declarations": [
+        "extern unsigned char DAT_010c7d48;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_010c7d48@@3EA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18519060,
+        "tc": "H",
+        "file_backed": true
+      },
+      "size": 4,
+      "section": ".data",
+      "declarations": [
+        "extern int DAT_011a9414;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011a9414@@3HA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18536968,
+        "tc": "H",
+        "file_backed": true
+      },
+      "size": 4,
+      "section": ".data",
+      "declarations": [
+        "extern int DAT_011ada08;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011ada08@@3HA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18536972,
+        "tc": "H",
+        "file_backed": true
+      },
+      "size": 4,
+      "section": ".data",
+      "declarations": [
+        "extern int DAT_011ada0c;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011ada0c@@3HA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18536984,
+        "tc": "H",
+        "file_backed": true
+      },
+      "size": 4,
+      "section": ".data",
+      "declarations": [
+        "extern int DAT_011ada18;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011ada18@@3HA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18536988,
+        "tc": "H",
+        "file_backed": true
+      },
+      "size": 4,
+      "section": ".data",
+      "declarations": [
+        "extern int DAT_011ada1c;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011ada1c@@3HA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18540002,
+        "tc": "G",
+        "file_backed": true
+      },
+      "size": 2,
+      "section": ".data",
+      "declarations": [
+        "extern unsigned short DAT_011ae5e2;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011ae5e2@@3GA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18540180,
+        "tc": "E",
+        "file_backed": true
+      },
+      "size": 1,
+      "section": ".data",
+      "declarations": [
+        "extern unsigned char DAT_011ae694;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011ae694@@3EA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18541472,
+        "tc": "H",
+        "file_backed": true
+      },
+      "size": 4,
+      "section": ".data",
+      "declarations": [
+        "extern int DAT_011aeba0;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011aeba0@@3HA"
+      ],
+      "const": false
+    },
+    {
+      "selection": {
+        "va": 18574000,
+        "tc": "D",
+        "file_backed": true
+      },
+      "size": 1,
+      "section": ".data",
+      "declarations": [
+        "extern char DAT_011b6ab0;"
+      ],
+      "unit_symbol_keys": [
+        "?DAT_011b6ab0@@3DA"
+      ],
+      "const": false
+    }
+  ],
+  "selection_entries": [
+    {
+      "va": 17595720,
+      "tc": "E",
+      "file_backed": true
+    },
+    {
+      "va": 18519060,
+      "tc": "H",
+      "file_backed": true
+    },
+    {
+      "va": 18536968,
+      "tc": "H",
+      "file_backed": true
+    },
+    {
+      "va": 18536972,
+      "tc": "H",
+      "file_backed": true
+    },
+    {
+      "va": 18536984,
+      "tc": "H",
+      "file_backed": true
+    },
+    {
+      "va": 18536988,
+      "tc": "H",
+      "file_backed": true
+    },
+    {
+      "va": 18540002,
+      "tc": "G",
+      "file_backed": true
+    },
+    {
+      "va": 18540180,
+      "tc": "E",
+      "file_backed": true
+    },
+    {
+      "va": 18541472,
+      "tc": "H",
+      "file_backed": true
+    },
+    {
+      "va": 18574000,
+      "tc": "D",
+      "file_backed": true
+    }
+  ],
+  "accepted_count": 10,
+  "accepted_bytes": 29,
+  "rejected": {
+    "inconsistent_declarations": 404,
+    "alignment": 2,
+    "aliases_or_namespace": 3586,
+    "claimed": 1778,
+    "symbol_type_mismatch": 2,
+    "not_zero": 1591,
+    "array_mangling_not_proven": 50,
+    "chunk": 15
+  },
+  "padding_entries": [],
+  "bss": "Deferred: 7171 distinct units DAT addresses in raw-less virtual tail, no file bytes."
+}

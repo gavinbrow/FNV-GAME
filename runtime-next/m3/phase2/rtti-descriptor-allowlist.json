@@ -1,0 +1,83 @@
+{
+  "scope": "private opt-in evidence-only allowlist, not a default or production selector",
+  "cohort_sha256": "55350bc32bc24fa61bcab72423f784b63dd2405011e9fe6f6908e2b7971f5cf5",
+  "candidate_count": 3,
+  "total_bytes": 156,
+  "records": [
+    {
+      "va": 18373936,
+      "size": 64,
+      "unit": 75,
+      "unit_section_index": 8,
+      "symbol": "??_R0?AV?$LockFreeQueue@V?$NiPointer@VQueuedReference@@@@@@@8",
+      "reference_sha256": "427e146d14bda6d4bf1a8b9ed27f751b5e28660a758d806bb68af9c25f6e78df",
+      "coff_data_sha256": "79e75494ab8345dc20748a34572d4255fb14574900ae1b4bfbc39fb1d5c6d82e",
+      "kind": "rtti0",
+      "section": ".data",
+      "tier": "B",
+      "original_reloc_offsets": [
+        0
+      ],
+      "original_target": 17768160,
+      "excluded_value_field": {
+        "va": 18373996,
+        "symbol": "?FUN_00404040@@YAMM@Z",
+        "ref_hex": "40404000"
+      }
+    },
+    {
+      "va": 18472012,
+      "size": 48,
+      "unit": 75,
+      "unit_section_index": 22,
+      "symbol": "??_R0?AV?$LockFreeQueue@PAVbhkRigidBody@@@@@8",
+      "reference_sha256": "da9bdb9bbf674435b025823b139e320c19d28506f570b4201150cc359af15780",
+      "coff_data_sha256": "8b60e86fce970141eea658ac03c33b3f4e139180844cd43dc53218c6392ab974",
+      "kind": "rtti0",
+      "section": ".data",
+      "tier": "B",
+      "original_reloc_offsets": [
+        0
+      ],
+      "original_target": 17768160,
+      "excluded_value_field": {
+        "va": 18472056,
+        "symbol": "?FUN_00404040@@YAMM@Z",
+        "ref_hex": "40404000"
+      }
+    },
+    {
+      "va": 18376516,
+      "size": 44,
+      "unit": 230,
+      "unit_section_index": 6,
+      "symbol": "??_R0?AV?$NiTPointerMap@IPAVTESFile@@@@@8",
+      "reference_sha256": "b17eafbbe39a824da99489045b92ff5822c8730ca0a04ba8c419425a835119ca",
+      "coff_data_sha256": "c22e72e7405997b85bf457b879fa16d00b10f3b5330abf2ccf5d945ac409e4f4",
+      "kind": "rtti0",
+      "section": ".data",
+      "tier": "B",
+      "original_reloc_offsets": [
+        0
+      ],
+      "original_target": 17768160,
+      "excluded_value_field": {
+        "va": 18376556,
+        "symbol": "?FUN_00404040@@YAMM@Z",
+        "ref_hex": "40404000"
+      }
+    }
+  ],
+  "required_gates": [
+    "recheck fresh placed record+source object identity, labels, all definitions, section keys, original/other-field boundaries and no claims/rewrites",
+    "classify only exact four terminal name bytes with no original relocation as literal",
+    "adjust only ghost counts for validated selected records while retaining original relocation and byte equality",
+    "reject any changed identity, extras, duplicates or missing requested record",
+    "negative-control value and pointer; full canonical image, relocation directory, repeat and gameplay"
+  ],
+  "limitations": [
+    "does not modify selector, recipe, generators or production sources",
+    "source-unit COFF must be captured and independently verified in same fresh run",
+    "actual layout and aliases require fresh inspection"
+  ]
+}

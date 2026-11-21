@@ -6920,6 +6920,20 @@ struct FUN_006815c0
     int f_18;
     int f_1c;
 };
+struct PtrA96
+{
+    void* p;
+    PtrA96(int);
+    ~PtrA96();
+    void FUN_006f74f0(void*);
+};
+struct PtrB96
+{
+    void* p;
+    PtrB96(int);
+    ~PtrB96();
+    void FUN_0092c8b0(void*);
+};
 struct FUN_00528cb0
 {
     FUN_00528cb0(int);
@@ -7063,8 +7077,8 @@ struct FUN_00913fe0 : FUN_0092c950
     unsigned char m_e3;
     FUN_008c5e20 m_e4;
     FUN_006815c0 m_fc;
-    FUN_00528cb0 m_11c;
-    FUN_00528cb0 m_120;
+    PtrA96 m_11c;
+    PtrB96 m_120;
     unsigned char m_124;
     unsigned char m_125;
     unsigned char m_126;
@@ -14715,18 +14729,8 @@ struct Ptr96
     ~Ptr96();
     void FUN_0066b0d0(void*);
 };
-struct PtrA96
-{
-    void* p;
-    ~PtrA96();
-    void FUN_006f74f0(void*);
-};
-struct PtrB96
-{
-    void* p;
-    ~PtrB96();
-    void FUN_0092c8b0(void*);
-};
+
+
 struct Package96
 {
     int unk00, unk04, unk08, unk0c, unk10, unk14;

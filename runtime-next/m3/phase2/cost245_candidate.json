@@ -1,0 +1,109 @@
+{
+  "scope": "Provisional 16 x 20-byte source view; int fields include 58 relocations. Native semantic pointer identity unresolved.",
+  "head": {
+    "va": 18384544,
+    "size": 320,
+    "namespace": "fnv_004a8bb0",
+    "class_name": "Cost245",
+    "symbol": "?DAT_011886a0@fnv_004a8bb0@@3PAUCost245@1@A",
+    "record_count": 16,
+    "record_size": 20,
+    "source": {
+      "path": "fnv_decomp/src/fallout_shared/bgssceneinfo.cpp",
+      "sha256": "359002f014620781c489ffb3c4691fc4191ffdefb81fd01673df7552b58475c6",
+      "class_line": 1313,
+      "declaration_line": 1318
+    },
+    "relocation_offsets": [
+      4,
+      8,
+      12,
+      16,
+      24,
+      28,
+      32,
+      36,
+      44,
+      48,
+      52,
+      56,
+      64,
+      68,
+      72,
+      76,
+      84,
+      88,
+      92,
+      96,
+      104,
+      108,
+      112,
+      116,
+      124,
+      128,
+      132,
+      136,
+      144,
+      148,
+      152,
+      156,
+      164,
+      168,
+      172,
+      184,
+      188,
+      192,
+      204,
+      208,
+      212,
+      224,
+      228,
+      232,
+      236,
+      244,
+      248,
+      252,
+      256,
+      264,
+      268,
+      272,
+      276,
+      284,
+      288,
+      292,
+      296,
+      304
+    ]
+  },
+  "tail": {
+    "va": 18384864,
+    "tc": "W",
+    "size": 64,
+    "kind": "tail-m3",
+    "ns": "",
+    "named": false,
+    "head": null,
+    "runs": [
+      [
+        "S",
+        12
+      ],
+      [
+        "P",
+        2
+      ],
+      [
+        "U",
+        11
+      ]
+    ],
+    "align": 4
+  },
+  "tail_relocation_offsets": [
+    12
+  ],
+  "warnings": [
+    "C++ integer fields contain relocations; static initialization must be proven by VC2008.",
+    "Tail remains W scaffolding; split occurs within a string run and retains only its suffix."
+  ]
+}

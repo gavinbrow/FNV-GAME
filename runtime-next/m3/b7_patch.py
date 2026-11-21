@@ -1,7 +1,7 @@
 import re
-P = r'C:\Projects\Decompilation\runtime-next\m3\gen_m3.py'
+P = r'C:\path\to\Decompilation\runtime-next\m3\gen_m3.py'
 s = open(P, encoding='utf-8').read()
-g = open(r'C:\Projects\Decompilation\runtime-next\m3\b7_gcode.py', encoding='utf-8').read()
+g = open(r'C:\path\to\Decompilation\runtime-next\m3\b7_gcode.py', encoding='utf-8').read()
 
 
 def rep(old, new, cnt=1):

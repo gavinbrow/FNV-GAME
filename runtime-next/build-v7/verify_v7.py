@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 HERE = Path(__file__).resolve().parent
 RN = HERE.parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(RN / 'pinned-build')); sys.path.insert(0, str(RN / 'coverage-v3'))
-sys.path.insert(0, (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\FNV\scripts'))
+sys.path.insert(0, (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\FNV\scripts'))
 import assemble_v7 as V
 import assemble_v3 as A
 import local_targets as LT

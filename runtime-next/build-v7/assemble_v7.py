@@ -9,8 +9,8 @@ sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').pa
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 HERE = Path(__file__).resolve().parent
-PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\pinned-build'))
-CV = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next\coverage-v3'))
+PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\pinned-build'))
+CV = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\coverage-v3'))
 sys.path.insert(0, str(PB)); sys.path.insert(0, str(CV)); sys.path.insert(0, str(HERE))
 import numpy as np
 import assemble_v3 as A
@@ -389,7 +389,7 @@ def main():
     import crt5
     crt5.OVL_ = OVL if OVL['global_name'] or OVL['by_field'] else None
     dsecs = [(pe.base + rva, bytes(orig[raw:raw + rsz])) for (rva, vs, rsz, raw) in pe.sections[1:] if rsz]
-    crt, crt_rej, nmatch, crt5stat = crt5.run_crt5(BE, units, pe, cover, TEXT_VA, rs, ref, Path((__import__('os').environ.get('FNV_MSVC9_ROOT', 'C:\\Projects\\Decompilation\\FNV\\tools\\vc2008').replace('\\', '/') + '/VC/lib')), ehm, dsecs)
+    crt, crt_rej, nmatch, crt5stat = crt5.run_crt5(BE, units, pe, cover, TEXT_VA, rs, ref, Path((__import__('os').environ.get('FNV_MSVC9_ROOT', 'C:\\path\\to\\Decompilation\\FNV\\tools\\vc2008').replace('\\', '/') + '/VC/lib')), ehm, dsecs)
     crt_stat = collections.Counter(matched=nmatch, accepted_by_rerun=len(crt), json_crt=sum(1 for p in ep['pieces'] if p['kind'] == 'crt'))
     jc = {p['address']: p['data'] for p in ep['pieces'] if p['kind'] == 'crt'}
     crt_stat['rerun_equals_json'] = sum(1 for c in crt if jc.get(c['address']) == c['data'].hex())

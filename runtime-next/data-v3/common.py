@@ -8,8 +8,8 @@ import sys
 
 sys.dont_write_bytecode = True
 sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').path.expandvars(r'%APPDATA%\Python\Python312\site-packages'))))
-RN = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\runtime-next')
-REF = (__import__('os').environ.get('FNV_REF_IMAGE', r'C:\Projects\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe'))
+RN = (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next')
+REF = (__import__('os').environ.get('FNV_REF_IMAGE', r'C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe'))
 ref = open(REF, 'rb').read()
 peo = struct.unpack_from('<I', ref, 0x3c)[0]
 nsec = struct.unpack_from('<H', ref, peo + 6)[0]
@@ -60,4 +60,4 @@ def orig_reloc_sites():
 
 
 def load_units():
-    return json.loads(open((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\Projects\Decompilation') + r'\fnv_decomp\build\units.json')).read())['units']
+    return json.loads(open((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\fnv_decomp\build\units.json')).read())['units']

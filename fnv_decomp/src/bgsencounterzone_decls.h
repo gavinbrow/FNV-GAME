@@ -46,8 +46,14 @@ class BGSEncounterZone : public TESForm
     unsigned char GetByteAt1D();
     BGSEncounterZone();
     virtual ~BGSEncounterZone();
-    void ResetFormData();
-    bool Load(TESFile* file);
+    virtual void SaveForm();
+    virtual void Unk_15(BGSSaveFormBuffer* apSaveGameBuffer);
+    virtual void CopyFrom(const TESForm* source);
+    virtual bool Compare(TESForm* other);
+    virtual void LoadGame(BGSLoadFormBuffer* apLoadGameBuffer);
+    virtual void Revert(BGSLoadFormBuffer* pLoadBuffer);
+    virtual void InitializeComponent();
+    virtual bool LoadForm(TESFile* file);
     virtual void InitItem();
     static void CreateDefaultEncounterZone();
     static BGSEncounterZone* ms_pDefaultEncounterZone;

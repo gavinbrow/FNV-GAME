@@ -1,6 +1,6 @@
 {
  "wanted_names": 1937,
- "wanted_fields": 3085,
+ "wanted_fields": 3083,
  "names_to_fold_incl_closure": 2149,
  "no_body_in_our_objects": 1029,
  "body_but_no_identical_placed_function": 600,

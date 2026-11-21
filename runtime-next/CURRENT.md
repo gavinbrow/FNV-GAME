@@ -1,6 +1,71 @@
 # FNV source-built runtime — current state
 
-Last updated 2026-11-15. Read this first; it replaces the older session-start reading for the runtime effort. Older docs under `fnv_decomp/docs/rebuild` and `FNV/AGENTS.md` are history, not instructions.
+## Accepted checkpoint - 2026-11-21
+
+Development is paused. The latest accepted checkpoint is the native227 batch,
+recipe f173f5dea82f859fdf87944ef72b851f769fce46a0dbc8de0eff8c25bc51aa23,
+with 3,246 units and 5,749 source/include files. It adds 227 native RTTI
+descriptors (7,942 bytes replacing existing placeholders), retaining the earlier
+430 native runtime type records and 27 NiMemObject declaration corrections.
+Initialized compiled-data coverage is 1,614,032 / 1,979,392 bytes (81.5%).
+
+Five fresh serialized positive/control/repeat runs passed the expected image,
+relocation, mutation, frozen-input and clean gameplay gates. See
+`m3/phase2/NON-AI-NATIVE227-20261120.md` for the accepted result. Private candidate
+proofs for additional source types and 123 descriptors are not installed.
+Whole Phase 2 remains open. No new hard game-function bodies were reconstructed
+in this batch. The remaining initialized-data partition includes 190,698 bytes
+that already compile but remain unplaced.
+
+The older dated material below is historical and does not override this
+checkpoint. Detailed build products and private evidence remain local.
+
+Last updated 2026-11-19. Start with `../TODO.md`, `BUILD-ALL.md` and `m3/phase2/PROGRESS.md` for the current verified gate and evidence. Historical Phase 1 evidence is in `m3/BATCH8-verification.md`. The 2026-11-15 progress material below is retained as history; standing privacy and workspace limits remain in force.
+
+## Verified current results
+
+The latest accepted default is `m3/out/phase2-native-source-repeat`, recipe
+`825d444f...2d68`: 1,613,018 initialized data bytes (81.5%), 8,268 M3 entries,
+15,842 DV1 pieces and 405 library pieces. Both no-overrides positive/repeat
+runs, two fresh controls, exact image/relocations and semantic gameplay pass.
+Actual seven-object archives independently pass 1,100 functions, 389 ordinary
+EH sections and eight requested tails. The native BGSBodyPart table adds eight
+bytes. PSA weak E and whole native-class recovery remain open.
+
+The preceding next-data default at `m3/out/phase2-next-data-default-verified`
+retains its three-control/default verification. Selection `a0a8...9c3a`,
+library `74e3...9700` and automatic Cost watch are unchanged. Earlier source
+6757 and d569 archives remain historical evidence. The next private NiMem
+kind/API cohort uses 133 fresh pairs and 618 pinned reused units.
+
+| Area | Current evidence |
+|---|---|
+| Code | 100% of non-padding `.text` compiled from source; zero undecompiled bytes, borrowed instruction-field bytes and instruction bytes copied from the reference. |
+| M3 current bounded Phase 2 batch | 8,268 selected definitions, zero drops; initialized `.data`/`.rdata` object coverage 1,613,018 / 1,979,392 bytes (81.5%). Most of the original 849 KB of W scaffolding and opaque/prefix identities remain tracked. Whole native-class recovery is open. |
+| Image | Final positive SHA-256 `c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f`; exact 734,884-byte relocation directory matches the fresh baseline. |
+| Controls and gameplay | Fresh array-value and tail-pointer controls fail round trip and change actual hashes. Positive/repeat semantic runs pass at 70.1/70.0 seconds; repeat proves a new save, cells 1291213 -> 1073541 -> 1291213 and native exit 0. The preceding data batch retains its separate library-value proof. Earlier failures remain archived. |
+| Default | `m3/out/phase2-native-source-repeat` passes with all M3/DV/weak overrides cleared. Defaults: `FNV_M3=1`, `FNV_M3_SEL=phase2/selection.json`, `FNV_M3_DV1=1`, `FNV_M3_DV1_EXT=1`, pinned `phase2/library_candidates.json` overlay; use `FNV_M3=0` for the legacy route or `FNV_M3_LIB=0` to omit library overlays. |
+| Real-link experiment | Later `link-v2/NOTES.md` records zero unresolved symbols and 17,728 completed startup routines, followed by a crash inside steamclient.dll after reaching WinMain. This is separate from the passing layout-builder executable. |
+
+Use `build-all.cmd --out <folder> --require-harness` for the coordinated build and test entry point. The Phase 1 acceptance milestone is closed with explicit deferrals; this does not claim all original globals/types are resolved. The accepted selection digest, exact remaining-byte partition, source-type limits, BSS and later-phase deferrals are in `m3/DESIGN-phase1.md` and `m3/BATCH8-deferrals.md`. The user authorized Phase 2 generator-backed work on 2026-11-18; keep the original matching gates.
+
+The first Phase 2/W-typing experiment replaces 22 W entries (114 bytes) with source-declared scalar identities. Its later combined batch now passes the positive, three mutation controls, clean repeat, fresh no-overrides default and strict saved-result checks, and is promoted. Earlier experiment evidence is in `m3/phase2/RESULTS.md`.
+
+The active Phase 2 continuation has installed a generator-backed TESContainer
+header/override pilot for verification, including source-derived production
+literal-label corrections. The actual fresh combined-v3 image is canonical with
+exact relocation bytes; gameplay, three targeted controls and the clean repeat
+all pass, including semantic cell restoration and clean exit. Strict saved-run
+checks include all three controls. Accepted coverage is 1,602,654 initialized bytes, with 12 typed arrays
+and 370 library pieces. The coordinator independently reviewed actual default
+image/relocation bytes, scratch hashes and all 31 TESContainer functions. Failed
+combined attempts are archived. See `m3/phase2/PROGRESS.md` and
+`m3/phase2/COMPLETION.md` for the current source state and remaining whole-phase
+requirements. No global class-recovery or whole-phase completion claim is made.
+
+## Historical 2026-11-15 snapshot
+
+The following figures, blockers, staged queue statements and rebuild commands describe that earlier state. They do not override the current results or entry point above.
 
 ## Where it stands
 
@@ -68,7 +133,7 @@ The Vista SDK's full installer fails on Windows 11 at FxCop; don't use it.
 ## How to rebuild
 
 ```
-set FNV_MSVC9_RTM_ROOT=C:\Projects\Decompilation\FNV\tools\vc2008rtm
+set FNV_MSVC9_RTM_ROOT=C:\path\to\Decompilation\FNV\tools\vc2008rtm
 python -I runtime-next/pinned-build/compile_units_v3.py 28     (about 30 s)
 python -I runtime-next/build-v4/assemble_v4.py                 (about 30 s)
 ```

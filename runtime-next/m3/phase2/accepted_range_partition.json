@@ -1,0 +1,59 @@
+{
+  "schema": 2,
+  "input_sha256": {
+    "old_dv1": "7bc65e56421ca2d3fa4002608bcada1cb903a4d953e2a12b197a6f465b193c1c",
+    "old_m3": "2731a601563f6ea5298672d064a1b12b68b5a21c4361355cced9fdeaa6929a3e",
+    "new_dv1": "f65b3e513dc7dc9637e5fe23e91dead7896abb37e6d62fd6c29da0e32ccee9b7",
+    "new_m3": "77381128db20b6e134152e9216b00af9086d26bf6856b82c849eb67ca9826a1b",
+    "produced_inventory": "50b1d37eed5fbf41099a64659a0aaa3ce6994ed6c911cc0626d777d394da5d68",
+    "acceptance": "e94a3869b2ab16bec46da6cd94a1c3f9d24456551780f70c7992428c12e4779f",
+    "selection": "08b8740c57eab56aaf8a861a68cd9ed3cc5aa6bccdd6ca81283b05081a651b81",
+    "library_selection": "74e3815454a8926ee3d8f70abf939e8d61eadd7173a7514c93e66fee92589700",
+    "old_partition": "e1422da7c8e0cb54283043e681b9e7d712a5c3d45bd0b8c2e9151c38dcd7abcc",
+    "candidate_partition": "7f5de3f5e1bf5207466e6fc4a7b316c627e1a9fc926ff7410095773f987e4141",
+    "w103_previous_partition": "facf9bc45e5e97148b27256fff20db75f642c303fd4380b55abf0f90017d5efa",
+    "w103_default_acceptance": "f1f968ecfd17040ab81f34b17968997bc5335ee8c274d4d52424b2b638b134fb",
+    "w103_ownership_recount": "0085e405a6a1b00263fcb6403dccd837cd82bb5ce4e7e69bffc6262206252e80",
+    "typeid_previous_partition": "5fb92d3b20a333b0cc4ba4287c0d935748e2a85621d6b6c232e349b50dbc638b",
+    "typeid_candidate_partition": "16a83b12a88928c662bf70a53f3bfc2bcf900d3121d8ea1a949d0fff1de324ef",
+    "rtti156_previous_partition": "b944aaaa676ce2f8c64b637094a17bae587f70530e314ac54d4521a731514682",
+    "rtti156_candidate_partition": "1725b33210565ab102d51a1f99cd7ce1aa5811d89763784dba397f79938bd29c",
+    "rtti156_opt_suite": "4ece21c670f59f8de90919b524b9e2554d3cb5b28d03e0d485f7ab6338e79591",
+    "kind_bsaudio_previous_partition": "568e2d76a20378f00eb0c69d03ffe12b77636a1f13da96b8751b641cc14c7cad",
+    "kind_bsaudio_suite": "c5300af2b7d69cd02d7bc3fa3910b9579641ba2d16a3f70db21b12631ec21d75",
+    "kind_bsaudio_coverage": "bf357253380040fc218f0a012c986ae07c4112fd0244e9f1785446b164a0e34e",
+    "kind_bsaudio_sources": "4430a239c77b30f67b6ab6f973c09fdaeb346e73405dba81d2ec4faddfe5ab71",
+    "native227_previous_partition": "f2a4717c2e50a51bfa8ce5b48b9bcb64e19a2b19f4fc851d7fcccec55b45c5f5",
+    "native227_suite": "ca6a8499f013cbc28dbb2998a4d2b12159287c1a4f06ba449a53afe1f9cc6477",
+    "native227_coverage": "ca0933635d04ad5e968ea5ec00a4837192b9b9cb0422b7af8f2bcdef9d4c855c"
+  },
+  "raw_data_rdata": 1979392,
+  "accepted": {
+    "m3": 1054906,
+    "dv1": 559126,
+    "total": 1614032,
+    "tls_excluded": 5,
+    "reference_values": {
+      "m3_nonzero": 715882,
+      "m3_zero": 339024,
+      "dv1_nonzero": 372681,
+      "dv1_zero": 186445
+    }
+  },
+  "delta_since_batch8": {
+    "produced_unspliced": 16938,
+    "uncovered_nonzero": 709,
+    "uncovered_zero": 125,
+    "rewrite": 0
+  },
+  "remaining": {
+    "produced_unspliced": 190698,
+    "uncovered_nonzero": 66842,
+    "uncovered_zero": 99920,
+    "rewrite": 7900,
+    "total": 365360
+  },
+  "note": "Accepted 227 native RTTI descriptor ownership moves 7,942 initialized bytes from existing M3 W storage to DV1; total coverage and original relocations unchanged. Complete class/static identity and global ODR remain unproven.",
+  "accepted_run": "C:\\path\\to\\Decompilation\\runtime-next\\m3\\out\\phase2-native227-20261120\\repeat",
+  "accepted_recipe_sha256": "f173f5dea82f859fdf87944ef72b851f769fce46a0dbc8de0eff8c25bc51aa23"
+}

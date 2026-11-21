@@ -11,7 +11,7 @@ sys.path.append((__import__('os').environ.get('FNV_PY_SITE', __import__('os').pa
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 RN = HERE.parent
-REF = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\Projects\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
+REF = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
 M32 = 0xffffffff
 t0 = time.time()
 ref = REF.read_bytes()
@@ -244,7 +244,7 @@ def run(st):
         for k, (a, t_) in placed.items(): mark(a, len(SEC[k]['data']))
         ufirst = {}
         try:
-            _un = json.loads((Path((__import__('os').environ.get('FNV_PROJ_ROOT', 'C:\\Projects\\Decompilation').replace('\\', '/') + '/fnv_decomp')) / 'build/units.json').read_text())['units']
+            _un = json.loads((Path((__import__('os').environ.get('FNV_PROJ_ROOT', 'C:\\path\\to\\Decompilation').replace('\\', '/') + '/fnv_decomp')) / 'build/units.json').read_text())['units']
             for i, u in enumerate(_un): ufirst[i] = min((int(f['address'], 16) for f in u['functions']), default=0)
         except Exception: pass
         groups = collections.defaultdict(list)

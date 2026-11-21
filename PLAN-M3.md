@@ -1,5 +1,11 @@
 # M3 plan: all exe data from source
 
+Current status (2026-11-21): Phase 1 is accepted with explicit deferrals; Phase 2
+is open and development is paused. The accepted checkpoint has 1,614,032 of
+1,979,392 initialized data bytes from compiled objects. See
+[docs/STATUS.md](docs/STATUS.md) and [TODO.md](TODO.md). The estimates and progress
+figures below describe the original plan and its historical starting point.
+
 Goal: every byte of `.rdata`, `.data`, `.tls` and `CONST` in `FalloutNV_selfbuilt.exe` is produced by compiling our
 source (plus Microsoft's CRT/STL libraries), instead of being copied from the reference image. Values stay the
 original's (that is what decompiled data is); what changes is that each piece becomes a typed definition in source
