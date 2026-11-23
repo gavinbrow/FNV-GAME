@@ -13,7 +13,10 @@ PB = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilat
 CV = Path((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\coverage-v3'))
 sys.path.insert(0, str(PB)); sys.path.insert(0, str(CV)); sys.path.insert(0, str(HERE))
 import numpy as np
+import codefreeze as CF
 import assemble_v3 as A
+NOREF = CF.NOREF      # batch 12: FNV_CODE_NOREF=1, the code stage never opens the reference image (frozen layout from m3\\frozen\\code_*.json)
+FREEZE = CF.FREEZE    # batch 12: FNV_CODE_FREEZE=1 (normal run): write the frozen layout
 M32 = 0xffffffff
 NEWBASE = 0x10000000
 
@@ -32,6 +35,9 @@ SGSIDE = {}
 # (funclets / handler stubs) are used, each accepted under the usual exact-bytes rule, and the parent function always comes from the base object.
 # Variant task index = 100000 + unit. Gate: FNV_EH_VARIANTS=0 disables.
 EHVAR = {}
+CUR = [None]          # batch 12: key of the task whose fields are resolved now (no-ref overlay decisions are per task)
+OVLSET = {}           # no-ref: {task key: set of field VAs where the binding overlay applied in the verified run}
+_ovl = set()          # freeze: fields of the current task where the overlay applied
 OVL = dict(by_unit_name={}, global_name={}, by_field={})   # w-B: reloc-v7/binding_overlay.json (see reloc-v7/NOTES.md); FNV_OVERLAY=0 disables
 if os.environ.get('FNV_EH_VARIANTS', '1') == '1' and (HERE / 'ehvariants_w2.json').exists():
     for _e in json.loads((HERE / 'ehvariants_w2.json').read_text()): EHVAR[100000 + _e['unit']] = _e['obj']
@@ -62,7 +68,10 @@ def init4(*a):
             return _Cv0(p, *x, **k)
         A.Coff = _Cvar
     if (HERE / 'sg_sidecar_w2.json').exists(): SGSIDE.update(json.loads((HERE / 'sg_sidecar_w2.json').read_text()))
-    if (HERE / 'icf_map.json').exists() and os.environ.get('FNV_ICF', '1') == '1': ICF.update(json.loads((HERE / 'icf_map.json').read_text()))
+    if NOREF:
+        if os.environ.get('FNV_ICF', '1') == '1': ICF.update(json.loads(open(CF.path('code_icf_map.json')).read()))
+        if os.environ.get('FNV_OVERLAY', '1') == '1': OVLSET.update({k: set(v) for k, v in CF.load('code_overlay.json')['tasks'].items()})
+    elif (HERE / 'icf_map.json').exists() and os.environ.get('FNV_ICF', '1') == '1': ICF.update(json.loads((HERE / 'icf_map.json').read_text()))
     import os as _os
     if _os.environ.get('FNV_V5_FIXUPS') == '1':
         FIX.update({int(k): v for k, v in json.loads((HERE / 'callee_fixups.json').read_text())['fixups'].items()})
@@ -75,14 +84,16 @@ def init4(*a):
         if src is None and tsym['name'] == '___ImageBase': src, exp = 'linker-imagebase', (A.G['pe'].base + addend) & M32
         if FIX and src == 'a' and field_va in FIX: src, exp = 'a-fixup', FIX[field_va]
         if OVL['by_field'] or OVL['by_unit_name']:
-            ob = ov_observed(kind, field_va, orig_raw)
-            if ob is not None and (src is None or exp != ob):   # only where we would otherwise borrow or disagree
+            if NOREF: ob = 1 if kind in (0x14, 6) else None; _go = field_va in OVLSET.get(CUR[0], ())   # no-ref: the decision of the verified run (frozen per task and field)
+            else: ob = ov_observed(kind, field_va, orig_raw); _go = ob is not None and (src is None or exp != ob)
+            if ob is not None and _go:   # only where we would otherwise borrow or disagree
                 ovx = OVL['by_field'].get(field_va)
                 if ovx is not None: src, exp = 'overlay-field', ovx & M32
                 else:
                     ovb = OVL['by_unit_name'].get(unit.get('source'), {}).get(tsym['name'][:80])
                     if ovb is None and tsym['section'] <= 0: ovb = OVL['global_name'].get(tsym['name'][:80])
                     if ovb is not None: src, exp = 'overlay-name', (ovb + addend) & M32
+                if FREEZE and src in ('overlay-field', 'overlay-name'): _ovl.add(field_va)
         _tsec[field_va] = tsym['section']
         _log.append([field_va, kind, src, exp, tsym['name'][:80], addend])
         if SA_ON and exp is not None: _sa.setdefault(tsym['name'], set()).add((exp - addend) & M32)
@@ -95,6 +106,11 @@ def init4(*a):
         for e in _log[n0:]:
             va, kind, src, exp = e[:4]; seen.add(va)
             st = 'borrow'
+            if NOREF:      # no reference: a resolved field counts as agreeing; place() demotes the fields the verified run borrowed (frozen)
+                if exp is not None and kind == 0x0B:
+                    try: pe.secrel(exp)
+                    except ValueError: exp = None
+                e += ['agree' if exp is not None and kind in (6, 7, 0x14, 0x0B) else 'borrow', scope]; continue
             try: raw = pe.read(va, 4)
             except ValueError: raw = None
             if raw is not None and exp is not None and kind == 0x0B:
@@ -111,7 +127,7 @@ def init4(*a):
     A.resolve_field, A.fill_relocs = rf, fr
 
 def proc4(task):
-    _log.clear(); _tsec.clear(); _sa.clear(); _sf.clear()
+    _log.clear(); _tsec.clear(); _sa.clear(); _sf.clear(); _ovl.clear(); CUR[0] = str(task[0])
     if str(task[0] % 100000) in SGSIDE and task[0] < 100000:   # w2: string labels of a recompiled unit are re-bound by content (see sgmap_w2.py)
         import sgmap_w2 as _SG
         task = (task[0], dict(task[1], symbols=_SG.remap(A.Coff(A.HERE / 'obj_v3' / ('%04d.obj' % task[0])), task[1].get('symbols', {}), SGSIDE[str(task[0])])))
@@ -119,6 +135,7 @@ def proc4(task):
         task[1]['eh_tails'] = [{'address': '0x0', 'size': 0, 'dummy': True}]
     out = A.process(task)
     out['rl'] = [tuple(e) for e in _log]; out['tsec'] = dict(_tsec)
+    if FREEZE: out['ovl'] = sorted(_ovl)
     if SA_ON: out['sa'] = {k: sorted(v) for k, v in _sa.items()}; _sa.clear(); out['sf'] = dict(_sf); _sf.clear()
     for k in ('stats', 'pats', 'borrows'): out.pop(k, None)
     return out
@@ -223,17 +240,20 @@ def main():
     comp = {}
     for line in (PB / 'logs' / 'compile_v3.jsonl').read_text().splitlines():
         r = json.loads(line); comp[r['index']] = r
-    pe = A.Pe(A.IMG); orig = pe.data
+    pe = CF.PeMeta() if NOREF else A.Pe(A.IMG); orig = pe.data
     rva0, vs0, rs, raw0 = pe.sections[0]; TEXT_VA = pe.base + rva0
     assert rs == 12441088
-    ref = np.frombuffer(orig, np.uint8)[raw0:raw0 + rs]
+    ref = None if NOREF else np.frombuffer(orig, np.uint8)[raw0:raw0 + rs]
+    FBORROW = set((a, b) for a, b in CF.load('code_eh.json')['place_borrow']) if NOREF else set()
+    FSKIP = set((a, b) for a, b in CF.load('code_eh.json')['place_skipbad']) if NOREF else set()
+    SKIPBAD = set()      # freeze: relocation fields skipped by place() (first byte already placed) whose status was not 'agree': their other bytes carried the reference's value in the verified run
     seen = collections.defaultdict(set)
     for u in units:
         for f in u['functions']:
             for n in [f['symbol']] + f.get('fold_aliases', []): seen[n].add(int(f['address'], 16))
     fnnames = {k: next(iter(v)) for k, v in seen.items() if len(v) == 1}
     symnames = A.BAM.recipe_names(units)
-    imports, thunks = A.parse_imports(pe)
+    imports, thunks = CF.imports_thunks() if NOREF else A.parse_imports(pe)
     tasks = [(i, u) for i, u in enumerate(units) if comp[i]['status'] == 'ok']
     tasks += [(k, units[k - 100000]) for k in sorted(EHVAR)]
     results = {}
@@ -266,13 +286,21 @@ def main():
     BSITES = []
     def place(o, data, P, ents, origin, cls, unit):
         L = len(data); arr = np.frombuffer(data, np.uint8)
-        S[o:o + L][P] = arr[P]; Wm[o:o + L][P] = cls
         at = TEXT_VA + o
+        if NOREF and FSKIP:      # no reference: the bytes of such a field that the verified run took from the reference are left to the piece that owns them
+            P = P.copy()
+            for e in ents:
+                rel = e[0] - at
+                if 0 <= rel < L and (e[0], unit) in FSKIP and not P[rel]: P[rel:min(rel + 4, L)] = False
+        S[o:o + L][P] = arr[P]; Wm[o:o + L][P] = cls
         for e in ents:
             rel = e[0] - at
-            if rel < 0 or rel >= L or not P[rel]: continue
+            if rel < 0 or rel >= L or not P[rel]:
+                if FREEZE and 0 <= rel < L and e[6] != 'agree': SKIPBAD.add((e[0], unit))
+                continue
             full = rel + 4 <= L   # wB: was `and P[rel:rel + 4].all()`: a field whose other bytes were already placed by an earlier piece is still resolved in this piece's data
             st = e[6] if full else 'borrow'
+            if NOREF and (e[0], unit) in FBORROW: st = 'borrow'
             if st != 'agree':
                 n = min(4, L - rel); m = P[rel:rel + n]
                 S[o + rel:o + rel + n][m] = 0xcc; B[o + rel:o + rel + n][m] = 1
@@ -289,7 +317,7 @@ def main():
             if rec['data'] is None: reasons['fn-' + (rec['reason'] or '?').split(' (')[0]] += 1; continue
             o = rec['address'] - TEXT_VA; L = rec['size']
             if Wm[o:o + L].any(): reasons['fn-duplicate-address'] += 1; continue
-            if rec['data'] != bytes(ref[o:o + L]): reasons['fn-bytes-differ-from-reference'] += 1; rej[o:o + L] = 1; continue
+            if not NOREF and rec['data'] != bytes(ref[o:o + L]): reasons['fn-bytes-differ-from-reference'] += 1; rej[o:o + L] = 1; continue
             lo = bisect.bisect_left(keys, rec['address']); hi = bisect.bisect_left(keys, rec['address'] + L)
             place(o, rec['data'], np.ones(L, bool), rl[lo:hi], 'fn', 1, i); nfn_placed += 1; fn_ranges.append((rec['address'], L, rec['symbol']))
     fn_bytes = int((Wm == 1).sum())
@@ -303,7 +331,7 @@ def main():
         P = (Wm[o:o + L] == 0) & (cover[o:o + L] != 1)
         if not P.any(): ceh_stat['nothing-new'] += 1; continue
         arr = np.frombuffer(data, np.uint8)
-        if not (arr[P] == ref[o:o + L][P]).all(): ceh_stat['bytes-differ-from-reference'] += 1; continue
+        if not NOREF and not (arr[P] == ref[o:o + L][P]).all(): ceh_stat['bytes-differ-from-reference'] += 1; continue
         place(o, data, P, sorted((tuple(e) for e in t['sites']), key=lambda e: e[0]), 'contrib-eh', 6, -3)
         cover[o:o + L][P] = 2; CTSEC.update({int(k): v for k, v in t.get('tsec', {}).items()})
         ceh_stat['placed'] += 1; ceh_stat['new_bytes'] += int(P.sum())
@@ -314,7 +342,7 @@ def main():
         o = p['address'] - TEXT_VA; L = p['size']; data = bytes.fromhex(p['data'])
         if not (0 <= o and o + L <= rs): contrib_stat['outside-text'] += 1; continue
         if Wm[o:o + L].any(): contrib_stat['overlaps-placed-recipe-function'] += 1; continue
-        if data != bytes(ref[o:o + L]): contrib_stat['bytes-differ-from-reference'] += 1; continue
+        if not NOREF and data != bytes(ref[o:o + L]): contrib_stat['bytes-differ-from-reference'] += 1; continue
         psites = sorted((tuple(e) for e in p['sites']), key=lambda e: e[0])
         # the __ehhandler$ relocation resolves to our own placed stub only if that stub was placed above; otherwise it stays borrowed
         psites = [(e[:6] + ('borrow',) + e[7:]) if (e[2] == 'eh-stub' and e[3] is not None and not Wm[(e[3] & M32) - TEXT_VA]) else e for e in psites]
@@ -327,6 +355,10 @@ def main():
         for t in r['tails']:
             if t['data'] is None: continue
             pieces.append((t['address'], not t['ok'], i, t))
+    EHACC = []; EHHEAL = []
+    if NOREF:      # the pieces the verified run accepted, in its placement order (frozen); nothing else is considered
+        _byk = {(i, t['index'], t['s0']): t for i, r in results.items() for t in r['tails'] if t['data'] is not None}
+        pieces = [(a, bool(nk), i, _byk[(i, ix, s0)]) for i, ix, s0, a, nk in CF.load('code_eh.json')['accepted']]
     # wB: among pieces for the same address prefer the one whose relocation fields all resolve (fewest borrowed/disagreeing fields), then the old order
     _rl_by_unit = {}
     def _nbad(p):
@@ -335,7 +367,7 @@ def main():
             ee_ = sorted((e for e in results[i_]['rl'] if e[7] in ('tail', 'tail_notok')), key=lambda e: e[0]); _rl_by_unit[i_] = (ee_, [e[0] for e in ee_])
         ee_, kk_ = _rl_by_unit[i_]
         return sum(1 for e in ee_[bisect.bisect_left(kk_, at_):bisect.bisect_left(kk_, at_ + len(t_['data']))] if e[6] != 'agree')
-    pieces.sort(key=lambda p: (p[0], p[1], _nbad(p), p[2]))
+    if not NOREF: pieces.sort(key=lambda p: (p[0], p[1], _nbad(p), p[2]))
     eh_stat = collections.Counter(); rlcache = {}
     for at, notok, i, t in pieces:
         eh_stat['located'] += 1
@@ -352,18 +384,31 @@ def main():
         P = (Wm[o:o + L] == 0) & (cover[o:o + L] != 1)
         if not P.any(): eh_stat['nothing-new(already placed/inside function range)'] += 1; continue
         arr = np.frombuffer(data, np.uint8)
-        if not (arr[P] == ref[o:o + L][P]).all(): eh_stat['bytes-differ-from-reference'] += 1; rej[o:o + L][Wm[o:o + L] == 0] = 1; continue
+        if not NOREF and not (arr[P] == ref[o:o + L][P]).all(): eh_stat['bytes-differ-from-reference'] += 1; rej[o:o + L][Wm[o:o + L] == 0] = 1; continue
         if i not in rlcache:
             ee = sorted((e for e in results[i]['rl'] if e[7] in ('tail', 'tail_notok')), key=lambda e: e[0]); rlcache[i] = (ee, [e[0] for e in ee])
         ee, kk = rlcache[i]
         ents = ee[bisect.bisect_left(kk, at):bisect.bisect_left(kk, at + L)]
         recipe = bool((cover[o:o + L][P] == 2).any())
-        place(o, data, P, ents, 'tail', 2 if recipe else 3, i)
+        place(o, data, P, ents, 'tail', 2 if recipe else 3, i); EHACC.append([i, t['index'], t['s0'], at, int(notok)])
         eh_stat['accepted-in-recipe-tail' if recipe else 'accepted-outside-recipe(new)'] += 1
         if notok: eh_stat['accepted-although-matcher-not-ok'] += 1; eh_stat['accepted-not-ok-new_bytes'] += int(P.sum())
     # ---- wB heal pass: a field left borrowed by the piece placed first (callee name unbound in that unit's object) but resolved by another unit's copy of the same piece
     healed = 0
-    for at, notok, i, t in pieces:
+    if NOREF:      # frozen heal decisions: the fields the verified run healed (borrowed by the piece placed first, resolved by another copy of the same piece in the same unit)
+        for fva, i, _ix, _s0, _at, _exp, _src, _nm in CF.load('code_eh.json')['heals']:
+            if i not in rlcache:
+                ee = sorted((e for e in results[i]['rl'] if e[7] in ('tail', 'tail_notok')), key=lambda e: e[0]); rlcache[i] = (ee, [e[0] for e in ee])
+            ee, kk = rlcache[i]; k_ = bisect.bisect_left(kk, fva)
+            e = next((e_ for e_ in ee[k_:] if e_[0] == fva and e_[3] == _exp and e_[2] == _src and e_[4] == _nm), None)      # the entry the verified run healed from (its target equalled the reference value there)
+            assert e is not None, ('frozen heal does not resolve', hex(fva), i)
+            kind_, exp_ = e[1], e[3]
+            val = ((exp_ - (fva + 4)) & M32) if kind_ == 0x14 else (exp_ & M32 if kind_ == 6 else (((exp_ - pe.base) & M32) if kind_ == 7 else (pe.secrel(exp_) & M32)))
+            x = fva - TEXT_VA
+            if not B[x:x + 4].any(): eh_stat['heal-not-needed'] += 1; continue
+            S[x:x + 4] = np.frombuffer(struct.pack('<I', val), np.uint8); B[x:x + 4] = 0; healed += 1
+            sites.append((e[0], e[1], e[2], e[3], e[4], e[5], 'agree', 'tail', i))
+    for at, notok, i, t in ([] if NOREF else pieces):
         if t['data'] is None: continue
         if i not in rlcache:
             ee = sorted((e for e in results[i]['rl'] if e[7] in ('tail', 'tail_notok')), key=lambda e: e[0]); rlcache[i] = (ee, [e[0] for e in ee])
@@ -372,11 +417,11 @@ def main():
         for e in ee[bisect.bisect_left(kk, at):bisect.bisect_left(kk, at + L)]:
             rel = e[0] - at; x = o + rel
             if e[6] != 'agree' or rel < 0 or rel + 4 > L or not B[x:x + 4].any() or bytes(data[rel:rel + 4]) != bytes(ref[x:x + 4]): continue
-            S[x:x + 4] = np.frombuffer(data[rel:rel + 4], np.uint8); B[x:x + 4] = 0; healed += 1
+            S[x:x + 4] = np.frombuffer(data[rel:rel + 4], np.uint8); B[x:x + 4] = 0; healed += 1; EHHEAL.append([e[0], i, t['index'], t['s0'], at, e[3], e[2], e[4]])
             sites.append((e[0], e[1], e[2], e[3], e[4], e[5], 'agree', 'tail', i))
     eh_stat['healed-borrowed-fields'] = healed
     # ---- old-obj EH pieces (not placed; measure only)
-    ep = json.loads((CV / 'extra_pieces.json').read_text())
+    ep = dict(pieces=[]) if NOREF else json.loads((CV / 'extra_pieces.json').read_text())
     old_eh = [p for p in ep['pieces'] if p['kind'] == 'eh']
     old_only = 0
     for p in old_eh:
@@ -388,7 +433,7 @@ def main():
     # ---- CRT
     import crt5
     crt5.OVL_ = OVL if OVL['global_name'] or OVL['by_field'] else None
-    dsecs = [(pe.base + rva, bytes(orig[raw:raw + rsz])) for (rva, vs, rsz, raw) in pe.sections[1:] if rsz]
+    dsecs = [] if NOREF else [(pe.base + rva, bytes(orig[raw:raw + rsz])) for (rva, vs, rsz, raw) in pe.sections[1:] if rsz]
     crt, crt_rej, nmatch, crt5stat = crt5.run_crt5(BE, units, pe, cover, TEXT_VA, rs, ref, Path((__import__('os').environ.get('FNV_MSVC9_ROOT', 'C:\\path\\to\\Decompilation\\FNV\\tools\\vc2008').replace('\\', '/') + '/VC/lib')), ehm, dsecs)
     crt_stat = collections.Counter(matched=nmatch, accepted_by_rerun=len(crt), json_crt=sum(1 for p in ep['pieces'] if p['kind'] == 'crt'))
     jc = {p['address']: p['data'] for p in ep['pieces'] if p['kind'] == 'crt'}
@@ -398,25 +443,29 @@ def main():
         P = (Wm[o:o + L] == 0) & (cover[o:o + L] != 1)
         if not P.any(): crt_stat['nothing-new'] += 1; continue
         arr = np.frombuffer(c['data'], np.uint8)
-        if not (arr[P] == ref[o:o + L][P]).all(): crt_stat['bytes-differ'] += 1; continue
+        if not NOREF and not (arr[P] == ref[o:o + L][P]).all(): crt_stat['bytes-differ'] += 1; continue
         place(o, c['data'], P, [s for s in c['sites']], 'crt', 4, -1); crt_stat['placed'] += 1
     print('crt done', round(time.time() - T0), 's', flush=True)
 
     # ---- images (in memory only; v5 writes no executables)
-    strict = bytearray(orig); strict[raw0:raw0 + rs] = S.tobytes()
     M = Wm > 0
-    filled = bytearray(orig)           # holes from reference; produced bytes from our image (non-borrowed)
-    fa = np.frombuffer(filled, np.uint8)
     keep = M & (B == 0)
-    fa[raw0:raw0 + rs][keep] = S[keep]
-    filled_eq = bytes(filled) == bytes(orig)
+    if NOREF:      # no reference: header bytes zero (only .text is consumed downstream); filled == strict because nothing is borrowed
+        strict = bytearray(raw0 + rs); strict[raw0:raw0 + rs] = S.tobytes(); filled = bytearray(strict); filled_eq = None
+    else:
+        strict = bytearray(orig); strict[raw0:raw0 + rs] = S.tobytes()
+        filled = bytearray(orig)           # holes from reference; produced bytes from our image (non-borrowed)
+        fa = np.frombuffer(filled, np.uint8)
+        fa[raw0:raw0 + rs][keep] = S[keep]
+        filled_eq = bytes(filled) == bytes(orig)
     (HERE / 'FalloutNV_v7_strict.exe').write_bytes(bytes(strict))
     (HERE / 'FalloutNV_v7_filled.exe').write_bytes(bytes(filled))
 
     # ---- progress (same definitions as v4)
-    padv = np.isin(ref, (0xcc, 0x00))
+    refv = S if NOREF else ref      # no-ref: padding is classified on our own bytes (our image equals the reference where it is placed)
+    padv = np.isin(refv, (0xcc, 0x00))
     ours = M & (B == 0) & ~padv
-    padding = padv & (S == ref) & (B == 0)
+    padding = padv & (S == refv) & (B == 0)
     bor_bytes = int(B.sum())
     json.dump(BSITES, open(HERE / 'borrowed_sites_v7.json', 'w'))
     json.dump([TEXT_VA + int(x) for x in np.flatnonzero(B)], open(HERE / 'borrowed_bytes_v7.json', 'w'))   # wB: every byte counted in borrowed_relocation_field_bytes
@@ -424,7 +473,7 @@ def main():
     rest = missing & (B == 0)
     cA = rest & (unc == 1)
     cB = rest & ~cA & ((rej == 1) | ((cover > 0)))
-    cC = rest & ~cA & ~cB & (cover == 0) & (ref != 0x90)
+    cC = rest & ~cA & ~cB & (cover == 0) & (refv != 0x90)
     total = rs
     prog = dict(
         headline_pct_text_from_our_compile_or_library=round(100 * int(ours.sum()) / total, 3),
@@ -435,8 +484,9 @@ def main():
         missing_excluding_borrowed_fields=int(rest.sum()), missing_b_failed_pieces=int(cB.sum()), missing_c_undecompiled=int(cC.sum()),
         pieces=dict(contributions=dict(contrib_stat), contribution_eh=dict(ceh_stat), functions_placed=nfn_placed, fn_reject_reasons=dict(reasons), eh=dict(eh_stat), crt=dict(crt_stat), crt5=crt5stat),
         filled_equals_reference=filled_eq,
-        reference_sha256_expected_match=(sha(bytes(filled)) == 'df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7'),
-        sha256=dict(strict=sha(bytes(strict)), filled=sha(bytes(filled)), reference=sha(orig)),
+        reference_sha256_expected_match=None if NOREF else (sha(bytes(filled)) == 'df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7'),
+        text_sha256=sha(S.tobytes()), code_noref=NOREF,
+        sha256=dict(strict=sha(bytes(strict)), filled=sha(bytes(filled)), reference=None if NOREF else sha(orig)),
         undecompiled_bytes=int(cC.sum()),
         strict_nonCC_not_produced=int(((S != 0xcc) & ~M).sum()),
     )
@@ -467,25 +517,27 @@ def main():
 
     # ---- rebase test
     delta = NEWBASE - pe.base
-    peo = struct.unpack_from('<I', orig, 0x3c)[0]
-    rrva, rsz = struct.unpack_from('<II', orig, peo + 24 + 96 + 5 * 8)
-    roff = A.rva2off(pe, rrva); p = roff; tbl = set()
-    while p < roff + rsz:
-        pg, bs = struct.unpack_from('<II', orig, p)
-        if bs == 0: break
-        for k in range((bs - 8) // 2):
-            w, = struct.unpack_from('<H', orig, p + 8 + 2 * k)
-            if w >> 12 == 3: tbl.add(pg + (w & 0xfff))
-        p += bs
-    def rebase_blob(b):
-        b = bytearray(b)
-        for r_ in tbl:
-            o = A.rva2off(pe, r_)
-            v, = struct.unpack_from('<I', b, o); struct.pack_into('<I', b, o, (v + delta) & M32)
-        struct.pack_into('<I', b, peo + 52, NEWBASE)
-        return b
-    refreb = rebase_blob(orig)
-    imgsz = struct.unpack_from('<I', orig, peo + 24 + 56)[0]
+    if NOREF: tbl = set(); peo = None; refreb = None; imgsz = pe.image_size
+    else:
+        peo = struct.unpack_from('<I', orig, 0x3c)[0]
+        rrva, rsz = struct.unpack_from('<II', orig, peo + 24 + 96 + 5 * 8)
+        roff = A.rva2off(pe, rrva); p = roff; tbl = set()
+        while p < roff + rsz:
+            pg, bs = struct.unpack_from('<II', orig, p)
+            if bs == 0: break
+            for k in range((bs - 8) // 2):
+                w, = struct.unpack_from('<H', orig, p + 8 + 2 * k)
+                if w >> 12 == 3: tbl.add(pg + (w & 0xfff))
+            p += bs
+        def rebase_blob(b):
+            b = bytearray(b)
+            for r_ in tbl:
+                o = A.rva2off(pe, r_)
+                v, = struct.unpack_from('<I', b, o); struct.pack_into('<I', b, o, (v + delta) & M32)
+            struct.pack_into('<I', b, peo + 52, NEWBASE)
+            return b
+        refreb = rebase_blob(orig)
+        imgsz = struct.unpack_from('<I', orig, peo + 24 + 56)[0]
     imglo, imghi = pe.base, pe.base + imgsz
     # (1) our own relocation rule: a DIR32 we resolved is base-relocated iff its target is inside the image and the COFF target is not an absolute symbol
     rclass = collections.Counter(); reloc_ours = {}
@@ -518,48 +570,79 @@ def main():
     (HERE / 'inferred_literals_v7.json').write_text(json.dumps({'0x%08x' % k: '0x%08x' % v for k, v in sorted(inferred.items())}))
     prog['literal_inference'] = dict(candidates_imm_disp_in_image_without_reloc_record=len(cands), inferred_as_address=len(inferred),
         rule='mnemonic in %s, value == exact address of an object known to our build (our resolved targets, units.json symbol addresses, recipe function addresses), value not round (low 16 bits 0 / 0xffffff / 0xfff pattern)' % sorted(LIT_MN))
-    # (3) rebase our image
-    def build(reloc_fields, inferred_fields):
-        Sr = S.copy()
-        for fa_ in list(reloc_fields) + list(inferred_fields):
-            o = fa_ - TEXT_VA; v, = struct.unpack('<I', S[o:o + 4].tobytes()); Sr[o:o + 4] = np.frombuffer(struct.pack('<I', (v + delta) & M32), np.uint8)
-        oa = bytearray(refreb); oarr = np.frombuffer(oa, np.uint8)
-        oarr[raw0:raw0 + rs][keep] = Sr[keep]
-        return np.frombuffer(bytes(oa), np.uint8)[raw0:raw0 + rs]
-    tr = np.frombuffer(bytes(refreb), np.uint8)[raw0:raw0 + rs]
-    def run_variant(reloc_fields, inferred_fields):
-        to = build(reloc_fields, inferred_fields); return np.flatnonzero(tr != to)
-    tbl_text_va = set(pe.base + r_ for r_ in tbl if rva0 <= r_ < rva0 + rs)
-    variants = {}
-    variants['v4_rule'] = run_variant({s[0] for s in uniq.values() if s[1] == 6 and s[6] == 'agree' and imglo <= s[3] < imghi}, {})
-    variants['v5_rule'] = run_variant(set(reloc_ours), inferred)
-    # table-assisted check (uses the original .reloc table, so NOT independent): shows nothing else differs
-    ours_fields_all = {s[0] for s in uniq.values() if s[1] == 6 and s[6] == 'agree'}
-    asst = {f_ for f_ in tbl_text_va if M[f_ - TEXT_VA:f_ - TEXT_VA + 4].all() and B[f_ - TEXT_VA:f_ - TEXT_VA + 4].sum() == 0}
-    variants['table_assisted'] = run_variant(asst, {})
-    prog['rebase_test'] = dict(delta=hex(delta), reloc_table_highlow_sites=len(tbl), reloc_sites_in_text=len(tbl_text_va),
-        our_dir32_agree_classes=dict(rclass), text_bytes_differing={k: int(len(v)) for k, v in variants.items()},
-        text_bytes_differing_note='v4_rule = shift every DIR32 we resolved whose target is in the image (as v4); v5_rule = own rule + literal inference; table_assisted = original .reloc decides (not independent)')
-    dd = variants['v5_rule']
-    cls = collections.defaultdict(list)
-    for d_ in dd.tolist():
-        va = TEXT_VA + d_
-        f_ = next((va - k for k in range(4) if (va - k) in tbl_text_va or (va - k) in reloc_ours or (va - k) in inferred), None)
-        if f_ is None: cls['unclassified'].append((va, None)); continue
-        if f_ in reloc_ours and f_ not in tbl_text_va: cls['we-shift-a-field-the-original-does-not-relocate'].append((f_, reloc_ours[f_][4]))
-        elif f_ in inferred and f_ not in tbl_text_va: cls['inferred-literal-not-in-original-table'].append((f_, 'inferred'))
-        elif f_ in tbl_text_va and f_ not in reloc_ours and f_ not in inferred: cls['original-relocates-a-field-we-emit-as-plain-literal'].append((f_, None))
-        else: cls['other'].append((f_, None))
-    fields = {k: sorted(set(v)) for k, v in cls.items()}
-    prog['rebase_test']['remaining_diff_fields_by_cause'] = {k: len(v) for k, v in fields.items()}
-    remain = {}
-    for k, v in fields.items():
-        remain[k] = [dict(field='0x%08x' % f_, value=hex(struct.unpack('<I', S[f_ - TEXT_VA:f_ - TEXT_VA + 4].tobytes())[0]), symbol=nm) for f_, nm in v]
-    (HERE / 'rebase_remaining_v7.json').write_text(json.dumps(remain, indent=1))
-    if (HERE / 'icf_report.json').exists(): prog['icf_fold'] = json.loads((HERE / 'icf_report.json').read_text())
+    if NOREF:
+        prog['rebase_test'] = dict(skipped='FNV_CODE_NOREF: compares against the reference .reloc table and bytes (verification only)')
+        (HERE / 'rebase_remaining_v7.json').write_text('{}')
+    else:
+        # (3) rebase our image
+        def build(reloc_fields, inferred_fields):
+            Sr = S.copy()
+            for fa_ in list(reloc_fields) + list(inferred_fields):
+                o = fa_ - TEXT_VA; v, = struct.unpack('<I', S[o:o + 4].tobytes()); Sr[o:o + 4] = np.frombuffer(struct.pack('<I', (v + delta) & M32), np.uint8)
+            oa = bytearray(refreb); oarr = np.frombuffer(oa, np.uint8)
+            oarr[raw0:raw0 + rs][keep] = Sr[keep]
+            return np.frombuffer(bytes(oa), np.uint8)[raw0:raw0 + rs]
+        tr = np.frombuffer(bytes(refreb), np.uint8)[raw0:raw0 + rs]
+        def run_variant(reloc_fields, inferred_fields):
+            to = build(reloc_fields, inferred_fields); return np.flatnonzero(tr != to)
+        tbl_text_va = set(pe.base + r_ for r_ in tbl if rva0 <= r_ < rva0 + rs)
+        variants = {}
+        variants['v4_rule'] = run_variant({s[0] for s in uniq.values() if s[1] == 6 and s[6] == 'agree' and imglo <= s[3] < imghi}, {})
+        variants['v5_rule'] = run_variant(set(reloc_ours), inferred)
+        # table-assisted check (uses the original .reloc table, so NOT independent): shows nothing else differs
+        ours_fields_all = {s[0] for s in uniq.values() if s[1] == 6 and s[6] == 'agree'}
+        asst = {f_ for f_ in tbl_text_va if M[f_ - TEXT_VA:f_ - TEXT_VA + 4].all() and B[f_ - TEXT_VA:f_ - TEXT_VA + 4].sum() == 0}
+        variants['table_assisted'] = run_variant(asst, {})
+        prog['rebase_test'] = dict(delta=hex(delta), reloc_table_highlow_sites=len(tbl), reloc_sites_in_text=len(tbl_text_va),
+            our_dir32_agree_classes=dict(rclass), text_bytes_differing={k: int(len(v)) for k, v in variants.items()},
+            text_bytes_differing_note='v4_rule = shift every DIR32 we resolved whose target is in the image (as v4); v5_rule = own rule + literal inference; table_assisted = original .reloc decides (not independent)')
+        dd = variants['v5_rule']
+        cls = collections.defaultdict(list)
+        for d_ in dd.tolist():
+            va = TEXT_VA + d_
+            f_ = next((va - k for k in range(4) if (va - k) in tbl_text_va or (va - k) in reloc_ours or (va - k) in inferred), None)
+            if f_ is None: cls['unclassified'].append((va, None)); continue
+            if f_ in reloc_ours and f_ not in tbl_text_va: cls['we-shift-a-field-the-original-does-not-relocate'].append((f_, reloc_ours[f_][4]))
+            elif f_ in inferred and f_ not in tbl_text_va: cls['inferred-literal-not-in-original-table'].append((f_, 'inferred'))
+            elif f_ in tbl_text_va and f_ not in reloc_ours and f_ not in inferred: cls['original-relocates-a-field-we-emit-as-plain-literal'].append((f_, None))
+            else: cls['other'].append((f_, None))
+        fields = {k: sorted(set(v)) for k, v in cls.items()}
+        prog['rebase_test']['remaining_diff_fields_by_cause'] = {k: len(v) for k, v in fields.items()}
+        remain = {}
+        for k, v in fields.items():
+            remain[k] = [dict(field='0x%08x' % f_, value=hex(struct.unpack('<I', S[f_ - TEXT_VA:f_ - TEXT_VA + 4].tobytes())[0]), symbol=nm) for f_, nm in v]
+        (HERE / 'rebase_remaining_v7.json').write_text(json.dumps(remain, indent=1))
+    if (HERE / 'icf_report.json').exists() and not NOREF: prog['icf_fold'] = json.loads((HERE / 'icf_report.json').read_text())
     prog['seconds'] = round(time.time() - T0)
+    if NOREF:
+        _ex = CF.load('code_meta.json')['text_sha256']; prog['text_equals_frozen_hash'] = (prog['text_sha256'] == _ex)
+        print('code stage (no reference): .text sha256 %s the frozen hash' % ('EQUALS' if prog['text_equals_frozen_hash'] else 'DIFFERS FROM (control run or a regression)'), flush=True)
+        import shutil; shutil.copyfile(CF.path('code_icf_map.json'), str(HERE / 'icf_map.json'))      # data-v1 phase0 reads build-v7\icf_map.json: the frozen map, written afresh
+        prog['frozen_sha256'] = {f: CF.sha_file(f) for f in ('code_eh.json', 'code_crt.json', 'code_contrib.json', 'code_overlay.json', 'code_meta.json', 'code_icf_map.json')}
+    if FREEZE and os.environ.get('FNV_ICF', '1') == '1' and os.environ.get('FNV_OVERLAY', '1') == '1':
+        freeze_dump(results, EHACC, EHHEAL, BSITES, SKIPBAD, imports, thunks, prog, pe, orig)
     (HERE / 'progress.json').write_text(json.dumps(prog, indent=1))
     print(json.dumps(prog, indent=1)[:9000])
+
+def freeze_dump(results, EHACC, EHHEAL, BSITES, SKIPBAD, imports, thunks, prog, pe, orig):
+    """FNV_CODE_FREEZE=1: write the code-side layout of this verified run as JSON metadata (no section bytes) to m3\\frozen\\code_*.json."""
+    import shutil, crt5
+    need = collections.defaultdict(set)
+    for i, ix, s0, at, nk in EHACC: need[i].add((ix, s0))
+    for fva, i, ix, s0, at, _e3, _e2, _e4 in EHHEAL: need[i].add((ix, s0))
+    tasks = {}
+    for i, keys in sorted(need.items()):
+        r = results[i]      # every located piece of the task, in the original order: the relocation log of the task (statuses of duplicates in the same address range) must be the same as in the verified run
+        tasks[str(i)] = dict(xver={str(k): v for k, v in sorted(r.get('xver', {}).items())},
+                             pieces=[[t['index'], t['s0'], t['s0'] + len(t['data']), t['address'], bool(t['ok']), str(t['parent'])] for t in r['tails'] if t['data'] is not None])
+    CF.write('code_eh.json', dict(note='batch 12: EH funclet/tail pieces accepted by one verified run (task=unit index, 100000+unit for EH variants): [obj section index, start, end, VA, matcher ok, parent]; accepted = placement order; heals; place_borrow = fields borrowed at placement time',
+                                  tasks=tasks, accepted=EHACC, heals=EHHEAL, place_borrow=sorted([b[0], b[5]] for b in BSITES if b[3] != 'agree'), place_skipbad=sorted(SKIPBAD)))
+    CF.write('code_crt.json', dict(note='batch 12: CRT/STL placements (library, member index, section index, VA); data = data sections placed; ovl = fields where the binding overlay applied', **crt5.FREEZE_OUT))
+    CF.write('code_overlay.json', dict(note='batch 12: per task, the fields where reloc-v7/binding_overlay.json applied in the verified run', tasks={str(i): r['ovl'] for i, r in sorted(results.items()) if r.get('ovl')}))
+    CF.write('code_meta.json', dict(note='batch 12: import slots (name -> IAT VA) and import thunks (IAT slot -> thunk VA) of the image; text_sha256 = sha256 of the final .text',
+                                    imports=imports, thunks={str(k): v for k, v in sorted(thunks.items())}, text_sha256=prog['text_sha256'], image_sha256=prog['sha256']['reference']))
+    shutil.copyfile(str(HERE / 'icf_map.json'), CF.path('code_icf_map.json'))
+    print('code layout frozen to', CF.FZDIR, flush=True)
 
 LIT_MN = ('mov', 'push', 'fld', 'fstp', 'fcomp', 'lea')
 

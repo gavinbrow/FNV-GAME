@@ -11,7 +11,7 @@ for f in ('relocs_v7.tsv.gz', 'inferred_literals_v7.json', 'contrib_pieces.json'
 shutil.copy2((__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\fnv_decomp\build\units.json'), J(S, 'units.json'))
 for f in os.listdir(J(D3, 'out')):
     if f.endswith('.obj') or f in ('code_symbols.json', 'manifest.json'): shutil.copy2(J(D3, 'out', f), J(S, 'data-v3', 'out', f))
-shutil.copy2(J(D3, 'symbolic.json'), J(S, 'data-v3', 'symbolic.json'))
+shutil.copy2(J(D3, 'out', 'symbolic.json') if os.environ.get('FNV_M3_NOREF2') == '1' else J(D3, 'symbolic.json'), J(S, 'data-v3', 'symbolic.json'))
 shutil.rmtree(J(S, 'm3'), ignore_errors=True)     # M3 phase 1 (opt-in): the generated globals' object + manifest; make_image reads them only when FNV_M3=1
 if os.environ.get('FNV_M3') == '1':
     os.makedirs(J(S, 'm3'), exist_ok=True)

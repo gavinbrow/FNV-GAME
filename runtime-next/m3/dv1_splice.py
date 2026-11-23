@@ -23,6 +23,8 @@ pkl = args[0]
 kinds_only = None
 if '--kinds' in args: kinds_only = set(args[args.index('--kinds') + 1].split(','))
 sys.argv = [sys.argv[0]]
+if os.environ.get('FNV_M3_DV1_REPLAY'):           # batch 10 step C: no reference image (dv1_replay.py)
+    sys.path.insert(0, HERE); import dv1_replay; dv1_replay.main(pkl, os.environ['FNV_M3_DV1_REPLAY']); raise SystemExit(0)
 sys.path.insert(0, os.path.join(RN, 'data-v1')); sys.path.insert(0, os.path.join(RN, 'data-v3'))
 import place as PL
 from common import ref, SEC, sec_of, orig_reloc_sites, read_ref, TLO, THI
@@ -175,7 +177,7 @@ for k, (A, tier) in sorted(placed.items(), key=lambda x: x[1][0]):
     if f is None: drop('not-inside-one-data-v3-chunk'); continue
     if hit_range(m3rng, A, A + L): drop('overlaps-m3-generated-range'); continue
     cand.append(dict(va=A, size=L, kind=kd, tier=tier, unit=min(u for u in us if u < 100000), nunits=len(us), section=sec, chunk=f,
-                     names=[d[0] for d in s['defs'] if d[2] == 2][:2], ext=bool(extf), data=data, relocs=rl, sources=sorted({x[3] for x in rl})))
+                     names=[d[0] for d in s['defs'] if d[2] == 2][:2], ext=bool(extf), data=data, relocs=rl, sources=sorted({x[3] for x in rl}), k=k))
     tierc[tier] += 1
 
 # ---- overlap resolution = COMDAT dedupe: larger piece first; an identical or contained duplicate collapses onto it; a partial overlap drops the later piece
@@ -223,8 +225,21 @@ pieces = [dict(va=c['va'], size=c['size'], section=c['section'], chunk=c['chunk'
 payload = json.dumps(dict(note='M3 batch 5: data-v1 placed pieces of our unit objects (bytes as compiled, relocation fields hold the object addend); relocs = [offset, resolved target VA, object addend]', pieces=pieces), separators=(',', ':')).encode('utf8')
 if RTTI_PROVEN is not None:
     if os.path.exists(os.path.join(os.environ['TEMP'], 'rtti-name-field-proof.json')): raise FileExistsError('RTTI proof already exists')
-    proof = RTTI_BRIDGE.finish(RTTI_PROVEN, RTTI_OBJECTS, pieces, hashlib.sha256(payload).hexdigest(), os.path.join(PROJ, 'fnv_decomp', 'build', 'units.json'), os.path.join(PROJ, 'FNV', 'work', 'worker1', 'FalloutNV.runtime-text.exe'), pkl)
+    proof = RTTI_BRIDGE.finish(RTTI_PROVEN, RTTI_OBJECTS, pieces, hashlib.sha256(payload).hexdigest(), os.path.join(PROJ, 'fnv_decomp', 'build', 'units.json'), (os.environ.get('FNV_REF_IMAGE') or os.path.join(PROJ, 'FNV', 'work', 'worker1', 'FalloutNV.runtime-text.exe')), pkl)
 with open(os.path.join(GOUT, 'dv1_pieces.json'), 'wb') as f: f.write(payload)
+FREEZE = os.environ.get('FNV_M3_DV1_FREEZE')
+if FREEZE:          # batch 10 step C: freeze piece identities (hash of the compiled section key), VAs, tiers and target VAs of this normal run; no section bytes
+    def _kh(k): return hashlib.sha256(repr(k).encode('utf8')).hexdigest()
+    os.makedirs(FREEZE, exist_ok=True)
+    rp = dict(note='frozen identity -> VA map of the accepted data-v1 pieces (no reference bytes); dsha = sha256 of OUR compiled bytes', payload_sha256=hashlib.sha256(payload).hexdigest(), pieces=[
+        dict(kh=_kh(c['k']), va=c['va'], size=c['size'], tier=c['tier'], kind=c['kind'], unit=c['unit'], nunits=c['nunits'], section=c['section'], chunk=c['chunk'], names=c['names'], ext=c['ext'],
+             dsha=hashlib.sha256(bytes(c['data'])).hexdigest(), relocs=[[o, t, a] for o, t, a, sr in c['relocs']], **({'library_opt_in': True} if c.get('library_opt_in') else {})) for c in sorted(acc, key=lambda c: c['va'])])
+    if lib_meta: rp['library'] = dict(selected=lib_meta['selected'], bytes=lib_meta['bytes'], archive_sha256=lib_meta['archive_sha256'])
+    if RTTI_PROVEN is not None: rp['rtti_proof_template'] = {k_: proof[k_] for k_ in ('schema', 'removed_value_fields', 'selected', 'objects_sha256')}
+    json.dump(rp, open(os.path.join(FREEZE, 'dv1_replay.json'), 'w'), separators=(',', ':'))
+    pmap = {_kh(k_): [a_, t_] for k_, (a_, t_) in placed.items() if t_ != 'M' and SECS[k_]['kind'] != 'bss' and len(SECS[k_]['data'])}
+    json.dump(dict(image_base=PL.BASE, map=pmap), open(os.path.join(FREEZE, 'placement_map.json'), 'w'), separators=(',', ':'))
+    print('FROZEN:', len(rp['pieces']), 'pieces,', len(pmap), 'placed pieces ->', FREEZE)
 if RTTI_PROVEN is not None:
     with open(os.path.join(os.environ['TEMP'], 'rtti-name-field-proof.json'), 'x') as f: json.dump(proof, f, indent=2)
 

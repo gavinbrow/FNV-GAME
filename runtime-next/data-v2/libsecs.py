@@ -6,8 +6,16 @@ import sys
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\runtime-next\pinned-build'))
-import uncovered_v2 as U
 from pathlib import Path
+if __import__('os').environ.get('FNV_M3_NOREF2') == '1':      # batch 10 step C: only the pure archive/object parsers are needed; do not execute the module (it opens the code image)
+    import ast, types, os as _os
+    _up = Path(_os.environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation')) / 'runtime-next' / 'pinned-build' / 'uncovered_v2.py'
+    _ns = {'struct': struct, 'Path': Path}
+    for _n in ast.parse(_up.read_text(encoding='utf-8')).body:
+        if isinstance(_n, ast.FunctionDef) and _n.name in ('read_ar', 'parse_obj'): exec(compile(ast.Module([_n], []), str(_up), 'exec'), _ns)
+    U = types.SimpleNamespace(read_ar=_ns['read_ar'], parse_obj=_ns['parse_obj'])
+else:
+    import uncovered_v2 as U
 
 LIB = Path((__import__('os').environ.get('FNV_MSVC9_ROOT', r'C:\path\to\Decompilation\FNV\tools\vc2008') + r'\VC\lib'))
 

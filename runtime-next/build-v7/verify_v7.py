@@ -11,11 +11,14 @@ HERE = Path(__file__).resolve().parent
 RN = HERE.parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(RN / 'pinned-build')); sys.path.insert(0, str(RN / 'coverage-v3'))
 sys.path.insert(0, (__import__('os').environ.get('FNV_PROJ_ROOT', r'C:\path\to\Decompilation') + r'\FNV\scripts'))
+import codefreeze as CF
 import assemble_v7 as V
 import assemble_v3 as A
 import local_targets as LT
 OBJ = HERE / 'obj'; TMP = HERE / 'tmp'
 M32 = 0xffffffff
+NOREF = CF.NOREF      # batch 12: FNV_CODE_NOREF=1: contributions are compiled and placed from m3\\frozen\\code_contrib.json; no byte is compared with the reference
+FREEZE = CF.FREEZE    # batch 12: FNV_CODE_FREEZE=1: write that file
 
 
 def compile_one(a):
@@ -74,9 +77,12 @@ def main():
             for n in [f['symbol']] + f.get('fold_aliases', []): seen[n].add(int(f['address'], 16))
     fnnames = {k: next(iter(v)) for k, v in seen.items() if len(v) == 1}
     symnames = A.BAM.recipe_names(units)
-    pe = A.Pe(A.IMG); imports, thunks = A.parse_imports(pe)
+    CFZ = CF.load('code_contrib.json')['targets'] if NOREF else {}; FZOUT = {}
+    if NOREF: pe = CF.PeMeta(); imports, thunks = CF.imports_thunks(); cpe = None
+    else: pe = A.Pe(A.IMG); imports, thunks = A.parse_imports(pe)
     V.init4(fnnames, symnames, imports, thunks)
-    cm = LT._compare_module(); cpe = LT._pe()
+    cm = LT._compare_module()
+    if not NOREF: cpe = LT._pe()
     rec_ranges = sorted((int(f['address'], 16), int(f['address'], 16) + f['size']) for u in units for f in u['functions'])
     starts = [r[0] for r in rec_ranges]
 
@@ -114,17 +120,27 @@ def main():
                 if s['section'] == 0 and s['storage'] == 2 and s['name'] not in mapping:
                     m = LT.ADDR_RE.search(s['name'])
                     if m: mapping[s['name']] = int(m.group(1), 16)
-            scored = []
-            for ce in cands:
-                try: scored.append((LT._compare_entry(cm, cpe, coff, t, av, ce['name'], mapping), ce['name']))
-                except ValueError as e: scored.append((dict(error=str(e)), ce['name']))
-            good = [x for x in scored if 'row' in x[0]]
-            if not good: r['reason'] = 'checker_error'; r['detail'] = scored[0][0].get('error', '')[:100]; continue
-            good.sort(key=lambda x: (not x[0]['match'], x[0]['score']))
-            ent, sym = good[0]
-            r['checker_verdict'] = 'match' if ent['match'] else ('body-match-eh-differs' if ent['row']['verdict'] == 'match' else ent['row']['verdict'])
+            if NOREF:
+                fzt = CFZ.get(addr)
+                if fzt is None: r['reason'] = 'not-in-frozen-layout'; continue
+                sym = fzt['sym']; ent = dict(row=dict(verdict='noref'), match=True)
+                if sym not in [c_['name'] for c_ in cands]: r['reason'] = 'frozen-entry-missing'; continue
+                r['checker_verdict'] = 'noref'
+            else:
+                scored = []
+                for ce in cands:
+                    try: scored.append((LT._compare_entry(cm, cpe, coff, t, av, ce['name'], mapping), ce['name']))
+                    except ValueError as e: scored.append((dict(error=str(e)), ce['name']))
+                good = [x for x in scored if 'row' in x[0]]
+                if not good: r['reason'] = 'checker_error'; r['detail'] = scored[0][0].get('error', '')[:100]; continue
+                good.sort(key=lambda x: (not x[0]['match'], x[0]['score']))
+                ent, sym = good[0]
+                r['checker_verdict'] = 'match' if ent['match'] else ('body-match-eh-differs' if ent['row']['verdict'] == 'match' else ent['row']['verdict'])
             man = dict(symbols={k: v for k, v in mapping.items() if k in coff.by_name}, functions=[dict(address=av, symbol=sym, size=size)])
-            man['symbols'].update(LT._eh_bindings(coff, cpe, av, size, sym))
+            ehb_all = fzt['eh_bind'] if NOREF else LT._eh_bindings(coff, cpe, av, size, sym)
+            man['symbols'].update(ehb_all)
+            V.CUR[0] = 'c' + addr; V._ovl.clear()
+            if NOREF: V.OVLSET[V.CUR[0]] = set(fzt['ovl'])
             s = coff.named(sym); sec = coff.sections[s['section']]; start = s['value']
             nxt = [x['value'] for x in coff.symbols.values() if x['section'] == s['section'] and x['type'] & 0x20 and x['value'] > start and not x['name'].startswith('__catch$')]
             end = min(nxt) if nxt else len(sec['data'])
@@ -134,13 +150,15 @@ def main():
                 r['reason'] = 'extent_long'; continue
             locals_ = [(s['section'], start, av, size)]
             # ---- exception-handler pieces (handler stub + unwind funclets, .text$x) located and compared like build_and_match.eh_sections
-            eh_here = []; ehbind = {}
+            eh_here = []; ehbind = {}; eh_fz = []; xver = {}
             try:
                 ufn = dict(address='0x%08x' % av, symbol=sym, size=size)
                 unit2 = dict(_fnmap={sym: av}, symbols={k: hex(v) for k, v in man['symbols'].items()}, functions=[ufn], eh_tails=[1])
                 rows_ = [dict(address=ufn['address'], verdict=ent['row']['verdict'])]
-                epieces, _inf, _errs, data_bases, _anch = A.G['eh'](coff, pe, unit2, rows_, symnames)
-                xver = {}
+                if NOREF:
+                    epieces = [[at_, at_ + (s1_ - s0_), True, None, [], coff.sections[ix_]['data'][s0_:s1_], ix_, s0_] for ix_, s0_, s1_, at_ in fzt['eh']]; data_bases = {}
+                else: epieces, _inf, _errs, data_bases, _anch = A.G['eh'](coff, pe, unit2, rows_, symnames)
+                xver = {int(k_): v_ for k_, v_ in fzt['xver'].items()} if NOREF else {}
                 for xi, xb in data_bases.items():
                     xs = coff.sections[xi]
                     if not xs['name'].startswith('.xdata'): continue
@@ -159,10 +177,10 @@ def main():
                     b2 = bytearray(pdata); V._log.clear(); V._tsec.clear()
                     A.fill_relocs(coff, unit2, locals_, coff.sections[index], s0, s0 + len(pdata), at, b2, collections.Counter(), collections.defaultdict(lambda: [0, None]), 'tail')
                     eh_here.append(dict(address=at, size=len(pdata), target_id=tid, ok=True, data=bytes(b2).hex(), sites=[list(e) for e in V._log], tsec=dict(V._tsec))); nok += 1
-                    okranges.append((at, at + len(pdata)))
+                    okranges.append((at, at + len(pdata))); eh_fz.append([index, s0, s0 + len(pdata), at])
                 r['eh_ok'] = nok; r['eh_notok'] = nbad
                 # the body's __ehhandler$ relocation resolves to OUR placed stub when its piece verified (placement itself is where the checker verified it)
-                for nm_, ad_ in LT._eh_bindings(coff, cpe, av, size, sym).items():
+                for nm_, ad_ in ehb_all.items():
                     if any(lo_ <= ad_ < hi_ for lo_, hi_ in okranges): ehbind[nm_] = ad_
             except Exception as e:
                 eh_here = []; r['eh_error'] = str(e)[:100]
@@ -172,14 +190,16 @@ def main():
             st = collections.Counter(); pats = collections.defaultdict(lambda: [0, None])
             A.fill_relocs(coff, unit, locals_, sec, start, start + size, av, buf, st, pats, 'contrib')
             sites = [list(e) for e in V._log]; tsec = dict(V._tsec); V.EHBIND.clear()
-            ref = pe.read(av, size)
-            if bytes(buf) != ref:
-                r['reason'] = 'bytes_differ'; r['detail'] = 'first diff at +%d' % next(i for i in range(size) if buf[i] != ref[i]); continue
+            if not NOREF:
+                ref = pe.read(av, size)
+                if bytes(buf) != ref:
+                    r['reason'] = 'bytes_differ'; r['detail'] = 'first diff at +%d' % next(i for i in range(size) if buf[i] != ref[i]); continue
             ag = sum(1 for e in sites if e[6] == 'agree'); r['reloc_agree'] = ag; r['reloc_borrowed'] = len(sites) - ag
             if overlaps_recipe(av, av + size):
                 r['reason'] = 'overlaps_recipe'; continue
             r['status'] = 'pass'
             pieces.append(dict(address=av, size=size, target_id=tid, data=bytes(buf).hex(), sites=sites, tsec=tsec))
+            if FREEZE: FZOUT[addr] = dict(sym=sym, eh_bind=ehb_all, eh=eh_fz, xver={str(k_): v_ for k_, v_ in sorted(xver.items())}, ovl=sorted(V._ovl))
             eh.extend(eh_here)
         except Exception as e:
             r['reason'] = 'verify_error'; r['detail'] = str(e)[:150]
@@ -190,6 +210,9 @@ def main():
     with open(HERE / 'contrib.jsonl', 'w') as f:
         for r in rows.values(): f.write(json.dumps(r) + '\n')
     (HERE / 'contrib_pieces.json').write_text(json.dumps(dict(pieces=pieces, eh=eh)))
+    if FREEZE and os.environ.get('FNV_ICF', '1') == '1' and os.environ.get('FNV_OVERLAY', '1') == '1':
+        CF.write('code_contrib.json', dict(note='batch 12: accepted local-target contributions of one verified run: entry symbol, EH bindings, EH funclet pieces [obj section, start, end, VA], verified xdata bases, fields where the binding overlay applied', targets=FZOUT))
+        print('contribution layout frozen:', len(FZOUT), 'targets', flush=True)
     c = collections.Counter(r['status'] if r['status'] == 'pass' else r['reason'] for r in rows.values())
     print('eh pieces', len(eh), 'bytes', sum(t['size'] for t in eh)); print('accepted', len(rows), dict(c), 'pass bytes', sum(p['size'] for p in pieces))
     print('checker verdict among pass:', dict(collections.Counter(r['checker_verdict'] for r in rows.values() if r['status'] == 'pass')),

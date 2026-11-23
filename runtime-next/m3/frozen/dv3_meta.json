@@ -1,0 +1,95 @@
+{
+"note": "batch 10 step C: metadata for the zero-filled data-v3 base (no bytes). chunks = boundaries of the normal run; base_fields = pointer fields of the base that no overlay produces",
+"sections": {
+".rdata": {
+"va": 16642048,
+"raw": 1716736,
+"virt": 1716300
+},
+".data": {
+"va": 18362368,
+"raw": 262656,
+"virt": 977564
+},
+".tls": {
+"va": 19341312,
+"raw": 1024,
+"virt": 709
+},
+"CONST": {
+"va": 19345408,
+"raw": 512,
+"virt": 31
+}
+},
+"bss": {
+"va": 18625024,
+"size": 714908
+},
+"chunks": [
+{
+"file": "rdata_00",
+"section": ".rdata",
+"va": 16642048,
+"size": 635344
+},
+{
+"file": "rdata_01",
+"section": ".rdata",
+"va": 17277392,
+"size": 322576
+},
+{
+"file": "rdata_02",
+"section": ".rdata",
+"va": 17599968,
+"size": 501156
+},
+{
+"file": "rdata_03",
+"section": ".rdata",
+"va": 18101124,
+"size": 257660
+},
+{
+"file": "data_00",
+"section": ".data",
+"va": 18362368,
+"size": 262656
+},
+{
+"file": "tls_00",
+"section": ".tls",
+"va": 19341312,
+"size": 1024
+},
+{
+"file": "const_00",
+"section": "CONST",
+"va": 19345408,
+"size": 512
+}
+],
+"base_fields": [
+{
+"file": "rdata_02",
+"offset": 231068,
+"target": 19341312
+},
+{
+"file": "rdata_02",
+"offset": 231072,
+"target": 19342020
+},
+{
+"file": "rdata_02",
+"offset": 231076,
+"target": 19332504
+},
+{
+"file": "rdata_02",
+"offset": 231080,
+"target": 16847856
+}
+]
+}

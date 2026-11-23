@@ -1,0 +1,3 @@
+{"note": "batch 10 step C: the initialised bytes of CONST and .tls that no overlay produces, as source literals (offsets are section offsets). CONST holds the NVIDIA API loader names, .tls the initial values of four thread-local ints (the other two initialised .tls dwords come from data-v1 pieces).",
+ "CONST": [{"offset": 0, "string": "nvapi.dll"}, {"offset": 10, "string": "nvapi_QueryInterface"}],
+ ".tls": [{"offset": 628, "dword": 4294967295}, {"offset": 640, "dword": 4294967295}, {"offset": 668, "dword": 3}, {"offset": 676, "dword": 3}]}

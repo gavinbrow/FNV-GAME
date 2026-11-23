@@ -1,3 +1,13 @@
+# Current status (2026-11-23)
+
+Code and data are 100% built from source, and the exe is byte-identical to the original
+(SHA-256 `c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f`). All initialised data is typed C++ in
+`runtime-next/m3/datasrc/`. The build also runs without the reference image: set
+`FNV_REF_IMAGE=C:\nonexistent\missing-ref.exe` and `FNV_M3_NOREF2=1`; the layout then comes from the frozen JSON
+metadata in `runtime-next/m3/frozen/`. Details: `runtime-next/m3/DESIGN-phase1.md` (batches 9 to 12) and `TODO.md`.
+
+The sections below record the earlier 2026-11-21 checkpoint and are kept as history.
+
 # Accepted checkpoint and remaining work
 
 Updated 2026-11-21. Development workers and gameplay/build runs are paused.
@@ -8,7 +18,7 @@ pointer mutation, residual-pointer mutation, and a clean repeat. Both clean
 images matched the expected SHA-256 and passed menu, load, play, cell change,
 quicksave/load, and clean exit. Each mutation failed the round-trip comparison
 and changed the resulting image hash. The relocation table stayed identical.
-Build products and the detailed private captures are not distributed here.
+Build products and the detailed captures are not part of this repository.
 
 Accepted recipe SHA-256:
 `f173f5dea82f859fdf87944ef72b851f769fce46a0dbc8de0eff8c25bc51aa23`.

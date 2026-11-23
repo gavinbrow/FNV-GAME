@@ -114,6 +114,7 @@ def load(manifest=None, obj=None):
         if b[0] < a[1]:
             raise ValueError('overlapping M3 ranges: %s and %s' % (a[2], b[2]))
     base = obj or OBJ; cs = {k: Coff(objpath(base, k)) for k in man.get('objs', [0])}; out = []; tab = name_table(man['entries'])
+    for n_, v_ in man.get('externs', {}).items(): tab[n_] = v_; tab['_' + n_] = v_      # batch 10 datasrc: function symbols named in the source
     for e in man['entries']:
         data, rel, sname, fl, st = slice_entry(cs[e.get('obj', 0)], e)
         assert sname == e['section'] and len(data) == e['size'], (e['sym'], sname, len(data))

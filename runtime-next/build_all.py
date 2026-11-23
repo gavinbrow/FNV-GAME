@@ -66,13 +66,28 @@ LOCK_HELD = False
 summary = dict(started=time.strftime('%Y-%m-%d %H:%M:%S'), proj_root=paths.PROJ, steps=[], status='running')
 M3 = env.get('FNV_M3') == '1'
 M3_DV1 = M3 and env.get('FNV_M3_DV1') == '1'
+NOREF = env.get('FNV_M3_NOREF') == '1'      # batch 9 stage 3 (opt-in): the data stages never open the reference image; they read the frozen inputs in m3rozen\ (see m39_freeze.py)
+if os.environ.get('FNV_M3_NOREF') not in (None, '', '0', '1'): ap.error('FNV_M3_NOREF must be 0 or 1')
+if NOREF and not (M3_DV1 and not a.skip_data_v1): ap.error('FNV_M3_NOREF requires active M3/DV1 and fresh data-v1')
+NOREF2 = env.get('FNV_M3_NOREF2') == '1'     # batch 10 step C (opt-in): the data path reads no reference bytes (datasrc + frozen placement/replay maps + zero-filled data-v3 base)
+if os.environ.get('FNV_M3_NOREF2') not in (None, '', '0', '1'): ap.error('FNV_M3_NOREF2 must be 0 or 1')
+if NOREF2 and (NOREF or env.get('FNV_M3_DATASRC') != '1' or not (M3_DV1 and not a.skip_data_v1)): ap.error('FNV_M3_NOREF2 requires M3/DV1, FNV_M3_DATASRC=1, fresh data-v1 and not FNV_M3_NOREF')
+CODE_NOREF = NOREF2 or os.environ.get('FNV_CODE_NOREF') == '1'     # batch 12 (opt-in): the code stage (build-v7) runs without the reference image, from the frozen layout m3\\frozen\\code_*.json; implied by FNV_M3_NOREF2=1
+if os.environ.get('FNV_CODE_NOREF') not in (None, '', '0', '1'): ap.error('FNV_CODE_NOREF must be 0 or 1')
+if os.environ.get('FNV_CODE_FREEZE') not in (None, '', '0'): ap.error('FNV_CODE_FREEZE writes the frozen layout; it belongs to a separate verified run of build-v7\\rebuild.cmd, not to build-all')
+if CODE_NOREF and NOREF: ap.error('FNV_CODE_NOREF / FNV_M3_NOREF2 cannot be combined with FNV_M3_NOREF (batch 9 stage 3 reuses the code outputs of an earlier build)')
+if CODE_NOREF: env['FNV_CODE_NOREF'] = '1'
+else: env.pop('FNV_CODE_NOREF', None)
+CODE_FZ = os.environ.get('FNV_CODE_FROZEN_DIR') or J(RN, 'm3', 'frozen')     # control runs point this at an edited copy (needs pe_meta.json too)
+CODE_FROZEN = ('code_eh.json', 'code_crt.json', 'code_contrib.json', 'code_overlay.json', 'code_meta.json', 'code_icf_map.json')
+CODE_OUTPUTS = ('icf_map.json', 'FalloutNV_v7_strict.exe', 'FalloutNV_v7_filled.exe', 'relocs_v7.tsv.gz', 'contrib_pieces.json', 'inferred_literals_v7.json', 'progress.json')
 if os.environ.get('FNV_M3_NEGCTL') in ('p2nv', 'p2np') and not RTTI_MODE:
     ap.error('native literal controls require RTTI literal mode')
 if os.environ.get('FNV_M3_NEGCTL') in ('p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2bw', 'p2cv', 'p2cp', 'p2cw') and (not M3_DV1 or a.skip_data_v1):
     ap.error('native RTTI controls require active M3/DV1 and fresh data-v1')
 if M3:
     neg = env.get('FNV_M3_NEGCTL') or None
-    controls = ('1', 'ptr', 'b4v', 'b4p', 'b5v', 'b5p', 'b6v', 'b6p', 'b7v', 'b7p', 'b8v', 'b8p', 'p2sv', 'p2av', 'p2wp', 'p2lv', 'p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2bw', 'p2cv', 'p2cp', 'p2cw')
+    controls = ('1', 'ptr', 'b4v', 'b4p', 'b5v', 'b5p', 'b6v', 'b6p', 'b7v', 'b7p', 'b8v', 'b8p', 'b9v', 'b9p', 'dsv', 'dsp', 'p2sv', 'p2av', 'p2wp', 'p2lv', 'p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2bw', 'p2cv', 'p2cp', 'p2cw')
     summary['provenance'] = {'m3_config': dict(
         selection=ntpath.basename(env.get('FNV_M3_SEL') or 'pilot_selection.json'),
         dv1=M3_DV1, dv1_ext=M3_DV1 and env.get('FNV_M3_DV1_EXT') == '1',
@@ -141,6 +156,13 @@ def step(n, name, cmd, cwd=RN, fatal=True, shell=False):
 # ---- 0 preflight
 need = [('game exe (read only)', J(paths.GAME_DIR, 'FalloutNV.exe')), ('reference image (read only)', paths.REF_IMAGE), ('SP1 cl.exe', J(paths.MSVC9_SP1, 'VC', 'bin', 'cl.exe')),
         ('RTM cl.exe', J(paths.MSVC9_RTM, 'VC', 'bin', 'cl.exe')), ('units.json', J(paths.FN, 'build', 'units.json'))]
+if NOREF:      # the reference image is not an input: frozen data inputs and the code artifacts of an earlier full build are
+    need = [x for x in need if not x[0].startswith('reference image')] + [('frozen ' + f, J(RN, 'm3', 'frozen', f)) for f in ('ref_headers.bin', 'ref_data.bin.z', 'ref_reloc.bin.z', 'ref_meta.json')] +            [('build-v7 ' + f, J(RN, 'build-v7', f)) for f in ('FalloutNV_v7_strict.exe', 'FalloutNV_v7_filled.exe', 'icf_map.json', 'relocs_v7.tsv.gz', 'contrib_pieces.json', 'inferred_literals_v7.json', 'progress.json')]
+if NOREF2:     # the reference image is not an input: data from the frozen placement/replay maps + datasrc, code from the frozen code layout (code_*.json); build-v7 is RERUN
+    need = [x for x in need if not x[0].startswith('reference image')] + [('frozen ' + f, J(RN, 'm3', 'frozen', f)) for f in ('placement_map.json', 'dv1_replay.json', 'dv3_meta.json', 'pe_meta.json')] + \
+           [('datasrc index', J(RN, 'm3', 'datasrc', 'index.json'))]
+if CODE_NOREF:
+    need += [('frozen ' + f, J(CODE_FZ, f)) for f in CODE_FROZEN] + [('frozen pe_meta.json', J(CODE_FZ, 'pe_meta.json'))]
 missing = [n + ': ' + p for n, p in need if not os.path.exists(p)]
 summary['inputs'] = {n: p for n, p in need}
 if missing: finish('failed', 'missing inputs: ' + '; '.join(missing))
@@ -188,14 +210,57 @@ if M3:
     except (OSError, ValueError) as exc:
         finish('failed', 'cannot read M3 selection for SHA-256: ' + str(exc))
 # ---- 1..4 compile and rebuild
+if NOREF:
+    # stand-in image for the data stages: frozen headers/data/.reloc + the strict .text of our own earlier build; FNV_REF_IMAGE (whatever it points to) is replaced for every child process
+    SYNTH = J(RN, 'm3', 'gen', 'ref-synth.exe'); os.makedirs(J(RN, 'm3', 'gen'), exist_ok=True)
+    step(0, 'noref-synth', [PY, '-I', J(RN, 'm3', 'b9_freeze.py'), '--synth', SYNTH])
+    env['FNV_REF_IMAGE'] = SYNTH
+    summary['provenance']['noref'] = dict(enabled=True, stand_in_image=SYNTH, stand_in_sha256=hashlib.sha256(open(SYNTH, 'rb').read()).hexdigest(),
+        frozen_sha256={f: hashlib.sha256(open(J(RN, 'm3', 'frozen', f), 'rb').read()).hexdigest() for f in ('ref_headers.bin', 'ref_data.bin.z', 'ref_reloc.bin.z', 'ref_meta.json')},
+        build_v7_artifacts_sha256={f: hashlib.sha256(open(J(RN, 'build-v7', f), 'rb').read()).hexdigest() for f in ('FalloutNV_v7_strict.exe', 'FalloutNV_v7_filled.exe', 'icf_map.json', 'relocs_v7.tsv.gz', 'contrib_pieces.json', 'inferred_literals_v7.json', 'progress.json')},
+        note='build-v7 (code placement, verifies compiled code against the reference) is NOT rerun: its outputs from the previous full build are reused')
+if NOREF2:
+    FZ = J(RN, 'm3', 'frozen')
+    env.update(FNV_DV1_PLACEMENT_MAP=J(FZ, 'placement_map.json'), FNV_M3_DV1_REPLAY=J(FZ, 'dv1_replay.json'))
+    summary['provenance']['noref2'] = dict(enabled=True, FNV_REF_IMAGE=env.get('FNV_REF_IMAGE'), reference_image_exists=os.path.exists(env.get('FNV_REF_IMAGE') or ''),
+        frozen_sha256={f: hashlib.sha256(open(J(FZ, f), 'rb').read()).hexdigest() for f in ('placement_map.json', 'dv1_replay.json', 'dv3_meta.json', 'pe_meta.json') + CODE_FROZEN},
+        datasrc_index_sha256=hashlib.sha256(open(J(RN, 'm3', 'datasrc', 'index.json'), 'rb').read()).hexdigest(),
+        unused_frozen_files=['m3/frozen/ref_data.bin.z', 'm3/frozen/ref_reloc.bin.z', 'm3/frozen/ref_headers.bin'],
+        note='data path reads no reference bytes; the code stage (build-v7) is RERUN with FNV_CODE_NOREF=1 from the frozen code layout (see provenance.code_noref)')
 step(1, 'compile-units', [PY, '-I', J(RN, 'pinned-build', 'compile_units_v3.py'), '30'])
 if M3:
     step(1, 'm3-gen', [PY, '-I', J(RN, 'm3', 'gen_m3.py')])
     env.update(FNV_M3='1', DV_M3='1', DV3_SKIP=J(RN, 'm3', 'gen', 'skip_ranges.json'))
 if M3_DV1: env.update(FNV_M3_DV1='1', DV3_SKIP=J(RN, 'm3', 'gen', 'skip_ranges_b5.json'))
-step(2, 'build-v7', ['cmd', '/c', J(RN, 'build-v7', 'rebuild.cmd')])
+if not NOREF:
+    if CODE_NOREF:      # the code stage must be rerun, not reused: delete every output the later stages read, then check they are written anew
+        _gone = []
+        for f in CODE_OUTPUTS:
+            fp = J(RN, 'build-v7', f)
+            if os.path.exists(fp): os.remove(fp); _gone.append(f)
+        _t_code = time.time()
+    step(2, 'build-v7', ['cmd', '/c', J(RN, 'build-v7', 'rebuild.cmd')])
+    if CODE_NOREF:
+        _new = {}
+        for f in CODE_OUTPUTS:
+            fp = J(RN, 'build-v7', f)
+            if not os.path.exists(fp) or os.path.getmtime(fp) < _t_code - 1: finish('failed', 'code stage did not rewrite build-v7\\' + f)
+            _new[f] = hashlib.sha256(open(fp, 'rb').read()).hexdigest()
+        with open(J(RN, 'build-v7', 'progress.json')) as _f: _pg = json.load(_f)
+        if not _pg.get('code_noref'): finish('failed', 'build-v7 progress.json does not record a no-reference code stage')
+        summary['provenance']['code_noref'] = dict(enabled=True, deleted_before_run=_gone, rewritten_sha256=_new, progress_text_sha256=_pg.get('text_sha256'), text_equals_frozen_hash=_pg.get('text_equals_frozen_hash'),
+            coverage_pct_of_nonpadding_text=_pg.get('coverage_pct_of_nonpadding_text'), borrowed_relocation_field_bytes=_pg.get('borrowed_relocation_field_bytes'),
+            frozen_sha256={f: hashlib.sha256(open(J(CODE_FZ, f), 'rb').read()).hexdigest() for f in CODE_FROZEN}, frozen_dir=CODE_FZ,
+            note='build-v7 outputs deleted before the step and rewritten by it (mtime checked); no reference image is opened by the code stage')
 if not a.skip_data_v1:
-    step(3, 'data-v1', ['cmd', '/c', J(RN, 'data-v1', 'rebuild.cmd')])
+    if NOREF or NOREF2:       # rebuild.cmd without report.py (a reporting-only pass over the whole reference)
+        if NOREF2:      # phase0 compares our compiled units with the code image: a stand-in (headers from json, OUR strict .text, imports from iat_spec.json, everything else zero)
+            SI = J(RN, 'm3', 'gen', 'standin.exe'); step(3, 'noref2-standin', [PY, '-I', J(RN, 'm3', 'b10_standin.py'), SI])
+            REF_SAVED = env.get('FNV_REF_IMAGE'); env['FNV_REF_IMAGE'] = SI
+        step(3, 'data-v1-phase0', [PY, '-I', J(RN, 'data-v1', 'phase0.py'), J(env['TEMP'], 'dv1_phase0.pkl')])
+        if NOREF2: env['FNV_REF_IMAGE'] = REF_SAVED
+        step(3, 'data-v1-place', [PY, '-I', J(RN, 'data-v1', 'place.py'), J(env['TEMP'], 'dv1_phase0.pkl'), J(env['TEMP'], 'dv1_placed.pkl')])
+    else: step(3, 'data-v1', ['cmd', '/c', J(RN, 'data-v1', 'rebuild.cmd')])
     step(4, 'dump-pieces', [PY, '-I', J(RN, 'data-v3', 'dump_pieces.py')])
     if M3_DV1: step(4, 'm3-dv1', [PY, '-I', J(RN, 'm3', 'dv1_splice.py'), J(env.get('TEMP') or os.environ.get('TEMP'), 'dv1_placed.pkl')] + (['--kinds', env['FNV_M3_DV1_KINDS']] if env.get('FNV_M3_DV1_KINDS') else []))
     if env.get('FNV_M3_LIB_SELECTION'):
@@ -204,7 +269,11 @@ if not a.skip_data_v1:
             summary['provenance']['library_overlay'].update(validate_library_result(library_result, library_digest))
         except (OSError, KeyError, ValueError, TypeError) as exc:
             finish('failed', 'cannot validate library overlay provenance: ' + str(exc))
-step(5, 'data-v3', ['cmd', '/c', J(RN, 'data-v3', 'rebuild.cmd')])
+if NOREF2:
+    step(5, 'data-v3-zero-base', [PY, '-I', J(RN, 'data-v3', 'gen_zero.py')])
+    step(5, 'data-v3-asm', ['cmd', '/c', J(RN, 'data-v3', 'asm.cmd')])
+    # symbolic.json of the zero base stays in data-v3\out (snapshot.py takes it from there in this mode); data-v3\symbolic.json (normal builds) is not overwritten
+else: step(5, 'data-v3', ['cmd', '/c', J(RN, 'data-v3', 'rebuild.cmd')])
 # ---- 5..6 image
 step(6, 'snapshot', [PY, J(RN, 'layout-v2', 'snapshot.py')])
 exe = J(OUT, 'FalloutNV_selfbuilt.exe')

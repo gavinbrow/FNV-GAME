@@ -14,19 +14,37 @@ RN = HERE.parent
 REF = Path((__import__('os').environ.get('FNV_REF_IMAGE', r'C:\path\to\Decompilation\FNV\work\worker1\FalloutNV.runtime-text.exe')))
 M32 = 0xffffffff
 t0 = time.time()
-ref = REF.read_bytes()
-peo = struct.unpack_from('<I', ref, 0x3c)[0]; ns = struct.unpack_from('<H', ref, peo + 6)[0]; osz = struct.unpack_from('<H', ref, peo + 20)[0]
-BASE = struct.unpack_from('<I', ref, peo + 24 + 28)[0]
-SECS = {}
-for i in range(ns):
-    o = peo + 24 + osz + 40 * i; nm = ref[o:o + 8].rstrip(b'\0').decode()
-    vs, va, rs, rp = struct.unpack_from('<IIII', ref, o + 8); SECS[nm] = (BASE + va, vs, rp, rs)
-REG = [(n, SECS[n][0], SECS[n][2], SECS[n][3], SECS[n][1]) for n in ('.rdata', '.data', '.tls', 'CONST')]
-RB = {n: ref[ro:ro + rs] for n, va, ro, rs, vs in REG}
-def refread(va, n=4):
-    for nm, rva, ro, rs, vs in REG:
-        if rva <= va and va + n <= rva + rs: return ref[ro + va - rva: ro + va - rva + n]
-    return None
+PMAP = os.environ.get('FNV_DV1_PLACEMENT_MAP')       # batch 10 step C: placement from a frozen map (piece identity -> VA); the reference image is never opened
+if PMAP:
+    BASE = json.load(open(PMAP))['image_base']; SECS = {}; REG = []; RB = {}; ref = b''
+    def refread(va, n=4): return None
+else:
+    ref = REF.read_bytes()
+    peo = struct.unpack_from('<I', ref, 0x3c)[0]; ns = struct.unpack_from('<H', ref, peo + 6)[0]; osz = struct.unpack_from('<H', ref, peo + 20)[0]
+    BASE = struct.unpack_from('<I', ref, peo + 24 + 28)[0]
+    SECS = {}
+    for i in range(ns):
+        o = peo + 24 + osz + 40 * i; nm = ref[o:o + 8].rstrip(b'\0').decode()
+        vs, va, rs, rp = struct.unpack_from('<IIII', ref, o + 8); SECS[nm] = (BASE + va, vs, rp, rs)
+    REG = [(n, SECS[n][0], SECS[n][2], SECS[n][3], SECS[n][1]) for n in ('.rdata', '.data', '.tls', 'CONST')]
+    RB = {n: ref[ro:ro + rs] for n, va, ro, rs, vs in REG}
+    def refread(va, n=4):
+        for nm, rva, ro, rs, vs in REG:
+            if rva <= va and va + n <= rva + rs: return ref[ro + va - rva: ro + va - rva + n]
+        return None
+def keyhash(k): return hashlib.sha256(repr(k).encode('utf8')).hexdigest()
+def apply_map(st):
+    """place every compiled piece by its frozen identity; a frozen piece that is not among the compiled ones (changed content) fails loudly"""
+    pm = json.load(open(PMAP))['map']; seen = set(); nm_ = 0
+    for k, s in st.SEC.items():
+        if s['kind'] == 'bss' or s['size'] <= 0: continue
+        if s.get('forced'): st.placed[k] = (s['forced'], 'M'); nm_ += 1; continue          # m3 datasrc objects: placed by the index address
+        kh = keyhash(k)
+        if kh in pm: st.placed[k] = (pm[kh][0], pm[kh][1]); seen.add(kh)
+    missing = [h for h in pm if h not in seen]
+    if missing: raise SystemExit('placement map: %d frozen pieces are not among the compiled pieces (compiled content changed), e.g. %s' % (len(missing), missing[:3]))
+    st.rebuild_gdef()
+    print('placement map applied: %d pieces from the map, %d datasrc (tier M); reference reads 0' % (len(seen), nm_), collections.Counter(t for a, t in st.placed.values()))
 def region_of(va):
     for nm, rva, ro, rs, vs in REG:
         if rva <= va < rva + vs: return nm
@@ -271,5 +289,6 @@ if __name__ == '__main__':
     sys.path.insert(0, str(HERE))
     import place as PLM
     st = PLM.build_state(sys.argv[1])
-    PLM.run(st)
+    if PLM.PMAP: PLM.apply_map(st)
+    else: PLM.run(st)
     pickle.dump(st, open(sys.argv[2], 'wb'))

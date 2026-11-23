@@ -24,37 +24,32 @@ retain the restrictions on their pre-existing contents;
 source or its contributors' work. The complete reconstructed game is therefore
 not offered under MIT.
 
-## Legal note (please read)
+## Trademarks
 
-- Built executables still contain data taken from the original program (see Status), so keep them private and do
-  not redistribute them.
-- *Fallout*, *Fallout: New Vegas* and related names are trademarks of their respective owners. This project is not
-  affiliated with or endorsed by any of them. See [fnv_decomp/README.md](fnv_decomp/README.md) and
-  [fnv_decomp/LICENSE](fnv_decomp/LICENSE) for the licence and the intended purposes (research, modding and game
-  preservation).
+*Fallout*, *Fallout: New Vegas* and related names are trademarks of their respective owners. This project is not
+affiliated with or endorsed by any of them. See [fnv_decomp/README.md](fnv_decomp/README.md) and
+[fnv_decomp/LICENSE](fnv_decomp/LICENSE) for the licence and the intended purposes (research, modding and game
+preservation).
 
 ## Status
 
-- **Code: 100% from source.** Every function of the executable's code is produced by compiling the source in
+- **Code: 100% built from source.** Every function of the executable's code is produced by compiling the source in
   `fnv_decomp/`; the compiled functions match the original bytes. The build lays out the code itself and resolves
   its own relocations.
-- **Data: partly still taken from the original executable.** Parts of the data sections (and some tables such as
-  imports and resources) are still copied from the original exe, or from a legitimately installed game, while the
-  rest is already generated from source. This is why a build needs the game files and the reference image described
-  below.
+- **Data: 100% built from source.** All initialised data is typed C++ in
+  [runtime-next/m3/datasrc/](runtime-next/m3/datasrc/), compiled and placed by the build.
+- **The exe is byte-identical to the original.** The build produces `FalloutNV_selfbuilt.exe` with SHA-256
+  `c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f`, the same image as the original program.
+- **The build can run without the original executable image.** With `FNV_M3_NOREF2=1` the reference image is not
+  read; the layout comes from the frozen JSON metadata in [runtime-next/m3/frozen/](runtime-next/m3/frozen/)
+  (addresses, identities and header constants only). The preflight check still wants `FalloutNV.exe` in
+  `FNV_GAME_DIR`. The result has the same SHA-256.
 - **Playable:** the self-built `FalloutNV_selfbuilt.exe` starts directly (without the Steam DRM wrapper), loads a
   save and plays; an automated harness exercises start, load, play, cell change, quicksave/quickload and exit.
   See [README-PLAY.md](README-PLAY.md).
-- Initialized data from compiled objects is **1,614,032 / 1,979,392 bytes
-  (81.5%)** at the latest accepted checkpoint. This is a data coverage figure,
-  not a Phase 2 completion percentage.
-- Phase 2 remains open: class layouts, inheritance, virtual function order,
-  global ownership and the remaining data placement need work. Development is
-  paused; privately tested candidates still need combined integration and
-  production verification. See [the current checkpoint](docs/STATUS.md).
 
-See [docs/STATUS.md](docs/STATUS.md) for the latest accepted results. Detailed
-historical notes also live in [runtime-next/CURRENT.md](runtime-next/CURRENT.md).
+See [docs/STATUS.md](docs/STATUS.md) and [runtime-next/m3/DESIGN-phase1.md](runtime-next/m3/DESIGN-phase1.md) for
+the detailed records.
 
 ## Folder map
 
@@ -65,12 +60,12 @@ historical notes also live in [runtime-next/CURRENT.md](runtime-next/CURRENT.md)
 | `FNV/` | Small project-side inputs of the build: `contributions/` (about 4,000 accepted per-function source files), `scripts/local_targets.py` and `local/mcp/local-targets/*.json` (their catalog and state). |
 | `tools/` | Maintenance scripts: `export_repo.py` (fills this repository from the working tree), `export_extra.txt` (the file list for `FNV/`), `publish_release.py`, `setup_play.cmd` (prepares a play folder). |
 | `docs/` | Project documentation, starting with [ARCHITECTURE.md](docs/ARCHITECTURE.md). |
-| `README-PLAY.md` | How to run the self-built executable with your own game install. |
+| `README-PLAY.md` | How to run the self-built executable with a game install. |
 
 ## How to build
 
 Requirements: Windows, Python 3.12 with `numpy`, `capstone` and `pefile`, the Microsoft Visual C++ 2008 (SP1 and
-RTM) and 2005 SP1 toolchains the game was built with (not included), and a folder with the game files.
+RTM) and 2005 SP1 toolchains the game was built with (not included), and a folder with the game files (`FNV_GAME_DIR`).
 
 1. Set the environment variables from [runtime-next/paths.py](runtime-next/paths.py) (every one has a default that
    only suits the original author's machine, so set them all):
@@ -82,7 +77,7 @@ RTM) and 2005 SP1 toolchains the game was built with (not included), and a folde
    | `FNV_MSVC9_ROOT` | VC 2008 SP1 toolchain root (cl, ml, cvtres, libs). |
    | `FNV_MSVC9_RTM_ROOT` | VC 2008 RTM toolchain root. |
    | `FNV_MSVC8_ROOT` | VC 2005 SP1 toolchain root. |
-   | `FNV_REF_IMAGE` | The reference executable image used as the read-only oracle for the parts not yet generated from source. Never copied or modified. See [runtime-next/BUILD-ALL.md](runtime-next/BUILD-ALL.md). |
+   | `FNV_REF_IMAGE` | The reference executable image, a read-only oracle used for checking in the default build. Never copied or modified. Not needed with `FNV_M3_NOREF2=1` (set it to a missing path). See [runtime-next/BUILD-ALL.md](runtime-next/BUILD-ALL.md). |
    | `FNV_PY_SITE` | Optional extra `site-packages` folder holding `numpy`, `capstone`, `pefile`. |
    | `FNV_MYGAMES` | Optional read-only source of INI files and saves for the harness. |
 
@@ -90,6 +85,14 @@ RTM) and 2005 SP1 toolchains the game was built with (not included), and a folde
 
    ```
    runtime-next\build-all.cmd --out C:\path\to\output
+   ```
+
+   To build without the reference image, with the frozen JSON layout:
+
+   ```
+   set FNV_REF_IMAGE=C:\nonexistent\missing-ref.exe
+   set FNV_M3_NOREF2=1
+   runtime-next\build-all.cmd --out C:\path\to\output-noref2 --no-harness
    ```
 
    Useful options: `--no-harness` (skip the in-game test, which needs an interactive desktop), `--require-harness`

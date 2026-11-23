@@ -2,8 +2,8 @@
 
 import os
 
-DEFAULT_SELECTION = 'phase2/selection.json'
-DEFAULT_SELECTION_SHA256 = '08b8740c57eab56aaf8a861a68cd9ed3cc5aa6bccdd6ca81283b05081a651b81'
+DEFAULT_SELECTION = 'batch9s2_selection.json'
+DEFAULT_SELECTION_SHA256 = 'b92f59ce84d0bef753ac51c150f68db86743e4eb246f1e308c2dce26a2e6c777'
 DEFAULT_LIBRARY_SELECTION = 'phase2/library_candidates.json'
 DEFAULT_LIBRARY_SHA256 = '74e3815454a8926ee3d8f70abf939e8d61eadd7173a7514c93e66fee92589700'
 _M3_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -43,6 +43,16 @@ def configure(environment, promoted=False):
     else:
         for key in ('FNV_M3_DV1_EXT', 'FNV_M3_DV1_KINDS', 'FNV_M3_DV1_OUT', 'FNV_M3_RTTI_NAME_LITERAL'):
             env.pop(key, None)
+    # batch 11: the data as source (m3/datasrc) is the default for the default selection; FNV_M3_DATASRC=0 switches it off (legacy placeholder path)
+    ds = env.get('FNV_M3_DATASRC')
+    if ds not in (None, '0', '1'):
+        raise ValueError('FNV_M3_DATASRC must be 0 or 1')
+    if ds == '0':
+        env.pop('FNV_M3_DATASRC', None)
+    elif (ds is None and promoted and env.get('FNV_M3_DV1') == '1' and not env.get('FNV_M3_NOREF')
+            and _selection_path(env.get('FNV_M3_SEL', DEFAULT_SELECTION)) == _selection_path(DEFAULT_SELECTION)
+            and env.get('FNV_M3_NEGCTL', 'dsv') in ('', 'dsv', 'dsp')):
+        env['FNV_M3_DATASRC'] = '1'
     toggle = env.get('FNV_M3_LIB')
     explicit_library = ('FNV_M3_LIB_SELECTION' in environment or 'FNV_M3_LIB_SHA256' in environment)
     default_selected = _selection_path(env.get('FNV_M3_SEL', DEFAULT_SELECTION)) == _selection_path(DEFAULT_SELECTION)

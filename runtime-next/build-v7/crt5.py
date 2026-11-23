@@ -5,6 +5,10 @@ from the reference (a site that does not equal the reference value is kept 'disa
 import os, json, struct, collections, re
 import numpy as np
 M32 = 0xffffffff
+NOREF = os.environ.get('FNV_CODE_NOREF') == '1'   # batch 12: no reference; placement from m3/frozen/code_crt.json, binding-overlay decisions from the same file
+FREEZE_OVL = set()   # FNV_CODE_FREEZE=1: field VAs where the overlay applied in the final pass
+FROZEN_OVL = set()   # no-ref: the same set, read back
+FREEZE_OUT = {}      # FNV_CODE_FREEZE=1: filled by run_crt5 (accepted placements, place map, overlay-applied fields)
 OVL_ = None   # set by assemble_v7 (shared dict with by_field {int va: target} / global_name)
 
 def mkmask(s):
@@ -14,14 +18,24 @@ def mkmask(s):
     return bytes(mask)
 
 def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, pe_data_sections, small_min=8):
-    import uncovered_v2 as U
+    if NOREF:      # uncovered_v2 opens the reference image when it is imported: take only its pure archive/object parsers (as data-v2/libsecs.py does)
+        import ast, types, struct as _st
+        from pathlib import Path as _P
+        _up = _P(os.environ.get('FNV_PROJ_ROOT') or 'C:/path/to/Decompilation') / 'runtime-next' / 'pinned-build' / 'uncovered_v2.py'
+        _ns = {'struct': _st, 'Path': _P}
+        for _n in ast.parse(_up.read_text(encoding='utf-8')).body:
+            if isinstance(_n, ast.FunctionDef) and _n.name in ('read_ar', 'parse_obj'): exec(compile(ast.Module([_n], []), str(_up), 'exec'), _ns)
+        U = types.SimpleNamespace(read_ar=_ns['read_ar'], parse_obj=_ns['parse_obj'])
+    else:
+        import uncovered_v2 as U
     Av2 = BE.A
-    cover = cover_text.copy(); cover[extra_cover > 0] = 3
-    t = bytes(text)
-    index6 = collections.defaultdict(list); index4 = collections.defaultdict(list)
-    zp = np.flatnonzero(cover == 0)
-    for p in zp[:-6].tolist(): index6[t[p:p + 6]].append(p)
-    for p in zp[:-4].tolist(): index4[t[p:p + 4]].append(p)
+    if not NOREF:
+        cover = cover_text.copy(); cover[extra_cover > 0] = 3
+        t = bytes(text)
+        index6 = collections.defaultdict(list); index4 = collections.defaultdict(list)
+        zp = np.flatnonzero(cover == 0)
+        for p in zp[:-6].tolist(): index6[t[p:p + 6]].append(p)
+        for p in zp[:-4].tolist(): index4[t[p:p + 4]].append(p)
     MEM = {}; cands = []; LIBDEF = collections.defaultdict(list)
     for lname in ('libcmt.lib', 'libcpmt.lib'):
         for mi, (mname, blob) in enumerate(BE.read_ar(libdir / lname)):
@@ -40,7 +54,7 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
                                   names=nm, data=bytes(s['data']), mask=mkmask(s), relocs=s['relocs'], syms=syms))
     cands.sort(key=lambda f: -len(f['data']))
     claimed = np.zeros(rs, np.uint8); matches = []; small = []
-    for f in cands:
+    for f in ([] if NOREF else cands):
         data, mask = f['data'], f['mask']; L = len(data)
         big = L >= 24; W = 6 if big else 4
         k = next((i for i in range(L - W + 1) if all(mask[i:i + W])), None)
@@ -58,6 +72,13 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
             st = hits[0]; claimed[st:st + L] = 1; matches.append((st, f)); small.append((st, f))
     place = collections.defaultdict(set)      # (lib, midx, secidx) -> {VA}
     for st, f in matches: place[f['key']].add(TEXT_VA + st)
+    if NOREF:      # batch 12: the accepted placements of the verified run (library member/section -> VA); no byte search, no reference bytes
+        import codefreeze as _cf
+        _fz = _cf.load('code_crt.json'); _bykey = {c['key']: c for c in cands}
+        for lname, mi, k, va in _fz['code']:
+            matches.append((va - TEXT_VA, _bykey[(lname, mi, k)])); place[(lname, mi, k)].add(va)
+        for lname, mi, k, va in _fz['data']: place[(lname, mi, k)].add(va)
+        FROZEN_OVL.update(_fz['ovl'])
 
     fnn = {}
     seen = collections.defaultdict(set)
@@ -66,7 +87,9 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
             for n in [fx['symbol']] + fx.get('fold_aliases', []): seen[n].add(int(fx['address'], 16))
     fnn = {k: next(iter(v)) for k, v in seen.items() if len(v) == 1}
     symnames = Av2.BAM.recipe_names(units)
-    imports, thunks = Av2.parse_imports(pe)
+    if NOREF:
+        import codefreeze as _cf0; imports, thunks = _cf0.imports_thunks()
+    else: imports, thunks = Av2.parse_imports(pe)
     Av2.G['imp'], Av2.G['thunks'] = imports, thunks
 
     def defaddr_now():
@@ -86,14 +109,20 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
             for ro, si, ty in f['relocs']:
                 nm, value, sec, sty, sc = f['syms'][si]
                 if ty not in (0x06, 0x14, 0x07) or ro + 4 > L:
+                    if NOREF: raise OSError('crt5 no-ref: relocation kind %d at +%d of %s/%s is not reproducible without the reference' % (ty, ro, lname, f['member']))
                     n = max(0, min(4, L - ro)); buf[ro:ro + n] = pe.read(va + ro, n)
                     sites.append((va + ro, ty, 'skip', None, nm[:80], 0, 'borrow', 'crt')); continue
-                fva = va + ro; orig = pe.read(fva, 4); o32, = struct.unpack('<I', orig)
-                if ty == 0x14:
-                    addend, = struct.unpack_from('<i', buf, ro); observed = (fva + 4 + struct.unpack('<i', orig)[0]) & M32
+                fva = va + ro
+                if NOREF:
+                    orig = None; observed = None
+                    addend, = struct.unpack_from('<i' if ty == 0x14 else '<I', buf, ro)
                 else:
-                    addend, = struct.unpack_from('<I', buf, ro); observed = o32
-                    if ty == 0x07: observed = (o32 + pe.base) & M32
+                    orig = pe.read(fva, 4); o32, = struct.unpack('<I', orig)
+                    if ty == 0x14:
+                        addend, = struct.unpack_from('<i', buf, ro); observed = (fva + 4 + struct.unpack('<i', orig)[0]) & M32
+                    else:
+                        addend, = struct.unpack_from('<I', buf, ro); observed = o32
+                        if ty == 0x07: observed = (o32 + pe.base) & M32
                 exp = None; src = None
                 if sec > 0 and sc == 3 and sec - 1 == k_: exp, src = va + value + addend, 'self'
                 elif sec > 0 and len(place.get((lname, mi, sec - 1), ())) == 1:
@@ -109,25 +138,28 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
                     else:
                         a_ = Av2.import_target(nm)
                         if a_ is not None: exp, src = a_ + addend, 'import'
-                if OVL_ is not None and collect_need is None and (exp is None or exp & M32 != observed) and ty in (6, 0x14):   # final pass only: phase 1 must still see these as unresolved so the data sections get placed   # w-B binding overlay (reloc-v7/NOTES.md)
+                if OVL_ is not None and collect_need is None and ((fva in FROZEN_OVL) if NOREF else (exp is None or exp & M32 != observed)) and ty in (6, 0x14):   # final pass only: phase 1 must still see these as unresolved so the data sections get placed   # w-B binding overlay (reloc-v7/NOTES.md)
                     _ox = OVL_['by_field'].get(fva)
                     if _ox is not None: exp, src = _ox, 'overlay-field'
                     elif nm[:80] in OVL_['global_name'] and not nm.startswith('??_C@'): exp, src = OVL_['global_name'][nm[:80]] + addend, 'overlay-global'
+                    if src in ('overlay-field', 'overlay-global'): FREEZE_OVL.add(fva)
                 if exp is None:
+                    if NOREF: raise OSError('crt5 no-ref: unresolved field 0x%08x (%s) in a frozen placement' % (fva, nm[:60]))
                     if collect_need is not None: collect_need.append((lname, mi, sec, sc, nm))
                     buf[ro:ro + 4] = orig; sites.append((fva, ty, 'unresolved', None, nm[:80], addend, 'borrow', 'crt')); continue
                 exp &= M32
                 fld = (exp - (fva + 4)) & M32 if ty == 0x14 else (exp if ty == 0x06 else (exp - pe.base) & M32)
-                if exp == observed: buf[ro:ro + 4] = struct.pack('<I', fld); st_ = 'agree'
+                if NOREF: buf[ro:ro + 4] = struct.pack('<I', fld); st_ = 'agree'
+                elif exp == observed: buf[ro:ro + 4] = struct.pack('<I', fld); st_ = 'agree'
                 else: buf[ro:ro + 4] = orig; st_ = 'disagree'
                 sites.append((fva, ty, src, exp, nm[:80], addend, st_, 'crt'))
-            if bytes(buf) != pe.read(va, L): rejected.append((va, L)); continue
-            out.append(dict(address=va, size=L, data=bytes(buf), sites=sites, lib=f['lib'], member=f['member'], symbol=f['sym'], small=any(f is g for _, g in small)))
+            if not NOREF and bytes(buf) != pe.read(va, L): rejected.append((va, L)); continue
+            out.append(dict(address=va, size=L, data=bytes(buf), sites=sites, lib=f['lib'], member=f['member'], symbol=f['sym'], small=any(f is g for _, g in small), key=f['key']))
         return out, rejected
 
     # ---- phase 1: find what is still unresolved, then try to place the data sections that define those names/statics
     need = []
-    resolve(matches, defaddr_now(), need)
+    if not NOREF: resolve(matches, defaddr_now(), need)
     want = set()
     for lname, mi, sec, sc, nm in need:
         if sec > 0: want.add((lname, mi, sec - 1))
@@ -135,7 +167,7 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
             d = LIBDEF.get(nm, [])
             if len(d) == 1: want.add((d[0][0], d[0][1], d[0][2]))
     dsecs = []
-    for key in sorted(want):
+    for key in ([] if NOREF else sorted(want)):
         if key in place: continue
         lname, mi, k = key
         s = MEM[(lname, mi)][1][k]
@@ -159,7 +191,11 @@ def run_crt5(BE, units, pe, cover_text, TEXT_VA, rs, text, libdir, extra_cover, 
     _da = defaddr_now()
     if os.environ.get('FNV_DUMP_SYMADDR') == '1': json.dump(_da, open((__import__('os').environ.get('FNV_PROJ_ROOT', 'C:\\path\\to\\Decompilation').replace('\\', '/') + '/runtime-next/link-v2/crt_defaddr.json'), 'w'))
     if os.environ.get('FNV_DUMP_SYMADDR') == '1': json.dump([[k[0], MEM[(k[0], k[1])][0], k[2], sorted(v)] for k, v in place.items() if v], open(os.environ.get('FNV_PROJ_ROOT', 'C:/path/to/Decompilation').replace(chr(92), '/') + '/runtime-next/link-v2/crt_place.json', 'w'))
+    FREEZE_OVL.clear()
     out, rejected = resolve(matches, _da)
+    _ck = {c['key']: c for c in cands}; _outk = {c['address']: c['key'] for c in out}
+    FREEZE_OUT.update(code=sorted([k[0], k[1], k[2], a] for a, k in _outk.items()), ovl=sorted(FREEZE_OVL),
+                      data=sorted([k[0], k[1], k[2], v] for k, vs in place.items() for v in vs if k not in {m[1]['key'] for m in matches}))
     stat = dict(code_matches=len(matches), small_matches=len(small), small_bytes=sum(len(f['data']) for _, f in small), data=dict(dstat),
                 data_sections_placed=sum(1 for k in place if k not in {m[1]['key'] for m in matches}))
     return out, rejected, len(matches), stat

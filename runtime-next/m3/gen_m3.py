@@ -17,6 +17,8 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 PROJ = os.environ.get('FNV_PROJ_ROOT') or r'C:\path\to\Decompilation'
 RN = os.path.join(PROJ, 'runtime-next')
 sys.path.insert(0, os.path.join(RN, 'data-v3')); sys.path.insert(0, os.path.join(RN, 'pinned-build'))
+if os.environ.get('FNV_M3_DATASRC') == '1' and 'datasrc_gen' not in sys.modules and not any(a.startswith('--select') for a in sys.argv):      # batch 10: the data as source; never opens the reference
+    import datasrc_build; datasrc_build.main(); raise SystemExit(0)
 from common import ref, SEC, sec_of, orig_reloc_sites, TLO, THI
 import splice
 ORIG_SITES = sorted(orig_reloc_sites()); ORIG_SET = set(ORIG_SITES); RENDER_STAT = collections.Counter()
@@ -33,6 +35,8 @@ NEG7V = os.environ.get('FNV_M3_NEGCTL') == 'b7v'      # batch 7 negative control
 NEG7P = os.environ.get('FNV_M3_NEGCTL') == 'b7p'
 NEG8V = os.environ.get('FNV_M3_NEGCTL') == 'b8v'
 NEG8P = os.environ.get('FNV_M3_NEGCTL') == 'b8p'
+NEG9V = os.environ.get('FNV_M3_NEGCTL') == 'b9v'      # batch 9 negative controls: a value / a pointer inside the new batch 9 objects
+NEG9P = os.environ.get('FNV_M3_NEGCTL') == 'b9p'
 NEGP2SV = os.environ.get('FNV_M3_NEGCTL') == 'p2sv'
 NEGP2AV = os.environ.get('FNV_M3_NEGCTL') == 'p2av'
 NEGP2WP = os.environ.get('FNV_M3_NEGCTL') == 'p2wp'
@@ -40,7 +44,7 @@ NEGP2BW = os.environ.get('FNV_M3_NEGCTL') == 'p2bw'
 NEGP2CW = os.environ.get('FNV_M3_NEGCTL') == 'p2cw'
 NEGP2LV = os.environ.get('FNV_M3_NEGCTL') == 'p2lv'
 NEGP2R = os.environ.get('FNV_M3_NEGCTL') in ('p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2cv', 'p2cp')
-ANYNEG = NEG or NEGP or NEG4V or NEG4P or NEG7V or NEG7P or NEG8V or NEG8P or NEGP2SV or NEGP2AV or NEGP2WP or NEGP2BW or NEGP2CW or NEGP2LV or NEGP2R
+ANYNEG = NEG or NEGP or NEG4V or NEG4P or NEG7V or NEG7P or NEG8V or NEG8P or NEG9V or NEG9P or NEGP2SV or NEGP2AV or NEGP2WP or NEGP2BW or NEGP2CW or NEGP2LV or NEGP2R
 TYPES = {'H': ('int', 4), 'I': ('unsigned', 4), 'M': ('float', 4), 'N': ('double', 8),
          'J': ('long', 4), 'K': ('unsigned long', 4), 'F': ('short', 2), 'G': ('unsigned short', 2), 'D': ('char', 1), 'E': ('unsigned char', 1), '_N': ('bool', 1), 'C': ('signed char', 1)}
 PILOT_TYPES = 'HIMN'
@@ -930,6 +934,16 @@ def main():
         e['ptr']['target'] = alt; e['init'] = '(void*)&%s_%08x' % (kind, alt)
         e['fields'] = [[0, '_%s_%08x' % (kind, alt), 0]]; e['negctl'] = True
         print('NEGATIVE CONTROL (b8 pointer): %s now points to %08x instead of %08x' % (e['name'], alt, old))
+    if NEG9V:
+        e = next(x for x in sorted((y for y in entries if y['tc'] == 'W' and y.get('batch') == 9 and any(c == 'U' for c, n in y['runs'])), key=lambda y: not str(y.get('kind')).startswith('b9s2'))); k = next(i for i, (c, n) in enumerate(e['runs']) if c == 'U')
+        raw = e['items'][k][0]; v = (struct.unpack('<I', raw)[0] + 1) & 0xffffffff; e['items'][k][0] = struct.pack('<I', v); e['negctl'] = True
+        print('NEGATIVE CONTROL (b9 value): %s run %d element 0 is now %08x (reference bytes %s)' % (e['name'], k, v, raw.hex()))
+    if NEG9P:
+        gs = [x for x in entries if x['tc'] == 'W' and x['tgts']]; e = next(x for x in sorted((y for y in gs if y.get('batch') == 9), key=lambda y: not str(y.get('kind')).startswith('b9s2'))); t0 = e['tgts'][0]; code0 = TLO <= t0 < THI
+        alt = next(t for x in gs for t in x['tgts'] if (TLO <= t < THI) == code0 and t != t0)
+        k = next(i for i, (c, n) in enumerate(e['runs']) if c == 'P' and any(s for s, v in e['items'][i])); j = next(i for i, (s, v) in enumerate(e['items'][k]) if s)
+        e['items'][k][j] = (True, alt); g_fields(e); e['negctl'] = True
+        print('NEGATIVE CONTROL (b9 pointer): %s run %d cell %d now points to %08x instead of %08x' % (e['name'], k, j, alt, t0))
     if NEG7V:
         e = next(x for x in entries if x['tc'] == 'W' and x['kind'] not in ('tail-sec', 'tail-rw') and any(c == 'U' for c, n in x['runs'])); k = next(i for i, (c, n) in enumerate(e['runs']) if c == 'U')
         raw = e['items'][k][0]; v = (struct.unpack('<I', raw)[0] + 1) & 0xffffffff; e['items'][k][0] = struct.pack('<I', v); e['negctl'] = True

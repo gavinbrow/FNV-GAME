@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "date": "2026-11-23",
+ "selection": "batch9s2_selection.json",
+ "selection_sha256": "b92f59ce84d0bef753ac51c150f68db86743e4eb246f1e308c2dce26a2e6c777",
+ "exe_sha256": "c267a197492f7d53b3592ff47ea6de3d7daf45afd7893701c0d32822f1d49a0f",
+ "raw_initialised_bytes": 1979392,
+ "before": {
+  "from_our_objects": 1614032,
+  "uncovered_nonzero": 66842,
+  "uncovered_zero": 99920,
+  "prod_unplaced": 190698,
+  "rewritten_tool_built": 7900,
+  "coverage_pct": 81.55
+ },
+ "after_stage1": {
+  "from_our_objects": 1779237,
+  "uncovered": 1557,
+  "prod_unplaced": 190698,
+  "rewritten_tool_built": 7900,
+  "coverage_pct": 89.89
+ },
+ "after_stage2": {
+  "from_our_objects": 1971492,
+  "tls_physical_extra": 5,
+  "uncovered": 0,
+  "rewritten_tool_built": 7900,
+  "coverage_pct_of_raw": 99.6,
+  "coverage_pct_excluding_tool_built": 100.0,
+  "note": "1,971,492 + 7,900 tool-built (import directory + IAT + TLS directory, rebuilt by layout-v2\\make_image.py) = 1,979,392; make_image log bytes_overlaid 1,412,366 (M3) + 559,131 (dv1, incl. 5 .tls) = 1,971,497"
+ },
+ "stage2_bytes": {
+  "total_new_W": 192255,
+  "real_unit_pieces": 0,
+  "by_origin": {
+   "prod: rtti": 64905,
+   "prod: vtable": 65004,
+   "prod: library tables": 48976,
+   "prod: other": 11813,
+   "stage-1 leftovers: value-rule fields (plain value cells)": 1020,
+   "stage-1 leftovers: source-def intervals": 522,
+   "stage-1 leftovers: straddling fields": 15
+  },
+  "note": "mixed-kind prod ranges folded into: rtti+vtable and rtti+other -> rtti; vtable+other and vtable+library -> vtable; other+library -> library; sum = 192,255"
+ },
+ "real_piece_candidates": {
+  "note": "unit pieces (data-v1 placed set of the default build) that are byte-and-reloc identical to the reference but unplaced, unique bytes",
+  "our_units": 2549,
+  "library_objects": 44685,
+  "policy_reasons": "tier-O ambiguous ordering, value-rule field inside, library not in the pinned library selection"
+ },
+ "relocs": {
+  "m3_overlay_relocs_added": 128907,
+  "value_rule_plain_cells_counted_by_verify": 290,
+  "value_rule_literal_in_make_image": 4
+ }
+}

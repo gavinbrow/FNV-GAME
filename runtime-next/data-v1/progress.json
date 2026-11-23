@@ -18,52 +18,49 @@
   }
  },
  "produced_bytes_by_region": {
-  ".rdata": 1515105,
-  ".data": 215868,
+  ".rdata": 1704373,
+  ".data": 262656,
   ".tls": 638,
   "CONST": 0
  },
- "produced_pct_of_rdata_data_raw": 87.45,
+ "produced_pct_of_rdata_data_raw": 99.375,
  "produced_bytes_by_kind": {
-  "crt-init-array": {
-   ".rdata": 32
-  },
   "data-unit": {
    ".rdata": 28,
-   ".data": 4816
+   ".data": 4234
   },
   "eh-tables": {
-   ".rdata": 263915
+   ".rdata": 258311
   },
   "float-const": {
-   ".rdata": 4225
+   ".rdata": 4221
   },
   "m3-global": {
-   ".rdata": 871231,
-   ".data": 183632
+   ".rdata": 1135454,
+   ".data": 231002
   },
   "rdata-other": {
-   ".rdata": 1149,
+   ".rdata": 1057,
    ".data": 4
   },
   "rdata-other-unit": {
-   ".rdata": 77625,
+   ".rdata": 57775,
    ".data": 28
   },
   "rtti1": {
-   ".rdata": 30099
+   ".rdata": 22575
   },
   "rtti2": {
-   ".rdata": 4464
+   ".rdata": 4331
   },
   "rtti3": {
-   ".rdata": 12764
+   ".rdata": 9480
   },
   "rtti4": {
-   ".rdata": 33043
+   ".rdata": 6980
   },
   "string": {
-   ".rdata": 201646,
+   ".rdata": 201329,
    ".data": 738
   },
   "tls": {
@@ -71,7 +68,7 @@
    ".tls": 638
   },
   "vtable": {
-   ".rdata": 14864
+   ".rdata": 2812
   },
   "data": {
    ".data": 40
@@ -82,35 +79,35 @@
  },
  "placed_pieces_by_tier": {
   "H": 5705,
-  "M": 8472,
+  "M": 53122,
   "B": 10665,
   "V": 11198,
-  "O": 202,
+  "O": 7,
   "L": 5299
  },
  "placed_bytes_by_tier": {
   "H": 108250,
-  "M": 1054906,
+  "M": 1412366,
   "B": 411133,
   "V": 427195,
-  "O": 22375,
+  "O": 70,
   "L": 100468
  },
  "placed_pieces_by_kind": {
   "data-unit": 126,
+  "m3-global": 53122,
   "crt-init-array": 8,
-  "m3-global": 8472,
-  "string": 9191,
+  "string": 9187,
   "vtable": 5386,
   "rdata-other": 75,
-  "rdata-other-unit": 1071,
+  "rdata-other-unit": 1026,
   "float-const": 696,
   "rtti2": 619,
   "tls": 12,
   "rtti4": 4141,
   "rtti3": 1854,
   "rtti1": 2352,
-  "eh-tables": 6720,
+  "eh-tables": 6574,
   "rtti0": 813,
   "data": 5
  },
@@ -120,8 +117,8 @@
   "H": "no unique hit; placed at the symbol-map hint address after bytes verified there",
   "M": "M3 generated global: placed by the manifest address of our own definition, bytes verified against the reference there"
  },
- "unique_sections": 71183,
- "placed_sections": 41541,
+ "unique_sections": 115833,
+ "placed_sections": 85996,
  "hint_crosscheck": {
   "B:no-hint": 1494,
   "V:no-hint": 4654,
@@ -129,10 +126,10 @@
   "V:hint-equal": 6502,
   "V:hint-differs": 42,
   "B:hint-differs": 105,
-  "M:hint-equal": 8472,
+  "M:hint-equal": 53122,
   "H:hint-equal": 5705,
   "L:no-hint": 5299,
-  "O:no-hint": 202
+  "O:no-hint": 7
  },
  "B_tier_strength": {
   "B>=8 unmasked bytes": 9826,
@@ -168,17 +165,15 @@
   "eh-tables|B": 40676,
   "eh-tables|H": 2272,
   "eh-tables|L": 768,
-  "eh-tables|O": 5764,
   "eh-tables|V": 329396,
   "float-const|B": 3380,
   "float-const|H": 884,
   "float-const|O": 8,
-  "m3-global|M": 1054906,
+  "m3-global|M": 1412366,
   "rdata-other|B": 1655,
   "rdata-other|H": 219,
   "rdata-other-unit|B": 89045,
   "rdata-other-unit|H": 3110,
-  "rdata-other-unit|O": 16496,
   "rdata-other-unit|V": 40,
   "rtti0|B": 26610,
   "rtti1|B": 8484,
@@ -193,7 +188,7 @@
   "rtti4|V": 13020,
   "string|B": 235439,
   "string|H": 20906,
-  "string|O": 107,
+  "string|O": 62,
   "tls|B": 20,
   "tls|H": 1263,
   "vtable|H": 79260,
@@ -221,8 +216,8 @@
    "bytes": 53924
   },
   "eh-tables|bytes-ambiguous(many)": {
-   "n": 1249,
-   "bytes": 46612
+   "n": 1344,
+   "bytes": 50864
   },
   "tls|bytes-match-nowhere": {
    "n": 12,
@@ -231,6 +226,10 @@
   "crt-init-array|no-unmasked-bytes": {
    "n": 47,
    "bytes": 42376
+  },
+  "rdata-other-unit|bytes-ambiguous(2-50)": {
+   "n": 249,
+   "bytes": 34776
   },
   "rdata-other-unit|bytes-match-nowhere": {
    "n": 161,
@@ -241,12 +240,8 @@
    "bytes": 29860
   },
   "eh-tables|bytes-ambiguous(2-50)": {
-   "n": 400,
-   "bytes": 19356
-  },
-  "rdata-other-unit|bytes-ambiguous(2-50)": {
-   "n": 206,
-   "bytes": 18312
+   "n": 451,
+   "bytes": 20868
   },
   "string|bytes-match-nowhere": {
    "n": 466,
@@ -301,12 +296,12 @@
    "bytes": 412
   },
   "rdata-other-unit|bytes-ambiguous(many)": {
-   "n": 67,
-   "bytes": 370
+   "n": 69,
+   "bytes": 402
   },
   "string|bytes-ambiguous(2-50)": {
-   "n": 68,
-   "bytes": 298
+   "n": 72,
+   "bytes": 343
   },
   "rtti3|bytes-match-nowhere": {
    "n": 16,
@@ -367,9 +362,9 @@
   "note": "no file bytes; only the layout is known"
  },
  "fields_in_placed_pieces": {
-  "borrow": 16986,
-  "agree": 119892,
-  "disagree": 1910
+  "borrow": 11944,
+  "agree": 136445,
+  "disagree": 1323
  },
  "fields_unresolved_or_disagree_causes": {
   "extern-unmapped:other-named": 10228,
@@ -383,13 +378,13 @@
   "b|different-function": 681,
   "unplaced-local-section:other-named": 582,
   "placed-section|data-target-different": 270,
-  "unplaced-local-section:unwindfunclet": 240,
-  "unplaced-local-section:catch": 139,
+  "unplaced-local-section:catch": 138,
+  "unplaced-local-section:unwindfunclet": 136,
   "b|ours-code(ref-not-code)": 123,
   "unplaced-local-section:rtti1": 95,
-  "unplaced-local-section:other": 93,
   "a|different-function": 76,
   "placed-section|ours-not-code(ref-code)": 51,
+  "unplaced-local-section:other": 23,
   "unplaced-local-section:string": 17,
   "c|data-target-different": 15,
   "a|ours-code(ref-not-code)": 5,
@@ -407,57 +402,51 @@
    ".rdata": 98619,
    ".data": 2830
   },
-  "our_agree": 78903,
-  "our_disagree": 1592,
-  "borrowed_unresolved": 11659,
-  "produced_bytes_but_no_reloc_record": 30,
-  "no_placed_piece": 9265,
+  "our_agree": 93334,
+  "our_disagree": 1175,
+  "borrowed_unresolved": 6940,
+  "produced_bytes_but_no_reloc_record": 0,
+  "no_placed_piece": 0,
   "agree_by_tier": {
-   "M": 65624,
-   "H": 877,
-   "V": 9765,
-   "B": 2637
+   "M": 80450,
+   "H": 828,
+   "V": 9473,
+   "B": 2583
   },
   "agree_by_source": {
-   "m3": 65624,
-   "a": 1120,
-   "c": 326,
-   "b": 10,
-   "eh-piece": 11823
+   "m3": 80450,
+   "a": 904,
+   "c": 228,
+   "b": 3,
+   "eh-piece": 11749
   },
   "disagree_causes": {
-   "unresolved:extern-unmapped:other-named": 7183,
-   "unresolved:extern-unmapped:unnamed-virtual-slot(Unk_/vfn_)": 2415,
-   "unresolved:extern-unmapped:purecall": 1167,
-   "c|different-function": 1014,
-   "b|different-function": 494,
-   "unresolved:unplaced-local-section:other-named": 368,
-   "unresolved:unplaced-local-section:rtti4": 274,
-   "unresolved:unplaced-local-section:unwindfunclet": 171,
-   "unresolved:unplaced-local-section:other": 75,
-   "a|different-function": 60,
-   "placed-section|ours-not-code(ref-code)": 20,
-   "b|near-delta": 3,
-   "unresolved:unplaced-local-section:catch": 3,
-   "unresolved:unplaced-local-section:rtti1": 2,
-   "unresolved:unplaced-local-section:unnamed-virtual-slot(Unk_/vfn_)": 1,
-   "b|ours-not-code(ref-code)": 1
+   "unresolved:extern-unmapped:other-named": 3914,
+   "unresolved:extern-unmapped:unnamed-virtual-slot(Unk_/vfn_)": 1847,
+   "c|different-function": 941,
+   "unresolved:extern-unmapped:purecall": 770,
+   "unresolved:unplaced-local-section:other-named": 209,
+   "b|different-function": 178,
+   "unresolved:unplaced-local-section:rtti4": 160,
+   "a|different-function": 51,
+   "unresolved:unplaced-local-section:unwindfunclet": 37,
+   "placed-section|ours-not-code(ref-code)": 5,
+   "unresolved:unplaced-local-section:catch": 2,
+   "unresolved:unplaced-local-section:unnamed-virtual-slot(Unk_/vfn_)": 1
   },
   "agree_by_kind": {
-   "m3-global|agree": 65624,
-   "vtable|borrow": 11352,
-   "vtable|disagree": 1577,
-   "vtable|agree": 1214,
-   "rtti2|agree": 8,
+   "m3-global|agree": 80450,
+   "vtable|borrow": 6878,
+   "vtable|disagree": 1170,
+   "vtable|agree": 952,
+   "rtti2|agree": 3,
    "data-unit|agree": 2,
    "rdata-other-unit|borrow": 10,
-   "eh-tables|agree": 12045,
-   "eh-tables|borrow": 268,
+   "eh-tables|agree": 11917,
+   "eh-tables|borrow": 51,
    "eh-tables|disagree": 5,
-   "rtti2|borrow": 2,
    "rdata-other-unit|agree": 10,
-   "data-unit|disagree": 10,
-   "data-unit|borrow": 27
+   "data-unit|borrow": 1
   }
  },
  "disagree_examples": {
@@ -519,15 +508,15 @@
  },
  "leftover_unproduced": {
   ".rdata|import-dir/IAT": 1548,
-  ".rdata|zero-bytes(padding/zero-init)": 93732,
-  ".rdata|nonzero-other": 106351,
+  ".rdata|zero-bytes(padding/zero-init)": 1263,
+  ".rdata|nonzero-other": 9552,
   ".data|import-dir/IAT": 0,
-  ".data|zero-bytes(padding/zero-init)": 21643,
-  ".data|nonzero-other": 25145
+  ".data|zero-bytes(padding/zero-init)": 0,
+  ".data|nonzero-other": 0
  },
  "sha256": {
   "v7_strict_used": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
-  "data_strict": "2143a400c537ac8eabbd7b5bdc4c89e044a3195cfa506930ec650e412bb9eca2",
+  "data_strict": "e99df3a975b2464290392dd84fcd29a8a746c383559b64c5d947baad7b7794db",
   "data_filled": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
   "reference": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7"
  },

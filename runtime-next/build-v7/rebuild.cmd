@@ -1,4 +1,5 @@
 @echo off
+if "%FNV_CODE_NOREF%"=="1" goto noref
 rem Build-v7: re-verify accepted local-target contributions (record compiler/flags/entry, CRLF as the checker saw it, EH stub+funclets),
 rem pass 1 assemble without ICF, ICF fold (icf_v7.py), final assemble. About 3 min. Needs 12 workers.
 if "%FNV_MSVC9_RTM_ROOT%"=="" set FNV_MSVC9_RTM_ROOT=C:\path\to\Decompilation\FNV\tools\vc2008rtm
@@ -18,4 +19,16 @@ set RC=%ERRORLEVEL%
 if exist "%~dp0obj" rmdir /s /q "%~dp0obj"
 if exist "%~dp0run0.log" del "%~dp0run0.log"
 type "%~dp0run.log" | findstr /c:"headline_pct" /c:"coverage_pct" /c:"ours_bytes" /c:"undecompiled_bytes" /c:"filled_equals"
+exit /b %RC%
+:noref
+rem batch 12 (FNV_CODE_NOREF=1): no reference image. Contributions are compiled and placed from m3/frozen\code_contrib.json, ONE assemble with the frozen EH/CRT layout, ICF map and binding-overlay decisions
+rem (m3/frozen\code_*.json). Pass 1, icf_v7 (reads the reference) and ownreloc (unused by the build) are not run.
+set FNV_V5_FIXUPS=
+python -I "%~dp0verify_v7.py" 12 || exit /b 1
+set FNV_ICF=1
+set FNV_OVERLAY=1
+python -I "%~dp0assemble_v7.py" > "%~dp0run.log" 2>&1
+set RC=%ERRORLEVEL%
+if exist "%~dp0obj" rmdir /s /q "%~dp0obj"
+type "%~dp0run.log" | findstr /c:"headline_pct" /c:"coverage_pct" /c:"ours_bytes" /c:"undecompiled_bytes" /c:"text_sha256" /c:"code stage" /c:"Error" /c:"Traceback"
 exit /b %RC%

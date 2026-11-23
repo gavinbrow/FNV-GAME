@@ -69,6 +69,8 @@
  },
  "filled_equals_reference": true,
  "reference_sha256_expected_match": true,
+ "text_sha256": "7bc37b861ab41d43f725f67f9b1621823eda0ac94f4ef6521ab71d019a575764",
+ "code_noref": false,
  "sha256": {
   "strict": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
   "filled": "df1788907c6e26ef4df0b448ead526825336356b5606650165a1ce0825097eb7",
@@ -150,7 +152,7 @@
    "11": 13,
    "268": 1
   },
-  "seconds": 3,
+  "seconds": 5,
   "check_vs_tail_alias_candidates": {
    "agree": 246,
    "disagree": 264,
@@ -230,7 +232,7 @@
    ]
   }
  },
- "seconds": 33,
+ "seconds": 67,
  "own_reloc": {
   "original_text_sites": 201766,
   "original_total_sites": 351931,

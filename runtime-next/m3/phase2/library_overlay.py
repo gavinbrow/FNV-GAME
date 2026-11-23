@@ -64,5 +64,5 @@ def select_library(path, expected_sha256, st, m3skip, accepted, chunks, fields, 
         if read_ref(a,n)!=data or any(a-3<=f<b for f in allfields): raise ValueError('library reference/field mismatch')
         actual=[(name,sec) for x,y,sec,name in chunks if x<=a and b<=y]
         if actual!=[(c['chunk'],c['section'])] or any(x<b and a<y for x,y in claims): raise ValueError('library chunk/overlap mismatch')
-        claims.append((a,b));output.append(dict(va=a,size=n,kind=c['kind'],tier=tier,unit=unit,nunits=len(s['units']),section=c['section'],chunk=c['chunk'],names=[d[0] for d in s['defs'] if d[2]==2][:2],ext=False,data=data,relocs=[],sources=['library-opt-in'],library_opt_in=True))
+        claims.append((a,b));output.append(dict(va=a,size=n,kind=c['kind'],tier=tier,unit=unit,nunits=len(s['units']),section=c['section'],chunk=c['chunk'],names=[d[0] for d in s['defs'] if d[2]==2][:2],ext=False,data=data,relocs=[],sources=['library-opt-in'],library_opt_in=True,k=key))
     return output,dict(selection_sha256=_digest(raw),selected=len(output),bytes=sum(x['size'] for x in output),archive_sha256=archive_hashes)

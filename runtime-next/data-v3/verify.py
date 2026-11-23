@@ -38,6 +38,8 @@ if os.environ.get('FNV_M3_RTTI_NAME_LITERAL') == '1':
         _sec=next(k for k,s in SEC.items() if s['va']<=_f<s['va']+s['raw'])
         del want[(_sec,_f-SEC[_sec]['va'])]
     print('AUTHENTICATED NATIVE NAME LITERALS',len(_meta['removed_value_fields']),'original PE relocations preserved',len(orig_reloc_sites()),'proof',_meta['proof_sha256'])
+import bisect
+VRVA = sorted(SEC[_s]['va'] + _o for _s, _o, _sym, _add, _ev, _og, _kd in sj['fields'] if _ev == 'value-rule' and (_s, _o) in want)      # batch 9 stage 2: value-rule fields (no .reloc site) that an M3 object may hold as plain bytes
 OBJSEC = {'.rdata': '.rdata', '.data': '.data', '.tls': '_TLS', 'CONST': '_CONSTPE'}
 base = {'.rdata': SEC['.rdata']['va'], '.data': SEC['.data']['va'], '.tls': SEC['.tls']['va'], 'CONST': SEC['CONST']['va'], '.bss': bss_lo}
 objs = []
@@ -94,6 +96,9 @@ for m, c, secs in objs:
                         if _fva not in M3SITES: print('M3 RELOC NOT AN ORIGINAL .reloc SITE', hex(_fva), _rn); ok_all = False
                         elif struct.unpack('<I', read_ref(_fva))[0] != (_tv + _ra) & 0xffffffff: print('M3 RELOC VALUE MISMATCH', hex(_fva), _rn, hex(_tv), _ra); ok_all = False
                         nrel += 1; stats['relocs'] += 1; stats['m3-overlay-relocs'] += 1
+                    for _vf in VRVA[bisect.bisect_left(VRVA, _r['va']):bisect.bisect_left(VRVA, _r['va'] + len(_r['data']))]:      # value-rule field inside our object: plain value equal to the reference, counted as the field's relocation
+                        if bytes(data[_o + _vf - _r['va']:_o + _vf - _r['va'] + 4]) != read_ref(_vf, 4): print('M3 VALUE-RULE FIELD VALUE MISMATCH', hex(_vf)); ok_all = False
+                        nrel += 1; stats['relocs'] += 1; stats['m3-overlay-value-rule'] += 1
         if pn != '.bss':
             S = SEC[pn]; refb = ref[S['off'] + start:S['off'] + start + m['size']]
             same = bytes(data) == refb
@@ -108,5 +113,5 @@ print('relocs total', stats['relocs'], 'canonical fields in symbolic.json', len(
 if stats['relocs'] != nf: ok_all = False      # nf includes our pointer fields (gen.py keeps them as ghost fields under DV_M3)
 print('ROUND TRIP', 'OK' if ok_all else 'FAILED', dict(stats))
 if not ok_all:
-    if os.environ.get('FNV_M3_NEGCTL') in ('1', 'ptr', 'b4v', 'b4p', 'b5v', 'b5p', 'b6v', 'b6p', 'b7v', 'b7p', 'b8v', 'b8p', 'p2sv', 'p2av', 'p2wp', 'p2lv', 'p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2bw', 'p2cv', 'p2cp', 'p2cw'): print('(negative control: failure is expected, exit code 0 so the build continues to the image)')
+    if os.environ.get('FNV_M3_NEGCTL') in ('1', 'ptr', 'b4v', 'b4p', 'b5v', 'b5p', 'b6v', 'b6p', 'b7v', 'b7p', 'b8v', 'b8p', 'b9v', 'b9p', 'dsv', 'dsp', 'p2sv', 'p2av', 'p2wp', 'p2lv', 'p2rv', 'p2rp', 'p2tv', 'p2tp', 'p2nv', 'p2np', 'p2bv', 'p2bp', 'p2bw', 'p2cv', 'p2cp', 'p2cw'): print('(negative control: failure is expected, exit code 0 so the build continues to the image)')
     else: sys.exit(1)

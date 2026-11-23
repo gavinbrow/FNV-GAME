@@ -85,7 +85,16 @@ def category(name):
 # ---------------------------------------------------------------- worker side
 G = {}
 
+NOREF_CODE = os.environ.get('FNV_CODE_NOREF') == '1'      # batch 12: the code stage never opens the reference (layout from m3/frozen/code_*.json, see build-v7\codefreeze.py)
+def _cf():
+    sys.path.insert(0, str(HERE.parent / 'build-v7')); import codefreeze; return codefreeze
+
 def init(fnnames, symnames, imports, thunks):
+    if NOREF_CODE:
+        cf = _cf(); G['pe'] = cf.PeMeta(); G['eh'] = None; G['bor'] = []
+        G['ehfz'] = cf.load('code_eh.json')['tasks']
+        G['fn'], G['sym'], G['imp'], G['thunks'] = fnnames, symnames, imports, thunks
+        return
     G['pe'] = Pe(IMG)
     G['fn'], G['sym'], G['imp'], G['thunks'] = fnnames, symnames, imports, thunks
     src = inspect.getsource(BAM.eh_sections)
@@ -183,6 +192,22 @@ def fill_relocs(coff, unit, locals_, sec, lo, hi, base_va, buf, stats, pats, sco
         if rel + 4 > hi - lo or kind not in KINDS:
             stats[(scope, 'e', 'borrow-' + ('crosses-end' if rel + 4 > hi - lo else 'kind-' + kn))] += 1
             continue
+        if NOREF_CODE:      # no reference: the resolved target is the answer; a field that does not resolve stays borrowed (place() drops it)
+            if kind == 0x14: addend, = struct.unpack_from('<i', buf, rel)
+            else: addend, = struct.unpack_from('<I', buf, rel)
+            src, expected = resolve_field(coff, unit, locals_, kind, tsym, addend, field_va, None)
+            if expected is not None and kind == 0x0B:
+                try: field = pe.secrel(expected) & M32
+                except ValueError: src, expected = None, None
+            if expected is None:
+                stats[(scope, 'e', 'borrow:' + category(tsym['name']))] += 1
+                continue
+            if kind == 0x14: field = (expected - (field_va + 4)) & M32
+            elif kind == 0x07: field = (expected - pe.base) & M32
+            elif kind == 0x06: field = expected
+            buf[rel:rel + 4] = struct.pack('<I', field)
+            stats[(scope, src, 'agree')] += 1
+            continue
         try:
             orig_raw = pe.read(field_va, 4)
         except ValueError:
@@ -255,11 +280,14 @@ def process(task):
             except ValueError:
                 pass
     rows = None
-    try:
+    if NOREF_CODE:
+        verdict = {}
+    else:
+      try:
         rows = compare(coff, pe, dict(symbols=unit.get('symbols', {}), functions=unit['functions'],
                                       literal_symbols=unit.get('literal_symbols', [])), None)
         verdict = {r['address']: r['verdict'] for r in rows}
-    except Exception as e:
+      except Exception as e:
         verdict = {}; out['compare_error'] = str(e)[:200]
     for f in unit['functions']:
         addr, size = int(f['address'], 16), f['size']
@@ -280,7 +308,15 @@ def process(task):
         buf = bytearray(sec['data'][start:start + size])
         fill_relocs(coff, unit, locals_, sec, start, start + size, addr, buf, out['stats'], out['pats'], 'fn')
         rec['data'] = bytes(buf)
-    if unit.get('eh_tails'):
+    if NOREF_CODE:      # batch 12: the EH pieces of this task as frozen from one verified run (index/offset/size/address/ok), the verified xdata bases
+        fz = G['ehfz'].get(str(idx))
+        if fz:
+            unit['_xver'] = {int(k): v for k, v in fz['xver'].items()}
+            for index, s0, s1, at, ok, parent in fz['pieces']:
+                sec_ = coff.sections[index]; buf = bytearray(sec_['data'][s0:s1])
+                fill_relocs(coff, unit, locals_, sec_, s0, s1, at, buf, out['stats'], out['pats'], 'tail' if ok else 'tail_notok')
+                out['tails'].append(dict(address=at, size=s1 - s0, parent=parent, data=bytes(buf), ok=ok, unit=idx, index=index, s0=s0))
+    elif unit.get('eh_tails'):
         if rows is None:
             out['tails_error'] = 'compare-error: ' + out.get('compare_error', '')
         else:
@@ -299,7 +335,7 @@ def process(task):
                             m[ro:ro + 4] = b'\x00\x00\x00\x00'; ref[ro:ro + 4] = b'\x00\x00\x00\x00'
                     if ref is not None and ref == m: xver[xi] = xb
                     else: xbad += 1
-                unit['_xver'] = xver
+                unit['_xver'] = xver; out['xver'] = dict(xver)
                 out['xdata'] = dict(sections=len([1 for xi in data_bases if coff.sections[xi]['name'].startswith('.xdata')]),
                                     verified=len(xver), unverified=xbad)
                 for p in pieces:
@@ -309,7 +345,7 @@ def process(task):
                     buf = bytearray(pdata)
                     fill_relocs(coff, unit, locals_, coff.sections[index], s0, s0 + len(pdata), at, buf,
                                 out['stats'], out['pats'], 'tail' if ok else 'tail_notok')
-                    out['tails'].append(dict(address=at, size=end - at, parent=parent, data=bytes(buf), ok=ok, unit=idx))
+                    out['tails'].append(dict(address=at, size=end - at, parent=parent, data=bytes(buf), ok=ok, unit=idx, index=index, s0=s0))
             except Exception as e:
                 out['tails_error'] = str(e)[:200]
     out['borrows'] = list(G['bor'])

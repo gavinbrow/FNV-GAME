@@ -4,7 +4,8 @@ Run:  python tools/export_repo.py [--dry-run]
 
 Copies:
   fnv_decomp/   every file git tracks or would track there (its .gitignore applies), minus backups
-  runtime-next/ scripts and notes (*.py *.cmd *.md *.txt), plus small *.json specs (<= 4 MB)
+  runtime-next/ scripts and notes (*.py *.cmd *.md *.txt), plus small *.json specs (<= 4 MB),
+                the typed data source runtime-next/m3/datasrc/, and the JSON + README.md of runtime-next/m3/frozen/
   extra files listed in tools/export_extra.txt (one path per line, relative to the project root)
 
 Never copies game files, executables, objects, libraries, run folders, harness output or backups.
@@ -50,6 +51,10 @@ KEEP = {
     "runtime-next/reloc-v5/tail_alias_candidates.json", "runtime-next/reloc-v5/NOTES.md",
 }
 BAN_FILES = set("""
+runtime-next/m3/frozen/ref_data.bin.z
+runtime-next/m3/frozen/ref_reloc.bin.z
+runtime-next/m3/frozen/ref_headers.bin
+runtime-next/m3/frozen/ref_meta.json
 runtime-next/PLAN-PLAYABLE.md
 runtime-next/build-v7/progress_phase1.json
 runtime-next/build-v7/contrib_pieces.json
@@ -160,6 +165,10 @@ def scrubbed(src):
 
 RT_EXT = {".py", ".cmd", ".md", ".txt", ".ps1", ".bat"}
 RT_JSON_MAX = 4 * 1024 * 1024
+FILE_MAX = 50 * 1024 * 1024   # nothing larger is ever exported
+# Typed data source (C++/headers/json) and frozen layout metadata (json + README.md only; ref_* inputs are banned above).
+M3_DATASRC = "runtime-next/m3/datasrc/"
+M3_FROZEN = "runtime-next/m3/frozen/"
 
 
 def banned(rel):
@@ -193,7 +202,15 @@ def runtime_files():
             if banned(rel):
                 continue
             ext = os.path.splitext(fn)[1].lower()
-            if ext in RT_EXT or (ext == ".json" and os.path.getsize(full) <= RT_JSON_MAX):
+            size = os.path.getsize(full)
+            if size > FILE_MAX:
+                continue
+            r = rel.replace("\\", "/")
+            if r.startswith(M3_DATASRC) and ext in {".cpp", ".h", ".hpp", ".inc", ".json", ".md"}:
+                yield rel
+            elif r.startswith(M3_FROZEN) and ext in {".json", ".md"}:
+                yield rel
+            elif ext in RT_EXT or (ext == ".json" and size <= RT_JSON_MAX):
                 yield rel
 
 
